@@ -16,13 +16,13 @@ ISO     = kfs.iso
 
 # ==== FLAGS ====
 
-MAINFLAGS = -m32 \
-            -ffreestanding \
-            -fno-builtin \
-            -fno-exceptions \
-            -fno-stack-protector \
-            -fno-rtti \
-            -nostdlib \
+MAINFLAGS = -m32 					\
+            -ffreestanding			\
+            -fno-builtin 			\
+            -fno-exceptions			\
+            -fno-stack-protector	\
+            -fno-rtti 				\
+            -nostdlib				\
             -nodefaultlibs
 
 # ==== SOURCES ====
@@ -33,7 +33,7 @@ LINKER  = $(SRCDIR)/linker.ld
 
 # ==== OBJECTS ====
 
-OBJS = $(BUILDDIR)/main.o \
+OBJS = $(BUILDDIR)/main.o		\
        $(BUILDDIR)/bootloader.o
 
 # ==== DEFAULT TARGET ====
@@ -64,6 +64,11 @@ iso: $(BUILDDIR)/$(KERNEL)
 	echo '}' >> $(ISODIR)/grub/grub.cfg
 	grub-mkrescue -o $(BUILDDIR)/$(ISO) $(BUILDDIR)/isodir
 	echo "ISO created: $(BUILDDIR)/$(ISO)"
+
+# ==== RUN ISO ====
+
+run: iso
+	qemu-system-i386 -cdrom $(BUILDDIR)/$(ISO)
 
 # ==== CLEAN ====
 
