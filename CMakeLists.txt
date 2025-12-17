@@ -20,12 +20,38 @@ FetchContent_MakeAvailable(
 )
 
 ##################################
+# Some variables
+##################################
+
+set(KERN_COMPILER_FLAGS
+    -O2
+    -Wall
+    -Wextra
+    -Wpedantic
+    -Werror
+    -Wno-unused-parameter
+    -Wno-missing-field-initializers
+    -ffreestanding
+    -fno-builtin
+    -fno-stack-protector
+    -fno-pie
+    -no-pie
+    -fno-exceptions
+    -fno-rtti
+    -nostdlib
+    -nostdinc
+)
+
+##################################
 # Main source code
 ##################################
 
 add_subdirectory(src)
 
 add_executable(kfs-1 src/main.cpp)
+target_compile_options(kfs-1 PRIVATE
+        ${KERN_COMPILER_FLAGS}
+)
 
 ##################################
 # Tests
