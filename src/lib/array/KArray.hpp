@@ -6,8 +6,7 @@
 #define KFS_1_KARRAY_HPP
 
 template<typename T, unsigned N>
-class KArray
-{
+class KArray {
 private:
     T data[N];
 
@@ -36,14 +35,10 @@ public:
         return result;
     }
 
-    T& operator[](unsigned index) {
-        return data[index];
-    }
+    T &operator[](unsigned index) { return data[index]; }
 
-    const T& operator[](unsigned index) const {
-        return data[index];
-    }
+    const T &operator[](unsigned index) const { return data[index]; }
 };
 
 
-#endif //KFS_1_KARRAY_HPP
+#endif // KFS_1_KARRAY_HPP
