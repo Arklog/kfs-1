@@ -1,3 +1,8 @@
+################################################
+# CMakeLists.txt for utils tests
+# This file sets up the test executable for the utils library
+################################################
+
 add_executable(test_utils
         KArray.cpp
 )
