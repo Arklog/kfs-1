@@ -1,4 +1,9 @@
 [package]
 name = "tests"
+edition = "2024"
+
+[[bin]]
+name = "tests"
+path = "main.rs"
 
 [dependencies]

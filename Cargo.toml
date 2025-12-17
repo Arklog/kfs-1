@@ -1,9 +1,10 @@
 [workspace]
 members = [
-    "src", "src/src",
+    "src",
     "tests"
 ]
 
+resolver = "2"
 #[package]
 #name = "kfs-1"
 #version = "0.1.0"
