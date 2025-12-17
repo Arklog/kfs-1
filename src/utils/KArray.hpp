@@ -25,15 +25,23 @@ public:
 
         // copy this
         for (unsigned i = 0; i < N; ++i) {
-            result.data[i] = this->data[i];
+            result[i] = this->data[i];
         }
 
         // copy other
         for (unsigned i = 0; i < N1; ++i) {
-            result.data[N + i] = other.data[i];
+            result[N + i] = other[i];
         }
 
         return result;
+    }
+
+    T& operator[](unsigned index) {
+        return data[index];
+    }
+
+    const T& operator[](unsigned index) const {
+        return data[index];
     }
 };
 
