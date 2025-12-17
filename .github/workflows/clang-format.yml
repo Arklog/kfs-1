@@ -10,15 +10,14 @@ jobs:
           sources: "src/**/*.hpp,src/**/*.cpp,test/**/*.cpp"
   checkout-and-check-formatting:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Run clang-tidy
         uses: HorstBaerbel/action-clang-tidy@1.2
         # These are optional (defaults displayed)
         with:
-          scandir: 'src,test'
+          scandir: '.'
           builddir: 'build'
-          excludedirs: ''
+          excludedirs: '.github,build,tools'
           extensions: 'cpp,hpp'
           cmakeoptions: ''
