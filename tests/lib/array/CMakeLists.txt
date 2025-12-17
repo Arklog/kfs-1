@@ -3,21 +3,21 @@
 # This file sets up the test executable for the utils library
 ################################################
 
-add_executable(test_utils
+add_executable(test_array
         KArray.cpp
 )
-target_link_libraries(test_utils
+target_link_libraries(test_array
         PRIVATE
-        libutils
+        libarray
         Catch2::Catch2WithMain
 )
 target_include_directories(
-        test_utils
+        test_array
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src
 )
-add_dependencies(
-        test_utils
-        Catch2::Catch2WithMain
-        libutils
-)
+#add_dependencies(
+#        test_array
+#        Catch2::Catch2WithMain
+#        libarray
+#)

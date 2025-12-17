@@ -2,7 +2,7 @@
 // Created by pierre on 12/17/25.
 //
 #include <catch2/catch_all.hpp>
-#include <utils/KArray.hpp>
+#include <lib/array/KArray.hpp>
 
 TEST_CASE("KArray", "[KArray]") {
     SECTION("CTOR") {

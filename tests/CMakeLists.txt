@@ -3,4 +3,4 @@
 # Add any test-related subdirectories here
 ############################
 
-add_subdirectory(utils)
+add_subdirectory(lib)
