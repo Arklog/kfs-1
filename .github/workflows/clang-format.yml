@@ -8,6 +8,9 @@ jobs:
       - uses: RafikFarhad/clang-format-github-action@v3
         with:
           sources: "src/**/*.hpp,src/**/*.cpp,test/**/*.cpp"
+  checkout-and-check-formatting:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - name: Run clang-tidy
         uses: HorstBaerbel/action-clang-tidy@1.2
