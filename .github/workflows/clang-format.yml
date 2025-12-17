@@ -8,17 +8,13 @@ jobs:
       - uses: RafikFarhad/clang-format-github-action@v3
         with:
           sources: "src/**/*.hpp,src/**/*.cpp,test/**/*.cpp"
-  checkout-and-check-formatting:
-    runs-on: ubuntu-latest
-    steps:
-      - run: apt install -y git
-      - uses: actions/checkout@v2
-      - name: Run clang-tidy
-        uses: HorstBaerbel/action-clang-tidy@1.2
-        # These are optional (defaults displayed)
+      - uses: cpp-linter/cpp-linter-action@v2
+        id: linter
         with:
-          scandir: '.'
-          builddir: 'build'
-          excludedirs: '.github,build,tools'
-          extensions: 'cpp,hpp'
-          cmakeoptions: ''
+          style: 'file'  # Use .clang-format config file
+          tidy-checks: '' # Use .clang-tidy config file
+          # only 'update' a single comment in a pull request thread.
+          thread-comments: ${{ github.event_name == 'pull_request' && 'update' }}
+      - name: Fail fast?!
+        if: steps.linter.outputs.checks-failed > 0
+        run: exit 1
