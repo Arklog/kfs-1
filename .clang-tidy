@@ -1,0 +1,31 @@
+---
+Checks: >
+  -*,
+  readability-identifier-naming
+
+CheckOptions:
+  # Local variables
+  - key: readability-identifier-naming.LocalVariableCase
+    value: lower_case
+  - key: readability-identifier-naming.LocalStaticVariableCase
+    value: lower_case
+
+  # Member variables
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+
+  # Global / static variables
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: lower_case
+  - key: readability-identifier-naming.StaticVariableCase
+    value: lower_case
+
+  # Parameters
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
+
+  # Function names (optional, usually lowercase_with_underscores in kernel)
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+
+WarningsAsErrors: '*'
