@@ -22,9 +22,12 @@ FetchContent_MakeAvailable(
 ##################################
 # Some variables
 ##################################
+#target_compile_options(Catch2 PUBLIC -m32)
+#target_compile_options(Catch2WithMain PUBLIC -m32)
 
 set(KERN_COMPILER_FLAGS
     -O2
+    -m32
     -Wall
     -Wextra
     -Wpedantic
@@ -34,8 +37,6 @@ set(KERN_COMPILER_FLAGS
     -ffreestanding
     -fno-builtin
     -fno-stack-protector
-    -fno-pie
-    -no-pie
     -fno-exceptions
     -fno-rtti
     -nostdlib
@@ -47,11 +48,6 @@ set(KERN_COMPILER_FLAGS
 ##################################
 
 add_subdirectory(src)
-
-add_executable(kfs-1 src/main.cpp)
-target_compile_options(kfs-1 PRIVATE
-        ${KERN_COMPILER_FLAGS}
-)
 
 ##################################
 # Tests

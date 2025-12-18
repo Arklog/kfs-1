@@ -14,6 +14,9 @@ CheckOptions:
   - key: readability-identifier-naming.MemberCase
     value: lower_case
 
+  - key: readability-identifier-naming.PrivateMemberPrefix
+    value: _
+
   # Global / static variables
   - key: readability-identifier-naming.GlobalVariableCase
     value: lower_case

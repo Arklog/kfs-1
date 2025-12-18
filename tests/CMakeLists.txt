@@ -3,4 +3,5 @@
 # Add any test-related subdirectories here
 ############################
 
+add_subdirectory(arch)
 add_subdirectory(lib)
