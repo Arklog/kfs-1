@@ -1,1 +1,2 @@
-include_directories(array)
+add_subdirectory(array)
+add_subdirectory(format)
