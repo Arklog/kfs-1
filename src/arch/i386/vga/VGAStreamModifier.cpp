@@ -9,6 +9,7 @@
 void operator delete(void *) {
 }
 
+void operator delete(void *, unsigned int) {}
 void operator delete(void *, long unsigned int) {
 }
 
