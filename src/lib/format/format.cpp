@@ -28,3 +28,10 @@ char * format::format(char *buffer, uint32_t value) {
 
     return buffer;
 }
+
+char * format::format(char *buffer, const char *value) {
+    auto len = kstring::strlen(value);
+    kstring::memcpy(buffer, value, len);
+
+    return buffer + len;
+}

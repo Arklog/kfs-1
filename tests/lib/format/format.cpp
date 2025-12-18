@@ -39,4 +39,24 @@ TEST_CASE("libformat", "[format]") {
         REQUIRE(std::string(buffer) == "123456789");
         REQUIRE(next == buffer + 9);
     }
+
+    SECTION("format multiple values") {
+        char buffer[50] = {0};
+        char *next = format::fmt(buffer, "{} {}", 0, 0);
+        REQUIRE(next != nullptr);
+        REQUIRE(std::string(buffer) == "0 0");
+        REQUIRE(next == buffer + 3);
+
+        std::memset(buffer, 0, 50);
+        next = format::fmt(buffer, "{} {} {}", -1, 42U, 123456);
+        REQUIRE(next != nullptr);
+        REQUIRE(std::string(buffer) == "-1 42 123456");
+        REQUIRE(next == buffer + 12);
+
+        std::memset(buffer, 0, 50);
+        next = format::fmt(buffer, "[ERROR]: Code {} at line {}: {}", 404, 27, "message d'erreur");
+        REQUIRE(next != nullptr);
+        REQUIRE(std::string(buffer) == "[ERROR]: Code 404 at line 27: message d'erreur");
+        REQUIRE(next == buffer + 46);
+    }
 }
