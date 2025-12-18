@@ -7,7 +7,7 @@
 
 #include "include/stdint.hpp"
 
-namespace kernel::vga {
+namespace vga {
     class VGAMonitor {
     private:
         static const uint16_t *_beg;

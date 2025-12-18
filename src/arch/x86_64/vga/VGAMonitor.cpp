@@ -7,7 +7,7 @@
 
 # define VGA_ADDRESS 0xB8000
 
-namespace kernel::vga {
+namespace vga {
     const uint16_t *VGAMonitor::_beg = reinterpret_cast<const uint16_t *>(VGA_ADDRESS);
     uint16_t *VGAMonitor::_pos = reinterpret_cast<uint16_t *>(VGA_ADDRESS);
 

@@ -7,7 +7,7 @@
 
 #include "include/stdint.hpp"
 
-namespace kernel::vga {
+namespace vga {
     namespace color {
         /**
          * VGA color codes

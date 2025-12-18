@@ -3,7 +3,7 @@
 //
 #include "vga.hpp"
 
-kernel::vga::t_vga_char kernel::vga::vga_get_color(uint8_t character, color::vga_color fg, color::vga_color bg) {
+vga::t_vga_char vga::vga_get_color(uint8_t character, color::vga_color fg, color::vga_color bg) {
     t_vga_char vga_char;
 
     vga_char.data.ascii = character;
