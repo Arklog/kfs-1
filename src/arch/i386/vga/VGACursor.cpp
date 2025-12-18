@@ -24,12 +24,20 @@ namespace vga {
         return _cend;
     }
 
-    VGACursor::iterator VGACursor::pos() {
-        return _pos;
+    VGACursor::iterator* VGACursor::pos() {
+        return &_pos;
     }
 
     VGACursor::size_type VGACursor::ipos() const {
         return static_cast<size_type>(_pos - const_cast<iterator>(_cbegin));
+    }
+
+    void VGACursor::set_char(const t_vga_char& c) const {
+        *_pos = c;
+    }
+
+    void VGACursor::next_line() {
+        _pos += VGA_WIDTH - (ipos() % VGA_WIDTH);
     }
 
     volatile const VGACursor::const_iterator VGACursor::_cbegin{reinterpret_cast<const_iterator>(0xB8000)};

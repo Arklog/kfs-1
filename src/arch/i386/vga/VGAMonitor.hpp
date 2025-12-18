@@ -13,10 +13,14 @@ namespace vga {
     private:
         VGACursor cursor;
 
+        void _print_char(const t_vga_char& c);
+
     public:
         VGAMonitor();
 
         VGAMonitor& operator<<(const char *data);
+
+        VGAMonitor& operator<<(t_vga_char);
     };
 }
 

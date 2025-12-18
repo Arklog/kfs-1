@@ -14,7 +14,4 @@ using int16_t = signed short;
 using uint32_t = unsigned int;
 using int32_t = signed int;
 
-using uint64_t = unsigned long long;
-using int64_t = signed long long;
-
 #endif //KFS_1_STDINT_HPP

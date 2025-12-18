@@ -8,6 +8,9 @@
 #include "include/stdint.hpp"
 
 namespace vga {
+    constexpr uint16_t VGA_WIDTH = 80;
+    constexpr uint16_t VGA_HEIGHT = 25;
+
     namespace color {
         /**
          * VGA color codes
@@ -53,6 +56,8 @@ namespace vga {
      * @return VGA character
      */
     t_vga_char vga_get_color(uint8_t character, color::vga_color fg = color::WHITE, color::vga_color bg = color::BLACK);
+
+    inline const char * endl = "\n";
 }
 
 #endif //KFS_1_VGA_HPP

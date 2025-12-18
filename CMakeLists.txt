@@ -22,6 +22,8 @@ FetchContent_MakeAvailable(
 ##################################
 # Some variables
 ##################################
+#target_compile_options(Catch2 PUBLIC -m32)
+#target_compile_options(Catch2WithMain PUBLIC -m32)
 
 set(KERN_COMPILER_FLAGS
     -O2
@@ -46,16 +48,6 @@ set(KERN_COMPILER_FLAGS
 ##################################
 
 add_subdirectory(src)
-#set(CMAKE_LINKER ld)
-#set(CMAKE_ASM_LINK_EXECUTABLE /usr/bin/ld)
-#enable_language(ASM_NASM)
-#enable_language(ASM)
-#add_executable(kfs-1
-#        src/bootloader.s
-#)
-#target_link_libraries(kfs-1 PRIVATE kernel)
-#set_target_properties(kfs-1 PROPERTIES LINKER_LANGUAGE ASM)
-#target_link_options(kfs-1 PRIVATE -T ${CMAKE_SOURCE_DIR}/src/linker.ld -e start -m elf_i386)
 
 ##################################
 # Tests
