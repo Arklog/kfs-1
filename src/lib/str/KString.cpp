@@ -2,15 +2,14 @@
 // Created by alice on 18/12/2025.
 //
 
-#include "KString.h"
+#include "KString.hpp"
 namespace kstring {
-
     unsigned int strlen(const char *str) {
         unsigned int len = 0;
         while (str[len]) ++len;
         return len;
     }
-    unsigned int strcmp(const char *str1, const char *str2) {
+    int strcmp(const char *str1, const char *str2) {
         unsigned int i = 0;
         while (str1[i] && str2[i]) {
             if (str1[i] != str2[i]) return str1[i] - str2[i];
@@ -18,9 +17,9 @@ namespace kstring {
         }
         return str1[i] - str2[i];
     }
-    unsigned int strncmp(const char *str1, const char *str2, const unsigned int len) {
+    int strncmp(const char *str1, const char *str2, const unsigned int n) {
         unsigned int i = 0;
-        while (str1[i] && str2[i] && i < len) {
+        while (str1[i] && str2[i] && i < n) {
             if (str1[i] != str2[i]) return str1[i] - str2[i];
             ++i;
         }
