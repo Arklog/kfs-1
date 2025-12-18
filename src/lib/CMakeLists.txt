@@ -1,1 +1,2 @@
 include_directories(array)
+include_directories(str)

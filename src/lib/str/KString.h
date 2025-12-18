@@ -5,7 +5,7 @@
 #ifndef KFS_1_K_STR_H
 #define KFS_1_K_STR_H
 
-namespace k_str {
+namespace kstring {
     unsigned int    strlen(const char *str);
     unsigned int    strcmp(const char *str1, const char *str2);
     unsigned int    strncmp(const char *str1, const char *str2, const unsigned len);

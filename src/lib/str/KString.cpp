@@ -2,8 +2,8 @@
 // Created by alice on 18/12/2025.
 //
 
-#include "k_str.h"
-namespace k_str {
+#include "KString.h"
+namespace kstring {
 
     unsigned int strlen(const char *str) {
         unsigned int len = 0;
@@ -90,4 +90,4 @@ namespace k_str {
         *res *= sign;
         return 0;
     }
-} // k_str
+} // kstring
