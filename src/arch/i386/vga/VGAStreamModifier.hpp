@@ -10,6 +10,9 @@
 namespace vga {
     class VGACursor;
 
+    /**
+     * Base class for VGA stream modifiers (like setting the cursor line, changing color, etc.)
+     */
     class VGAStreamModifier {
     public:
         VGAStreamModifier() = default;
@@ -18,6 +21,9 @@ namespace vga {
         virtual void operator()(VGACursor &cursor) const = 0;
     };
 
+    /**
+     * Stream modifier to set the cursor to a specific line.
+     */
     class VGASetLineModifier : public VGAStreamModifier {
     public:
         explicit VGASetLineModifier(uint16_t line);
