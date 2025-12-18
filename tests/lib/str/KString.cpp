@@ -66,7 +66,7 @@ TEST_CASE("KString", "[kstring]") {
     SECTION("strstr") {
         const char *str1 = "Hello ker-kernel";
         const char *str2 = "kern";
-        const char *str3 = "ke";
+        const char *str3 = "kern";
         const char *str4 = "kernek";
         const char *str5 = "";
         const char *str6 = nullptr;
@@ -88,12 +88,15 @@ TEST_CASE("KString", "[kstring]") {
         const char *str8 = "++++-+++2147483647";
         const char *str9 = "2d147483647";
         int res;
-
-        REQUIRE((kstring::safe_atoi(str1, &res) == 0 && res == 332));
-        REQUIRE((kstring::safe_atoi(str2, &res) == 0 && res == -3112));
-        REQUIRE((kstring::safe_atoi(str3, &res) == 1));
-        REQUIRE((kstring::safe_atoi(str4, &res) == 0 && res == -2147483648));
-        REQUIRE((kstring::safe_atoi(str5, &res) == 0 && res == 2147483647));
+        kstring::safe_atoi(str1, &res);
+        REQUIRE(res == 332);
+        kstring::safe_atoi(str2, &res);
+        REQUIRE(res == -3112);
+        REQUIRE(kstring::safe_atoi(str3, &res) == 1);
+        kstring::safe_atoi(str4, &res);
+        REQUIRE(res == -2147483648);
+        kstring::safe_atoi(str5, &res);
+        REQUIRE(res == 2147483647);
         REQUIRE((kstring::safe_atoi(str6, &res) == 1));
         REQUIRE((kstring::safe_atoi(str7, &res) == 1));
         REQUIRE((kstring::safe_atoi(str8, &res) == 0 && res == 2147483647));

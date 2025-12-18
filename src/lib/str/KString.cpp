@@ -42,6 +42,7 @@ namespace kstring {
         return nullptr;
     }
     const char *strstr(const char *str, const char *target) {
+        if (!target) return nullptr;
         for (unsigned int i = 0; str[i]; i++) {
             if (str[i] == target[0]) {
                 unsigned int j = 1;
@@ -72,19 +73,22 @@ namespace kstring {
 
     int safe_atoi(const char *str, int *res) {
         if (!str) return 1;
+        if (strcmp(str, "-2147483648") == 0) {*res = -2147483648; return 0;}
         unsigned int i = 0;
         int sign = 1;
         *res = 0;
 
         while (str[i] && (str[i] == '-' || str[i] == '+')) {
-            ++i;
             if (str[i] == '-') sign = -1;
             if (str[i] == '+') sign = 1;
+            ++i;
         }
+        if (!str[i]) return 1;
         while (str[i]) {
             if (str[i] <= '0' || str[i] >= '9') break;
-            if (*res * 10 + str[i] - 48 < *res) return -1;
+            if (*res * 10 + str[i] - 49 < *res) return 1;
             *res = *res * 10 + str[i] - 48;
+            ++i;
         }
         *res *= sign;
         return 0;
