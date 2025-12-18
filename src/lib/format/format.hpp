@@ -27,6 +27,9 @@ namespace format {
      * @return NULL on error, otherwise a pointer to the next character after the formatted integer
      */
     char * format(char *buffer, uint32_t value);
+
+    template<typename ... Args>
+    char * format(char *buffer, const char *fmt, Args ... args);
 }
 
 #endif //KFS_1_FORMAT_HPP
