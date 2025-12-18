@@ -11,7 +11,3 @@ kernel::vga::t_vga_char kernel::vga::vga_get_color(uint8_t character, color::vga
 
     return vga_char;
 }
-
-void kernel::vga::vga_print_char(t_vga_char character) {
-
-}

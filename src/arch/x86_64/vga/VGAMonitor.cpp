@@ -15,7 +15,7 @@ namespace kernel::vga {
 
     VGAMonitor & VGAMonitor::operator<<(const char *data) {
         while (*data) {
-            auto character = vga_get_color(*data);
+            auto character = vga_get_color(*(data++));
             *_pos++ = character.raw;
         }
         return *this;

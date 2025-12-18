@@ -25,6 +25,7 @@ FetchContent_MakeAvailable(
 
 set(KERN_COMPILER_FLAGS
     -O2
+    -m32
     -Wall
     -Wextra
     -Wpedantic
@@ -34,8 +35,6 @@ set(KERN_COMPILER_FLAGS
     -ffreestanding
     -fno-builtin
     -fno-stack-protector
-    -fno-pie
-    -no-pie
     -fno-exceptions
     -fno-rtti
     -nostdlib
@@ -47,11 +46,16 @@ set(KERN_COMPILER_FLAGS
 ##################################
 
 add_subdirectory(src)
-
-add_executable(kfs-1 src/main.cpp)
-target_compile_options(kfs-1 PRIVATE
-        ${KERN_COMPILER_FLAGS}
-)
+#set(CMAKE_LINKER ld)
+#set(CMAKE_ASM_LINK_EXECUTABLE /usr/bin/ld)
+#enable_language(ASM_NASM)
+#enable_language(ASM)
+#add_executable(kfs-1
+#        src/bootloader.s
+#)
+#target_link_libraries(kfs-1 PRIVATE kernel)
+#set_target_properties(kfs-1 PROPERTIES LINKER_LANGUAGE ASM)
+#target_link_options(kfs-1 PRIVATE -T ${CMAKE_SOURCE_DIR}/src/linker.ld -e start -m elf_i386)
 
 ##################################
 # Tests

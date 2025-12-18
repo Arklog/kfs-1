@@ -1,4 +1,4 @@
-add_library(libvga STATIC
+add_library(libvga OBJECT
         vga.cpp
         VGAMonitor.cpp
         VGAMonitor.hpp
