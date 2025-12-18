@@ -35,7 +35,7 @@ namespace kstring {
     }
     const char *strrchr(const char *str, const char chr) {
         unsigned int i = strlen(str) - 1;
-        while (str[i]) {
+        while (i > 0) {
             if (str[i] == chr) return &str[i];
             --i;
         }
