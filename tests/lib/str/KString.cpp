@@ -10,30 +10,27 @@ TEST_CASE("KString", "[kstring]") {
         const char *str = "strken";
         const char *str2 = "1";
         const char *str3 = "";
-        const char *str4;
+
         REQUIRE(kstring::strlen(str) == 6);
         REQUIRE(kstring::strlen(str2) == 1);
         REQUIRE(kstring::strlen(str3) == 0);
-        REQUIRE(kstring::strlen(str4) == 0);
     }
 
     SECTION("strcmp") {
         const char *str1 = "str1";
         const char *str2 = "str2";
         const char *str3 = "";
-        const char *str4;
 
         REQUIRE(kstring::strcmp(str1, str2) == -1);
         REQUIRE(kstring::strcmp(str1, str1) == 0);
         REQUIRE(kstring::strcmp(str1, str3) == 115);
-        REQUIRE(kstring::strcmp(str3, str4) == 0);
     }
 
     SECTION("strncmp") {
         const char *str1 = "str1";
         const char *str2 = "str2";
         const char *str3 = "";
-        const char *str4;
+        const char *str4 = nullptr;
 
         REQUIRE(kstring::strncmp(str1, str2, 4) == -1);
         REQUIRE(kstring::strncmp(str1, str2, 3) == 0);
