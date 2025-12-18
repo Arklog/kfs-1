@@ -37,6 +37,7 @@ set(KERN_COMPILER_FLAGS
     -ffreestanding
     -fno-builtin
     -fno-stack-protector
+    -fpie
     -fno-exceptions
     -fno-rtti
     -nostdlib
