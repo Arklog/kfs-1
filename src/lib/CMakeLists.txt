@@ -1,2 +1,2 @@
-include_directories(array)
-include_directories(str)
+add_subdirectory(array)
+add_subdirectory(str)

@@ -8,7 +8,7 @@ add_executable(test_string
 )
 target_link_libraries(test_string
         PRIVATE
-        libstring
+        libstring64
         Catch2::Catch2WithMain
 )
 target_include_directories(

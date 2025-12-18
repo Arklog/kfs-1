@@ -7,10 +7,10 @@
 
 TEST_CASE("KString", "[kstring]") {
     SECTION("strlen") {
-        char *str = "strken";
-        char *str2 = "1";
-        char *str3 = "";
-        char *str4;
+        const char *str = "strken";
+        const char *str2 = "1";
+        const char *str3 = "";
+        const char *str4;
         REQUIRE(kstring::strlen(str) == 6);
         REQUIRE(kstring::strlen(str2) == 1);
         REQUIRE(kstring::strlen(str3) == 0);
@@ -18,10 +18,10 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("strcmp") {
-        char *str1 = "str1";
-        char *str2 = "str2";
-        char *str3 = "";
-        char *str4;
+        const char *str1 = "str1";
+        const char *str2 = "str2";
+        const char *str3 = "";
+        const char *str4;
 
         REQUIRE(kstring::strcmp(str1, str2) == -1);
         REQUIRE(kstring::strcmp(str1, str1) == 0);
@@ -30,10 +30,10 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("strncmp") {
-        char *str1 = "str1";
-        char *str2 = "str2";
-        char *str3 = "";
-        char *str4;
+        const char *str1 = "str1";
+        const char *str2 = "str2";
+        const char *str3 = "";
+        const char *str4;
 
         REQUIRE(kstring::strncmp(str1, str2, 4) == -1);
         REQUIRE(kstring::strncmp(str1, str2, 3) == 0);
@@ -45,8 +45,8 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("strchr") {
-        char *str1 = "Hello kernel";
-        char *str2 = "";
+        const char *str1 = "Hello kernel";
+        const char *str2 = "";
 
         REQUIRE(kstring::strchr(str1, 'e') == str1 + 2);
         REQUIRE(kstring::strchr(str1, str2[0]) == nullptr);
@@ -55,8 +55,8 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("strrchr") {
-        char *str1 = "Hello kernel";
-        char *str2 = "";
+        const char *str1 = "Hello kernel";
+        const char *str2 = "";
 
         REQUIRE(kstring::strrchr(str1, 'e') == str1 + 10);
         REQUIRE(kstring::strrchr(str1, str2[0]) == nullptr);
@@ -66,12 +66,12 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("strstr") {
-        char *str1 = "Hello ker-kernel";
-        char *str2 = "kern";
-        char *str3 = "ke";
-        char *str4 = "kernek";
-        char *str5 = "";
-        char *str6;
+        const char *str1 = "Hello ker-kernel";
+        const char *str2 = "kern";
+        const char *str3 = "ke";
+        const char *str4 = "kernek";
+        const char *str5 = "";
+        const char *str6 = nullptr;
         REQUIRE(kstring::strstr(str1, str2) == str1 + 10);
         REQUIRE(kstring::strstr(str1, str3) == str1 + 10);
         REQUIRE(kstring::strstr(str1, str4) == nullptr);
@@ -80,15 +80,15 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("safe_atoi") {
-        char *str1 = "332";
-        char *str2 = "-3112";
-        char *str3 = "22222222222222222222222222222222222222222222222";
-        char *str4 = "-2147483648";
-        char *str5 = "2147483647";
-        char *str6 = "";
-        char *str7;
-        char *str8 = "++++-+++2147483647";
-        char *str9 = "2d147483647";
+        const char *str1 = "332";
+        const char *str2 = "-3112";
+        const char *str3 = "22222222222222222222222222222222222222222222222";
+        const char *str4 = "-2147483648";
+        const char *str5 = "2147483647";
+        const char *str6 = "";
+        const char *str7 = nullptr;
+        const char *str8 = "++++-+++2147483647";
+        const char *str9 = "2d147483647";
         int res;
 
         REQUIRE((kstring::safe_atoi(str1, &res) == 0 && res == 332));
