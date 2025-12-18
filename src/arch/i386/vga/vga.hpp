@@ -12,7 +12,7 @@ namespace vga {
         /**
          * VGA color codes
          */
-        enum vga_color {
+        using t_vga_color = enum vga_color {
             BLACK = 0,
             BLUE = 1,
             GREEN = 2,

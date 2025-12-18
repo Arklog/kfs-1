@@ -6,12 +6,12 @@
 #define KFS_1_VGAMONITOR_HPP
 
 #include "include/stdint.hpp"
+#include "VGACursor.hpp"
 
 namespace vga {
     class VGAMonitor {
     private:
-        static const uint16_t *_beg;
-        static uint16_t *_pos;
+        VGACursor cursor;
 
     public:
         VGAMonitor();

@@ -6,17 +6,24 @@
 #include "vga.hpp"
 
 # define VGA_ADDRESS 0xB8000
+# define VGA_WIDTH 80
+# define VGA_HEIGHT 25
 
 namespace vga {
-    const uint16_t *VGAMonitor::_beg = reinterpret_cast<const uint16_t *>(VGA_ADDRESS);
-    uint16_t *VGAMonitor::_pos = reinterpret_cast<uint16_t *>(VGA_ADDRESS);
-
     VGAMonitor::VGAMonitor() = default;
 
     VGAMonitor & VGAMonitor::operator<<(const char *data) {
+        auto cur = cursor.pos();
+
         while (*data) {
             auto character = vga_get_color(*(data++));
-            *_pos++ = character.raw;
+            auto [raw_char, raw_color] = character.data;
+
+            if (raw_char == '\n') {
+                cur += VGA_WIDTH - (cursor.ipos() % VGA_WIDTH);
+            } else {
+                *(cur++) = character;
+            }
         }
         return *this;
     }

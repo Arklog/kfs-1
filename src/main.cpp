@@ -2,12 +2,12 @@
 // Created by pierre on 12/17/25.
 //
 
-#include "arch/x86_64/vga/VGAMonitor.hpp"
+#include "arch/i386/vga/VGAMonitor.hpp"
 
 extern "C" void k_main() {
-    kernel::vga::VGAMonitor monitor{};
+    vga::VGAMonitor monitor{};
 
-    monitor << "Hello, World!";
+    monitor << "Hello, World!\n" << "t\n\n ttt";
 
     while (true) {
     }
