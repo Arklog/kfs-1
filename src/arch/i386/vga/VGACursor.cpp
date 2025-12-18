@@ -40,6 +40,10 @@ namespace vga {
         _pos += VGA_WIDTH - (ipos() % VGA_WIDTH);
     }
 
+    void VGACursor::set_line(const uint16_t line) {
+        _pos = const_cast<iterator>(_cbegin) + line * VGA_WIDTH;
+    }
+
     volatile const VGACursor::const_iterator VGACursor::_cbegin{reinterpret_cast<const_iterator>(0xB8000)};
     volatile const VGACursor::const_iterator VGACursor::_cend{reinterpret_cast<const_iterator>(0xB8000 + 80 * 25 * sizeof(t_vga_char))};
 } // vga

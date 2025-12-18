@@ -4,6 +4,7 @@
 
 #include "VGAMonitor.hpp"
 #include "vga.hpp"
+#include "VGAStreamModifier.hpp"
 
 # define VGA_ADDRESS 0xB8000
 
@@ -31,9 +32,8 @@ namespace vga {
         return *this;
     }
 
-    VGAMonitor & VGAMonitor::operator<<(const t_vga_char c) {
-        _print_char(c);
-
+    VGAMonitor & VGAMonitor::operator<<(const VGAStreamModifier &modifier) {
+        modifier(cursor);
         return *this;
     }
 }

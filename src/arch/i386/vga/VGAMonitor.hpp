@@ -9,6 +9,8 @@
 #include "VGACursor.hpp"
 
 namespace vga {
+    class VGAStreamModifier;
+
     class VGAMonitor {
     private:
         VGACursor cursor;
@@ -20,7 +22,7 @@ namespace vga {
 
         VGAMonitor& operator<<(const char *data);
 
-        VGAMonitor& operator<<(t_vga_char);
+        VGAMonitor& operator<<(const VGAStreamModifier& modifier);
     };
 }
 
