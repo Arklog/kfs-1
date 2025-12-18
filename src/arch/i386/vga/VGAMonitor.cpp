@@ -9,10 +9,11 @@
 # define VGA_ADDRESS 0xB8000
 
 namespace vga {
-    void VGAMonitor::_print_char(const t_vga_char &c) {
+    void VGAMonitor::print_char(const t_vga_char &c) {
         auto cur = cursor.pos();
-
         auto [raw_char, raw_color] = c.data;
+
+        // process the character
         if (raw_char == '\n') {
             cursor.next_line();
         } else {
@@ -25,8 +26,9 @@ namespace vga {
 
     VGAMonitor & VGAMonitor::operator<<(const char *data) {
         while (*data) {
+            // Get the VGA character with the current color and print
             auto character = vga_get_color(*(data++));
-            _print_char(character);
+            print_char(character);
         }
 
         return *this;

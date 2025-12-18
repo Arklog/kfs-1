@@ -11,17 +11,36 @@
 namespace vga {
     class VGAStreamModifier;
 
+    /**
+     * Stream like interface to the VGA text mode monitor.
+     */
     class VGAMonitor {
     private:
         VGACursor cursor;
 
-        void _print_char(const t_vga_char& c);
+        /**
+         * Print a character at the current cursor position, and advance the cursor.
+         * @param c The character to print.
+         */
+        void print_char(const t_vga_char& c);
 
     public:
         VGAMonitor();
 
+        /**
+         * Print a null-terminated string at the current cursor position. The cursor is advanced accordingly.
+         *
+         * @param data
+         * @return
+         */
         VGAMonitor& operator<<(const char *data);
 
+        /**
+         * Process a stream modifier (like newline, color change, etc.)
+         *
+         * @param modifier A functor that modifies the cursor state.
+         * @return
+         */
         VGAMonitor& operator<<(const VGAStreamModifier& modifier);
     };
 }

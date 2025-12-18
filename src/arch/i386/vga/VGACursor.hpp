@@ -9,6 +9,9 @@
 namespace vga {
     union t_vga_char;
 
+    /**
+     * Class to manage the VGA text mode cursor position and operations.
+     */
     class VGACursor {
     public:
         using iterator = t_vga_char*;
