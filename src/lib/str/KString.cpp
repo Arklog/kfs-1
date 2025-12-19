@@ -9,6 +9,7 @@ namespace kstring {
         while (str[len]) ++len;
         return len;
     }
+
     int strcmp(const char *str1, const char *str2) {
         unsigned int i = 0;
         while (str1[i] && str2[i]) {
@@ -17,14 +18,18 @@ namespace kstring {
         }
         return str1[i] - str2[i];
     }
+
     int strncmp(const char *str1, const char *str2, const unsigned int n) {
         unsigned int i = 0;
-        while (str1[i] && str2[i] && i < n) {
+        if (n == 0) return 0;
+
+        while (str1[i] && str2[i] && i < n - 1) {
             if (str1[i] != str2[i]) return str1[i] - str2[i];
             ++i;
         }
         return str1[i] - str2[i];
     }
+
     const char *strchr(const char *str, const char chr) {
         unsigned int i = 0;
         while (str[i]) {
@@ -33,6 +38,7 @@ namespace kstring {
         }
         return nullptr;
     }
+
     const char *strrchr(const char *str, const char chr) {
         unsigned int i = strlen(str) - 1;
         while (i > 0) {
@@ -41,6 +47,7 @@ namespace kstring {
         }
         return nullptr;
     }
+
     const char *strstr(const char *str, const char *target) {
         if (!target) return nullptr;
         for (unsigned int i = 0; str[i]; i++) {
@@ -52,6 +59,7 @@ namespace kstring {
         }
         return nullptr;
     }
+
     void strcpy(char *dest, const char *str) {
         unsigned int i = 0;
         while (str[i]) {
@@ -65,6 +73,7 @@ namespace kstring {
         char    *dst = (char *)dest;
         const char *s = (char *)src;
         unsigned int i = 0;
+
         while (s[i] && i < len) {
             dst[i] = s[i];
             ++i;
