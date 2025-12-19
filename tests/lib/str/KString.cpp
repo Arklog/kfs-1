@@ -108,6 +108,8 @@ TEST_CASE("KString", "[kstring]") {
         REQUIRE(std::memcmp(dest, src, 128) == 0);
     }
 
+    //todo: add tests for kstring::memcmp
+
     SECTION("safe_atoi") {
         const char *str1 = "332";
         const char *str2 = "-3112";
@@ -118,6 +120,7 @@ TEST_CASE("KString", "[kstring]") {
         const char *str7 = nullptr;
         const char *str8 = "++++-+++2147483647";
         const char *str9 = "2d147483647";
+
         int res;
         kstring::safe_atoi(str1, &res);
         REQUIRE(res == 332);
