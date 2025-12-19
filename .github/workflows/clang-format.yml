@@ -18,5 +18,17 @@ jobs:
 #      - name: Fail fast?!
 #        if: steps.linter.outputs.checks-failed > 0
 #        run: exit 1
+      - name: Restore cached build
+        uses: actions/cache/restore@v4
+        with:
+          path: build
+          key: ${{ runner.os }}-build
+
       - name: Run unit tests
         run: make test
+
+      - name: Save cached build
+        uses: actions/cache/save@v4
+        with:
+          path: build
+          key: ${{ runner.os }}-build
