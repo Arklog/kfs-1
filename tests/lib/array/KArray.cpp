@@ -43,4 +43,6 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(kArr[1] == 0);
         REQUIRE(kArr[2] == 30);
     }
+
+    REQUIRE(false);
 }
