@@ -21,3 +21,8 @@ iso: link_kernel
 	echo '}' >> $(ISODIR)/grub/grub.cfg
 	grub-mkrescue -o $(BUILDDIR)/$(ISO) $(BUILDDIR)/isodir
 	echo "ISO created: $(BUILDDIR)/$(ISO)"
+
+test:
+	cmake . -B${BUILDDIR}
+	cmake --build ${BUILDDIR} --parallel
+	ctest --test-dir ${BUILDDIR}

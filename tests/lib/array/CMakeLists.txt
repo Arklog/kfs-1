@@ -16,8 +16,5 @@ target_include_directories(
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src
 )
-#add_dependencies(
-#        test_array
-#        Catch2::Catch2WithMain
-#        libarray
-#)
+
+catch_discover_tests(test_array)

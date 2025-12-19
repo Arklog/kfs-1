@@ -54,5 +54,7 @@ add_subdirectory(src)
 # Tests
 ##################################
 
+include(CTest)
+include(Catch)
 enable_testing()
 add_subdirectory(tests)

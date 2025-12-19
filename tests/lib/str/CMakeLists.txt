@@ -16,3 +16,5 @@ target_include_directories(
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src
 )
+
+catch_discover_tests(test_string)
