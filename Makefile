@@ -25,4 +25,4 @@ iso: link_kernel
 test:
 	cmake . -B${BUILDDIR}
 	cmake --build ${BUILDDIR} --parallel
-	ctest --test-dir ${BUILDDIR}
+	ctest --test-dir ${BUILDDIR} --output-on-failure
