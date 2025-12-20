@@ -22,7 +22,10 @@ namespace vga {
         }
     }
 
-    VGAMonitor::VGAMonitor() = default;
+    VGAMonitor::VGAMonitor() : cursor{}, color{} {
+        auto c = vga_get_color(0);
+        color = c.data.color;
+    };
 
     VGAMonitor & VGAMonitor::operator<<(const char *data) {
         while (*data) {
@@ -33,7 +36,9 @@ namespace vga {
                     .color = color
                 }
             };
+
             print_char(character);
+            ++data;
         }
 
         return *this;
