@@ -44,6 +44,13 @@ namespace vga {
             uint8_t color;
         } data;
         uint16_t raw;
+
+        uint8_t get_foreground() const;
+        uint8_t get_background() const;
+
+        void set_foreground(color::t_vga_color color);
+        void set_background(color::t_vga_color color);
+        void set_color(color::t_vga_color foreground, color::t_vga_color background);
     };
 
     /**
