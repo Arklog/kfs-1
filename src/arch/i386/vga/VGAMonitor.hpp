@@ -9,7 +9,10 @@
 #include "VGACursor.hpp"
 
 namespace vga {
-    class VGAStreamModifier;
+    namespace modifier {
+        class VGAStreamColorModifier;
+        class VGAStreamCursorModifier;
+    }
 
     /**
      * Stream like interface to the VGA text mode monitor.
@@ -17,6 +20,7 @@ namespace vga {
     class VGAMonitor {
     private:
         VGACursor cursor;
+        uint8_t color;
 
         /**
          * Print a character at the current cursor position, and advance the cursor.
@@ -36,12 +40,20 @@ namespace vga {
         VGAMonitor& operator<<(const char *data);
 
         /**
-         * Process a stream modifier (like newline, color change, etc.)
+         * Process a cursor stream modifier
          *
          * @param modifier A functor that modifies the cursor state.
          * @return
          */
-        VGAMonitor& operator<<(const VGAStreamModifier& modifier);
+        VGAMonitor& operator<<(const modifier::VGAStreamCursorModifier& modifier);
+
+        /**
+         * Process a color stream modifier
+         *
+         * @param modifier
+         * @return
+         */
+        VGAMonitor& operator<<(const modifier::VGAStreamColorModifier& modifier);
     };
 }
 

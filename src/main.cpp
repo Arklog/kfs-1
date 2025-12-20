@@ -12,7 +12,11 @@ extern "C" void k_main() {
     monitor << "Hello, World!" << vga::endl;
     monitor << "test" << vga::endl;
 
-    monitor << vga::VGASetLineModifier{10} << "This text is on line 10" << vga::endl;
+    while (true) {}
+
+    monitor << vga::modifier::VGASetLineModifier{10}
+            << vga::modifier::VGAStreamColorModifier{vga::color::GREEN, vga::color::RED}
+            << "This text is on line 10" << vga::endl;
 
     while (true) {
     }
