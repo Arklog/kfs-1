@@ -108,7 +108,35 @@ TEST_CASE("KString", "[kstring]") {
         REQUIRE(std::memcmp(dest, src, 128) == 0);
     }
 
-    //todo: add tests for kstring::memcmp
+    SECTION("memcmp") {
+        char b1[128];
+        char b2[128];
+
+        // SUCCESS
+        std::memset(b1, 0, 128);
+        std::memset(b2, 0, 128);
+        REQUIRE(kstring::memcmp(b1, b2, 0) == 0);
+        REQUIRE(kstring::memcmp(b1, b2, 128) == 0);
+
+        // FAILURE
+        b1[0] = 1;
+        REQUIRE(kstring::memcmp(b1, b2, 128) == 1);
+        b1[0] = 0;
+        b1[127] = 1;
+        REQUIRE(kstring::memcmp(b1, b2, 128) == 1);
+        b1[127] = 0;
+        b2[0] = 1;
+        REQUIRE(kstring::memcmp(b1, b2, 128) == -1);
+        b2[0] = 0;
+        b2[127] = 1;
+        REQUIRE(kstring::memcmp(b1, b2, 128) == -1);
+
+        // CHECK non power of 4 length
+        std::memset(b1, 0, 128);
+        std::memset(b2, 0, 128);
+        REQUIRE(kstring::memcmp(b1 + 1, b2 + 1, 127) == 0);
+        REQUIRE(kstring::memcmp(b1 + 1, b2 + 1, 3) == 0);
+    }
 
     SECTION("safe_atoi") {
         const char *str1 = "332";
