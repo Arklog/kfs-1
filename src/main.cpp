@@ -9,12 +9,17 @@
 extern "C" void k_main() {
     vga::VGAMonitor monitor{};
 
-    monitor << "Hello, World!" << vga::endl;
-    monitor << "test" << vga::endl;
-
-    monitor << vga::modifier::VGASetLineModifier{10}
-            << vga::modifier::VGAStreamColorModifier{vga::color::GREEN, vga::color::RED}
-            << "This text is on line 10" << vga::endl;
+    const char *bpad = "                         ";
+    const char *apad = "                          ";
+    monitor << vga::modifier::VGAStreamColorModifier(vga::color::BLACK_ON_WHITE)
+            << bpad << " /$$   /$$ /$$$$$$$$ /$$$$$$ "      << apad
+            << bpad << "| $$  /$$/| $$_____//$$__  $$"      << apad
+            << bpad << "| $$ /$$/ | $$     | $$  \\__/"     << apad
+            << bpad << "| $$$$$/  | $$$$$  |  $$$$$$ "      << apad
+            << bpad << "| $$  $$  | $$__/   \\____  $$"     << apad
+            << bpad << "| $$\\  $$ | $$      /$$  \\ $$"    << apad
+            << bpad << "| $$ \\  $$| $$     |  $$$$$$/"     << apad
+            << bpad << "|__/  \\__/|__/      \\______/ "    << apad;
 
     while (true) {
     }

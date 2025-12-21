@@ -23,4 +23,16 @@ TEST_CASE("t_vga_char", "[libvga]") {
         REQUIRE(vga_char.get_foreground() == vga::color::BLACK);
         REQUIRE(vga_char.get_background() == vga::color::CYAN);
     }
+
+    SECTION("color set") {
+        vga::t_vga_char c{};
+
+        c.data.color = vga::color::WHITE_ON_BLACK;
+        REQUIRE(c.get_foreground() == vga::color::WHITE);
+        REQUIRE(c.get_background() == vga::color::BLACK);
+
+        c.data.color = vga::color::BLACK_ON_WHITE;
+        REQUIRE(c.get_foreground() == vga::color::BLACK);
+        REQUIRE(c.get_background() == vga::color::WHITE);
+    }
 }

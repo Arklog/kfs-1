@@ -3,11 +3,11 @@
 //
 #include "vga.hpp"
 
-uint8_t vga::t_vga_char::get_foreground() const {
+vga::color::t_vga_color vga::t_vga_char::get_foreground() const {
     return data.color & 0x0F;
 }
 
-uint8_t vga::t_vga_char::get_background() const {
+vga::color::t_vga_color vga::t_vga_char::get_background() const {
     return (data.color >> 4) & 0x0F;
 }
 
