@@ -51,7 +51,7 @@ namespace vga::modifier {
     }
 
     void VGAStreamForegroundModifier::operator()(uint8_t &color_byte) const {
-        color_byte = static_cast<uint8_t>((color_byte & 0xF0) | (color_byte & 0x0F));
+        color_byte = static_cast<uint8_t>((color_byte & 0xF0) | (_color & 0x0F));
     }
 
     //
