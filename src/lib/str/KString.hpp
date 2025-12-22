@@ -68,6 +68,18 @@ namespace kstring {
     void            memcpy(void *dest, const void *src, unsigned len);
 
     /**
+     * Compare the first len bytes of b1 and b2. Return the difference of the first non-identical byte or 0 if the
+     * buffer are identicals.
+     *
+     * @param b1
+     * @param b2
+     * @param len
+     *
+     * @return 0 if the buffer are identical or the difference of the first non-identical byte.
+     */
+    int             memcmp(const void *b1, const void *b2, unsigned len);
+
+    /**
      * create an int from a char string. This implementation avoids int overflow and will return 0 if the result is ok, 1 otherwise.
      * @param str string to cast into int
      * @param res address of the int where the result could be find if the return was 0.

@@ -22,20 +22,35 @@ namespace vga {
         }
     }
 
-    VGAMonitor::VGAMonitor() = default;
+    VGAMonitor::VGAMonitor() : cursor{}, color{} {
+        auto c = vga_get_color(0);
+        color = c.data.color;
+    };
 
     VGAMonitor & VGAMonitor::operator<<(const char *data) {
         while (*data) {
             // Get the VGA character with the current color and print
-            auto character = vga_get_color(*(data++));
+            t_vga_char character{
+                .data = {
+                    .ascii = static_cast<uint8_t>(*data),
+                    .color = color
+                }
+            };
+
             print_char(character);
+            ++data;
         }
 
         return *this;
     }
 
-    VGAMonitor & VGAMonitor::operator<<(const VGAStreamModifier &modifier) {
+    VGAMonitor & VGAMonitor::operator<<(const modifier::VGAStreamCursorModifier &modifier) {
         modifier(cursor);
+        return *this;
+    }
+
+    VGAMonitor & VGAMonitor::operator<<(const modifier::VGAStreamColorModifier &modifier) {
+        modifier(color);
         return *this;
     }
 }

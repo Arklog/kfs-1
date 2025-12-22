@@ -4,7 +4,11 @@ jobs:
   clang-format-checking:
     runs-on: ubuntu-latest
     steps:
+      - name: Install g++ multilib
+        run: sudo apt-get install -y g++-multilib
+
       - uses: actions/checkout@v2
+
       - uses: RafikFarhad/clang-format-github-action@v3
         with:
           sources: "src/**/*.hpp,src/**/*.cpp,test/**/*.cpp"
@@ -18,3 +22,17 @@ jobs:
 #      - name: Fail fast?!
 #        if: steps.linter.outputs.checks-failed > 0
 #        run: exit 1
+      - name: Restore cached build
+        uses: actions/cache/restore@v4
+        with:
+          path: build
+          key: ${{ runner.os }}-build
+
+      - name: Run unit tests
+        run: make test
+
+      - name: Save cached build
+        uses: actions/cache/save@v4
+        with:
+          path: build
+          key: ${{ runner.os }}-build
