@@ -9,10 +9,30 @@
 extern "C" void k_main() {
     vga::VGAMonitor monitor{};
 
-    monitor << "Hello, World!" << vga::endl;
-    monitor << "test" << vga::endl;
+    const char *bpad = "                         ";
+    const char *apad = "                          ";
+    monitor << vga::modifier::VGAStreamColorModifier(vga::color::BLACK_ON_WHITE)
+            << bpad << " /$$   /$$ /$$$$$$$$ /$$$$$$ " << apad
+            << bpad << "| $$  /$$/| $$_____//$$__  $$" << apad
+            << bpad << "| $$ /$$/ | $$     | $$  \\__/" << apad
+            << bpad << "| $$$$$/  | $$$$$  |  $$$$$$ " << apad
+            << bpad << "| $$  $$  | $$__/   \\____  $$" << apad
+            << bpad << "| $$\\  $$ | $$      /$$  \\ $$" << apad
+            << bpad << "| $$ \\  $$| $$     |  $$$$$$/" << apad
+            << bpad << "|__/  \\__/|__/      \\______/ " << apad;
 
-    monitor << vga::VGASetLineModifier{10} << "This text is on line 10" << vga::endl;
+    // reset default color
+    monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK);
+
+    monitor << vga::endl
+            << "CHECKING COLORS"
+            << vga::endl;
+
+    for (int i = vga::color::BLACK; i <= vga::color::WHITE; i++) {
+        monitor << vga::modifier::VGAStreamBackgroundModifier(i) << " ";
+    }
+
+    monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK) << vga::endl;
 
     while (true) {
     }
