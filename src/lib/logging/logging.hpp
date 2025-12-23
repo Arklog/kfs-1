@@ -15,10 +15,11 @@
 #include "lib/format/format.hpp"
 #include "lib/str/KString.hpp"
 
-#ifndef MONITOR_MACRO
+#ifndef TEST
 # define MONITOR_MACRO vga::VGAMonitor
 #else
 # include <fstream>
+# define MONITOR_MACRO std::ofstream
 #endif
 
 namespace logging {
@@ -75,15 +76,19 @@ namespace logging {
         auto &      logger = get_logger();
 
         logger << "["
+#ifndef TEST
                 << vga::modifier::VGAStreamColorModifier(log_color_map[log_level])
+#endif
                 << log_message_map[log_level]
+#ifndef TEST
                 << vga::modifier::VGAStreamColorModifier(vga::color::DEFAULT)
+#endif
                 << "]: ";
 
         auto endbuffer = format::fmt(buffer, format, args...);
 
         logger << buffer;
-        return endbuffer - buffer + 8;
+        return endbuffer - buffer + 9;
     }
 
     /**

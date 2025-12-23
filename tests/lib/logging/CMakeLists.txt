@@ -9,5 +9,5 @@ target_link_libraries(test_logging PRIVATE
         logging_test
 )
 target_compile_options(test_logging PRIVATE -m32)
-target_compile_options(test_logging PUBLIC -DMONITOR_MACRO=std::ofstream)
+target_compile_definitions(test_logging PUBLIC TEST)
 catch_discover_tests(test_logging)
