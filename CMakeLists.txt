@@ -25,23 +25,23 @@ FetchContent_MakeAvailable(
 #target_compile_options(Catch2 PUBLIC -m32)
 #target_compile_options(Catch2WithMain PUBLIC -m32)
 
-set(KERN_COMPILER_FLAGS
-    -O2
-    -m32
-    -Wall
-    -Wextra
-    -Wpedantic
-    -Werror
-    -Wno-unused-parameter
-    -Wno-missing-field-initializers
-    -ffreestanding
-    -fno-builtin
-    -fno-stack-protector
-    -fpie
-    -fno-exceptions
-    -fno-rtti
-    -nostdlib
-    -nostdinc
+set(KFLAGS
+        -O2
+        -m32
+        -Wall
+        -Wextra
+        -Wpedantic
+        -Werror
+        -Wno-unused-parameter
+        -Wno-missing-field-initializers
+        -ffreestanding
+        -fno-builtin
+        -fno-stack-protector
+        -fpie
+        -fno-exceptions
+        -fno-rtti
+        -nostdlib
+        -nostdinc
 )
 
 ##################################
