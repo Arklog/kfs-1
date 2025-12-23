@@ -7,4 +7,8 @@
 
 constexpr void * NULL = (void *)0;
 
+constexpr int INT_MAX = 2147483647;
+
+constexpr int INT_MIN = -2147483648;
+
 #endif //KFS_1_DEFINES_HPP

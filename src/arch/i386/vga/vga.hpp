@@ -53,6 +53,12 @@ namespace vga {
 
         uint16_t raw;
 
+        t_vga_char() = default;
+
+        t_vga_char(uint8_t ascii, uint8_t color);
+
+        t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background);
+
         /**
          * Get the foreground color
          * @return
@@ -85,17 +91,6 @@ namespace vga {
          */
         void set_color(color::t_vga_color foreground, color::t_vga_color background);
     };
-
-    /**
-     * Create a VGA character with specified ASCII and colors
-     *
-     * @param character ASCII character
-     * @param fg Foreground color
-     * @param bg Background color
-     *
-     * @return VGA character
-     */
-    t_vga_char vga_get_color(uint8_t character, color::vga_color fg = color::WHITE, color::vga_color bg = color::BLACK);
 
     inline const char *endl = "\n";
 }
