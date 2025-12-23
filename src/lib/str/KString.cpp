@@ -3,6 +3,9 @@
 //
 
 #include "KString.hpp"
+
+#include "core/defines.hpp"
+
 namespace kstring {
     unsigned int strlen(const char *str) {
         unsigned int len = 0;
@@ -61,14 +64,13 @@ namespace kstring {
         dest[i] = '\0';
     }
 
-    void memcpy (void *dest, const void *src, const unsigned len) {
-        char    *dst = (char *)dest;
-        const char *s = (char *)src;
-        unsigned int i = 0;
-        while (s[i] && i < len) {
-            dst[i] = s[i];
-            ++i;
-        }
+    void memcpy(void* dest, const void* src, unsigned int len)
+    {
+        auto* d = static_cast<unsigned char*>(dest);
+        auto* s = static_cast<const unsigned char*>(src);
+
+        for (unsigned int i = 0; i < len; ++i)
+            d[i] = s[i];
     }
 
     int safe_atoi(const char *str, int *res) {
@@ -85,8 +87,8 @@ namespace kstring {
         }
         if (!str[i]) return 1;
         while (str[i]) {
-            if (str[i] <= '0' || str[i] >= '9') break;
-            if (*res * 10 + str[i] - 49 < *res) return 1;
+            if (str[i] < '0' || str[i] > '9') break;
+            if (*res > *res * 10 + str[i] - 49) return 1;
             *res = *res * 10 + str[i] - 48;
             ++i;
         }

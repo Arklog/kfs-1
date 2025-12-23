@@ -65,7 +65,7 @@ namespace kstring {
      * @param src segment to copy
      * @param len max index
      */
-    void            memcpy(void *dest, const void *src, unsigned len);
+    void            memcpy(void *dest, const void *src, unsigned int len);
 
     /**
      * create an int from a char string. This implementation avoids int overflow and will return 0 if the result is ok, 1 otherwise.
