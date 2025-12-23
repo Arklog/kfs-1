@@ -10,7 +10,8 @@ jobs:
           g++-multilib \
           nasm \
           grub2-common \
-          xorriso
+          xorriso \
+          mtools
 
       - uses: actions/checkout@v2
 
