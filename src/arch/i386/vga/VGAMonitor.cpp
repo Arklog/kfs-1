@@ -118,4 +118,8 @@ namespace vga {
         return *this;
     }
 
+    VGAMonitor & VGAMonitor::operator<<(const modifier::VGAStreamColorModifier &modifier) {
+        modifier(color);
+        return *this;
+    }
 }

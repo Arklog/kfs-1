@@ -20,4 +20,4 @@ add_library(libvga64 STATIC
     VGACursor.hpp
 )
 target_include_directories(libvga64 PRIVATE . ${CMAKE_SOURCE_DIR}/src)
-target_compile_options(libvga64 PRIVATE ${KERN_COMPILER_FLAGS} -m64)
+target_compile_options(libvga64 PRIVATE ${KERN_COMPILER_FLAGS})

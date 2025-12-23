@@ -54,5 +54,11 @@ add_subdirectory(src)
 # Tests
 ##################################
 
+include(CTest)
+include(Catch)
+target_compile_options(Catch2 PUBLIC -m32)
+target_link_options(Catch2 PUBLIC -m32)
+target_compile_options(Catch2WithMain PUBLIC -m32)
+target_link_options(Catch2WithMain PUBLIC -m32)
 enable_testing()
 add_subdirectory(tests)

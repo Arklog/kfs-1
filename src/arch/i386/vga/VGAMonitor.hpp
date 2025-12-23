@@ -12,6 +12,10 @@
 #include "VGADisplay.hpp"
 
 namespace vga {
+    namespace modifier {
+        class VGAStreamColorModifier;
+    }
+
     /**
      * High-level terminal interface. Coordinates the buffer, cursor and display logics.
      */
@@ -73,16 +77,28 @@ namespace vga {
          */
         VGAMonitor &operator<<(const char str);
 
+        /**
+         * Process a color stream modifier
+         *
+         * @param modifier
+         * @return
+         */
+        VGAMonitor&operator<<(const modifier::VGAStreamColorModifier& modifier);
+
     private:
         ScrollbackBuffer _buffer;
         VGACursor        _cursor;
+        uint8_t         _color;
+
 
         uint32_t _view_line;
+
 
         /**
          * refreshes the VGA display and cursor.
          */
-        void _refresh();
+        void       _refresh();
+
     };
 
 }
