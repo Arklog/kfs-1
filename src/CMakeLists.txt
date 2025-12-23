@@ -6,4 +6,4 @@ add_library(kernel STATIC
 )
 target_include_directories(kernel PRIVATE .)
 target_link_libraries(kernel PRIVATE libvga)
-target_compile_options(kernel PRIVATE ${KERN_COMPILER_FLAGS})
+target_compile_options(kernel PRIVATE ${KFLAGS})
