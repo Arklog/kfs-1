@@ -6,7 +6,7 @@ target_link_libraries(test_logging PRIVATE
         Catch2::Catch2WithMain
         format
         libstring
-        logging
+        logging_test
 )
 target_compile_options(test_logging PRIVATE -m32)
 target_compile_options(test_logging PUBLIC -DMONITOR_MACRO=std::ofstream)

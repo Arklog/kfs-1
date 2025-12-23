@@ -17,6 +17,8 @@
 
 #ifndef MONITOR_MACRO
 # define MONITOR_MACRO vga::VGAMonitor
+#else
+# include <fstream>
 #endif
 
 namespace logging {
@@ -68,7 +70,7 @@ namespace logging {
      * @return The number of character written
      */
     template<typename... TArgs>
-    int printk(t_log_level log_level, const char *format, TArgs... args) {
+    inline int printk(t_log_level log_level, const char *format, TArgs... args) {
         static char buffer[LOG_BUFFER_SIZE];
         auto &      logger = get_logger();
 

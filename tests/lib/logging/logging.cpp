@@ -14,3 +14,7 @@ TEST_CASE("kprint", "[log]") {
 
     logging::set_logger(output);
 }
+
+std::ostream &operator<<(std::ostream &stream, const vga::modifier::VGAStreamColorModifier &mod) {
+    return stream;
+}
