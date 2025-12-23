@@ -11,12 +11,11 @@
 #endif
 
 #include "arch/i386/vga/vga.hpp"
-#include "arch/i386/vga/VGAMonitor.hpp"
 #include "lib/format/format.hpp"
-#include "lib/str/KString.hpp"
 
 #ifndef TEST
 # define MONITOR_MACRO vga::VGAMonitor
+# include "arch/i386/vga/VGAMonitor.hpp"
 #else
 # include <fstream>
 # define MONITOR_MACRO std::ofstream
