@@ -17,10 +17,10 @@ TEST_CASE("kprint", "[log]") {
     };
 
     logging::set_logger(output);
-    logging::printk(logging::DEBUG, "\n");
-    logging::printk(logging::INFO, "\n");
-    logging::printk(logging::WARN, "\n");
-    logging::printk(logging::ERROR, "\n");
+    logging::printk(logging::DEBUG, "");
+    logging::printk(logging::INFO, "");
+    logging::printk(logging::WARN, "");
+    logging::printk(logging::ERROR, "");
     output.close();
 
     std::ifstream     input("kprint.txt");
@@ -38,7 +38,7 @@ TEST_CASE("debug", "[log]") {
     };
 
     logging::set_logger(output);
-    logging::debug("{} {} {} test\n", 1, 2, 3);
+    logging::debug("{} {} {} test", 1, 2, 3);
     output.close();
 
     std::ifstream     input("debug.txt");
@@ -56,7 +56,7 @@ TEST_CASE("info", "[log]") {
     };
 
     logging::set_logger(output);
-    logging::info("{} {}\n", "test", 12);
+    logging::info("{} {}", "test", 12);
     output.close();
 
     std::ifstream     input("info.txt");
@@ -73,7 +73,7 @@ TEST_CASE("warn", "[log]") {
             "[WARN ]: test 12\n"
     };
     logging::set_logger(output);
-    logging::warn("{} {}\n", "test", 12);
+    logging::warn("{} {}", "test", 12);
     output.close();
 
     std::ifstream     input("warn.txt");
@@ -90,7 +90,7 @@ TEST_CASE("error", "[log]") {
             "[ERROR]: test 12\n"
     };
     logging::set_logger(output);
-    logging::error("{} {}\n", "test", 12);
+    logging::error("{} {}", "test", 12);
     output.close();
 
     std::ifstream     input("error.txt");

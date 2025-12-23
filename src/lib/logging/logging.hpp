@@ -70,7 +70,7 @@ namespace logging {
      * @return The number of character written
      */
     template<typename... TArgs>
-    inline int printk(t_log_level log_level, const char *format, TArgs... args) {
+    int printk(t_log_level log_level, const char *format, TArgs... args) {
         static char buffer[LOG_BUFFER_SIZE];
         auto &      logger = get_logger();
 
@@ -86,8 +86,8 @@ namespace logging {
 
         auto endbuffer = format::fmt(buffer, format, args...);
 
-        logger << buffer;
-        return endbuffer - buffer + 9;
+        logger << buffer << "\n";
+        return endbuffer - buffer + 9 + 1;
     }
 
     /**

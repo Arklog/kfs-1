@@ -5,6 +5,7 @@
 #include "arch/i386/vga/vga.hpp"
 #include "arch/i386/vga/VGAMonitor.hpp"
 #include "arch/i386/vga/VGAStreamModifier.hpp"
+#include "lib/logging/logging.hpp"
 
 extern "C" void k_main() {
     vga::VGAMonitor monitor{};
@@ -33,6 +34,9 @@ extern "C" void k_main() {
     }
 
     monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK) << vga::endl;
+
+    logging::set_logger(monitor);
+    logging::info("logging initialized");
 
     while (true) {
     }
