@@ -35,10 +35,13 @@ namespace vga {
         };
 
         using t_color_set = enum {
-            WHITE_ON_BLACK = BLACK << 4 | WHITE,
             BLACK_ON_WHITE = WHITE << 4 | BLACK,
+            CYAN_ON_BLACK  = CYAN << 4 | BLACK,
             GREEN_ON_BLACK = BLACK << 4 | GREEN,
             RED_ON_BLACK   = BLACK << 4 | RED,
+            WHITE_ON_BLACK = BLACK << 4 | WHITE,
+            BROWN_ON_BLACK = BROWN << 4 | BLACK,
+            DEFAULT        = WHITE_ON_BLACK
         };
     }
 
