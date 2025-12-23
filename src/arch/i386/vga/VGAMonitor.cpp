@@ -22,7 +22,7 @@ namespace vga {
         _refresh();
     }
 
-    void VGAMonitor::put_char(const char c) {
+    void VGAMonitor::put_char(unsigned char c) {
         if (c == '\n') {
             _cursor.newline();
             _buffer.newline(_cursor.line, _cursor.column);
@@ -33,7 +33,7 @@ namespace vga {
                 put_char(' ');
             return;
         } else {
-            _buffer.write(_cursor, vga_get_color(c));
+            _buffer.write(_cursor, t_vga_char{c, _color});
             _cursor.advance();
         }
 

@@ -14,7 +14,7 @@ vga::VGAMonitor g_monitor;
 extern "C" void k_main() {
     const char *bpad = "                         ";
     const char *apad = "                          ";
-    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::BLACK_ON_WHITE)
+    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK)
             << bpad << " /$$   /$$ /$$$$$$$$ /$$$$$$ " << apad
             << bpad << "| $$  /$$/| $$_____//$$__  $$" << apad
             << bpad << "| $$ /$$/ | $$     | $$  \\__/" << apad
