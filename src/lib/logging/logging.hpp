@@ -15,8 +15,12 @@
 #include "lib/format/format.hpp"
 #include "lib/str/KString.hpp"
 
-namespace log {
-    using t_logger       = vga::VGAMonitor;
+#ifndef MONITOR_MACRO
+# define MONITOR_MACRO vga::VGAMonitor
+#endif
+
+namespace logging {
+    using t_logger       = MONITOR_MACRO;
     using t_logger_color = vga::color::t_color_set;
 
     /**
