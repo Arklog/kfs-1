@@ -22,8 +22,8 @@ namespace vga {
 
     void VGAMonitor::put_char(const char c) {
         if (c == '\n') {
-            _cursor.newline();
             _buffer.newline(_cursor.line, _cursor.column);
+            _cursor.newline();
         } else if (c == '\r') {
             _cursor.set(_cursor.line, 0);
         } else if (c == '\t') {
@@ -56,6 +56,8 @@ namespace vga {
             --_view_line;
         } if (_cursor.line > 0) {
             --_cursor.line;
+            if (_cursor.column > _buffer.line_length(_cursor.line))
+                _cursor.column = _buffer.line_length(_cursor.line);
         }
         _refresh();
     }
@@ -65,6 +67,8 @@ namespace vga {
             ++_view_line;
         } if (_cursor.line + 1 < _buffer.line_count()) {
             ++_cursor.line;
+            if (_cursor.column > _buffer.line_length(_cursor.line))
+                _cursor.column = _buffer.line_length(_cursor.line);
         }
         _refresh();
     }
