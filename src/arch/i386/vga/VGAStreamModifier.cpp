@@ -1,3 +1,4 @@
+
 //
 // Created by pierre on 12/18/25.
 //
@@ -62,16 +63,5 @@ namespace vga::modifier {
     void VGAStreamForegroundModifier::operator()(uint8_t &color_byte) const {
         // change the foreground bits and keep the background ones
         color_byte = static_cast<uint8_t>((color_byte & 0xF0) | (_color & 0x0F));
-    }
-
-    //
-    // VGASetLineModifier
-    //
-    VGASetLineModifier::VGASetLineModifier(uint16_t line) :
-        VGAStreamCursorModifier(), _line{line} {
-    }
-
-    void VGASetLineModifier::operator()(VGACursor &cursor) const {
-        cursor.set_line(_line);
     }
 } // vga
