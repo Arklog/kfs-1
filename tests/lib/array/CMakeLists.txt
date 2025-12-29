@@ -5,11 +5,10 @@
 
 add_executable(test_array
         KArray.cpp
-        Iterator.cpp
 )
 target_link_libraries(test_array
         PRIVATE
-        container
+        libarray
         Catch2::Catch2WithMain
 )
 target_include_directories(

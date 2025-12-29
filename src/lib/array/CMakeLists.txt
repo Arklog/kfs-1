@@ -3,14 +3,10 @@
 # This file sets up the utils static library
 ################################################
 
-add_library(container STATIC
+add_library(libarray STATIC
         KArray.cpp
         KArray.hpp
-        Iterator.cpp
-        Iterator.hpp
-        Container.cpp
-        Container.hpp
 )
-target_compile_options(container PRIVATE
+target_compile_options(libarray PRIVATE
         ${KERN_COMPILER_FLAGS}
 )
