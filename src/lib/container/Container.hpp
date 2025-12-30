@@ -45,8 +45,6 @@ namespace container {
          */
         virtual T *data() const = 0;
 
-        // virtual const T *data() const = 0;
-
         /**
          * Get the number of allocated object of the container
          * @return

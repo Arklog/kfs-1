@@ -64,10 +64,6 @@ namespace container {
             return const_cast<T *>(this->_data);
         }
 
-        // const T *data() const override {
-        // return this->data;
-        // }
-
         size_type size() const override { return N; };
 
     private:
