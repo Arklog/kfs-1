@@ -4,7 +4,7 @@
 ################################################
 
 add_executable(test_array
-        KArray.cpp
+        Array.cpp
         Iterator.cpp
 )
 target_link_libraries(test_array

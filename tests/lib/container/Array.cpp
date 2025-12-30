@@ -1,0 +1,97 @@
+//
+// Created by pierre on 12/17/25.
+//
+#include <catch2/catch_all.hpp>
+#include <lib/container/Array.hpp>
+
+template<typename IterType, typename ValueType>
+concept non_const_iterator = requires(IterType it, ValueType val)
+{
+    *it = val;
+};
+
+template<typename IterType, typename ValueType>
+concept const_iterator = !non_const_iterator<IterType, ValueType>;
+
+TEST_CASE("KArray", "[KArray]") {
+    SECTION("CTOR") {
+        container::Array<int, 10> arr{};
+        REQUIRE(true);
+    }
+
+    SECTION("CTOR with data") {
+        int                      data[3] = {1, 2, 3};
+        container::Array<int, 3> arr(data);
+        REQUIRE(arr[0] == 1);
+        REQUIRE(arr[1] == 2);
+        REQUIRE(arr[2] == 3);
+    }
+
+    SECTION("CTOR with data2") {
+        container::Array<int, 3> arr(1, 2, 3);
+
+        REQUIRE(arr[0] == 1);
+        REQUIRE(arr[1] == 2);
+        REQUIRE(arr[2] == 3);
+    }
+
+    SECTION("Operator+") {
+        int data1[2] = {1, 2};
+        int data2[3] = {3, 4, 5};
+
+        container::Array<int, 2> arr1(data1);
+        container::Array<int, 3> arr2(data2);
+        auto                     arr3 = arr1 + arr2;
+
+        REQUIRE(arr3.size() == 5);
+        REQUIRE(arr3[0] == 1);
+        REQUIRE(arr3[1] == 2);
+        REQUIRE(arr3[2] == 3);
+        REQUIRE(arr3[3] == 4);
+        REQUIRE(arr3[4] == 5);
+    }
+
+    SECTION("Operator[]") {
+        int                      arr[3] = {10, 20, 30};
+        container::Array<int, 3> kArr(arr);
+
+        kArr[1] = 0;
+
+        REQUIRE(kArr[0] == 10);
+        REQUIRE(kArr[1] == 0);
+        REQUIRE(kArr[2] == 30);
+    }
+
+    SECTION("range loop") {
+        int                      arr[3] = {1, 2, 3};
+        container::Array<int, 3> karr(arr);
+
+        for (auto i: karr) {
+            continue;
+        }
+    }
+
+    SECTION("iterator") {
+        using arrayclass = container::Array<int, 3>;
+        static_assert(non_const_iterator<arrayclass::iterator, int>, "iterator should not be const");
+        static_assert(const_iterator<arrayclass::const_iterator, int>, "const iterator should be const");
+    }
+
+    SECTION("begin") {
+        int                      arr[3] = {1, 2, 3};
+        container::Array<int, 3> karr(arr);
+
+        auto iter  = karr.begin();
+        auto citer = karr.cbegin();
+        REQUIRE(*iter == 1);
+        REQUIRE(*citer == 1);
+    }
+
+    SECTION("end") {
+        int                      arr[3] = {1, 2, 3};
+        container::Array<int, 3> karr(arr);
+
+        REQUIRE(karr.begin() + 3 == karr.end());
+        REQUIRE(karr.cbegin() + 3 == karr.cend());
+    }
+}
