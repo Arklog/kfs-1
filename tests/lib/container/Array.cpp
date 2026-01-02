@@ -3,6 +3,7 @@
 //
 #include <catch2/catch_all.hpp>
 #include <lib/container/Array.hpp>
+#include <string>
 
 template<typename IterType, typename ValueType>
 concept non_const_iterator = requires(IterType it, ValueType val)
@@ -95,7 +96,7 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(karr.cbegin() + 3 == karr.cend());
     }
 
-    SECTION("insert one") {
+    SECTION("insert one (trivial)") {
         auto arr = container::Array<int, 3>(1, 2, 3);
 
         arr.insert(arr.begin(), 0);
@@ -118,7 +119,28 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(res == arr.end());
     }
 
-    SECTION("insert many") {
+    SECTION("insert one (non trivial)") {
+        static_assert(!__is_trivially_copyable(std::string));
+
+        auto arr = container::Array<std::string, 3>("aa", "bb", "cc");
+
+        arr.insert(arr.begin(), "dd");
+        REQUIRE(arr[0] == "dd");
+        REQUIRE(arr[1] == "aa");
+        REQUIRE(arr[2] == "bb");
+
+        arr.insert(arr.begin() + 1, "ee");
+        REQUIRE(arr[0] == "dd");
+        REQUIRE(arr[1] == "ee");
+        REQUIRE(arr[2] == "aa");
+
+        arr.insert(arr.end() - 1, "ff");
+        REQUIRE(arr[0] == "dd");
+        REQUIRE(arr[1] == "ee");
+        REQUIRE(arr[2] == "ff");
+    }
+
+    SECTION("insert many (trivial)") {
         auto arr  = container::Array<int, 3>(1, 2, 3);
         auto arr2 = container::Array<int, 3>(4, 5, 6);
 
@@ -137,6 +159,28 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr.insert(arr.begin(), arr2.end(), arr2.begin()) == arr.end());
         REQUIRE(arr.insert(arr.begin() - 1, arr2.begin(), arr2.end()) == arr.end());
         REQUIRE(arr.insert(arr.begin(), arr2.begin(), arr2.end() + 1) == arr.end());
+    }
+
+    SECTION("insert many (non trivial)") {
+        static_assert(!__is_trivially_copyable(std::string));
+        auto arr  = container::Array<std::string, 3>("aa", "bb", "cc");
+        auto arr2 = container::Array<std::string, 3>("dd", "ee", "ff");
+
+        arr.insert(arr.begin(), arr2.begin(), arr2.end());
+        REQUIRE(arr[0] == "dd");
+        REQUIRE(arr[1] == "ee");
+        REQUIRE(arr[2] == "ff");
+
+        arr.insert(arr.begin() + 1, arr2.begin(), arr2.begin() + 1);
+        REQUIRE(arr[0] == "dd");
+        REQUIRE(arr[1] == "dd");
+        REQUIRE(arr[2] == "ee");
+
+        arr[0] = "aa";
+        arr.insert(arr.begin(), arr2.begin(), arr2.begin() + 2);
+        REQUIRE(arr[0] == "dd");
+        REQUIRE(arr[1] == "ee");
+        REQUIRE(arr[2] == "aa");
     }
 
     SECTION("emplace") {

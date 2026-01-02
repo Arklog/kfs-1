@@ -72,20 +72,31 @@ namespace container {
             new(static_cast<T *>(iter)) T(args...);
         }
 
-        iterator insert(iterator iter, T &&value) override {
-            if (iter >= end() || iter < begin())
+        iterator insert(iterator position, T &&value) override {
+            if (position >= end() || position < begin())
                 return end();
 
-            const auto distance = iter - begin();
+            const auto distance = position - begin();
 
-            memmove(_data + distance + 1, _data + distance, (end() - iter) * sizeof(T));
-            *iter = value;
+            if constexpr (__is_trivially_copyable(T)) {
+                memmove(_data + distance + 1, _data + distance, (end() - position - 1) * sizeof(T));
+            } else {
+                // call dtor
+                auto iter = end() - 1;
+                while (iter != position) {
+                    (*iter).~T();
+                    new(static_cast<T *>(iter)) T(*(iter - 1));
+                    --iter;
+                }
+            }
 
-            return iter;
+            new(static_cast<T *>(position)) T(value);
+
+            return position;
         }
 
         /**
-         * Insert the range [_begin, _end] at position. Elements will be displaced in order to create the place to store
+         * Insert the range [_begin, _end[ at position. Elements will be displaced in order to create the place to store
          * the range being deleted when out of bound.
          *
          * @param position
@@ -113,8 +124,25 @@ namespace container {
             if (new_elems > remaining_till_end)
                 return end();
 
-            memmove(_data + distance + new_elems, _data + distance, to_displace * sizeof(T));
-            memcpy(_data + distance, static_cast<T *>(_begin), new_elems * sizeof(T));
+            if constexpr (__is_trivially_copyable(T)) {
+                memmove(_data + distance + new_elems, _data + distance, to_displace * sizeof(T));
+                memcpy(_data + distance, static_cast<T *>(_begin), new_elems * sizeof(T));
+            } else {
+                auto iter = end() - 1;
+                while (to_displace) {
+                    (*iter).~T();
+                    new(static_cast<T *>(iter)) T(*(iter - new_elems));
+                    --iter;
+                    --to_displace;
+                }
+
+                iter = position;
+                while (iter < position + new_elems) {
+                    new(static_cast<T *>(iter)) T(*_begin);
+                    ++_begin;
+                    ++iter;
+                }
+            }
 
             return position;
         }
