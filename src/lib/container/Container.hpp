@@ -62,14 +62,15 @@ namespace container {
         virtual iterator insert(iterator position, T &&value) = 0;
 
         /**
-         * Insert a range at position
+         * Insert at most end() - position elements from the range [_begin, _end] at position position.
          *
          * @param position The position at which to insert
-         * @param begin
-         * @param end
-         * @return
+         * @param _begin The start of the range to insert
+         * @param _end The end of the range to insert
+         *
+         * @return The position at which the elements have been inserted or end on failure.
          */
-        // virtual iterator insert(iterator &position, iterator &begin, iterator &end) = 0;
+        virtual iterator insert(iterator position, iterator _begin, iterator _end) = 0;
     };
 } // container
 

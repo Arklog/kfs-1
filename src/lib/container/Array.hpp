@@ -7,6 +7,7 @@
 
 #include "Container.hpp"
 #include "Iterator.hpp"
+#include "lib/math/math.hpp"
 #include "lib/str/KString.hpp"
 
 namespace container {
@@ -72,7 +73,7 @@ namespace container {
         }
 
         iterator insert(iterator iter, T &&value) override {
-            if (iter >= end())
+            if (iter >= end() || iter < begin())
                 return end();
 
             const auto distance = iter - begin();
@@ -81,6 +82,41 @@ namespace container {
             *iter = value;
 
             return iter;
+        }
+
+        /**
+         * Insert the range [_begin, _end] at position. Elements will be displaced in order to create the place to store
+         * the range being deleted when out of bound.
+         *
+         * @param position
+         * @param _begin
+         * @param _end
+         *
+         * @warning Will fail if:
+         * - position >= end()
+         * - position < begin()
+         * - _begin < _end
+         * - not enough place to store the range
+         *
+         * @return An iterator to the inserted elements position or end() in case of failure.
+         */
+        iterator insert(iterator position, iterator _begin, iterator _end) override {
+            if (position >= end() || position < begin() || _begin > _end)
+                return end();
+
+            auto distance           = position - begin();
+            auto remaining_till_end = end() - position;
+            auto new_elems          = _end - _begin;
+            auto to_displace        = remaining_till_end - new_elems;
+
+            // Avoid overflow
+            if (new_elems > remaining_till_end)
+                return end();
+
+            memmove(_data + distance + new_elems, _data + distance, to_displace * sizeof(T));
+            memcpy(_data + distance, static_cast<T *>(_begin), new_elems * sizeof(T));
+
+            return position;
         }
 
     private:

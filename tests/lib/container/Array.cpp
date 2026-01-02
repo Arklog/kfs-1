@@ -94,6 +94,7 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(karr.begin() + 3 == karr.end());
         REQUIRE(karr.cbegin() + 3 == karr.cend());
     }
+
     SECTION("insert one") {
         auto arr = container::Array<int, 3>(1, 2, 3);
 
@@ -108,8 +109,34 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr[1] == 0);
         REQUIRE(arr[2] == 2);
 
+        arr.insert(arr.end() - 1, 1);
+        REQUIRE(arr[0] == 1);
+        REQUIRE(arr[1] == 0);
+        REQUIRE(arr[2] == 1);
+
         auto res = arr.insert(arr.end(), 0);
         REQUIRE(res == arr.end());
+    }
+
+    SECTION("insert many") {
+        auto arr  = container::Array<int, 3>(1, 2, 3);
+        auto arr2 = container::Array<int, 3>(4, 5, 6);
+
+        arr.insert(arr.begin(), arr2.begin(), arr2.end());
+        REQUIRE(arr[0] == 4);
+        REQUIRE(arr[1] == 5);
+        REQUIRE(arr[2] == 6);
+
+        arr.insert(arr.begin() + 1, arr2.begin(), arr2.begin() + 2);
+        REQUIRE(arr[0] == 4);
+        REQUIRE(arr[1] == 4);
+        REQUIRE(arr[2] == 5);
+
+        // Failure case
+        REQUIRE(arr.insert(arr.end(), arr2.begin(), arr2.end()) == arr.end());
+        REQUIRE(arr.insert(arr.begin(), arr2.end(), arr2.begin()) == arr.end());
+        REQUIRE(arr.insert(arr.begin() - 1, arr2.begin(), arr2.end()) == arr.end());
+        REQUIRE(arr.insert(arr.begin(), arr2.begin(), arr2.end() + 1) == arr.end());
     }
 
     SECTION("emplace") {
