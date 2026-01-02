@@ -66,6 +66,23 @@ namespace container {
 
         size_type size() const override { return N; };
 
+        template<typename... Args>
+        void emplace(const iterator &iter, Args &&... args) {
+            new(static_cast<T *>(iter)) T(args...);
+        }
+
+        iterator insert(iterator iter, T &&value) override {
+            if (iter >= end())
+                return end();
+
+            const auto distance = iter - begin();
+
+            memmove(_data + distance + 1, _data + distance, (end() - iter) * sizeof(T));
+            *iter = value;
+
+            return iter;
+        }
+
     private:
         T _data[N];
     };

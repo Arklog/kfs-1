@@ -50,6 +50,26 @@ namespace container {
          * @return
          */
         virtual size_type size() const = 0;
+
+        /**
+        * Insert one element at position
+        *
+        * @param position The position at which to insert
+        * @param value The value to be inserted
+        *
+        * @return The position at which the element have been inserted or end on failure
+        */
+        virtual iterator insert(iterator position, T &&value) = 0;
+
+        /**
+         * Insert a range at position
+         *
+         * @param position The position at which to insert
+         * @param begin
+         * @param end
+         * @return
+         */
+        // virtual iterator insert(iterator &position, iterator &begin, iterator &end) = 0;
     };
 } // container
 

@@ -26,6 +26,14 @@ namespace container {
 
         virtual bool operator!=(Pointer other) const = 0;
 
+        virtual bool operator >(const Derived &other) const = 0;
+
+        virtual bool operator <(const Derived &other) const = 0;
+
+        virtual bool operator >=(const Derived &other) const = 0;
+
+        virtual bool operator <=(const Derived &other) const = 0;
+
         virtual Derived &operator++() = 0;
 
         virtual Derived operator++(int) = 0;
@@ -37,6 +45,8 @@ namespace container {
         virtual Derived operator+(int) const = 0;
 
         virtual Derived operator-(int) const = 0;
+
+        virtual int operator-(const Derived &) const = 0;
 
         virtual Reference operator*() = 0;
 
@@ -77,6 +87,22 @@ namespace container {
             return !(_item == other);
         }
 
+        bool operator>(const ContiguousIterator &other) const override {
+            return _item > other._item;
+        }
+
+        bool operator<(const ContiguousIterator &other) const override {
+            return _item < other._item;
+        }
+
+        bool operator>=(const ContiguousIterator &other) const override {
+            return _item >= other._item;
+        }
+
+        bool operator<=(const ContiguousIterator &other) const override {
+            return _item <= other._item;
+        }
+
         ContiguousIterator &operator++() override {
             ++_item;
             return *this;
@@ -105,6 +131,10 @@ namespace container {
 
         ContiguousIterator operator-(int n) const override {
             return ContiguousIterator(_item - n);
+        }
+
+        int operator-(const ContiguousIterator &other) const override {
+            return _item - other._item;
         }
 
         Reference operator*() override {

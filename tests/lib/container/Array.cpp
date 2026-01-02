@@ -94,4 +94,33 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(karr.begin() + 3 == karr.end());
         REQUIRE(karr.cbegin() + 3 == karr.cend());
     }
+    SECTION("insert one") {
+        auto arr = container::Array<int, 3>(1, 2, 3);
+
+        arr.insert(arr.begin(), 0);
+        REQUIRE(arr[0] == 0);
+        REQUIRE(arr[1] == 1);
+        REQUIRE(arr[2] == 2);
+
+        arr = container::Array<int, 3>(1, 2, 3);
+        arr.insert(arr.begin() + 1, 0);
+        REQUIRE(arr[0] == 1);
+        REQUIRE(arr[1] == 0);
+        REQUIRE(arr[2] == 2);
+
+        auto res = arr.insert(arr.end(), 0);
+        REQUIRE(res == arr.end());
+    }
+
+    SECTION("emplace") {
+        container::Array<int, 3> arr;
+        arr.emplace(arr.begin(), 1);
+        REQUIRE(arr[0] == 1);
+
+        arr.emplace(arr.begin(), 2);
+        REQUIRE(arr[0] == 2);
+
+        arr.emplace(arr.begin() + 1, 99);
+        REQUIRE(arr[1] == 99);
+    }
 }
