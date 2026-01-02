@@ -27,6 +27,43 @@ TEST_CASE("ContiguousIterator", "[container]") {
         container::ContiguousIterator<int> iter2{test + 1};
 
         REQUIRE(iter != iter2);
+        REQUIRE(iter != test + 1);
+    }
+
+    SECTION("operator>") {
+        int                                test[3] = {1, 2, 3};
+        container::ContiguousIterator<int> iter{test};
+        container::ContiguousIterator<int> iter2{test + 1};
+
+        REQUIRE(iter2 > iter);
+        REQUIRE(!(iter > iter));
+    }
+
+    SECTION("operator<") {
+        int                                test[3] = {1, 2, 3};
+        container::ContiguousIterator<int> iter{test};
+        container::ContiguousIterator<int> iter2{test + 1};
+
+        REQUIRE(iter < iter2);
+        REQUIRE(!(iter > iter));
+    }
+
+    SECTION("operator>=") {
+        int                                test[3] = {1, 2, 3};
+        container::ContiguousIterator<int> iter{test};
+        container::ContiguousIterator<int> iter2{test + 1};
+
+        REQUIRE(iter2 >= iter);
+        REQUIRE(iter >= iter);
+    }
+
+    SECTION("operator<=") {
+        int                                test[3] = {1, 2, 3};
+        container::ContiguousIterator<int> iter{test};
+        container::ContiguousIterator<int> iter2{test + 1};
+
+        REQUIRE(iter <= iter2);
+        REQUIRE(iter <= iter);
     }
 
     SECTION("operator++") {
@@ -75,7 +112,11 @@ TEST_CASE("ContiguousIterator", "[container]") {
     SECTION("operator-") {
         int                                test[3] = {1, 2, 3};
         container::ContiguousIterator<int> iter{test + 1};
+        container::ContiguousIterator<int> iter2{test + 2};
 
         REQUIRE(iter - 1 == test);
+        REQUIRE(iter2 - iter == 1);
+        REQUIRE(iter - iter == 0);
+        REQUIRE(iter - iter2 == -1);
     }
 }
