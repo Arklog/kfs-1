@@ -65,7 +65,7 @@ namespace kstring {
      * @param src segment to copy
      * @param len max index
      */
-    void            memcpy(void *dest, const void *src, unsigned len);
+    void            memcpy(void *dest, const void *src, unsigned int len);
 
     /**
      * Compare the first len bytes of b1 and b2. Return the difference of the first non-identical byte or 0 if the

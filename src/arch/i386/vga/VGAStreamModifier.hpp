@@ -19,6 +19,7 @@ namespace vga::modifier {
     class VGAStreamModifier {
     public:
         VGAStreamModifier() = default;
+
         virtual ~VGAStreamModifier() = default;
     };
 
@@ -28,6 +29,7 @@ namespace vga::modifier {
     class VGAStreamCursorModifier : public VGAStreamModifier {
     public:
         VGAStreamCursorModifier() = default;
+
         ~VGAStreamCursorModifier() override = default;
 
         virtual void operator()(VGACursor &cursor) const = 0;
@@ -42,19 +44,23 @@ namespace vga::modifier {
 
     public:
         VGAStreamColorModifier(uint8_t color);
+
         VGAStreamColorModifier(color::vga_color foreground, color::vga_color background);
+
         ~VGAStreamColorModifier() override = default;
 
-        virtual void operator()(uint8_t&) const;
+        virtual void operator()(uint8_t &) const;
     };
 
     /**
      * Allow for VGA background color output modifications
      */
-    class VGAStreamBackgroundModifier: public  VGAStreamColorModifier {
+    class VGAStreamBackgroundModifier : public VGAStreamColorModifier {
     public:
         explicit VGAStreamBackgroundModifier(uint8_t bg_color);
+
         explicit VGAStreamBackgroundModifier(color::t_vga_color bg_color);
+
         ~VGAStreamBackgroundModifier() override = default;
 
         void operator()(uint8_t &color_byte) const override;
@@ -63,26 +69,13 @@ namespace vga::modifier {
     /**
      * Allow for VGA foreground color output modifications
      */
-    class VGAStreamForegroundModifier: public  VGAStreamColorModifier {
+    class VGAStreamForegroundModifier : public VGAStreamColorModifier {
     public:
         explicit VGAStreamForegroundModifier(uint8_t foreground);
+
         explicit VGAStreamForegroundModifier(color::vga_color foreground);
 
         void operator()(uint8_t &color_byte) const override;
-    };
-
-    /**
-     * Stream modifier to set the cursor to a specific line.
-     */
-    class VGASetLineModifier : public VGAStreamCursorModifier {
-    public:
-        explicit VGASetLineModifier(uint16_t line);
-        ~VGASetLineModifier() override = default;
-
-        void operator()(VGACursor &cursor) const override;
-
-    private:
-        uint16_t _line;
     };
 } // vga
 
