@@ -27,12 +27,28 @@ TEST_CASE("t_vga_char", "[libvga]") {
     SECTION("color set") {
         vga::t_vga_char c{};
 
+        c.data.color = vga::color::BLACK_ON_WHITE;
+        REQUIRE(c.get_foreground() == vga::color::BLACK);
+        REQUIRE(c.get_background() == vga::color::WHITE);
+
+        c.data.color = vga::color::CYAN_ON_BLACK;
+        REQUIRE(c.get_foreground() == vga::color::CYAN);
+        REQUIRE(c.get_background() == vga::color::BLACK);
+
+        c.data.color = vga::color::GREEN_ON_BLACK;
+        REQUIRE(c.get_foreground() == vga::color::GREEN);
+        REQUIRE(c.get_background() == vga::color::BLACK);
+
+        c.data.color = vga::color::RED_ON_BLACK;
+        REQUIRE(c.get_foreground() == vga::color::RED);
+        REQUIRE(c.get_background() == vga::color::BLACK);
+
         c.data.color = vga::color::WHITE_ON_BLACK;
         REQUIRE(c.get_foreground() == vga::color::WHITE);
         REQUIRE(c.get_background() == vga::color::BLACK);
 
-        c.data.color = vga::color::BLACK_ON_WHITE;
-        REQUIRE(c.get_foreground() == vga::color::BLACK);
-        REQUIRE(c.get_background() == vga::color::WHITE);
+        c.data.color = vga::color::BROWN_ON_BLACK;
+        REQUIRE(c.get_foreground() == vga::color::BROWN);
+        REQUIRE(c.get_background() == vga::color::BLACK);
     }
 }

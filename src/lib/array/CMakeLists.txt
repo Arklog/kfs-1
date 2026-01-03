@@ -8,5 +8,5 @@ add_library(libarray STATIC
         KArray.hpp
 )
 target_compile_options(libarray PRIVATE
-        ${KERN_COMPILER_FLAGS}
+        ${KFLAGS}
 )
