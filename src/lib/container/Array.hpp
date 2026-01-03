@@ -138,6 +138,7 @@ namespace container {
 
                 iter = position;
                 while (iter < position + new_elems) {
+                    (*iter).~T();
                     new(static_cast<T *>(iter)) T(*_begin);
                     ++_begin;
                     ++iter;

@@ -14,6 +14,22 @@ concept non_const_iterator = requires(IterType it, ValueType val)
 template<typename IterType, typename ValueType>
 concept const_iterator = !non_const_iterator<IterType, ValueType>;
 
+class TestDtorCalled {
+private:
+    bool *_check;
+
+public:
+    TestDtorCalled() :
+        _check(nullptr) {
+    }
+
+    TestDtorCalled(bool *check) :
+        _check(check) {
+    }
+
+    ~TestDtorCalled() { *_check = true; }
+};
+
 TEST_CASE("KArray", "[KArray]") {
     SECTION("CTOR") {
         container::Array<int, 10> arr{};
@@ -181,6 +197,23 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr[0] == "dd");
         REQUIRE(arr[1] == "ee");
         REQUIRE(arr[2] == "aa");
+
+        // check dtor is called on insert
+        static_assert(!__is_trivially_copyable(TestDtorCalled));
+        bool dtorcheck1 = false;
+        bool dtorcheck2 = false;
+        auto check_arr1 = container::Array<TestDtorCalled, 1>();
+        auto check_arr2 = container::Array<TestDtorCalled, 1>();
+
+        check_arr1.emplace(check_arr1.begin(), &dtorcheck1);
+        check_arr2.emplace(check_arr2.begin(), &dtorcheck2);
+
+        REQUIRE(dtorcheck1 == false);
+        REQUIRE(dtorcheck2 == false);
+
+        check_arr1.insert(check_arr1.begin(), check_arr2.begin(), check_arr2.end());
+        REQUIRE(dtorcheck1 == true);
+        REQUIRE(dtorcheck2 == false);
     }
 
     SECTION("emplace") {
