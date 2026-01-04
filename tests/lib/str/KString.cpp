@@ -108,6 +108,18 @@ TEST_CASE("KString", "[kstring]") {
         REQUIRE(std::memcmp(dest, src, 128) == 0);
     }
 
+    SECTION("memmove") {
+        char buff[128];
+
+        std::memcpy(buff, "12345", 5);
+        memmove(buff, buff + 1, 4);
+        REQUIRE(std::memcmp(buff, "23455", 5) == 0);
+
+        std::memcpy(buff, "12345", 5);
+        memmove(buff + 1, buff, 4);
+        REQUIRE(std::memcmp(buff, "11234", 5) == 0);
+    }
+
     SECTION("memcmp") {
         char b1[128];
         char b2[128];
