@@ -109,7 +109,7 @@ extern "C" void k_main() {
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << "Hello, World!" << vga::endl;
 
-    logging::set_logger(monitor);
+    logging::set_logger(g_monitor);
     logging::info("logging initialized");
 
     while (true) {
