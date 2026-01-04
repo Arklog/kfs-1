@@ -6,6 +6,7 @@
 #include "arch/i386/vga/vga.hpp"
 #include "arch/i386/vga/VGAMonitor.hpp"
 #include "arch/i386/vga/VGAStreamModifier.hpp"
+#include "lib/logging/logging.hpp"
 #include "arch/i386/keyboard/keyboardHandler.hpp"
 
 vga::VGAMonitor g_monitor;
@@ -107,6 +108,9 @@ extern "C" void k_main() {
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << "Hello, World!" << vga::endl;
+
+    logging::set_logger(g_monitor);
+    logging::info("logging initialized");
 
     while (true) {
         kbd::handler();
