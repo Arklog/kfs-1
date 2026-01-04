@@ -7,7 +7,7 @@
 
 TEST_CASE("KString", "[kstring]") {
     SECTION("strlen") {
-        const char *str = "strken";
+        const char *str  = "strken";
         const char *str2 = "1";
         const char *str3 = "";
         const char *str4 = "a\0b";
@@ -81,7 +81,7 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("strcpy") {
-        char buffer[128];
+        char        buffer[128];
         const char *str1 = "Hello kernel";
 
         kstring::strcpy(buffer, "");
@@ -121,13 +121,13 @@ TEST_CASE("KString", "[kstring]") {
         // FAILURE
         b1[0] = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == 1);
-        b1[0] = 0;
+        b1[0]   = 0;
         b1[127] = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == 1);
         b1[127] = 0;
-        b2[0] = 1;
+        b2[0]   = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == -1);
-        b2[0] = 0;
+        b2[0]   = 0;
         b2[127] = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == -1);
 
@@ -149,19 +149,37 @@ TEST_CASE("KString", "[kstring]") {
         const char *str8 = "++++-+++2147483647";
         const char *str9 = "2d147483647";
 
-        int res;
-        REQUIRE(kstring::safe_atoi(str1, &res) == 1);
-        REQUIRE(res == 920);
-        kstring::safe_atoi(str2, &res);
-        REQUIRE(res == -3112);
-        REQUIRE(kstring::safe_atoi(str3, &res) == 1);
-        kstring::safe_atoi(str4, &res);
-        REQUIRE(res == -2147483648);
-        kstring::safe_atoi(str5, &res);
-        REQUIRE(res == 2147483647);
-        REQUIRE((kstring::safe_atoi(str6, &res) == 1));
-        REQUIRE((kstring::safe_atoi(str7, &res) == 1));
-        REQUIRE((kstring::safe_atoi(str8, &res) == 0 && res == 2147483647));
-        REQUIRE((kstring::safe_atoi(str9, &res) == 0 && res == 2));
+        int value;
+        int ret;
+
+        ret = kstring::safe_atoi(str1, &value);
+        REQUIRE(ret == 0);
+        REQUIRE(value == 920);
+
+        ret = kstring::safe_atoi(str2, &value);
+        REQUIRE(ret == 0);
+        REQUIRE(value == -3112);
+
+        ret = kstring::safe_atoi(str3, &value);
+        REQUIRE(ret == 1);
+
+        ret = kstring::safe_atoi(str4, &value);
+        REQUIRE(ret == 0);
+        REQUIRE(value == -2147483648);
+
+        ret = kstring::safe_atoi(str5, &value);
+        REQUIRE(ret == 0);
+        REQUIRE(value == 2147483647);
+
+        ret = kstring::safe_atoi(str8, &value);
+        REQUIRE(ret == 0);
+        REQUIRE(value == 2147483647);
+
+        ret = kstring::safe_atoi(str9, &value);
+        REQUIRE(ret == 0);
+        REQUIRE(value == 2);
+
+        REQUIRE((kstring::safe_atoi(str6, &value) == 1));
+        REQUIRE((kstring::safe_atoi(str7, &value) == 1));
     }
 }
