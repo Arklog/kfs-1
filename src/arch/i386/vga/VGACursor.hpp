@@ -7,95 +7,33 @@
 #include "include/stdint.hpp"
 
 namespace vga {
-    union t_vga_char;
-
     /**
-     * Class to manage the VGA text mode cursor position and operations.
+     * Purely logical cursor defined by its position (line and column index within the ScrollbackBuffer).
      */
     class VGACursor {
     public:
-        using iterator = t_vga_char*;
-        using const_iterator = t_vga_char const *;
-        using size_type = uint32_t;
+        uint32_t line;
+        uint16_t column;
 
         VGACursor();
 
         /**
-         * Get an iterator to the beginning of the VGA text buffer
-         * @return
+         * advance the cursor of exactly one column within the current line.
          */
-        iterator begin();
+        void advance();
 
         /**
-         * Get an iterator to the end of the VGA text buffer
-         * @return
+         * get down the cursor at the beginning of the next line.
          */
-        iterator end();
+        void newline();
 
         /**
-         * Get a const iterator to the beginning of the VGA text buffer
-         * @return
+         * set the cursor position at the precise specified indexes.
+         * @param l line index
+         * @param c column index
          */
-        const_iterator cbegin() const;
-
-        /**
-         * Get a const iterator to the end of the VGA text buffer
-         * @return
-         */
-        const_iterator cend() const;
-
-        /**
-         * Get the current position of the cursor
-         * @return
-         */
-        iterator* pos();
-
-        /**
-         * Get the current position of the cursor as an index
-         * @return
-         */
-        size_type ipos() const;
-
-        /**
-         * Set the character at the current cursor position
-         *
-         * @param c VGA character to set
-         */
-        void set_char(const t_vga_char& c) const;
-
-        /**
-         * Move the cursor to the beginning of the next line
-         */
-        void next_line();
-
-        /**
-         * Set the cursor to the specified line
-         *
-         * @param line Line number (0-based)
-         */
-        void set_line(uint16_t line);
-
-        /**
-         * Set the cursor to the specified column
-         *
-         * @param column Column number (0-based)
-         */
-        void set_column(uint16_t column);
-
-        /**
-         * Set the cursor to the specified line and column
-         *
-         * @param line Line number (0-based)
-         * @param column Column number (0-based)
-         */
-        void set_pos(uint16_t line, uint16_t column);
-
-    private:
-        static volatile const const_iterator _cbegin;
-        static volatile const const_iterator _cend;
-
-        iterator _pos;
+        void set(uint32_t l, uint16_t c);
     };
-} // vga
 
+}
 #endif //KFS_1_VGACURSOR_HPP
