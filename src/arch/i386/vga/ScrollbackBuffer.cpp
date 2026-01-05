@@ -33,7 +33,7 @@ namespace vga {
         if (cursor.line >= MAX_LINES || cursor.column >= VGA_WIDTH)
             return;
 
-        _buffer[cursor.line][cursor.column] = vga_get_color(' ');
+        _buffer[cursor.line][cursor.column] = make_vga_char(' ');
 
         if (_line_len[cursor.line] > 0 && cursor.column == _line_len[cursor.line] - 1)
             --_line_len[cursor.line];
@@ -55,7 +55,7 @@ namespace vga {
             kstring::memcpy(_buffer[line + 1], &_buffer[line][column], new_len * sizeof(t_vga_char));
 
         for (uint16_t i = column; i < old_len; ++i)
-            _buffer[line][i] = vga_get_color(' ');
+            _buffer[line][i] = make_vga_char(' ');
 
         _line_len[line]     = column;
         _line_len[line + 1] = new_len;
@@ -88,7 +88,7 @@ namespace vga {
             for (uint16_t i = col - 1; i + 1 < _line_len[line]; ++i)
                 _buffer[line][i] = _buffer[line][i + 1];
 
-            _buffer[line][_line_len[line] - 1] = vga_get_color(' ');
+            _buffer[line][_line_len[line] - 1] = make_vga_char(' ');
             --_line_len[line];
             return;
         }
@@ -133,7 +133,7 @@ namespace vga {
         }
 
         for (uint16_t c = 0; c < VGA_WIDTH; ++c) {
-            _buffer[MAX_LINES - 1][c] = vga_get_color(' ');
+            _buffer[MAX_LINES - 1][c] = make_vga_char(' ');
         }
 
         if (_lines > 0)

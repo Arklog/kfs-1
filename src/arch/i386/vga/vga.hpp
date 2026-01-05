@@ -47,6 +47,14 @@ namespace vga {
     };
 
     /**
+     * Helper to change both foreground and background displayed colors.
+     */
+    struct VGAColorChange {
+        color::t_vga_color fg;
+        color::t_vga_color bg;
+    };
+
+    /**
      * Create a VGA character with specified ASCII and colors
      *
      * @param character ASCII character
@@ -55,7 +63,7 @@ namespace vga {
      *
      * @return VGA character
      */
-    t_vga_char vga_get_color(uint8_t character, color::vga_color fg = color::WHITE, color::vga_color bg = color::BLACK);
+    t_vga_char make_vga_char(uint8_t character, color::vga_color fg = color::WHITE, color::vga_color bg = color::BLACK);
 
     inline const char * endl = "\n";
 }

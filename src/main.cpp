@@ -6,11 +6,13 @@
 #include "arch/i386/vga/VGAMonitor.hpp"
 #include "arch/i386/keyboard/keyboardHandler.hpp"
 
-vga::VGAMonitor g_monitor;
+    vga::VGAMonitor g_monitor;
 
 
 extern "C" void k_main() {
-    g_monitor << "Hello, World! Hello 42!" << vga::endl;
+
+    g_monitor.init();
+    g_monitor  << "Hello, World! Hello 42!" << vga::endl;
     g_monitor << "Hello, World! Hello 1!" << vga::endl;
     g_monitor << "Hello, World! Hello 2!" << vga::endl;
     g_monitor << "Hello, World! Hello 3!" << vga::endl;
@@ -81,6 +83,10 @@ extern "C" void k_main() {
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << "Hello, World!" << vga::endl;
+    g_monitor << vga::color::BLUE << "Hello, World! in blue" << vga::endl;
+    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::GREEN } << "Hello, World! in black on green" << vga::endl;
+    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::WHITE } << "Hello, World! in black on white" << vga::endl;
+
 
     while (true) {
         kbd::handler();

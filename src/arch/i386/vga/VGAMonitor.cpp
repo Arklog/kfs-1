@@ -7,7 +7,7 @@
 
 namespace vga {
 
-    VGAMonitor::VGAMonitor(): _view_line(0) {
+    VGAMonitor::VGAMonitor(): _fg(color::vga_color::WHITE), _bg(color::vga_color::BLACK), _view_line(0) {
         clear();
     }
 
@@ -20,18 +20,22 @@ namespace vga {
         _refresh();
     }
 
+    void VGAMonitor::init() {
+        _fg = color::vga_color::WHITE;
+        _bg = color::vga_color::BLACK;
+        _view_line = 0;
+        clear();
+    }
+
     void VGAMonitor::put_char(const char c) {
         if (c == '\n') {
             _buffer.newline(_cursor.line, _cursor.column);
             _cursor.newline();
-        } else if (c == '\r') {
-            _cursor.set(_cursor.line, 0);
         } else if (c == '\t') {
             for (int i = 0; i < 4; ++i)
                 put_char(' ');
-            return;
         } else {
-            _buffer.write(_cursor, vga_get_color(c));
+            _buffer.write(_cursor, make_vga_char(c, _fg, _bg));
             _cursor.advance();
         }
 
@@ -107,6 +111,19 @@ namespace vga {
             _refresh();
     }
 
+    void VGAMonitor::set_fg_color(color::vga_color fg) {
+        _fg = fg;
+    }
+
+    void VGAMonitor::set_bg_color(color::vga_color bg) {
+        _bg = bg;
+    }
+
+    void VGAMonitor::set_colors(color::vga_color fg, color::vga_color bg) {
+        _fg = fg;
+        _bg = bg;
+    }
+
     void VGAMonitor::_refresh() {
         VGADisplay::render(_buffer, _view_line);
         VGADisplay::update_hw_cursor(_cursor, _view_line);
@@ -121,5 +138,17 @@ namespace vga {
         put_char(str);
         return *this;
     }
+
+    VGAMonitor &VGAMonitor::operator<<(const color::vga_color fg) {
+        _fg = fg;
+        return *this;
+    }
+
+    VGAMonitor &VGAMonitor::operator<<(const VGAColorChange changer) {
+        _fg = changer.fg;
+        _bg = changer.bg;
+        return *this;
+    }
+
 
 }
