@@ -81,16 +81,14 @@ namespace container {
             if constexpr (__is_trivially_copyable(T)) {
                 memmove(_data + distance + 1, _data + distance, (end() - position - 1) * sizeof(T));
             } else {
-                // call dtor
                 auto iter = end() - 1;
                 while (iter != position) {
-                    (*iter).~T();
-                    new(static_cast<T *>(iter)) T(*(iter - 1));
+                    *iter = container::move(*(iter - 1));
                     --iter;
                 }
             }
 
-            new(static_cast<T *>(position)) T(value);
+            *position = container::move(value);
 
             return position;
         }
@@ -112,44 +110,51 @@ namespace container {
          * @return An iterator to the inserted elements position or end() in case of failure.
          */
         iterator insert(iterator position, iterator _begin, iterator _end) override {
-            if (position >= end() || position < begin() || _begin > _end)
+            if (position >= end() || position < begin() || _begin > _end || _end - _begin > end() - position)
                 return end();
 
-            auto distance           = position - begin();
-            auto remaining_till_end = end() - position;
-            auto new_elems          = _end - _begin;
-            auto to_displace        = remaining_till_end - new_elems;
-
-            // Avoid overflow
-            if (new_elems > remaining_till_end)
-                return end();
-
-            if constexpr (__is_trivially_copyable(T)) {
-                memmove(_data + distance + new_elems, _data + distance, to_displace * sizeof(T));
-                memcpy(_data + distance, static_cast<T *>(_begin), new_elems * sizeof(T));
-            } else {
-                auto iter = end() - 1;
-                while (to_displace) {
-                    (*iter).~T();
-                    new(static_cast<T *>(iter)) T(*(iter - new_elems));
-                    --iter;
-                    --to_displace;
-                }
-
-                iter = position;
-                while (iter < position + new_elems) {
-                    (*iter).~T();
-                    new(static_cast<T *>(iter)) T(*_begin);
-                    ++_begin;
-                    ++iter;
-                }
-            }
-
-            return position;
+            if constexpr (__is_trivially_copyable(T))
+                return _trivial_insert(position, _begin, _end);
+            else
+                return _insert(position, _begin, _end);
         }
 
     private:
         T _data[N];
+
+        iterator _trivial_insert(iterator position, iterator _begin, iterator _end) {
+            auto distance    = position - begin();
+            auto new_elems   = _end - _begin;
+            auto to_displace = (end() - position) - new_elems;
+
+            memmove(_data + distance + new_elems, _data + distance, to_displace * sizeof(T));
+            memcpy(_data + distance, static_cast<T *>(_begin), new_elems * sizeof(T));
+
+            return position;
+        }
+
+        iterator _insert(iterator position, iterator _begin, iterator _end) {
+            auto distance = position - begin(); // distance to position from buffer beginning
+            auto remaining_till_end = end() - position; // remaining elements till end from position
+            auto new_elems = _end - _begin; // number of new elements to insert
+            auto to_displace = remaining_till_end - new_elems; // number of element that will need to be displaced
+
+            auto iter = end() - 1;
+
+            while (to_displace--) {
+                *iter = container::move(*(iter - new_elems));
+                --iter;
+            }
+
+            iter = position;
+            while (_begin != _end) {
+                *iter = *_begin;
+                ++_begin;
+                ++iter;
+            }
+
+            return position;
+        }
     };
 }
 
