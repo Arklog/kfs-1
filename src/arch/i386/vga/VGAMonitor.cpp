@@ -36,7 +36,7 @@ namespace vga {
             for (int i = 0; i < 4; ++i)
                 put_char(' ');
         } else {
-            _buffer.write(_cursor, make_vga_char(c, _fg, _bg));
+            _buffer.write(_cursor,vga::t_vga_char(c, _fg, _bg));
             _cursor.advance();
         }
 

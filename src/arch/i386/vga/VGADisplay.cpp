@@ -14,7 +14,7 @@ namespace vga {
 
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
-            vga[i].raw = make_vga_char(' ').raw;
+            vga[i].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
         }
     }
 
@@ -30,7 +30,7 @@ namespace vga {
                 if (src_line < buffer.line_count() && col < len) {
                     vga[row * VGA_WIDTH + col].raw = buffer.line(src_line)[col].raw;
                 } else {
-                    vga[row * VGA_WIDTH + col].raw = make_vga_char(' ').raw;
+                    vga[row * VGA_WIDTH + col].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
                 }
             }
         }

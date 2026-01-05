@@ -12,14 +12,6 @@ vga::t_vga_char::t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t backgroun
     data{.ascii = ascii, .color = static_cast<uint8_t>(background << 4 | (foreground & 0x0F))} {
 }
 
-vga::t_vga_char vga::make_vga_char(const uint8_t character, const color::vga_color fg, const color::vga_color bg) {
-    const t_vga_char vga_char{
-            .raw = static_cast<uint16_t>(character | bg << 12 | (fg & 0x0F) << 8),
-    };
-
-    return vga_char;
-}
-
 vga::color::t_vga_color vga::t_vga_char::get_foreground() const {
     return static_cast<color::t_vga_color>(data.color & 0x0F);
 }
