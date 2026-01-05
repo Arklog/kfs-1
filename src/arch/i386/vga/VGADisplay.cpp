@@ -6,7 +6,7 @@
 
 namespace vga {
 
-    volatile t_vga_char* VGADisplay::vga = reinterpret_cast<volatile t_vga_char*>(0xB8000);
+    volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
 
     static inline void outb(uint16_t port, uint8_t val) {
         asm volatile ("outb %0, %1" : : "a"(val), "Nd"(port));
@@ -18,14 +18,13 @@ namespace vga {
         }
     }
 
-    void VGADisplay::render(const ScrollbackBuffer &buffer, uint32_t view_line)
-    {
+    void VGADisplay::render(const ScrollbackBuffer &buffer, uint32_t view_line) {
         for (uint32_t row = 0; row < VGA_HEIGHT; ++row) {
             uint32_t src_line = view_line + row;
 
             uint16_t len = 0;
             if (src_line < buffer.line_count())
-               len = buffer.line_length(src_line);
+                len = buffer.line_length(src_line);
 
             for (uint16_t col = 0; col < VGA_WIDTH; ++col) {
                 if (src_line < buffer.line_count() && col < len) {
@@ -37,8 +36,7 @@ namespace vga {
         }
     }
 
-    void VGADisplay::update_hw_cursor(const VGACursor& cursor, uint32_t view_line)
-    {
+    void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
         if (cursor.line < view_line || cursor.line >= view_line + VGA_HEIGHT)
             return;
 

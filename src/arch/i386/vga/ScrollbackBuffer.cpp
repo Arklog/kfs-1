@@ -5,7 +5,8 @@
 #include "ScrollbackBuffer.hpp"
 
 namespace vga {
-    ScrollbackBuffer::ScrollbackBuffer(): _lines(0) {
+    ScrollbackBuffer::ScrollbackBuffer() :
+        _lines(0) {
         clear();
     }
 
@@ -15,8 +16,7 @@ namespace vga {
             _line_len[i] = 0;
     }
 
-    void ScrollbackBuffer::write(const VGACursor& cursor, const t_vga_char &c)
-    {
+    void ScrollbackBuffer::write(const VGACursor &cursor, const t_vga_char &c) {
         if (cursor.line >= MAX_LINES || cursor.column >= VGA_WIDTH)
             return;
 
@@ -62,15 +62,14 @@ namespace vga {
         ++_lines;
     }
 
-    void ScrollbackBuffer::merge_lines(uint32_t dst, uint32_t src)
-    {
+    void ScrollbackBuffer::merge_lines(uint32_t dst, uint32_t src) {
         uint16_t dst_len = _line_len[dst];
         uint16_t src_len = _line_len[src];
 
         uint16_t copy_len =
-            (dst_len + src_len > VGA_WIDTH)
-            ? (VGA_WIDTH - dst_len)
-            : src_len;
+                (dst_len + src_len > VGA_WIDTH)
+                    ? (VGA_WIDTH - dst_len)
+                    : src_len;
 
         for (uint16_t i = 0; i < copy_len; ++i) {
             _buffer[dst][dst_len + i] = _buffer[src][i];
@@ -79,8 +78,7 @@ namespace vga {
         _line_len[dst] = dst_len + copy_len;
     }
 
-    void ScrollbackBuffer::backspace(uint32_t line, uint16_t col)
-    {
+    void ScrollbackBuffer::backspace(uint32_t line, uint16_t col) {
         if (line == 0 && col == 0)
             return;
 
@@ -99,10 +97,10 @@ namespace vga {
 
         for (uint32_t i = line; i + 1 < _lines; ++i) {
             kstring::memcpy(
-                _buffer[i],
-                _buffer[i + 1],
-                _line_len[i + 1] * sizeof(t_vga_char)
-            );
+                    _buffer[i],
+                    _buffer[i + 1],
+                    _line_len[i + 1] * sizeof(t_vga_char)
+                    );
             _line_len[i] = _line_len[i + 1];
         }
 

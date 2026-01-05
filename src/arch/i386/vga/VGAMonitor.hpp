@@ -12,6 +12,10 @@
 #include "VGADisplay.hpp"
 
 namespace vga {
+    namespace modifier {
+        class VGAStreamColorModifier;
+    }
+
     /**
      * High-level terminal interface. Coordinates the buffer, cursor and display logics.
      */
@@ -111,10 +115,12 @@ namespace vga {
 
         uint32_t _view_line;
 
+
         /**
          * refreshes the VGA display and cursor.
          */
-        void _refresh();
+        void       _refresh();
+
     };
 
 }

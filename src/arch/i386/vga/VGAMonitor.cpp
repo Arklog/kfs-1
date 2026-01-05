@@ -3,6 +3,7 @@
 //
 
 #include "VGAMonitor.hpp"
+#include "VGAStreamModifier.hpp"
 #include "vga.hpp"
 
 namespace vga {
@@ -58,7 +59,8 @@ namespace vga {
     void VGAMonitor::scroll_up() {
         if (_view_line > 0) {
             --_view_line;
-        } if (_cursor.line > 0) {
+        }
+        if (_cursor.line > 0) {
             --_cursor.line;
             if (_cursor.column > _buffer.line_length(_cursor.line))
                 _cursor.column = _buffer.line_length(_cursor.line);
@@ -69,7 +71,8 @@ namespace vga {
     void VGAMonitor::scroll_down() {
         if (_view_line + VGA_HEIGHT < _buffer.line_count()) {
             ++_view_line;
-        } if (_cursor.line + 1 < _buffer.line_count()) {
+        }
+        if (_cursor.line + 1 < _buffer.line_count()) {
             ++_cursor.line;
             if (_cursor.column > _buffer.line_length(_cursor.line))
                 _cursor.column = _buffer.line_length(_cursor.line);
@@ -108,7 +111,7 @@ namespace vga {
             --_cursor.line;
             _cursor.column = _buffer.line_length(_cursor.line);
         }
-            _refresh();
+        _refresh();
     }
 
     void VGAMonitor::set_fg_color(color::vga_color fg) {
