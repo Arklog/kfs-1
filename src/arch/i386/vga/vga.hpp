@@ -109,7 +109,8 @@ namespace vga {
      *
      * @return VGA character
      */
-    t_vga_char make_vga_char(uint8_t character, color::vga_color fg = color::WHITE, color::vga_color bg = color::BLACK);
+    [[deprecated]] t_vga_char make_vga_char(uint8_t          character, color::vga_color fg = color::WHITE,
+                                            color::vga_color bg                             = color::BLACK);
 
     inline const char *endl = "\n";
 }
