@@ -12,37 +12,9 @@
 
 
 extern "C" void k_main() {
-<<<<<<< HEAD
 
     g_monitor.init();
     g_monitor  << "Hello, World! Hello 42!" << vga::endl;
-=======
-    const char *bpad = "                         ";
-    const char *apad = "                          ";
-    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK)
-            << bpad << " /$$   /$$ /$$$$$$$$ /$$$$$$ " << apad
-            << bpad << "| $$  /$$/| $$_____//$$__  $$" << apad
-            << bpad << "| $$ /$$/ | $$     | $$  \\__/" << apad
-            << bpad << "| $$$$$/  | $$$$$  |  $$$$$$ " << apad
-            << bpad << "| $$  $$  | $$__/   \\____  $$" << apad
-            << bpad << "| $$\\  $$ | $$      /$$  \\ $$" << apad
-            << bpad << "| $$ \\  $$| $$     |  $$$$$$/" << apad
-            << bpad << "|__/  \\__/|__/      \\______/ " << apad;
-
-    // reset default color
-    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK);
-
-    g_monitor << vga::endl
-            << "CHECKING COLORS"
-            << vga::endl;
-
-    for (int i = vga::color::BLACK; i <= vga::color::WHITE; i++) {
-        g_monitor << vga::modifier::VGAStreamBackgroundModifier(i) << " ";
-    }
-
-    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK) << vga::endl;
-    g_monitor << "Hello, World! Hello 42!" << vga::endl;
->>>>>>> 9a226d360d9fbe3aa62ff631112107beba44de14
     g_monitor << "Hello, World! Hello 1!" << vga::endl;
     g_monitor << "Hello, World! Hello 2!" << vga::endl;
     g_monitor << "Hello, World! Hello 3!" << vga::endl;
