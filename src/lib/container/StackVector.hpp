@@ -15,7 +15,8 @@ namespace container {
         using const_iterator = Array<T, N>::const_iterator;
         using size_type      = Array<T, N>::size_type;
 
-        StackVector() : Array<T, N>(), _size{0} {
+        StackVector() :
+            Array<T, N>(), _size{0} {
         }
 
         iterator end() override {
@@ -62,21 +63,44 @@ namespace container {
             return this->begin() + _size++;
         }
 
+        /**
+         * Erase the element at the given position.
+         *
+         * @param position
+         *
+         * @return begin() on success, end() on failure
+         */
         iterator erase(iterator position) {
             if (position < this->begin() || position > this->end())
                 return end();
 
-            if constexpr (!__is_trivially_constructible(T)) {
-                *(position).~T();
+            for (auto &it: container::range{position, end() - 1}) {
+                *it = utility::move(*(it + 1));
+            }
+            --_size;
 
-                auto iter = position;
-                while (iter != this->end()) {
-                }
-            } else {
-                memmove(static_cast<T *>(position), static_cast<T *>(position + 1), end() - position);
+            return this->begin();
+        }
+
+        /**
+         * Erase the range [_begin, _end[ from the container.
+         *
+         * @param _begin
+         * @param _end
+         *
+         * @return begin() on success or end() on failure
+         */
+        iterator erase(iterator _begin, iterator _end) {
+            if (_begin > _end)
+                return end();
+
+            auto length = _end - _begin;
+            for (auto i: container::range{_begin, _end}) {
+                *i = utility::move(*(i + length));
             }
 
-            return position;
+            _size -= length;
+            return this->begin();
         }
 
     private:
