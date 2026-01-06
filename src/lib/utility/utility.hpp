@@ -27,10 +27,17 @@ namespace utility {
     }
 
     template<typename T>
-    void swap(typename remove_reference<T>::type &&a, typename remove_reference<T>::type &&b) {
-        typename remove_reference<T>::type c = move(a);
-        a                                    = move(b);
-        b                                    = move(c);
+    void swap(T &&a, T &&b) {
+        typename remove_reference<T>::type c = utility::move(a);
+        a                                    = utility::move(b);
+        b                                    = utility::move(c);
+    }
+
+    template<typename T>
+    void swap(T &a, T &b) {
+        T c = utility::move(a);
+        a   = utility::move(b);
+        b   = utility::move(c);
     }
 }
 
