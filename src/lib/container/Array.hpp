@@ -10,7 +10,7 @@
 #include "range.hpp"
 #include "lib/math/math.hpp"
 #include "lib/str/KString.hpp"
-#include "lib/utility.hpp"
+#include "lib/utility/utility.hpp"
 
 namespace container {
     template<typename T, unsigned int N>
