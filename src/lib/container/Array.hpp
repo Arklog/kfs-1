@@ -7,8 +7,10 @@
 
 #include "Container.hpp"
 #include "Iterator.hpp"
+#include "range.hpp"
 #include "lib/math/math.hpp"
 #include "lib/str/KString.hpp"
+#include "lib/utility.hpp"
 
 namespace container {
     template<typename T, unsigned int N>
@@ -29,6 +31,13 @@ namespace container {
         template<typename... Args>
         Array(Args... args) :
             _data{args...} {
+        }
+
+        Array(iterator _begin, iterator _end) {
+            auto i = 0;
+            while (_begin < _end) {
+                _data[i++] = *(_begin++);
+            }
         }
 
         template<unsigned N1>
@@ -83,12 +92,12 @@ namespace container {
             } else {
                 auto iter = end() - 1;
                 while (iter != position) {
-                    *iter = container::move(*(iter - 1));
+                    *iter = utility::move(*(iter - 1));
                     --iter;
                 }
             }
 
-            *position = container::move(value);
+            *position = utility::move(value);
 
             return position;
         }
@@ -113,28 +122,10 @@ namespace container {
             if (position >= end() || position < begin() || _begin > _end || _end - _begin > end() - position)
                 return end();
 
-            if constexpr (__is_trivially_copyable(T))
-                return _trivial_insert(position, _begin, _end);
-            else
-                return _insert(position, _begin, _end);
-        }
+            // different logic if inserting into itself
+            if (_begin >= begin() && _begin < _end)
+                return _insert_overlap(position, _begin, _end);
 
-    private:
-        T _data[N];
-
-        iterator _trivial_insert(iterator position, iterator _begin, iterator _end) {
-            auto distance    = position - begin();
-            auto new_elems   = _end - _begin;
-            auto to_displace = (end() - position) - new_elems;
-
-            memmove(_data + distance + new_elems, _data + distance, to_displace * sizeof(T));
-            memcpy(_data + distance, static_cast<T *>(_begin), new_elems * sizeof(T));
-
-            return position;
-        }
-
-        iterator _insert(iterator position, iterator _begin, iterator _end) {
-            auto distance = position - begin(); // distance to position from buffer beginning
             auto remaining_till_end = end() - position; // remaining elements till end from position
             auto new_elems = _end - _begin; // number of new elements to insert
             auto to_displace = remaining_till_end - new_elems; // number of element that will need to be displaced
@@ -142,7 +133,7 @@ namespace container {
             auto iter = end() - 1;
 
             while (to_displace--) {
-                *iter = container::move(*(iter - new_elems));
+                *iter = utility::move(*(iter - new_elems));
                 --iter;
             }
 
@@ -151,6 +142,35 @@ namespace container {
                 *iter = *_begin;
                 ++_begin;
                 ++iter;
+            }
+
+            return position;
+        }
+
+    private:
+        T _data[N];
+
+        iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
+            Array<T, N> tmp{_begin, _end};
+
+            auto new_elems = _end - _begin;
+            for (auto i = 0; i < new_elems; ++i) {
+                tmp[i] = utility::move(*(_begin + i));
+            }
+
+            if (_begin > position) {
+                auto iter = end() - new_elems - 1;
+
+                while (iter >= position) {
+                    *(iter + new_elems) = utility::move(*iter);
+                    --iter;
+                }
+
+                for (auto i = 0; i < new_elems; ++i) {
+                    *(position + i) = utility::move(tmp[i]);
+                }
+            } else {
+
             }
 
             return position;

@@ -6,26 +6,6 @@
 #define KFS_1_CONTAINER_HPP
 
 namespace container {
-    template<typename T>
-    struct remove_reference {
-        using type = T;
-    };
-
-    template<typename T>
-    struct remove_reference<T &> {
-        using type = T;
-    };
-
-    template<typename T>
-    struct remove_reference<T &&> {
-        using type = T;
-    };
-
-    template<typename T>
-    typename remove_reference<T>::type &&move(T &&a) {
-        return static_cast<remove_reference<T>::type &&>(a);
-    }
-
     template<typename T, typename IteratorType, typename ConstIteratorType>
     class Container {
     public:

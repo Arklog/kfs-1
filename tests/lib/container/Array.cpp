@@ -154,6 +154,12 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr[1] == 4);
         REQUIRE(arr[2] == 5);
 
+        arr = arr2;
+        arr.insert(arr.begin(), arr.begin() + 1, arr.end());
+        REQUIRE(arr[0] == 5);
+        REQUIRE(arr[1] == 6);
+        REQUIRE(arr[2] == 4);
+
         // Failure case
         REQUIRE(arr.insert(arr.end(), arr2.begin(), arr2.end()) == arr.end());
         REQUIRE(arr.insert(arr.begin(), arr2.end(), arr2.begin()) == arr.end());
