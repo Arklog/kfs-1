@@ -190,6 +190,13 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr[1] == "ee");
         REQUIRE(arr[2] == "aa");
 
+        // overlapping memory
+        arr = container::Array<std::string, 3>("a", "b", "c");
+        arr.insert(arr.begin(), arr.begin() + 1, arr.end());
+        REQUIRE(arr[0] == "b");
+        REQUIRE(arr[1] == "c");
+        REQUIRE(arr[2] == "a");
+
         arr = container::Array<std::string, 3>("a", "b", "c");
         arr.insert(arr.begin(), arr.begin() + 1, arr.begin() + 2);
         REQUIRE(arr[0] == "b");

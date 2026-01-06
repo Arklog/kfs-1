@@ -123,7 +123,7 @@ namespace container {
                 return end();
 
             // different logic if inserting into itself
-            if (_begin >= begin() && _begin < _end)
+            if (_begin >= begin() && _begin < end())
                 return _insert_overlap(position, _begin, _end);
 
             auto remaining_till_end = end() - position; // remaining elements till end from position
@@ -154,23 +154,27 @@ namespace container {
             Array<T, N> tmp{_begin, _end};
 
             auto new_elems = _end - _begin;
+
+            // temporarily store elements to be inserted into temp buffer
             for (auto i = 0; i < new_elems; ++i) {
                 tmp[i] = utility::move(*(_begin + i));
             }
 
             if (_begin > position) {
-                auto iter = end() - new_elems - 1;
+                auto iter = _end - 1;
 
-                while (iter >= position) {
-                    *(iter + new_elems) = utility::move(*iter);
+                // displace elements
+                while (iter - new_elems >= begin()) {
+                    *(iter) = utility::move(*(iter - new_elems));
                     --iter;
                 }
 
+                // reinsert element from temp buffer
                 for (auto i = 0; i < new_elems; ++i) {
                     *(position + i) = utility::move(tmp[i]);
                 }
             } else {
-
+                return end();
             }
 
             return position;
