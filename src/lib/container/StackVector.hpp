@@ -6,6 +6,7 @@
 #define KFS_1_STACKVECTOR_HPP
 
 #include "Array.hpp"
+#include "range.hpp"
 
 namespace container {
     template<typename T, unsigned int N>

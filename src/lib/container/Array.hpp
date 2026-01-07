@@ -7,8 +7,6 @@
 
 #include "Container.hpp"
 #include "Iterator.hpp"
-#include "range.hpp"
-#include "lib/math/math.hpp"
 #include "lib/str/KString.hpp"
 #include "lib/utility/utility.hpp"
 
@@ -19,6 +17,7 @@ namespace container {
         using iterator       = ContiguousIterator<T>;
         using const_iterator = ContiguousIterator<const T>;
         using size_type      = Container<T, iterator, const_iterator>::size_type;
+        using value_type     = Container<T, iterator, const_iterator>::value_type;
 
         Array() = default;
 
@@ -44,8 +43,16 @@ namespace container {
         Array<T, N + N1> operator+(const Array<T, N1> &other) const {
             Array<T, N + N1> result;
 
-            kstring::memcpy(result.data(), this->data(), this->size() * sizeof(T));
-            kstring::memcpy(result.data() + this->size(), other.data(), other.size() * sizeof(T));
+            auto iter = result.begin();
+            for (const auto i: *this) {
+                *iter = utility::move(i);
+                ++iter;
+            }
+
+            for (const auto i: other) {
+                *iter = utility::move(i);
+                ++iter;
+            }
 
             return result;
         }
@@ -58,8 +65,16 @@ namespace container {
             return iterator(this->_data);
         }
 
+        const_iterator begin() const override {
+            return cbegin();
+        }
+
         iterator end() override {
             return iterator(this->_data + N);
+        }
+
+        const_iterator end() const override {
+            return cend();
         }
 
         const_iterator cbegin() const override {
@@ -87,14 +102,10 @@ namespace container {
 
             const auto distance = position - begin();
 
-            if constexpr (__is_trivially_copyable(T)) {
-                memmove(_data + distance + 1, _data + distance, (end() - position - 1) * sizeof(T));
-            } else {
-                auto iter = end() - 1;
-                while (iter != position) {
-                    *iter = utility::move(*(iter - 1));
-                    --iter;
-                }
+            auto iter = end() - 1;
+            while (iter != position) {
+                *iter = utility::move(*(iter - 1));
+                --iter;
             }
 
             *position = utility::move(value);
@@ -151,30 +162,17 @@ namespace container {
         T _data[N];
 
         iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
-            Array<T, N> tmp{_begin, _end};
-
             auto new_elems = _end - _begin;
+            auto distance  = _begin - position;
 
-            // temporarily store elements to be inserted into temp buffer
-            for (auto i = 0; i < new_elems; ++i) {
-                tmp[i] = utility::move(*(_begin + i));
-            }
+            auto src_iter = _begin;
+            auto dst_iter = src_iter - distance;
 
-            if (_begin > position) {
-                auto iter = _end - 1;
-
-                // displace elements
-                while (iter - new_elems >= begin()) {
-                    *(iter) = utility::move(*(iter - new_elems));
-                    --iter;
-                }
-
-                // reinsert element from temp buffer
-                for (auto i = 0; i < new_elems; ++i) {
-                    *(position + i) = utility::move(tmp[i]);
-                }
-            } else {
-                return end();
+            // displace elements
+            while (new_elems--) {
+                utility::swap(*src_iter, *dst_iter);
+                ++src_iter;
+                ++dst_iter;
             }
 
             return position;
