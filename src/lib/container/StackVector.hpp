@@ -178,6 +178,14 @@ namespace container {
             return iter >= this->begin() && iter < this->end();
         }
 
+        /**
+         * Insert this vector into itself
+         *
+         * @param position
+         * @param _begin
+         * @param _end
+         * @return
+         */
         iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
             auto length = _end - _begin;
             auto distance = _begin - position;

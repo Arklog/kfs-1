@@ -139,7 +139,7 @@ namespace container {
          */
         template<typename... Args>
         iterator emplace(iterator position, Args &&... args) {
-            if (_check_iterator(position))
+            if (_validate_position(position))
                 return end();
 
             new(static_cast<T *>(position)) T(args...);
@@ -155,7 +155,7 @@ namespace container {
          * @return An iterator to the element or end() if position does not belong to this array
          */
         iterator emplace(iterator position, T &&value) {
-            if (!_check_iterator(position))
+            if (!_validate_position(position))
                 return end();
 
             *position = utility::move(value);
@@ -163,7 +163,7 @@ namespace container {
         }
 
         iterator insert(iterator position, T &&value) override {
-            if (!_check_iterator(position))
+            if (!_validate_position(position))
                 return end();
 
             const auto distance = position - begin();
@@ -196,24 +196,25 @@ namespace container {
          * @return An iterator to the inserted elements position or end() in case of failure.
          */
         iterator insert(iterator position, iterator _begin, iterator _end) override {
-            if (!_check_iterator(position) || _begin > _end || _end - _begin > end() - position)
+            if (!_validate_position(position) || _begin > _end || _end - _begin > end() - position)
                 return end();
 
             // different logic if inserting into itself
-            if (_check_iterator(_begin))
+            if (_own_iterator(_begin) && _own_iterator(_end))
                 return _insert_overlap(position, _begin, _end);
 
             auto remaining_till_end = end() - position; // remaining elements till end from position
             auto new_elems = _end - _begin; // number of new elements to insert
             auto to_displace = remaining_till_end - new_elems; // number of element that will need to be displaced
 
+            // displace elements to make room
             auto iter = end() - 1;
-
             while (to_displace--) {
                 *iter = utility::move(*(iter - new_elems));
                 --iter;
             }
 
+            // copy new elements
             iter = position;
             while (_begin != _end) {
                 *iter = *_begin;
@@ -245,13 +246,24 @@ namespace container {
         }
 
         /**
-         * Check if the provided iterator is in range [begin(), end()[
+         * Check if the provided iterator is owned by this array
+         *
+         * @param iter
+         *
+         * @return true if the iterator is in [begin(), end()], false otherwise
+         */
+        bool _own_iterator(iterator iter) {
+            return iter >= begin() && iter <= end();
+        }
+
+        /**
+         * Check if the provided iterator is a valid position.
          *
          * @param iter
          *
          * @return true if the iterator is in [begin(), end()[, false otherwise
          */
-        bool _check_iterator(iterator iter) {
+        bool _validate_position(iterator iter) const {
             return iter >= begin() && iter < end();
         }
     };
