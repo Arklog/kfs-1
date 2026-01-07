@@ -5,7 +5,6 @@
 
 #include "arch/i386/vga/vga.hpp"
 #include "arch/i386/vga/VGAMonitor.hpp"
-#include "arch/i386/vga/VGAStreamModifier.hpp"
 #include "arch/i386/keyboard/keyboardHandler.hpp"
 
     vga::VGAMonitor g_monitor;
