@@ -41,7 +41,7 @@ namespace container {
          * @return The position of the inserted element or
          */
         iterator insert(iterator position, T &&value) override {
-            if (!_check_iterator(position) || _size == N)
+            if (!_validate_position(position) || _size == N)
                 return end();
 
             for (auto iter = end(); iter >= position; ++iter) {
@@ -58,7 +58,23 @@ namespace container {
             auto length = _end - _begin;
 
             if (length > N - _size)
-                return Array<T, N>::insert(position, _begin, _end);
+                return end();
+
+            if (_own_iterator(_begin) && _own_iterator(_end))
+                _insert_overlap(position, _begin, _end);
+
+            // displace elements
+            auto iter = end() - length -1;
+            while (iter >= position) {
+                *(iter + length) = utility::move(*iter);
+                --iter;
+            }
+
+            // copy elements from range
+            iter = position;
+            for (const auto &i: container::range{_begin, _end}) {
+                *(iter++) = i;
+            }
 
             return position;
         }
@@ -73,6 +89,7 @@ namespace container {
         iterator push_bash(T &&item) {
             if (_size == N)
                 return end();
+
             *(this->begin() + _size) = item;
             return this->begin() + _size++;
         }
@@ -104,7 +121,7 @@ namespace container {
          * @return begin() on success, end() on failure
          */
         iterator erase(iterator position) {
-            if (position < this->begin() || position > this->end())
+            if (!_validate_position(position))
                 return end();
 
             for (auto &it: container::range{position, end() - 1}) {
@@ -124,7 +141,7 @@ namespace container {
          * @return begin() on success or end() on failure
          */
         iterator erase(iterator _begin, iterator _end) {
-            if (_begin > _end)
+            if (_begin > _end || !_own_iterator(_begin) || !_own_iterator(_end))
                 return end();
 
             auto length = _end - _begin;
@@ -144,10 +161,37 @@ namespace container {
          *
          * @param iter The iterator to check
          *
-         * @return true if iter is in range [begin(), end()[, false otherwise
+         * @return true if iter is in range [begin(), end()], false otherwise
          */
-        bool _check_iterator(iterator iter) const {
+        bool _own_iterator(iterator iter) const {
+            return iter >= this->begin() && iter <= this->end();
+        }
+
+        /**
+         * Check if the given iterator is a valid read/write iterator.
+         *
+         * @param iter The iterator to validate
+         *
+         * @return true if iter is in [begin(), end()[, false otherwise
+         */
+        bool _validate_position(iterator iter) const {
             return iter >= this->begin() && iter < this->end();
+        }
+
+        iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
+            auto length = _end - _begin;
+            auto distance = _begin - position;
+
+            if (!distance)
+                return position;
+
+            auto iter = position;
+            for (const auto& i: container::range{_begin, _end}) {
+                utility::swap(*iter, i);
+                ++iter;
+            }
+
+            return position;
         }
     };
 } // container
