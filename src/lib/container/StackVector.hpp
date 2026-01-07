@@ -24,12 +24,43 @@ namespace container {
             return this->begin() + _size;
         }
 
-        iterator cend() const override {
+        const_iterator cend() const override {
             return this->cbegin() + _size;
         }
 
         const size_type size() const override {
             return _size;
+        }
+
+        /**
+         * Insert value at position. If the vector is full the last element will be removed.
+         *
+         * @param position The position at which to insert the element
+         * @param value The value to insert
+         *
+         * @return The position of the inserted element or
+         */
+        iterator insert(iterator position, T &&value) override {
+            if (!_check_iterator(position) || _size == N)
+                return end();
+
+            for (auto iter = end(); iter >= position; ++iter) {
+                *iter = utility::move(*(iter - 1));
+            }
+
+            *position = utility::move(value);
+            ++_size;
+
+            return position;
+        }
+
+        iterator insert(iterator position, iterator _begin, iterator _end) override {
+            auto length = _end - _begin;
+
+            if (length > N - _size)
+                return Array<T, N>::insert(position, _begin, _end);
+
+            return position;
         }
 
         /**
@@ -52,7 +83,7 @@ namespace container {
          * @tparam Args
          * @param args
          *
-         * @return An iterator to the newly emplaced element or end() on failure.
+         * @return An iterator to the newly emplaced element or end() if the StackVector is full.
          */
         template<typename... Args>
         iterator emplace_back(Args... args) {
@@ -60,6 +91,7 @@ namespace container {
 
             if (_size == N)
                 return end();
+
             new(static_cast<T *>(this->begin() + _size)) T(args...);
             return this->begin() + _size++;
         }
@@ -106,6 +138,17 @@ namespace container {
 
     private:
         unsigned int _size;
+
+        /**
+         * Check if the given iterator belong to this StackVector
+         *
+         * @param iter The iterator to check
+         *
+         * @return true if iter is in range [begin(), end()[, false otherwise
+         */
+        bool _check_iterator(iterator iter) const {
+            return iter >= this->begin() && iter < this->end();
+        }
     };
 } // container
 

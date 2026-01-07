@@ -128,15 +128,32 @@ namespace container {
 
         size_type size() const override { return N; };
 
+        /**
+         * Construct an element in place of position iter
+         *
+         * @tparam Args
+         * @param position The position at which to construct the element
+         * @param args The constructor argument
+         *
+         * @return An iterator to the constructed element or end() if position does not belong to this array
+         */
         template<typename... Args>
-        iterator emplace(iterator iter, Args &&... args) {
-            if (_check_iterator(iter))
+        iterator emplace(iterator position, Args &&... args) {
+            if (_check_iterator(position))
                 return end();
 
-            new(static_cast<T *>(iter)) T(args...);
-            return iter;
+            new(static_cast<T *>(position)) T(args...);
+            return position;
         }
 
+        /**
+         * Move an element in place of position position
+         *
+         * @param position The position at which to move the element
+         * @param value The element to move
+         *
+         * @return An iterator to the element or end() if position does not belong to this array
+         */
         iterator emplace(iterator position, T &&value) {
             if (!_check_iterator(position))
                 return end();
