@@ -35,7 +35,7 @@ namespace vga {
          */
         static void update_hw_cursor(const VGACursor &cursor, uint32_t view_line);
 
-    private:
+/*     private: */
         /** pointer to the VGA text buffer (0xB8000). */
         static volatile t_vga_char* vga;
     };

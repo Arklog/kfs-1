@@ -3,7 +3,6 @@
 //
 
 #include "VGAMonitor.hpp"
-#include "VGAStreamModifier.hpp"
 #include "vga.hpp"
 
 namespace vga {

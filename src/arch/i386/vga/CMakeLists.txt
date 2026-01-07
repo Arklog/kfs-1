@@ -6,8 +6,6 @@ add_library(libvga OBJECT
         VGACursor.hpp
         VGADisplay.cpp
         VGADisplay.hpp
-        VGAStreamModifier.cpp
-        VGAStreamModifier.hpp
         ScrollbackBuffer.cpp
         ScrollbackBuffer.hpp
 )
@@ -18,6 +16,10 @@ add_library(libvga64 STATIC
         vga.cpp
         VGAMonitor.cpp
         VGAMonitor.hpp
+        ScrollbackBuffer.cpp
+        ScrollbackBuffer.hpp
+        VGADisplay.cpp
+        VGADisplay.hpp
         VGACursor.cpp
         VGACursor.hpp
 )
