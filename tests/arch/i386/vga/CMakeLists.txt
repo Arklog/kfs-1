@@ -5,6 +5,7 @@ target_link_libraries(test_vga
         PRIVATE
         libvga
         Catch2::Catch2WithMain
+        libstring
 )
 target_include_directories(
         test_vga
