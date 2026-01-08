@@ -6,6 +6,8 @@
 add_executable(test_array
         Array.cpp
         Iterator.cpp
+        StackVector.cpp
+        static_check.hpp
 )
 target_link_libraries(test_array
         PRIVATE

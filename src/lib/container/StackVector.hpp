@@ -20,6 +20,15 @@ namespace container {
             Array<T, N>(), _size{0} {
         }
 
+        StackVector(iterator begin, iterator end) : Array<T, N>(), _size{0} {
+            int idx = 0;
+            for (const auto &i: container::range{begin, end}) {
+                this->_data[idx++] = i;
+                if (idx == N)
+                    return ;
+            }
+        }
+
         iterator end() override {
             return this->begin() + _size;
         }

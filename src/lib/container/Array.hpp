@@ -68,6 +68,24 @@ namespace container {
             }
         }
 
+        Array& operator=(const Array &other) {
+            auto iter = this->begin();
+            for (const auto& i: other) {
+                *iter = i;
+            }
+
+            return *this;
+        }
+
+        Array &operator=(Array &&other) noexcept {
+            auto iter = this->begin();
+            for (auto &i: other) {
+                *iter = utility::move(i);
+            }
+
+            return *this;
+        }
+
         /**
          * Allow concatenation of two Array of size N and N1
          *
@@ -162,11 +180,9 @@ namespace container {
             return position;
         }
 
-        iterator insert(iterator position, T &&value) override {
+        iterator insert(iterator position, T &value) override {
             if (!_validate_position(position))
                 return end();
-
-            const auto distance = position - begin();
 
             auto iter = end() - 1;
             while (iter != position) {
@@ -174,7 +190,22 @@ namespace container {
                 --iter;
             }
 
-            *position = utility::move(value);
+            *iter = value;
+
+            return position;
+        }
+
+        iterator insert(iterator position, T &&value) override {
+            if (!_validate_position(position))
+                return end();
+
+            auto iter = end() - 1;
+            while (iter != position) {
+                *iter = utility::move(*(iter - 1));
+                --iter;
+            }
+
+            *position = value;
 
             return position;
         }
@@ -225,9 +256,10 @@ namespace container {
             return position;
         }
 
-    private:
+    protected:
         T _data[N];
 
+    private:
         iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
             auto new_elems = _end - _begin;
             auto distance  = _begin - position;

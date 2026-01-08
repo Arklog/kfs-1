@@ -21,8 +21,7 @@ TEST_CASE("KArray", "[KArray]") {
     }
 
     SECTION("CTOR with data") {
-        int                      data[3] = {1, 2, 3};
-        container::Array<int, 3> arr(data);
+        container::Array<int, 3> arr(1, 2, 3);
         REQUIRE(arr[0] == 1);
         REQUIRE(arr[1] == 2);
         REQUIRE(arr[2] == 3);
@@ -37,11 +36,8 @@ TEST_CASE("KArray", "[KArray]") {
     }
 
     SECTION("Operator+") {
-        int data1[2] = {1, 2};
-        int data2[3] = {3, 4, 5};
-
-        container::Array<int, 2> arr1(data1);
-        container::Array<int, 3> arr2(data2);
+        container::Array<int, 2> arr1(1, 2);
+        container::Array<int, 3> arr2(3, 4, 5);
         auto                     arr3 = arr1 + arr2;
 
         REQUIRE(arr3.size() == 5);
@@ -53,8 +49,7 @@ TEST_CASE("KArray", "[KArray]") {
     }
 
     SECTION("Operator[]") {
-        int                      arr[3] = {10, 20, 30};
-        container::Array<int, 3> kArr(arr);
+        container::Array<int, 3> kArr(10, 20, 30);
 
         kArr[1] = 0;
 
@@ -64,8 +59,7 @@ TEST_CASE("KArray", "[KArray]") {
     }
 
     SECTION("range loop") {
-        int                      arr[3] = {1, 2, 3};
-        container::Array<int, 3> karr(arr);
+        container::Array<int, 3> karr(1, 2, 3);
 
         for (auto i: karr) {
             continue;
@@ -79,8 +73,7 @@ TEST_CASE("KArray", "[KArray]") {
     }
 
     SECTION("begin") {
-        int                      arr[3] = {1, 2, 3};
-        container::Array<int, 3> karr(arr);
+        container::Array<int, 3> karr(1, 2, 3);
 
         auto iter  = karr.begin();
         auto citer = karr.cbegin();
@@ -89,8 +82,7 @@ TEST_CASE("KArray", "[KArray]") {
     }
 
     SECTION("end") {
-        int                      arr[3] = {1, 2, 3};
-        container::Array<int, 3> karr(arr);
+        container::Array<int, 3> karr(1, 2, 3);
 
         REQUIRE(karr.begin() + 3 == karr.end());
         REQUIRE(karr.cbegin() + 3 == karr.cend());

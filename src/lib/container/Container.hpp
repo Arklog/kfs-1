@@ -56,6 +56,8 @@ namespace container {
          */
         virtual size_type size() const = 0;
 
+        virtual iterator insert(iterator position, T &value) = 0;
+
         /**
         * Insert one element at position
         *
