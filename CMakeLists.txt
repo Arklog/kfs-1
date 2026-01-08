@@ -43,6 +43,10 @@ set(KFLAGS
         -nostdinc
 )
 
+if (${CMAKE_BUILD_TYPE} STREQUAL "")
+    SET(CMAKE_BUILD_TYPE Release)
+endif ()
+
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
     message("Debug build type")
     set(KFLAGS ${KFLAGS} -O0)
