@@ -26,6 +26,6 @@ run: iso
 	qemu-system-i386 $(BUILDDIR)/$(ISO)
 
 test:
-	cmake . -B${BUILDDIR}
-	cmake --build ${BUILDDIR} --parallel
+	CMAKE_BUILD_TYPE=Release cmake . -B${BUILDDIR}
+	CMAKE_BUILD_TYPE=Release cmake --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
