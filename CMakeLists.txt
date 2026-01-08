@@ -47,6 +47,8 @@ if (NOT DEFINED CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif ()
 
+message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
+
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
     set(KFLAGS ${KFLAGS} -O0)
 else ()
