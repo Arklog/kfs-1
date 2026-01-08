@@ -1,13 +1,14 @@
 //
-// Created by pierre on 12/20/25.
+// Created by alice on 07/01/2026.
 //
 
-#include <catch2/catch_all.hpp>
+#include "catch2/catch_all.hpp"
+
 #include "arch/i386/vga/vga.hpp"
 
 TEST_CASE("t_vga_char", "[libvga]") {
     SECTION("background color") {
-        vga::t_vga_char vga_char = vga::vga_get_color('A', vga::color::BLACK, vga::color::WHITE);
+        vga::t_vga_char vga_char('A', vga::color::BLACK, vga::color::WHITE);
 
         REQUIRE(vga_char.get_background() == vga::color::WHITE);
         REQUIRE(vga_char.get_foreground() == vga::color::BLACK);

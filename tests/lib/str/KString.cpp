@@ -161,37 +161,19 @@ TEST_CASE("KString", "[kstring]") {
         const char *str8 = "++++-+++2147483647";
         const char *str9 = "2d147483647";
 
-        int value;
-        int ret;
-
-        ret = kstring::safe_atoi(str1, &value);
-        REQUIRE(ret == 0);
-        REQUIRE(value == 920);
-
-        ret = kstring::safe_atoi(str2, &value);
-        REQUIRE(ret == 0);
-        REQUIRE(value == -3112);
-
-        ret = kstring::safe_atoi(str3, &value);
-        REQUIRE(ret == 1);
-
-        ret = kstring::safe_atoi(str4, &value);
-        REQUIRE(ret == 0);
-        REQUIRE(value == -2147483648);
-
-        ret = kstring::safe_atoi(str5, &value);
-        REQUIRE(ret == 0);
-        REQUIRE(value == 2147483647);
-
-        ret = kstring::safe_atoi(str8, &value);
-        REQUIRE(ret == 0);
-        REQUIRE(value == 2147483647);
-
-        ret = kstring::safe_atoi(str9, &value);
-        REQUIRE(ret == 0);
-        REQUIRE(value == 2);
-
-        REQUIRE((kstring::safe_atoi(str6, &value) == 1));
-        REQUIRE((kstring::safe_atoi(str7, &value) == 1));
+        int res;
+        REQUIRE(kstring::safe_atoi(str1, &res) == 0);
+        REQUIRE(res == 920);
+        REQUIRE(kstring::safe_atoi(str2, &res) == 0);
+        REQUIRE(res == -3112);
+        REQUIRE(kstring::safe_atoi(str3, &res) == 1);
+        kstring::safe_atoi(str4, &res);
+        REQUIRE(res == -2147483648);
+        kstring::safe_atoi(str5, &res);
+        REQUIRE(res == 2147483647);
+        REQUIRE((kstring::safe_atoi(str6, &res) == 1));
+        REQUIRE((kstring::safe_atoi(str7, &res) == 1));
+        REQUIRE((kstring::safe_atoi(str8, &res) == 0 && res == 2147483647));
+        REQUIRE((kstring::safe_atoi(str9, &res) == 0 && res == 2));
     }
 }

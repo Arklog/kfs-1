@@ -11,10 +11,8 @@
 #include "ScrollbackBuffer.hpp"
 #include "VGADisplay.hpp"
 
+
 namespace vga {
-    namespace modifier {
-        class VGAStreamColorModifier;
-    }
 
     /**
      * High-level terminal interface. Coordinates the buffer, cursor and display logics.
@@ -29,10 +27,15 @@ namespace vga {
         void clear();
 
         /**
+         * ensure the good global monitor initialization.
+         */
+        void init();
+
+        /**
          * writes a single character on the terminal.
          * @param c
          */
-        void put_char(unsigned char c);
+        void put_char(const char c);
 
         /**
          * writes a string on the terminal.
@@ -66,6 +69,21 @@ namespace vga {
         void backspace();
 
         /**
+         * changes foreground color.
+         */
+        void set_fg_color(color::vga_color fg);
+
+        /**
+         * changes background color.
+         */
+        void set_bg_color(color::vga_color bg);
+
+        /**
+         * changes both foreground and background colors.
+         */
+        void set_colors(color::vga_color fg, color::vga_color bg);
+
+        /**
          * Stream insertion operator for a string.
          * @param str
          */
@@ -78,20 +96,22 @@ namespace vga {
         VGAMonitor &operator<<(const char str);
 
         /**
-         * Process a color stream modifier
-         *
-         * @param modifier
-         * @return
+         * Stream foreground color modifier operator.
          */
-        VGAMonitor&operator<<(const modifier::VGAStreamColorModifier& modifier);
+        VGAMonitor &operator<<(const color::vga_color fg);
+
+        /**
+         * Stream colors modifier operator.
+         */
+        VGAMonitor &operator<<(const VGAColorChange changer);
 
     private:
-        ScrollbackBuffer _buffer;
-        VGACursor        _cursor;
-        uint8_t         _color;
+        ScrollbackBuffer       _buffer;
+        VGACursor              _cursor;
+        color::vga_color       _fg;
+        color::vga_color       _bg;
 
-
-        uint32_t _view_line;
+        uint32_t               _view_line;
 
 
         /**

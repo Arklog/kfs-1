@@ -7,6 +7,7 @@ vga::t_vga_char::t_vga_char(uint8_t ascii, uint8_t color) :
     data{.ascii = ascii, .color = color} {
 }
 
+
 vga::t_vga_char::t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background) :
     data{.ascii = ascii, .color = static_cast<uint8_t>(background << 4 | (foreground & 0x0F))} {
 }

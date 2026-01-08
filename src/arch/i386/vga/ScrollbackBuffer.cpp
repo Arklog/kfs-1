@@ -33,7 +33,7 @@ namespace vga {
         if (cursor.line >= MAX_LINES || cursor.column >= VGA_WIDTH)
             return;
 
-        _buffer[cursor.line][cursor.column] = t_vga_char(' ', color::WHITE_ON_BLACK);
+        _buffer[cursor.line][cursor.column] = vga::t_vga_char(' ', vga::color::WHITE);
 
         if (_line_len[cursor.line] > 0 && cursor.column == _line_len[cursor.line] - 1)
             --_line_len[cursor.line];
@@ -55,7 +55,7 @@ namespace vga {
             kstring::memcpy(_buffer[line + 1], &_buffer[line][column], new_len * sizeof(t_vga_char));
 
         for (uint16_t i = column; i < old_len; ++i)
-            _buffer[line][i] = t_vga_char(' ', color::WHITE_ON_BLACK);
+            _buffer[line][i] = vga::t_vga_char(' ', vga::color::WHITE);
 
         _line_len[line]     = column;
         _line_len[line + 1] = new_len;
@@ -86,7 +86,7 @@ namespace vga {
             for (uint16_t i = col - 1; i + 1 < _line_len[line]; ++i)
                 _buffer[line][i] = _buffer[line][i + 1];
 
-            _buffer[line][_line_len[line] - 1] = t_vga_char(' ', color::WHITE_ON_BLACK);
+            _buffer[line][_line_len[line] - 1] = vga::t_vga_char(' ', vga::color::WHITE);
             --_line_len[line];
             return;
         }
@@ -131,7 +131,7 @@ namespace vga {
         }
 
         for (uint16_t c = 0; c < VGA_WIDTH; ++c) {
-            _buffer[MAX_LINES - 1][c] = t_vga_char(' ', color::WHITE_ON_BLACK);
+            _buffer[MAX_LINES - 1][c] = vga::t_vga_char(' ', vga::color::WHITE);
         }
 
         if (_lines > 0)

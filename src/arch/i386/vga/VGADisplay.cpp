@@ -8,13 +8,24 @@ namespace vga {
 
     volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
 
-    static inline void outb(uint16_t port, uint8_t val) {
-        asm volatile ("outb %0, %1" : : "a"(val), "Nd"(port));
-    }
+
+    #ifdef KFS_HOST_TESTS
+
+        static inline void outb(uint16_t, uint8_t) {
+          // do nothing else segfault
+        }
+
+    #else
+
+        static inline void outb(uint16_t port, uint8_t val) {
+            asm volatile("outb %0, %1" : : "a"(val), "Nd"(port));
+        }
+
+    #endif
 
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
-            vga[i].raw = t_vga_char(' ', color::WHITE_ON_BLACK).raw;
+            vga[i].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
         }
     }
 
@@ -30,13 +41,15 @@ namespace vga {
                 if (src_line < buffer.line_count() && col < len) {
                     vga[row * VGA_WIDTH + col].raw = buffer.line(src_line)[col].raw;
                 } else {
-                    vga[row * VGA_WIDTH + col].raw = t_vga_char(' ', color::WHITE_ON_BLACK).raw;
+                    vga[row * VGA_WIDTH + col].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
                 }
             }
         }
     }
 
+
     void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
+
         if (cursor.line < view_line || cursor.line >= view_line + VGA_HEIGHT)
             return;
 

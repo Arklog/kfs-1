@@ -5,39 +5,16 @@
 
 #include "arch/i386/vga/vga.hpp"
 #include "arch/i386/vga/VGAMonitor.hpp"
-#include "arch/i386/vga/VGAStreamModifier.hpp"
 #include "lib/logging/logging.hpp"
 #include "arch/i386/keyboard/keyboardHandler.hpp"
 
-vga::VGAMonitor g_monitor;
+    vga::VGAMonitor g_monitor;
 
 
 extern "C" void k_main() {
-    const char *bpad = "                         ";
-    const char *apad = "                          ";
-    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK)
-            << bpad << " /$$   /$$ /$$$$$$$$ /$$$$$$ " << apad
-            << bpad << "| $$  /$$/| $$_____//$$__  $$" << apad
-            << bpad << "| $$ /$$/ | $$     | $$  \\__/" << apad
-            << bpad << "| $$$$$/  | $$$$$  |  $$$$$$ " << apad
-            << bpad << "| $$  $$  | $$__/   \\____  $$" << apad
-            << bpad << "| $$\\  $$ | $$      /$$  \\ $$" << apad
-            << bpad << "| $$ \\  $$| $$     |  $$$$$$/" << apad
-            << bpad << "|__/  \\__/|__/      \\______/ " << apad;
 
-    // reset default color
-    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK);
-
-    g_monitor << vga::endl
-            << "CHECKING COLORS"
-            << vga::endl;
-
-    for (int i = vga::color::BLACK; i <= vga::color::WHITE; i++) {
-        g_monitor << vga::modifier::VGAStreamBackgroundModifier(i) << " ";
-    }
-
-    g_monitor << vga::modifier::VGAStreamColorModifier(vga::color::WHITE_ON_BLACK) << vga::endl;
-    g_monitor << "Hello, World! Hello 42!" << vga::endl;
+    g_monitor.init();
+    g_monitor  << "Hello, World! Hello 42!" << vga::endl;
     g_monitor << "Hello, World! Hello 1!" << vga::endl;
     g_monitor << "Hello, World! Hello 2!" << vga::endl;
     g_monitor << "Hello, World! Hello 3!" << vga::endl;
@@ -108,6 +85,10 @@ extern "C" void k_main() {
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << "Hello, World!" << vga::endl;
+    g_monitor << vga::color::BLUE << "Hello, World! in blue" << vga::endl;
+    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::GREEN } << "Hello, World! in black on green" << vga::endl;
+    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::WHITE } << "Hello, World! in black on white" << vga::endl;
+
 
     logging::set_logger(g_monitor);
     logging::info("logging initialized");
