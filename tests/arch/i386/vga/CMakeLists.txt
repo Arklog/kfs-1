@@ -4,7 +4,7 @@ add_executable(test_vga
         VGAMonitor.cpp
 )
 
-target_compile_definitions(libvga64 PUBLIC KFS_HOST_TESTS)
+target_compile_definitions(libvga PUBLIC KFS_HOST_TESTS)
 
 target_link_libraries(test_vga
         PRIVATE
