@@ -150,9 +150,9 @@ TEST_CASE("KString", "[kstring]") {
         const char *str9 = "2d147483647";
 
         int res;
-        REQUIRE(kstring::safe_atoi(str1, &res) == 1);
+        REQUIRE(kstring::safe_atoi(str1, &res) == 0);
         REQUIRE(res == 920);
-        kstring::safe_atoi(str2, &res);
+        REQUIRE(kstring::safe_atoi(str2, &res) == 0);
         REQUIRE(res == -3112);
         REQUIRE(kstring::safe_atoi(str3, &res) == 1);
         kstring::safe_atoi(str4, &res);
