@@ -205,14 +205,14 @@ namespace container {
                 --iter;
             }
 
-            *position = value;
+            *position = utility::move(value);
 
             return position;
         }
 
         /**
          * Insert the range [_begin, _end[ at position. Elements will be displaced in order to create the place to store
-         * the range being deleted when out of bound.
+         * the range.
          *
          * @param position
          * @param _begin

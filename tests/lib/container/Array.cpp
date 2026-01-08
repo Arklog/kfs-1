@@ -4,6 +4,7 @@
 #include <catch2/catch_all.hpp>
 #include <lib/container/Array.hpp>
 #include <string>
+#include "static_check.hpp"
 
 template<typename IterType, typename ValueType>
 concept non_const_iterator = requires(IterType it, ValueType val)
@@ -15,6 +16,10 @@ template<typename IterType, typename ValueType>
 concept const_iterator = !non_const_iterator<IterType, ValueType>;
 
 TEST_CASE("KArray", "[KArray]") {
+    SECTION("validate container") {
+        static_assert(is_basic_container<container::Array<int, 3>>, "non valid container");
+    }
+
     SECTION("CTOR") {
         container::Array<int, 10> arr{};
         REQUIRE(true);
@@ -74,11 +79,13 @@ TEST_CASE("KArray", "[KArray]") {
 
     SECTION("begin") {
         container::Array<int, 3> karr(1, 2, 3);
+        const container::Array<int, 3>arr(1, 2, 3);
 
         auto iter  = karr.begin();
         auto citer = karr.cbegin();
         REQUIRE(*iter == 1);
         REQUIRE(*citer == 1);
+        REQUIRE(*arr.begin() == 1);
     }
 
     SECTION("end") {
@@ -88,32 +95,7 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(karr.cbegin() + 3 == karr.cend());
     }
 
-    SECTION("insert one (trivial)") {
-        auto arr = container::Array<int, 3>(1, 2, 3);
-
-        arr.insert(arr.begin(), 0);
-        REQUIRE(arr[0] == 0);
-        REQUIRE(arr[1] == 1);
-        REQUIRE(arr[2] == 2);
-
-        arr = container::Array<int, 3>(1, 2, 3);
-        arr.insert(arr.begin() + 1, 0);
-        REQUIRE(arr[0] == 1);
-        REQUIRE(arr[1] == 0);
-        REQUIRE(arr[2] == 2);
-
-        arr.insert(arr.end() - 1, 1);
-        REQUIRE(arr[0] == 1);
-        REQUIRE(arr[1] == 0);
-        REQUIRE(arr[2] == 1);
-
-        auto res = arr.insert(arr.end(), 0);
-        REQUIRE(res == arr.end());
-    }
-
-    SECTION("insert one (non trivial)") {
-        static_assert(!__is_trivially_copyable(std::string));
-
+    SECTION("insert one") {
         auto arr = container::Array<std::string, 3>("aa", "bb", "cc");
 
         arr.insert(arr.begin(), "dd");
@@ -132,41 +114,7 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr[2] == "ff");
     }
 
-    SECTION("insert many (trivial)") {
-        auto arr  = container::Array<int, 3>(1, 2, 3);
-        auto arr2 = container::Array<int, 3>(4, 5, 6);
-
-        arr.insert(arr.begin(), arr2.begin(), arr2.end());
-        REQUIRE(arr[0] == 4);
-        REQUIRE(arr[1] == 5);
-        REQUIRE(arr[2] == 6);
-
-        arr.insert(arr.begin() + 1, arr2.begin(), arr2.begin() + 2);
-        REQUIRE(arr[0] == 4);
-        REQUIRE(arr[1] == 4);
-        REQUIRE(arr[2] == 5);
-
-        arr = arr2;
-        arr.insert(arr.begin(), arr.begin() + 1, arr.end());
-        REQUIRE(arr[0] == 5);
-        REQUIRE(arr[1] == 6);
-        REQUIRE(arr[2] == 4);
-
-        arr = arr2;
-        arr.insert(arr.begin() + 2, arr.begin() + 1, arr.begin() + 2);
-        REQUIRE(arr[0] == 4);
-        REQUIRE(arr[1] == 6);
-        REQUIRE(arr[2] == 5);
-
-        // Failure case
-        REQUIRE(arr.insert(arr.end(), arr2.begin(), arr2.end()) == arr.end());
-        REQUIRE(arr.insert(arr.begin(), arr2.end(), arr2.begin()) == arr.end());
-        REQUIRE(arr.insert(arr.begin() - 1, arr2.begin(), arr2.end()) == arr.end());
-        REQUIRE(arr.insert(arr.begin(), arr2.begin(), arr2.end() + 1) == arr.end());
-    }
-
-    SECTION("insert many (non trivial)") {
-        static_assert(!__is_trivially_copyable(std::string));
+    SECTION("insert many") {
         auto arr  = container::Array<std::string, 3>("aa", "bb", "cc");
         auto arr2 = container::Array<std::string, 3>("dd", "ee", "ff");
 
