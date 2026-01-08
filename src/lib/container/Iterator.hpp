@@ -48,7 +48,7 @@ namespace container {
 
         virtual int operator-(const Derived &) const = 0;
 
-        virtual Reference operator*() = 0;
+        virtual Reference operator*() const = 0;
 
         virtual explicit operator Pointer() const = 0;
     };
@@ -69,6 +69,17 @@ namespace container {
 
         explicit ContiguousIterator(Pointer item) :
             _item(item) {
+        }
+
+        ContiguousIterator(const ContiguousIterator &other) : _item(other._item) {}
+
+        // explicit ContiguousIterator(const ContiguousIterator<const T>& other) = delete;
+
+        // ContiguousIterator &operator=(const ContiguousIterator<const T>& other) = delete;
+
+        ContiguousIterator &operator=(const ContiguousIterator<T>& other) {
+            _item = other._item;
+            return *this;
         }
 
         bool operator==(const ContiguousIterator &other) const override {
@@ -137,7 +148,7 @@ namespace container {
             return _item - other._item;
         }
 
-        Reference operator*() override {
+        Reference operator*() const override {
             return *_item;
         }
 

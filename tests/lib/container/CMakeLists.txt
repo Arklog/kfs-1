@@ -19,5 +19,11 @@ target_include_directories(
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src
 )
+target_compile_options(
+        test_array
+        PRIVATE
+        -m32
+        -fdiagnostics-all-candidates
+)
 
 catch_discover_tests(test_array)
