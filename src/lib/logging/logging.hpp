@@ -7,7 +7,6 @@
 
 #ifndef LOG_BUFFER_SIZE
 # define LOG_BUFFER_SIZE 1024
-#include "arch/i386/vga/VGAStreamModifier.hpp"
 #endif
 
 #include "arch/i386/vga/vga.hpp"
@@ -76,11 +75,11 @@ namespace logging {
 
         logger << "["
 #ifndef TEST
-                << vga::modifier::VGAStreamColorModifier(log_color_map[log_level])
+                << vga::VGAColorChange(log_color_map[log_level])
 #endif
                 << log_message_map[log_level]
 #ifndef TEST
-                << vga::modifier::VGAStreamColorModifier(vga::color::DEFAULT)
+                << vga::VGAColorChange(vga::color::DEFAULT)
 #endif
                 << "]: ";
 

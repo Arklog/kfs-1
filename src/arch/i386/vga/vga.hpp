@@ -99,6 +99,9 @@ namespace vga {
      * Helper to change both foreground and background displayed colors.
      */
     struct VGAColorChange {
+        VGAColorChange(color::t_vga_color foreground, color::t_vga_color background);
+        VGAColorChange(color::t_color_set colorset);
+
         color::t_vga_color fg;
         color::t_vga_color bg;
     };
