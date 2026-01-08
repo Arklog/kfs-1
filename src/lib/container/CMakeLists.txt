@@ -8,10 +8,12 @@ add_library(container OBJECT
         Array.hpp
         Container.cpp
         Container.hpp
-        Iterator.cpp
-        Iterator.hpp
         StackVector.hpp
         StackVector.cpp
+        iterator/Iterator.cpp
+        iterator/Iterator.hpp
+        iterator/ContiguousIterator.hpp
+        iterator/ContiguousIterator.cpp
 )
 target_include_directories(container PRIVATE ${CMAKE_SOURCE_DIR}/src .)
 target_link_libraries(container PRIVATE libstring)

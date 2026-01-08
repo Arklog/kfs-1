@@ -1,7 +1,7 @@
 //
 // Created by pierre on 12/29/25.
 //
-#include <lib/container/Iterator.hpp>
+#include <lib/container/iterator/ContiguousIterator.hpp>
 #include <catch2/catch_all.hpp>
 
 TEST_CASE("ContiguousIterator", "[container]") {

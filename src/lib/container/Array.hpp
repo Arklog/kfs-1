@@ -6,15 +6,15 @@
 #define KFS_1_KARRAY_HPP
 
 #include "Container.hpp"
-#include "Iterator.hpp"
+#include "iterator/ContiguousIterator.hpp"
 #include "lib/utility/utility.hpp"
 
 namespace container {
     template<typename T, unsigned int N>
-    class Array : public Container<T, ContiguousIterator<T>, ContiguousIterator<const T> > {
+    class Array : public Container<T, ContiguousIterator<T>, ContiguousConstIterator<T> > {
     public:
         using iterator       = ContiguousIterator<T>;
-        using const_iterator = ContiguousIterator<const T>;
+        using const_iterator = ContiguousConstIterator<T>;
         using size_type      = Container<T, iterator, const_iterator>::size_type;
         using value_type     = Container<T, iterator, const_iterator>::value_type;
 
@@ -284,7 +284,7 @@ namespace container {
          *
          * @return true if the iterator is in [begin(), end()], false otherwise
          */
-        bool _own_iterator(iterator iter) {
+        bool _own_iterator(const_iterator iter) {
             return iter >= begin() && iter <= end();
         }
 
@@ -295,7 +295,7 @@ namespace container {
          *
          * @return true if the iterator is in [begin(), end()[, false otherwise
          */
-        bool _validate_position(iterator iter) const {
+        bool _validate_position(const_iterator iter) const {
             return iter >= begin() && iter < end();
         }
     };
