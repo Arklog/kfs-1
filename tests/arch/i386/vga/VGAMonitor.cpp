@@ -7,39 +7,43 @@
 #include "arch/i386/vga/VGADisplay.hpp"
 #include "catch2/catch_all.hpp"
 
+
 TEST_CASE("VGADisplay", "[vga]") {
-    vga::t_vga_char test_buff[25 *80];
+    static uint8_t test_buff[25 * 80 * 2];
+    vga::VGADisplay::vga = reinterpret_cast<vga::t_vga_char*>(test_buff);
     vga::VGAMonitor monitor;
-    vga::VGADisplay::vga = test_buff;
     monitor.init();
 
-    char first_line[80] = "first first first first first first first first first first first first first  ";
+    char first_line[81] = "first first first first first first first first first first first first first   ";
 
-    char test_line[80] = "test test test test test test test test test test test test test test test test";
+    char test_line[81] = "test test test test test test test test test test test test test test test test ";
 
-    monitor << first_line << test_line << test_line << test_line << test_line
+    monitor << first_line;
+
+    REQUIRE(vga::VGADisplay::vga[0].data.ascii == 'f');
+
+    monitor << test_line << test_line << test_line << test_line
             << test_line << test_line << test_line << test_line << test_line
             << test_line << test_line << test_line << test_line << test_line
             << test_line << test_line << test_line << test_line << test_line
             << test_line << test_line << test_line << test_line << test_line;
 
-    REQUIRE(test_buff[0].data.ascii == 'f');
-
-    monitor << test_line;
-    REQUIRE(test_buff[0].data.ascii == 't');
+    REQUIRE(vga::VGADisplay::vga[0].data.ascii == 't');
 }
 
 
 TEST_CASE("VGAMonitor color modifier", "[vga]") {
-    vga::t_vga_char test_buff[25 *80];
+    static uint8_t test_buff[25 * 80 * 2];
+    vga::VGADisplay::vga = reinterpret_cast<vga::t_vga_char*>(test_buff);
     vga::VGAMonitor monitor;
-    vga::VGADisplay::vga = test_buff;
     monitor.init();
 
     monitor << "T" << vga::VGAColorChange{vga::color::BLACK, vga::color::CYAN} << "est";
-    REQUIRE(test_buff[0].data.color == 15);
-    REQUIRE(test_buff[1].data.color == 48);
+    REQUIRE(vga::VGADisplay::vga[0].data.color == 15);
+    REQUIRE(vga::VGADisplay::vga[1].data.color == 48);
 
-    REQUIRE(test_buff[0].get_foreground() == vga::color::WHITE);
-    REQUIRE(test_buff[1].get_background() == vga::color::BLACK);
+    const vga::t_vga_char *c1 = const_cast<vga::t_vga_char const*>(&vga::VGADisplay::vga[0]);
+    const vga::t_vga_char *c2 = const_cast<vga::t_vga_char const*>(&vga::VGADisplay::vga[1]);
+    REQUIRE(c1->get_foreground() == vga::color::WHITE);
+    REQUIRE(c2->get_background() == vga::color::CYAN);
 }

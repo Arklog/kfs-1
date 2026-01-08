@@ -8,9 +8,20 @@ namespace vga {
 
     volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
 
-    static inline void outb(uint16_t port, uint8_t val) {
-        asm volatile ("outb %0, %1" : : "a"(val), "Nd"(port));
-    }
+
+    #ifdef KFS_HOST_TESTS
+
+        static inline void outb(uint16_t, uint8_t) {
+          // do nothing else segfault
+        }
+
+    #else
+
+        static inline void outb(uint16_t port, uint8_t val) {
+            asm volatile("outb %0, %1" : : "a"(val), "Nd"(port));
+        }
+
+    #endif
 
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
@@ -36,7 +47,9 @@ namespace vga {
         }
     }
 
+
     void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
+
         if (cursor.line < view_line || cursor.line >= view_line + VGA_HEIGHT)
             return;
 

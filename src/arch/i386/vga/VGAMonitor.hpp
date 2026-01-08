@@ -11,6 +11,7 @@
 #include "ScrollbackBuffer.hpp"
 #include "VGADisplay.hpp"
 
+
 namespace vga {
 
     /**
