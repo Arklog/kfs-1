@@ -43,7 +43,8 @@ set(KFLAGS
         -nostdinc
 )
 
-if (NOT DEFINED CMAKE_BUILD_TYPE)
+if (NOT DEFINED CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
+    message("CMAKE_BUILD_TYPE UNDEFINED")
     set(CMAKE_BUILD_TYPE Release)
 endif ()
 
