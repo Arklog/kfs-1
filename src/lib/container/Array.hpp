@@ -38,7 +38,7 @@ namespace container {
          * @param _begin
          * @param _end
          */
-        Array(iterator _begin, iterator _end) {
+        explicit Array(iterator _begin, iterator _end) {
             auto i = 0;
             while (_begin < _end && i < N) {
                 _data[i++] = *(_begin++);
@@ -159,10 +159,10 @@ namespace container {
          */
         template<typename... Args>
         iterator emplace(iterator position, Args &&... args) {
-            if (_validate_position(position))
+            if (!_validate_position(position))
                 return end();
 
-            new(static_cast<T *>(position)) T(args...);
+            new(static_cast<T *>(position)) T(utility::move(args)...);
             return position;
         }
 

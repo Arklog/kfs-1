@@ -30,14 +30,89 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr[0] == 1);
         REQUIRE(arr[1] == 2);
         REQUIRE(arr[2] == 3);
+
+        std::string a = "a";
+        std::string b = "b";
+        container::Array<std::string, 2> arr1(a, b);
+        REQUIRE(a == arr1[0]);
+        REQUIRE(b == arr1[1]);
+        REQUIRE(a == "a");
+        REQUIRE(b == "b");
     }
 
-    SECTION("CTOR with data2") {
-        container::Array<int, 3> arr(1, 2, 3);
+    SECTION("CTOR iterator") {
+        container::Array<std::string, 3> arr("a", "b", "c");
+        container::Array<std::string, 2> arr2(arr.begin(), arr.begin() + 2);
+        container::Array<std::string, 2> arr3(arr.begin() + 2, arr.end());
+        container::Array<std::string, 2> arr4(arr.begin(), arr.end());
 
-        REQUIRE(arr[0] == 1);
-        REQUIRE(arr[1] == 2);
-        REQUIRE(arr[2] == 3);
+        // Check original preserved
+        REQUIRE(arr[0] == "a");
+        REQUIRE(arr[1] == "b");
+        REQUIRE(arr[2] == "c");
+
+        // Check inserted correctly
+        REQUIRE(arr2[0] == "a");
+        REQUIRE(arr2[1] == "b");
+
+        REQUIRE(arr3[0] == "c");
+
+        REQUIRE(arr4[0] == "a");
+        REQUIRE(arr4[1] == "b");
+    }
+
+    SECTION("CTOR copy") {
+        container::Array<std::string, 3> arr("a", "b", "c");
+        auto arr2 = arr;
+
+        REQUIRE(arr[0] == "a");
+        REQUIRE(arr[1] == "b");
+        REQUIRE(arr[2] == "c");
+
+        REQUIRE(arr2[0] == "a");
+        REQUIRE(arr2[1] == "b");
+        REQUIRE(arr2[2] == "c");
+    }
+
+    SECTION("CTOR move") {
+        container::Array<std::string, 3> arr("a", "b", "c");
+        auto arr2 = utility::move(arr);
+
+        REQUIRE(arr[0] == "");
+        REQUIRE(arr[1] == "");
+        REQUIRE(arr[2] == "");
+
+        REQUIRE(arr2[0] == "a");
+        REQUIRE(arr2[1] == "b");
+        REQUIRE(arr2[2] == "c");
+    }
+
+    SECTION("copy assigment") {
+        container::Array<std::string, 3> arr("a", "b", "c");
+        container::Array<std::string, 3> arr2("d", "e", "f");
+
+        arr = arr2;
+        REQUIRE(arr[0] == "d");
+        REQUIRE(arr[1] == "e");
+        REQUIRE(arr[2] == "f");
+
+        REQUIRE(arr2[0] == "d");
+        REQUIRE(arr2[1] == "e");
+        REQUIRE(arr2[2] == "f");
+    }
+
+    SECTION("move assigment") {
+        container::Array<std::string, 3> arr("a", "b", "c");
+        container::Array<std::string, 3> arr2("d", "e", "f");
+
+        arr = utility::move(arr2);
+        REQUIRE(arr[0] == "d");
+        REQUIRE(arr[1] == "e");
+        REQUIRE(arr[2] == "f");
+
+        REQUIRE(arr2[0] == "");
+        REQUIRE(arr2[1] == "");
+        REQUIRE(arr2[2] == "");
     }
 
     SECTION("Operator+") {
@@ -77,7 +152,7 @@ TEST_CASE("KArray", "[KArray]") {
         static_assert(const_iterator<arrayclass::const_iterator, int>, "const iterator should be const");
     }
 
-    SECTION("begin") {
+    SECTION("begin / cbegin") {
         container::Array<int, 3> karr(1, 2, 3);
         const container::Array<int, 3>arr(1, 2, 3);
 
@@ -88,30 +163,106 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(*arr.begin() == 1);
     }
 
-    SECTION("end") {
+    SECTION("end / cend") {
         container::Array<int, 3> karr(1, 2, 3);
+        const container::Array<int, 3> arr(1, 2, 3);
 
         REQUIRE(karr.begin() + 3 == karr.end());
         REQUIRE(karr.cbegin() + 3 == karr.cend());
+        REQUIRE(arr.cbegin() + 3 == arr.end());
+    }
+
+    SECTION("data") {
+        container::Array<int, 3> arr(1, 2, 3);
+        auto data = arr.data();
+
+        REQUIRE(data[0] == 1);
+        REQUIRE(data[1] == 2);
+        REQUIRE(data[2] == 3);
+    }
+
+    SECTION("size") {
+        container::Array<int, 3> arr{};
+        container::Array<int, 1> arr2{};
+
+        REQUIRE(arr.size() == 3);
+        REQUIRE(arr2.size() == 1);
+    }
+
+    SECTION("emplace") {
+        container::Array<int, 3> arr;
+        arr.emplace(arr.begin(), 1);
+        REQUIRE(arr[0] == 1);
+
+        arr.emplace(arr.begin(), 2);
+        REQUIRE(arr[0] == 2);
+
+        arr.emplace(arr.begin() + 1, 99);
+        REQUIRE(arr[1] == 99);
+
+        std::string a = "a";
+        container::Array<std::string, 3> arr2{};
+        auto ret = arr2.emplace(arr2.begin(), a);
+
+        REQUIRE(ret == arr2.begin());
+        REQUIRE(arr2[0] == "a");
+        REQUIRE(a == "");
     }
 
     SECTION("insert one") {
         auto arr = container::Array<std::string, 3>("aa", "bb", "cc");
 
-        arr.insert(arr.begin(), "dd");
+        auto ret = arr.insert(arr.begin(), "dd");
         REQUIRE(arr[0] == "dd");
         REQUIRE(arr[1] == "aa");
         REQUIRE(arr[2] == "bb");
+        REQUIRE(ret == arr.begin());
 
-        arr.insert(arr.begin() + 1, "ee");
+        ret = arr.insert(arr.begin() + 1, "ee");
         REQUIRE(arr[0] == "dd");
         REQUIRE(arr[1] == "ee");
         REQUIRE(arr[2] == "aa");
+        REQUIRE(ret == arr.begin() + 1);
 
-        arr.insert(arr.end() - 1, "ff");
+        ret = arr.insert(arr.end() - 1, "ff");
         REQUIRE(arr[0] == "dd");
         REQUIRE(arr[1] == "ee");
         REQUIRE(arr[2] == "ff");
+        REQUIRE(ret == arr.end() - 1);
+
+        arr = container::Array<std::string, 3>("aa", "bb", "cc");
+        ret = arr.insert(arr.end(), "test");
+        REQUIRE(ret == arr.end());
+        REQUIRE(arr[0] == "aa");
+        REQUIRE(arr[1] == "bb");
+        REQUIRE(arr[2] == "cc");
+
+        std::string test = "test";
+        arr = container::Array<std::string, 3>("aa", "bb", "cc");
+        ret = arr.insert(arr.begin(), test);
+        REQUIRE(ret == arr.begin());
+        REQUIRE(arr[0] == "test");
+        REQUIRE(arr[1] == "aa");
+        REQUIRE(arr[2] == "bb");
+        REQUIRE(test == "test");
+
+        test = "test";
+        arr = container::Array<std::string, 3>("aa", "bb", "cc");
+        ret = arr.insert(arr.end(), test);
+        REQUIRE(ret == arr.end());
+        REQUIRE(arr[0] == "aa");
+        REQUIRE(arr[1] == "bb");
+        REQUIRE(arr[2] == "cc");
+
+        test = "test";
+        arr = container::Array<std::string, 3>("aa", "bb", "cc");
+        ret = arr.insert(arr.begin(), utility::move(test));
+        REQUIRE(ret == arr.begin());
+        REQUIRE(arr[0] == "test");
+        REQUIRE(arr[1] == "aa");
+        REQUIRE(arr[2] == "bb");
+        REQUIRE(test == "");
+
     }
 
     SECTION("insert many") {
@@ -150,15 +301,5 @@ TEST_CASE("KArray", "[KArray]") {
         REQUIRE(arr[2] == "c");
     }
 
-    SECTION("emplace") {
-        container::Array<int, 3> arr;
-        arr.emplace(arr.begin(), 1);
-        REQUIRE(arr[0] == 1);
 
-        arr.emplace(arr.begin(), 2);
-        REQUIRE(arr[0] == 2);
-
-        arr.emplace(arr.begin() + 1, 99);
-        REQUIRE(arr[1] == 99);
-    }
 }
