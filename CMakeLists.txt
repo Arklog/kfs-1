@@ -43,8 +43,9 @@ set(KFLAGS
         -nostdinc
 )
 
-if (${CMAKE_BUILD_TYPE} STREQUAL "")
-    SET(CMAKE_BUILD_TYPE Release)
+if (EXISTS ${CMAKE_BUILD_TYPE})
+else ()
+    set(CMAKE_BUILD_TYPE Release)
 endif ()
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
