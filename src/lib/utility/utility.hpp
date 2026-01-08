@@ -27,6 +27,16 @@ namespace utility {
     }
 
     template<typename T>
+    T &&forward(typename remove_reference<T>::type &a) {
+        return static_cast<remove_reference<T>::type &&>(a);
+    }
+
+    template<typename T>
+    constexpr T &&forward(typename remove_reference<T>::type &&a) {
+        return static_cast<remove_reference<T>::type &&>(a);
+    }
+
+    template<typename T>
     void swap(T &&a, T &&b) {
         typename remove_reference<T>::type c = utility::move(a);
         a                                    = utility::move(b);

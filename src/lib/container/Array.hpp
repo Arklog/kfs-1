@@ -28,7 +28,7 @@ namespace container {
          */
         template<typename... Args>
         Array(Args... args) :
-            _data{args...} {
+            _data{utility::forward<Args>(args)...} {
             static_assert(sizeof...(Args) <= N, "Too many elements");
         }
 
@@ -72,6 +72,7 @@ namespace container {
             auto iter = this->begin();
             for (const auto& i: other) {
                 *iter = i;
+                ++iter;
             }
 
             return *this;
@@ -81,6 +82,7 @@ namespace container {
             auto iter = this->begin();
             for (auto &i: other) {
                 *iter = utility::move(i);
+                ++iter;
             }
 
             return *this;
