@@ -7,8 +7,8 @@ target_include_directories(test_format PRIVATE
 )
 target_link_libraries(test_format PRIVATE
         Catch2::Catch2WithMain
-        format64
-        libstring64
+        format
+        libstring
 )
 
 catch_discover_tests(test_format)
