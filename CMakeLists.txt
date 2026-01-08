@@ -43,19 +43,14 @@ set(KFLAGS
         -nostdinc
 )
 
-if (EXISTS ${CMAKE_BUILD_TYPE})
-else ()
+if (NOT DEFINED CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif ()
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
-    message("Debug build type")
     set(KFLAGS ${KFLAGS} -O0)
-    message("KGLAGS: ${KFLAGS}")
 else ()
-    message("Non Debug build type")
     set(KFLAGS ${KFLAGS} -O2)
-    message("KFLAGS: ${KFLAGS}")
 endif ()
 
 ##################################
@@ -70,9 +65,12 @@ add_subdirectory(src)
 
 include(CTest)
 include(Catch)
+
+# Force 32bit catch2 compilation
 target_compile_options(Catch2 PUBLIC -m32)
 target_link_options(Catch2 PUBLIC -m32)
 target_compile_options(Catch2WithMain PUBLIC -m32)
 target_link_options(Catch2WithMain PUBLIC -m32)
+
 enable_testing()
 add_subdirectory(tests)
