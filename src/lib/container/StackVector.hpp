@@ -6,6 +6,7 @@
 #define KFS_1_STACKVECTOR_HPP
 
 #include "Array.hpp"
+#include "lib/utility/type_trait.hpp"
 #include "range.hpp"
 
 namespace container {
@@ -20,12 +21,38 @@ namespace container {
             Array<T, N>(), _size{0} {
         }
 
+        template<typename ...Args>
+        StackVector(Args ...args): Array<T, N>(utility::forward<Args>(args)...), _size(sizeof...(args)) {
+            static_assert(sizeof...(args) <= N, "To many arguments");
+            static_assert((utility::convertible_to<decltype(args), T> && ...), "Invalid type");
+        }
+
         StackVector(iterator begin, iterator end) : Array<T, N>(), _size{0} {
             int idx = 0;
             for (const auto &i: container::range{begin, end}) {
                 this->_data[idx++] = i;
-                if (idx == N)
+                if (idx == N) {
+                    _size = N;
                     return ;
+                }
+            }
+
+            _size = end - begin;
+        }
+
+        StackVector(const StackVector& other) : Array<T, N>(), _size{other._size} {
+            int idx = 0;
+
+            for (const auto &i: other) {
+                this->_data[idx++] = i;
+            }
+        }
+
+        StackVector(StackVector &&other) noexcept : Array<T, N>(), _size{utility::move(other._size)} {
+            int idx = 0;
+
+            for (auto &i: other) {
+                this->_data[idx++] = utility::move(i);
             }
         }
 
@@ -33,11 +60,15 @@ namespace container {
             return this->begin() + _size;
         }
 
+        const_iterator end() const override {
+            return cend();
+        }
+
         const_iterator cend() const override {
             return this->cbegin() + _size;
         }
 
-        const size_type size() const override {
+        size_type size() const override {
             return _size;
         }
 
@@ -49,11 +80,33 @@ namespace container {
          *
          * @return The position of the inserted element or
          */
-        iterator insert(iterator position, T &&value) override {
-            if (!_validate_position(position) || _size == N)
+        iterator insert(iterator position, T &value) override {
+            if (!_own_iterator(position) || _size == N)
                 return end();
 
-            for (auto iter = end(); iter >= position; ++iter) {
+            for (auto iter = end(); iter > position; --iter) {
+                *iter = utility::move(*(iter - 1));
+            }
+
+            *position = value;
+            ++_size;
+
+            return position;
+        }
+
+        /**
+         * Insert value at position. If the vector is full the last element will be removed.
+         *
+         * @param position The position at which to insert the element
+         * @param value The value to insert
+         *
+         * @return The position of the inserted element or
+         */
+        iterator insert(iterator position, T &&value) override {
+            if (!_own_iterator(position) || _size == N)
+                return end();
+
+            for (auto iter = end(); iter > position; --iter) {
                 *iter = utility::move(*(iter - 1));
             }
 
@@ -65,26 +118,24 @@ namespace container {
 
         iterator insert(iterator position, iterator _begin, iterator _end) override {
             auto length = _end - _begin;
-
-            if (length > N - _size)
+            if (!_own_iterator(position) || length + size() > N)
                 return end();
 
             if (_own_iterator(_begin) && _own_iterator(_end))
-                _insert_overlap(position, _begin, _end);
+                return _insert_overlap(position, _begin, _end);
 
             // displace elements
-            auto iter = end() - length -1;
-            while (iter >= position) {
-                *(iter + length) = utility::move(*iter);
-                --iter;
+            for (auto iter = end() + length - 1; iter > position; --iter) {
+                *iter = utility::move(*(iter - length));
             }
 
             // copy elements from range
-            iter = position;
+            auto iter = position;
             for (const auto &i: container::range{_begin, _end}) {
                 *(iter++) = i;
             }
 
+            _size += length;
             return position;
         }
 
@@ -133,8 +184,10 @@ namespace container {
             if (!_validate_position(position))
                 return end();
 
-            for (auto &it: container::range{position, end() - 1}) {
-                *it = utility::move(*(it + 1));
+            auto iter = position;
+            while (iter < end() - 1) {
+                *iter = utility::move(*(iter + 1));
+                ++iter;
             }
             --_size;
 
@@ -154,8 +207,10 @@ namespace container {
                 return end();
 
             auto length = _end - _begin;
-            for (auto i: container::range{_begin, _end}) {
-                *i = utility::move(*(i + length));
+            auto iter = _begin;
+            while (iter + length < end()) {
+                *iter = utility::move(*(iter + length));
+                ++iter;
             }
 
             _size -= length;
@@ -172,7 +227,7 @@ namespace container {
          *
          * @return true if iter is in range [begin(), end()], false otherwise
          */
-        bool _own_iterator(iterator iter) const {
+        bool _own_iterator(const_iterator iter) const {
             return iter >= this->begin() && iter <= this->end();
         }
 
@@ -183,7 +238,7 @@ namespace container {
          *
          * @return true if iter is in [begin(), end()[, false otherwise
          */
-        bool _validate_position(iterator iter) const {
+        bool _validate_position(const_iterator iter) const {
             return iter >= this->begin() && iter < this->end();
         }
 
@@ -203,7 +258,7 @@ namespace container {
                 return position;
 
             auto iter = position;
-            for (const auto& i: container::range{_begin, _end}) {
+            for (auto& i: container::range{_begin, _end}) {
                 utility::swap(*iter, i);
                 ++iter;
             }

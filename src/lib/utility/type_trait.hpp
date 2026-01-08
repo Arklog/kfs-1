@@ -18,6 +18,12 @@ namespace utility {
 
     template<typename T, typename U>
     concept same_as = is_same<T, U>::value && is_same<U, T>::value;
+
+    template<typename T, typename U>
+    concept convertible_to = requires(T a)
+    {
+        { U{a} };
+    };
 }
 
 #endif // KFS_1__TYPE_TRAIT_HPP
