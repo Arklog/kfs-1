@@ -14,6 +14,7 @@ namespace container {
         using iterator       = IteratorType;
         using const_iterator = ConstIteratorType;
         using size_type      = unsigned int;
+        using value_type     = T;
 
         /**
          * Get an iterator to the beginning of the buffer
@@ -21,11 +22,15 @@ namespace container {
          */
         virtual iterator begin() = 0;
 
+        virtual const_iterator begin() const = 0;
+
         /**
          * Get an iterator to the end of the buffer
          * @return
          */
         virtual iterator end() = 0;
+
+        virtual const_iterator end() const = 0;
 
         /**
          * Get a constant iterator to the beginning of the buffer
@@ -50,6 +55,8 @@ namespace container {
          * @return
          */
         virtual size_type size() const = 0;
+
+        virtual iterator insert(iterator position, T &value) = 0;
 
         /**
         * Insert one element at position

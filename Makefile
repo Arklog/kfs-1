@@ -3,6 +3,8 @@ ISO    := kfs.iso
 BUILDDIR := build
 ISODIR := $(BUILDDIR)/isodir/boot
 
+.PHONY := test
+
 link_kernel: kernel bootloader
 	ld -T src/linker.ld -o ${KERNEL} -m elf_i386 -Lbuild/src src/bootloader.o -lkernel
 
@@ -25,7 +27,7 @@ iso: link_kernel
 run: iso
 	qemu-system-i386 $(BUILDDIR)/$(ISO)
 
-test:
-	cmake . -B${BUILDDIR}
-	cmake --build ${BUILDDIR} --parallel
+test: kernel
+	CMAKE_BUILD_TYPE=Release cmake . -B${BUILDDIR}
+	CMAKE_BUILD_TYPE=Release cmake --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure

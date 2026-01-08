@@ -6,6 +6,8 @@
 add_executable(test_array
         Array.cpp
         Iterator.cpp
+        StackVector.cpp
+        static_check.hpp
 )
 target_link_libraries(test_array
         PRIVATE
@@ -16,6 +18,11 @@ target_include_directories(
         test_array
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src
+)
+target_compile_options(
+        test_array
+        PRIVATE
+        -m32
 )
 
 catch_discover_tests(test_array)

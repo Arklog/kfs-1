@@ -26,7 +26,6 @@ FetchContent_MakeAvailable(
 #target_compile_options(Catch2WithMain PUBLIC -m32)
 
 set(KFLAGS
-        -O2
         -m32
         -Wall
         -Wextra
@@ -43,6 +42,21 @@ set(KFLAGS
         -nostdlib
         -nostdinc
 )
+
+if (EXISTS ${CMAKE_BUILD_TYPE})
+else ()
+    set(CMAKE_BUILD_TYPE Release)
+endif ()
+
+if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
+    message("Debug build type")
+    set(KFLAGS ${KFLAGS} -O0)
+    message("KGLAGS: ${KFLAGS}")
+else ()
+    message("Non Debug build type")
+    set(KFLAGS ${KFLAGS} -O2)
+    message("KFLAGS: ${KFLAGS}")
+endif ()
 
 ##################################
 # Main source code
