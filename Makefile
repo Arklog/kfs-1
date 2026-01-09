@@ -3,14 +3,17 @@ ISO    := kfs.iso
 BUILDDIR := build
 ISODIR := $(BUILDDIR)/isodir/boot
 
+CMAKE_BUILD_TYPE ?= Release
+CMAKE := cmake -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
+
 .PHONY := test
 
 link_kernel: kernel bootloader
 	ld -T src/linker.ld -o ${KERNEL} -m elf_i386 -Lbuild/src src/bootloader.o -lkernel
 
 kernel:
-	cmake . -B${BUILDDIR}
-	cmake --build ${BUILDDIR} --target kernel --parallel
+	${CMAKE} . -B${BUILDDIR}
+	${CMAKE} --build ${BUILDDIR} --target kernel --parallel
 
 bootloader:
 	nasm -f elf32 src/bootloader.s -o src/bootloader.o
@@ -28,6 +31,6 @@ run: iso
 	qemu-system-i386 $(BUILDDIR)/$(ISO)
 
 test: kernel
-	CMAKE_BUILD_TYPE=Release cmake . -B${BUILDDIR}
-	CMAKE_BUILD_TYPE=Release cmake --build ${BUILDDIR} --parallel
+	${CMAKE} . -B${BUILDDIR}
+	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
