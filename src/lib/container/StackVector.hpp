@@ -72,6 +72,14 @@ namespace container {
             return *this;
         }
 
+        iterator begin() override {
+            return Array<T, N>::begin();
+        }
+
+        const_iterator begin() const override {
+            return Array<T, N>::begin();
+        }
+
         iterator end() override {
             return this->begin() + _size;
         }
