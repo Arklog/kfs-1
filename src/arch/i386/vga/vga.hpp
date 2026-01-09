@@ -106,17 +106,6 @@ namespace vga {
         color::t_vga_color bg;
     };
 
-    /**
-     * Create a VGA character with specified ASCII and colors
-     *
-     * @param character ASCII character
-     * @param fg Foreground color
-     * @param bg Background color
-     *
-     * @return VGA character
-     */
-    [[deprecated]] t_vga_char make_vga_char(uint8_t          character, color::vga_color fg = color::WHITE,
-                                            color::vga_color bg                             = color::BLACK);
 
     inline const char *endl = "\n";
 }

@@ -6,6 +6,7 @@ add_executable(test_vga
 
 target_link_libraries(test_vga
         PRIVATE
+        libport
         libvga
         Catch2::Catch2WithMain
         libstring

@@ -7,7 +7,7 @@
 
 #include "include/stdint.hpp"
 #include "lib/port/port.hpp"
-#include "../vga/VGAMonitor.hpp"
+#include "arch/i386/vga/VGAMonitor.hpp"
 
 extern vga::VGAMonitor g_monitor;
 
