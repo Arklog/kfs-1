@@ -16,7 +16,7 @@ namespace container {
         Pointer _item;
 
     public:
-        ContiguousConstIterator() = delete;
+        ContiguousConstIterator() = default;
 
         explicit ContiguousConstIterator(Pointer item) :
                 _item(item) {
@@ -128,7 +128,7 @@ namespace container {
         Pointer _item;
 
     public:
-        ContiguousIterator() = delete;
+        ContiguousIterator() = default;
 
         explicit ContiguousIterator(Pointer item) :
             _item(item) {

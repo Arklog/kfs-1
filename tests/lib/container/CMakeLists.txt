@@ -5,9 +5,11 @@
 
 add_executable(test_container
         Array.cpp
-        Iterator.cpp
+        iterator/ContiguousIterator.cpp
         StackVector.cpp
         static_check.hpp
+        iterator/PairIterator.cpp
+        range.cpp
 )
 target_link_libraries(test_container
         PRIVATE

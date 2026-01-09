@@ -15,7 +15,6 @@ namespace container {
         T2 second;
 
         pair() = default;
-
         pair(const T1 &first, const T2 &second) : first(first), second(second) {}
     };
 }

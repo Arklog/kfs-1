@@ -26,6 +26,7 @@ namespace container::iterator {
         second_type& second;
 
         PairIterator(): pair{}, first{pair.first}, second{pair.second} {}
+        // explicit PairIterator(const value_type& pair): pair{pair}, first{pair.first}, second{pair.second} {}
         PairIterator(const first_type& first,const second_type& second): pair{first, second}, first{pair.first}, second{pair.second} {}
         PairIterator(const PairIterator& other): pair{other.pair}, first{pair.first}, second {pair.second} {}
 
@@ -99,6 +100,13 @@ namespace container::iterator {
             return tmp;
         }
 
+        PairIterator operator+(unsigned v) const {
+            auto tmp = *this;
+            tmp.first += v;
+            tmp.second += v;
+            return tmp;
+        }
+
         PairIterator operator-(int v) const override {
             auto tmp  = *this;
             tmp.first -= v;
@@ -126,7 +134,7 @@ namespace container::iterator {
         }
 
         reference_type operator*() const override {
-            return pair;
+            return const_cast<reference_type>(pair);
         }
 
         explicit operator pointer_type() const override {

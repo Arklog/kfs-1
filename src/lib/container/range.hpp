@@ -40,7 +40,7 @@ namespace container {
         using iterator_type = typename iterator::PairIterator<pair<T, U>>;
         using value_type = iterator_type::value_type;
 
-        dual_range(iterator_type item, unsigned int len): _begin{item}, _end{item + len} {}
+        dual_range(value_type item, unsigned int len): _begin{item}, _end{item + len} {}
 
         iterator_type begin() const {
             return _begin;
