@@ -26,7 +26,7 @@ namespace container::iterator {
         second_type& second;
 
         PairIterator(): pair{}, first{pair.first}, second{pair.second} {}
-        // explicit PairIterator(const value_type& pair): pair{pair}, first{pair.first}, second{pair.second} {}
+        PairIterator(const value_type& _pair): pair{_pair}, first{pair.first}, second{pair.second} {}
         PairIterator(const first_type& first,const second_type& second): pair{first, second}, first{pair.first}, second{pair.second} {}
         PairIterator(const PairIterator& other): pair{other.pair}, first{pair.first}, second {pair.second} {}
 
