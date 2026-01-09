@@ -14,6 +14,7 @@ add_library(container OBJECT
         iterator/Iterator.hpp
         iterator/ContiguousIterator.hpp
         iterator/ContiguousIterator.cpp
+        concept.hpp
 )
 target_include_directories(container PRIVATE ${CMAKE_SOURCE_DIR}/src .)
 target_link_libraries(container PRIVATE libstring)

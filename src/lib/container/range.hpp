@@ -5,8 +5,10 @@
 #ifndef KFS_1_RANGE_HPP
 #define KFS_1_RANGE_HPP
 
+#include "concept.hpp"
+
 namespace container {
-    template<typename T>
+    template<is_iterator T>
     struct range {
         T _begin;
         T _end;

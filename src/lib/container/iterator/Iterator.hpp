@@ -16,6 +16,10 @@ namespace container {
     template<typename Derived, typename T, typename Pointer, typename Reference>
     class IteratorBase {
     public:
+        using value_type = T;
+        using pointer_type = Pointer;
+        using reference_type = Reference;
+
         virtual ~IteratorBase() = default;
 
         virtual bool operator==(const Derived &other) const = 0;
@@ -52,8 +56,6 @@ namespace container {
 
         virtual explicit operator Pointer() const = 0;
     };
-
-
 } // container
 
 #endif //KFS_1_ITERATOR_HPP
