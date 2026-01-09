@@ -7,7 +7,7 @@
 
 namespace vga {
 
-    VGAMonitor::VGAMonitor(): _fg(color::vga_color::WHITE), _bg(color::vga_color::BLACK), _view_line(0) {
+    VGAMonitor::VGAMonitor(): _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0) {
         clear();
     }
 
@@ -21,8 +21,7 @@ namespace vga {
     }
 
     void VGAMonitor::init() {
-        _fg = color::vga_color::WHITE;
-        _bg = color::vga_color::BLACK;
+        _color = vga::color::color_set::WHITE_ON_BLACK;
         _view_line = 0;
         clear();
     }
@@ -35,7 +34,7 @@ namespace vga {
             for (int i = 0; i < 4; ++i)
                 put_char(' ');
         } else {
-            _buffer.write(_cursor,vga::t_vga_char(c, _fg, _bg));
+            _buffer.write(_cursor,vga::t_vga_char(c, _color));
             _cursor.advance();
         }
 
@@ -114,16 +113,17 @@ namespace vga {
     }
 
     void VGAMonitor::set_fg_color(color::vga_color fg) {
-        _fg = fg;
+        uint8_t bg = (_color >> 4) & 0x0F;
+        _color = (bg << 4) | (fg & 0x0F);
     }
 
     void VGAMonitor::set_bg_color(color::vga_color bg) {
-        _bg = bg;
+        uint8_t fg = _color & 0x0F;
+        _color = (bg << 4) | (fg & 0x0F);
     }
 
     void VGAMonitor::set_colors(color::vga_color fg, color::vga_color bg) {
-        _fg = fg;
-        _bg = bg;
+        _color = (bg << 4) | (fg & 0x0F);
     }
 
     void VGAMonitor::_refresh() {
@@ -142,15 +142,19 @@ namespace vga {
     }
 
     VGAMonitor &VGAMonitor::operator<<(const color::vga_color fg) {
-        _fg = fg;
+        uint8_t bg = (_color >> 4) & 0x0F;
+        _color = (bg << 4) | (fg & 0x0F);
         return *this;
     }
 
     VGAMonitor &VGAMonitor::operator<<(const VGAColorChange changer) {
-        _fg = changer.fg;
-        _bg = changer.bg;
+        _color = (changer.bg << 4) | (changer.fg & 0x0F);
         return *this;
     }
 
+    VGAMonitor &VGAMonitor::operator<<(const uint8_t changer) {
+        _color = changer;
+        return *this;
+    }
 
 }

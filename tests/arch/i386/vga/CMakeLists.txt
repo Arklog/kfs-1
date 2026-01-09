@@ -3,12 +3,11 @@ add_executable(test_vga
         VGAMonitor.cpp
 )
 
-target_compile_definitions(libvga PRIVATE KFS_HOST_TESTS)
-
 target_link_libraries(test_vga
         PRIVATE
-        Catch2::Catch2WithMain
+        libport
         libvga
+        Catch2::Catch2WithMain
         libstring
 )
 target_include_directories(

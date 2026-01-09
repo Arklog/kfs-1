@@ -6,6 +6,8 @@
 #define KFS_1_VGADISPLAY_HPP
 
 #include "include/stdint.hpp"
+#include "lib/port/port.hpp"
+
 #include "ScrollbackBuffer.hpp"
 #include "VGACursor.hpp"
 
@@ -14,6 +16,7 @@ namespace vga {
      * Handler for the vga writting operations. Renders a window on the
      * scrollback buffer based on the current view line and displays the cursor.
      */
+
     class VGADisplay {
     public:
         /**
@@ -38,6 +41,7 @@ namespace vga {
 /*     private: */
         /** pointer to the VGA text buffer (0xB8000). */
         static volatile t_vga_char* vga;
+        static bool testing;
     };
 
 }

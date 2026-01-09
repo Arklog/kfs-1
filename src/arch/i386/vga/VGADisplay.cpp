@@ -5,23 +5,8 @@
 #include "VGADisplay.hpp"
 
 namespace vga {
-
+    bool VGADisplay::testing = false;
     volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
-
-
-    #ifdef KFS_HOST_TESTS
-
-        static inline void outb(uint16_t, uint8_t) {
-          // do nothing else segfault
-        }
-
-    #else
-
-        static inline void outb(uint16_t port, uint8_t val) {
-            asm volatile("outb %0, %1" : : "a"(val), "Nd"(port));
-        }
-
-    #endif
 
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
@@ -30,6 +15,7 @@ namespace vga {
     }
 
     void VGADisplay::render(const ScrollbackBuffer &buffer, uint32_t view_line) {
+        uint8_t color = color::color_set::WHITE_ON_BLACK;
         for (uint32_t row = 0; row < VGA_HEIGHT; ++row) {
             uint32_t src_line = view_line + row;
 
@@ -40,8 +26,9 @@ namespace vga {
             for (uint16_t col = 0; col < VGA_WIDTH; ++col) {
                 if (src_line < buffer.line_count() && col < len) {
                     vga[row * VGA_WIDTH + col].raw = buffer.line(src_line)[col].raw;
+                    color = buffer.line(src_line)[col].get_color();
                 } else {
-                    vga[row * VGA_WIDTH + col].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
+                    vga[row * VGA_WIDTH + col].raw = vga::t_vga_char(' ', color).raw;
                 }
             }
         }
@@ -49,6 +36,8 @@ namespace vga {
 
 
     void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
+        if (testing == true)
+            return;
 
         if (cursor.line < view_line || cursor.line >= view_line + VGA_HEIGHT)
             return;

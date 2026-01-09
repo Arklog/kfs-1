@@ -20,6 +20,10 @@ vga::color::t_vga_color vga::t_vga_char::get_background() const {
     return static_cast<color::t_vga_color>((data.color >> 4) & 0x0F);
 }
 
+vga::color::t_vga_color vga::t_vga_char::get_color() const {
+    return static_cast<color::t_vga_color>(data.color);
+}
+
 void vga::t_vga_char::set_foreground(const color::t_vga_color color) {
     data.color = (data.color & 0xF0) | (color & 0x0F);
 }
@@ -30,12 +34,4 @@ void vga::t_vga_char::set_background(const color::t_vga_color color) {
 
 void vga::t_vga_char::set_color(const color::t_vga_color foreground, const color::t_vga_color background) {
     data.color = (background << 4) | (foreground & 0x0F);
-}
-
-vga::VGAColorChange::VGAColorChange(color::t_vga_color foreground, color::t_vga_color background): fg{foreground}, bg{background} {
-}
-
-vga::VGAColorChange::VGAColorChange(color::t_color_set colorset):
-    fg{static_cast<color::t_vga_color>(colorset & 0x00ff)},
-    bg{static_cast<color::t_vga_color>(colorset >> 4)} {
 }
