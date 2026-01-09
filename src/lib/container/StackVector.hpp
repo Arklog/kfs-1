@@ -40,6 +40,8 @@ namespace container {
             _size = end - begin;
         }
 
+        ~StackVector() = default;
+
         StackVector(const StackVector& other) : Array<T, N>(), _size{other._size} {
             int idx = 0;
 

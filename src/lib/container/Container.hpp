@@ -9,7 +9,7 @@ namespace container {
     template<typename T, typename IteratorType, typename ConstIteratorType>
     class Container {
     public:
-        virtual ~Container() = default;
+        ~Container() = default;
 
         using iterator       = IteratorType;
         using const_iterator = ConstIteratorType;

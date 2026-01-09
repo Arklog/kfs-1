@@ -98,4 +98,6 @@ namespace kstring {
 
 }
 
+extern "C" void *memset(void *s, int c, unsigned long n);
+
 #endif
