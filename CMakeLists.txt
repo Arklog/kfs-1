@@ -51,7 +51,7 @@ endif ()
 message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
-    set(KFLAGS ${KFLAGS} -O2)
+    set(KFLAGS ${KFLAGS} -O0)
 else ()
     set(KFLAGS ${KFLAGS} -O2)
 endif ()
