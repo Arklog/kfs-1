@@ -5,56 +5,125 @@
 #ifndef KFS_1_VGAMONITOR_HPP
 #define KFS_1_VGAMONITOR_HPP
 
+#include "vga.hpp"
 #include "include/stdint.hpp"
 #include "VGACursor.hpp"
+#include "ScrollbackBuffer.hpp"
+#include "VGADisplay.hpp"
+
 
 namespace vga {
-    namespace modifier {
-        class VGAStreamColorModifier;
-        class VGAStreamCursorModifier;
-    }
-
     /**
-     * Stream like interface to the VGA text mode monitor.
+     * High-level terminal interface. Coordinates the buffer, cursor and display logics.
      */
     class VGAMonitor {
-    private:
-        VGACursor cursor;
-        uint8_t color;
-
-        /**
-         * Print a character at the current cursor position, and advance the cursor.
-         * @param c The character to print.
-         */
-        void print_char(const t_vga_char& c);
-
     public:
         VGAMonitor();
 
         /**
-         * Print a null-terminated string at the current cursor position. The cursor is advanced accordingly.
-         *
-         * @param data
-         * @return
+         * clears the screen and the buffer.
          */
-        VGAMonitor& operator<<(const char *data);
+        void clear();
 
         /**
-         * Process a cursor stream modifier
-         *
-         * @param modifier A functor that modifies the cursor state.
-         * @return
+         * ensure the good global monitor initialization.
          */
-        VGAMonitor& operator<<(const modifier::VGAStreamCursorModifier& modifier);
+        void init();
 
         /**
-         * Process a color stream modifier
-         *
-         * @param modifier
-         * @return
+         * writes a single character on the terminal.
+         * @param c
          */
-        VGAMonitor& operator<<(const modifier::VGAStreamColorModifier& modifier);
+        void put_char(const char c);
+
+        /**
+         * writes a string on the terminal.
+         * @param str
+         */
+        void write(const char* str);
+
+        /**
+         * scrolls the visible window up by one line.
+         */
+        void scroll_up();
+
+        /**
+         * scrolls the visible window down by one line.
+         */
+        void scroll_down();
+
+        /**
+         * moves the cursor of 1 column to the left.
+         */
+        void move_left();
+
+        /**
+         * moves the cursor of 1 column to the right.
+         */
+        void move_right();
+
+        /**
+         * performs a backspace operation.
+         */
+        void backspace();
+
+        /**
+         * changes foreground color.
+         */
+        void set_fg_color(color::vga_color fg);
+
+        /**
+         * changes background color.
+         */
+        void set_bg_color(color::vga_color bg);
+
+        /**
+         * changes both foreground and background colors.
+         */
+        void set_colors(color::vga_color fg, color::vga_color bg);
+
+        /**
+         * Stream insertion operator for a string.
+         * @param str
+         */
+        VGAMonitor &operator<<(const char *str);
+
+        /**
+         * Stream insertion operator for a single character.
+         * @param str
+         */
+        VGAMonitor &operator<<(const char str);
+
+        /**
+         * Stream foreground color modifier operator.
+         */
+        VGAMonitor &operator<<(const color::vga_color fg);
+
+        /**
+         * Stream colors modifier operator.
+         */
+        VGAMonitor &operator<<(const VGAColorChange changer);
+
+        /**
+         * Stream colors modifier operator via t_color_set.
+         */
+        VGAMonitor &operator<<(const uint8_t changer);
+
+
+    private:
+        ScrollbackBuffer       _buffer;
+        VGACursor              _cursor;
+        uint8_t                _color;
+        uint32_t               _view_line;
+
+
+        /**
+         * refreshes the VGA display and cursor.
+         */
+        void       _refresh();
+
     };
+
 }
 
 #endif //KFS_1_VGAMONITOR_HPP

@@ -33,13 +33,12 @@ namespace vga {
             LIGHT_BROWN   = 14,
             WHITE         = 15,
         };
-
-        using t_color_set = enum {
-            WHITE_ON_BLACK = BLACK << 4 | WHITE,
-            BLACK_ON_WHITE = WHITE << 4 | BLACK,
-            GREEN_ON_BLACK = BLACK << 4 | GREEN,
-            RED_ON_BLACK   = BLACK << 4 | RED,
-        };
+        namespace color_set {
+            constexpr uint8_t    WHITE_ON_BLACK = BLACK << 4 | WHITE;
+            constexpr uint8_t    BLACK_ON_WHITE = WHITE << 4 | BLACK;
+            constexpr uint8_t    GREEN_ON_BLACK = BLACK << 4 | GREEN;
+            constexpr uint8_t    RED_ON_BLACK   = BLACK << 4 | RED;
+        }
     }
 
     /**
@@ -53,6 +52,12 @@ namespace vga {
 
         uint16_t raw;
 
+        t_vga_char() = default;
+
+        t_vga_char(uint8_t ascii, uint8_t color);
+
+        t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background);
+
         /**
          * Get the foreground color
          * @return
@@ -65,6 +70,13 @@ namespace vga {
          * @return
          */
         color::t_vga_color get_background() const;
+
+        /**
+         * Get the global color
+         *
+         * @return
+         */
+        color::t_vga_color get_color() const;
 
         /**
          * Set the foreground color
@@ -87,15 +99,13 @@ namespace vga {
     };
 
     /**
-     * Create a VGA character with specified ASCII and colors
-     *
-     * @param character ASCII character
-     * @param fg Foreground color
-     * @param bg Background color
-     *
-     * @return VGA character
+     * Helper to change both foreground and background displayed colors.
      */
-    t_vga_char vga_get_color(uint8_t character, color::vga_color fg = color::WHITE, color::vga_color bg = color::BLACK);
+    struct VGAColorChange {
+        color::t_vga_color fg;
+        color::t_vga_color bg;
+    };
+
 
     inline const char *endl = "\n";
 }

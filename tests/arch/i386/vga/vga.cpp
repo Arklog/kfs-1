@@ -1,13 +1,14 @@
 //
-// Created by pierre on 12/20/25.
+// Created by alice on 07/01/2026.
 //
 
-#include <catch2/catch_all.hpp>
+#include "catch2/catch_all.hpp"
+
 #include "arch/i386/vga/vga.hpp"
 
 TEST_CASE("t_vga_char", "[libvga]") {
     SECTION("background color") {
-        vga::t_vga_char vga_char = vga::vga_get_color('A', vga::color::BLACK, vga::color::WHITE);
+        vga::t_vga_char vga_char('A', vga::color::BLACK, vga::color::WHITE);
 
         REQUIRE(vga_char.get_background() == vga::color::WHITE);
         REQUIRE(vga_char.get_foreground() == vga::color::BLACK);
@@ -27,11 +28,11 @@ TEST_CASE("t_vga_char", "[libvga]") {
     SECTION("color set") {
         vga::t_vga_char c{};
 
-        c.data.color = vga::color::WHITE_ON_BLACK;
+        c.data.color = vga::color::color_set::WHITE_ON_BLACK;
         REQUIRE(c.get_foreground() == vga::color::WHITE);
         REQUIRE(c.get_background() == vga::color::BLACK);
 
-        c.data.color = vga::color::BLACK_ON_WHITE;
+        c.data.color = vga::color::color_set::BLACK_ON_WHITE;
         REQUIRE(c.get_foreground() == vga::color::BLACK);
         REQUIRE(c.get_background() == vga::color::WHITE);
     }

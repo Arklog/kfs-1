@@ -139,7 +139,7 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("safe_atoi") {
-        const char *str1 = "332";
+        const char *str1 = "920";
         const char *str2 = "-3112";
         const char *str3 = "22222222222222222222222222222222222222222222222";
         const char *str4 = "-2147483648";
@@ -150,9 +150,9 @@ TEST_CASE("KString", "[kstring]") {
         const char *str9 = "2d147483647";
 
         int res;
-        kstring::safe_atoi(str1, &res);
-        REQUIRE(res == 332);
-        kstring::safe_atoi(str2, &res);
+        REQUIRE(kstring::safe_atoi(str1, &res) == 0);
+        REQUIRE(res == 920);
+        REQUIRE(kstring::safe_atoi(str2, &res) == 0);
         REQUIRE(res == -3112);
         REQUIRE(kstring::safe_atoi(str3, &res) == 1);
         kstring::safe_atoi(str4, &res);

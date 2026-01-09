@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 project(kfs-1)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -26,22 +26,22 @@ FetchContent_MakeAvailable(
 #target_compile_options(Catch2WithMain PUBLIC -m32)
 
 set(KERN_COMPILER_FLAGS
-    -O2
-    -m32
-    -Wall
-    -Wextra
-    -Wpedantic
-    -Werror
-    -Wno-unused-parameter
-    -Wno-missing-field-initializers
-    -ffreestanding
-    -fno-builtin
-    -fno-stack-protector
-    -fpie
-    -fno-exceptions
-    -fno-rtti
-    -nostdlib
-    -nostdinc
+        -O0
+        -m32
+        -Wall
+        -Wextra
+        -Wpedantic
+        -Werror
+        -Wno-unused-parameter
+        -Wno-missing-field-initializers
+        -ffreestanding
+        -fno-builtin
+        -fno-stack-protector
+        -fpie
+        -fno-exceptions
+        -fno-rtti
+        -nostdlib
+        -nostdinc
 )
 
 ##################################
