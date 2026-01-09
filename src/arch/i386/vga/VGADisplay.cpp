@@ -5,21 +5,13 @@
 #include "VGADisplay.hpp"
 
 namespace vga {
-
+    bool VGADisplay::testing = false;
     volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
-    //  #ifdef KFS_HOST_TESTS
 
-        //static inline void outb(uint16_t, uint8_t) {
-            // do nothing else segfault
-        //}
+    static inline void outb(uint16_t port, uint8_t val) {
+        asm volatile("outb %0, %1" : : "a"(val), "Nd"(port));
+    }
 
-//    #else
-
-        static inline void outb(uint16_t port, uint8_t val) {
-            asm volatile("outb %0, %1" : : "a"(val), "Nd"(port));
-        }
-
-//    #endif
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
             vga[i].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
@@ -48,6 +40,8 @@ namespace vga {
 
 
     void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
+        if (testing == true)
+            return;
 
         if (cursor.line < view_line || cursor.line >= view_line + VGA_HEIGHT)
             return;

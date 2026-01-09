@@ -39,6 +39,7 @@ namespace vga {
 /*     private: */
         /** pointer to the VGA text buffer (0xB8000). */
         static volatile t_vga_char* vga;
+        static bool testing;
     };
 
 }

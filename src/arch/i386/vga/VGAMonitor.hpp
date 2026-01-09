@@ -13,7 +13,6 @@
 
 
 namespace vga {
-
     /**
      * High-level terminal interface. Coordinates the buffer, cursor and display logics.
      */
