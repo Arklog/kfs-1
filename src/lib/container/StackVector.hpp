@@ -10,19 +10,19 @@
 #include "range.hpp"
 
 namespace container {
-    template<typename T, unsigned int N, T DefaultValue = T{}>
+    template<typename T, unsigned int N>
     class StackVector : public Array<T, N> {
     public:
         using iterator       = Array<T, N>::iterator;
         using const_iterator = Array<T, N>::const_iterator;
         using size_type      = Array<T, N>::size_type;
 
-        StackVector() :
+        constexpr StackVector() :
             Array<T, N>(), _size{0} {
         }
 
         template<typename ...Args>
-        StackVector(Args ...args): Array<T, N>(utility::forward<Args>(args)...), _size(sizeof...(args)) {
+        constexpr StackVector(Args ...args): Array<T, N>(utility::forward<Args>(args)...), _size(sizeof...(args)) {
             static_assert(sizeof...(args) <= N, "To many arguments");
             static_assert((utility::convertible_to<decltype(args), T> && ...), "Invalid type");
         }
@@ -232,10 +232,14 @@ namespace container {
                 ++iter;
             }
 
-            *(end() - 1) = DefaultValue;
+            *(end() - 1) = T{};
             --_size;
 
             return this->begin();
+        }
+
+        iterator erase(unsigned position) {
+            return erase(this->begin() + position);
         }
 
         /**
@@ -262,10 +266,28 @@ namespace container {
         }
 
         void clear() {
-            for (const auto& item: *this) {
+            for (auto& item: *this) {
                 item = T{};
             }
             _size = 0;
+        }
+
+        /**
+         * Get the maximum capacity of the StackVector
+         *
+         * @return The maximum number of elements the StackVector can hold
+         */
+        constexpr unsigned capacity() const {
+            return N;
+        }
+
+        /**
+         * Get the available space in the StackVector
+         *
+         * @return The number of elements that can still be added to the StackVector
+         */
+        unsigned available_space() const {
+            return N - _size;
         }
 
     private:
@@ -302,7 +324,6 @@ namespace container {
          * @return
          */
         iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
-            auto length = _end - _begin;
             auto distance = _begin - position;
 
             if (!distance)

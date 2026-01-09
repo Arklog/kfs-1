@@ -20,6 +20,8 @@ namespace vga {
     class ScrollbackBuffer {
     public:
         static constexpr uint32_t MAX_LINES = 300;
+        static constexpr t_vga_char default_char{' ', color::color_set::WHITE_ON_BLACK};
+
         using line_type = container::StackVector<t_vga_char, vga::VGA_WIDTH>;
         using buffer_type = container::StackVector<line_type, MAX_LINES>;
 
@@ -67,7 +69,7 @@ namespace vga {
          * returns a pointer to the first line's character of the given index.
          * @param index
          */
-        const line_type* line(uint32_t index) const;
+        const line_type& line(uint32_t index) const;
 
         /**
          * returns the logical length of the given line.
@@ -85,12 +87,13 @@ namespace vga {
          */
         void scroll_up();
 
+        const buffer_type &get_buffer() const {
+            return _buffer;
+        }
+
     private:
         /** Character storage for each line. */
         buffer_type _buffer;
-
-        /** Logical length of each line. */
-        uint16_t   _line_len[MAX_LINES];
     };
 
 }
