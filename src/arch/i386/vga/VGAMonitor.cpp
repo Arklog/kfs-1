@@ -7,7 +7,7 @@
 
 namespace vga {
 
-    VGAMonitor::VGAMonitor(): _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0) {
+    VGAMonitor::VGAMonitor(): _buffer{}, _cursor{}, _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0) {
         clear();
     }
 
@@ -23,7 +23,7 @@ namespace vga {
     void VGAMonitor::init() {
         _color = vga::color::color_set::WHITE_ON_BLACK;
         _view_line = 0;
-        clear();
+        this->clear();
     }
 
     void VGAMonitor::put_char(const char c) {

@@ -8,7 +8,7 @@
 #include "arch/i386/keyboard/keyboardHandler.hpp"
 #include "lib/logging/logging.hpp"
 
-    vga::VGAMonitor g_monitor;
+    vga::VGAMonitor g_monitor{};
 
 
 extern "C" void k_main() {
