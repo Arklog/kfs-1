@@ -20,6 +20,10 @@ vga::color::t_vga_color vga::t_vga_char::get_background() const {
     return static_cast<color::t_vga_color>((data.color >> 4) & 0x0F);
 }
 
+vga::color::t_vga_color vga::t_vga_char::get_color() const {
+    return static_cast<color::t_vga_color>(data.color);
+}
+
 void vga::t_vga_char::set_foreground(const color::t_vga_color color) {
     data.color = (data.color & 0xF0) | (color & 0x0F);
 }

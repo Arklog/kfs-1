@@ -13,7 +13,7 @@
 extern "C" void k_main() {
 
     g_monitor.init();
-    g_monitor  << "Hello, World! Hello 42!" << vga::endl;
+    g_monitor << vga::color::color_set::BLACK_ON_WHITE << "Hello, World! Hello 42!" << vga::endl;
     g_monitor << "Hello, World! Hello 1!" << vga::endl;
     g_monitor << "Hello, World! Hello 2!" << vga::endl;
     g_monitor << "Hello, World! Hello 3!" << vga::endl;
@@ -86,7 +86,8 @@ extern "C" void k_main() {
     g_monitor << "Hello, World!" << vga::endl;
     g_monitor << vga::color::BLUE << "Hello, World! in blue" << vga::endl;
     g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::GREEN } << "Hello, World! in black on green" << vga::endl;
-    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::WHITE } << "Hello, World! in black on white" << vga::endl;
+    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::RED } << "Hello, World! in black on red" << vga::endl;
+    g_monitor << vga::color::color_set::WHITE_ON_BLACK << "Hello, World! in white on black" << vga::endl;
 
 
     while (true) {

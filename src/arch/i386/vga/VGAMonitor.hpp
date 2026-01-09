@@ -105,12 +105,16 @@ namespace vga {
          */
         VGAMonitor &operator<<(const VGAColorChange changer);
 
+        /**
+         * Stream colors modifier operator via t_color_set.
+         */
+        VGAMonitor &operator<<(const uint8_t changer);
+
+
     private:
         ScrollbackBuffer       _buffer;
         VGACursor              _cursor;
-        color::vga_color       _fg;
-        color::vga_color       _bg;
-
+        uint8_t                _color;
         uint32_t               _view_line;
 
 
