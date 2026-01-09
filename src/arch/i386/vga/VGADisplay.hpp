@@ -14,6 +14,7 @@ namespace vga {
      * Handler for the vga writting operations. Renders a window on the
      * scrollback buffer based on the current view line and displays the cursor.
      */
+
     class VGADisplay {
     public:
         /**

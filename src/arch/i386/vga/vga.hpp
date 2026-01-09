@@ -33,13 +33,12 @@ namespace vga {
             LIGHT_BROWN   = 14,
             WHITE         = 15,
         };
-
-        using t_color_set = enum {
-            WHITE_ON_BLACK = BLACK << 4 | WHITE,
-            BLACK_ON_WHITE = WHITE << 4 | BLACK,
-            GREEN_ON_BLACK = BLACK << 4 | GREEN,
-            RED_ON_BLACK   = BLACK << 4 | RED,
-        };
+        namespace color_set {
+            constexpr uint8_t    WHITE_ON_BLACK = BLACK << 4 | WHITE;
+            constexpr uint8_t    BLACK_ON_WHITE = WHITE << 4 | BLACK;
+            constexpr uint8_t    GREEN_ON_BLACK = BLACK << 4 | GREEN;
+            constexpr uint8_t    RED_ON_BLACK   = BLACK << 4 | RED;
+        }
     }
 
     /**
@@ -71,6 +70,13 @@ namespace vga {
          * @return
          */
         color::t_vga_color get_background() const;
+
+        /**
+         * Get the global color
+         *
+         * @return
+         */
+        color::t_vga_color get_color() const;
 
         /**
          * Set the foreground color
