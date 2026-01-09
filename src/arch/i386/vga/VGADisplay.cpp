@@ -10,7 +10,7 @@ namespace vga {
 
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
-            vga[i].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
+            vga[i].raw = vga::t_vga_char(' ', vga::color::color_set::WHITE_ON_BLACK).raw;
         }
     }
 

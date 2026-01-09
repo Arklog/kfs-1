@@ -10,7 +10,7 @@
 #include "range.hpp"
 
 namespace container {
-    template<typename T, unsigned int N>
+    template<typename T, unsigned int N, T DefaultValue = T{}>
     class StackVector : public Array<T, N> {
     public:
         using iterator       = Array<T, N>::iterator;
@@ -54,6 +54,20 @@ namespace container {
             for (auto &i: other) {
                 this->_data[idx++] = utility::move(i);
             }
+        }
+
+        StackVector& operator=(const StackVector& other) {
+            if (this == &other)
+                return *this;
+
+            _size = other._size;
+
+            int idx = 0;
+            for (const auto &i: other) {
+                this->_data[idx++] = i;
+            }
+
+            return *this;
         }
 
         iterator end() override {
@@ -174,6 +188,14 @@ namespace container {
             return this->begin() + _size++;
         }
 
+        iterator push_bash(const T& item) {
+            if (_size == N)
+                return end();
+
+            *(this->begin() + _size) = item;
+            return this->begin() + _size++;
+        }
+
         /**
          * Emplace an element at the end of the vector and adjust the size accordingly.
          *
@@ -209,6 +231,8 @@ namespace container {
                 *iter = utility::move(*(iter + 1));
                 ++iter;
             }
+
+            *(end() - 1) = DefaultValue;
             --_size;
 
             return this->begin();
@@ -235,6 +259,13 @@ namespace container {
 
             _size -= length;
             return this->begin();
+        }
+
+        void clear() {
+            for (const auto& item: *this) {
+                item = T{};
+            }
+            _size = 0;
         }
 
     private:
