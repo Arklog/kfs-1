@@ -26,5 +26,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: doxygen
-          publish_dir: ./doxygen/html
+          publish_dir: ./documentation/html
           force_orphan: true
