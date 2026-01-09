@@ -36,6 +36,7 @@ TEST_CASE("VGADisplay", "[vga]") {
 TEST_CASE("VGAMonitor color modifier", "[vga]") {
     static uint8_t test_buff[25 * 80 * 2];
     vga::VGADisplay::vga = reinterpret_cast<vga::t_vga_char*>(test_buff);
+    vga::VGADisplay::testing = true;
     vga::VGAMonitor monitor;
     monitor.init();
 
