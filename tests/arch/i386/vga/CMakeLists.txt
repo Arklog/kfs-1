@@ -8,7 +8,7 @@ target_compile_definitions(libvga PUBLIC KFS_HOST_TESTS)
 
 target_link_libraries(test_vga
         PRIVATE
-        libvga
+        libvga_test
         Catch2::Catch2WithMain
         libstring
 )
