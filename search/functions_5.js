@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['get_5fbackground_0',['get_background',['../unionvga_1_1t__vga__char.html#af78c587d7db32d729589e8ad7d1f1cc0',1,'vga::t_vga_char']]],
+  ['get_5fcolor_1',['get_color',['../unionvga_1_1t__vga__char.html#ac3ff834f79d6376e3f620e9aa1a40278',1,'vga::t_vga_char']]],
+  ['get_5fforeground_2',['get_foreground',['../unionvga_1_1t__vga__char.html#adbca9dffb9bed523295ffa351ec02f8d',1,'vga::t_vga_char']]]
+];

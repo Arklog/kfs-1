@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['safe_5fatoi_0',['safe_atoi',['../namespacekstring.html#a960fa7053dc68cdf78962f326fff6e3a',1,'kstring']]],
+  ['scroll_5fdown_1',['scroll_down',['../classvga_1_1VGAMonitor.html#a4d95585f7708c88ebc93984fe09cf8a5',1,'vga::VGAMonitor']]],
+  ['scroll_5fup_2',['scroll_up',['../classvga_1_1ScrollbackBuffer.html#a591d7ab77b12ddb4e0e17229b6cb6dd5',1,'vga::ScrollbackBuffer::scroll_up()'],['../classvga_1_1VGAMonitor.html#a2541e1f796439a30c1b645d710e42c2b',1,'vga::VGAMonitor::scroll_up()']]],
+  ['scrollbackbuffer_3',['ScrollbackBuffer',['../classvga_1_1ScrollbackBuffer.html#a207a5680f474b3920a5218565ea9b4b7',1,'vga::ScrollbackBuffer']]],
+  ['set_4',['set',['../classvga_1_1VGACursor.html#a9d0a0c044d74b0e6b67446d8732cd0e4',1,'vga::VGACursor']]],
+  ['set_5fbackground_5',['set_background',['../unionvga_1_1t__vga__char.html#ae48f5eeed0d537bb9a36ad24204c1670',1,'vga::t_vga_char']]],
+  ['set_5fbg_5fcolor_6',['set_bg_color',['../classvga_1_1VGAMonitor.html#ab8451f860f232936cb2669cfb45f22c2',1,'vga::VGAMonitor']]],
+  ['set_5fcolor_7',['set_color',['../unionvga_1_1t__vga__char.html#a55b13839821adea8f93e283fb44d51b0',1,'vga::t_vga_char']]],
+  ['set_5fcolors_8',['set_colors',['../classvga_1_1VGAMonitor.html#ad9be0ddb7a9563f801bcffbc4e9a10f6',1,'vga::VGAMonitor']]],
+  ['set_5ffg_5fcolor_9',['set_fg_color',['../classvga_1_1VGAMonitor.html#aaf2dc24706abac0bd81d428f33752e48',1,'vga::VGAMonitor']]],
+  ['set_5fforeground_10',['set_foreground',['../unionvga_1_1t__vga__char.html#a84d7604b223a3948932c874ddf498452',1,'vga::t_vga_char']]],
+  ['strchr_11',['strchr',['../namespacekstring.html#a435a26ce871779e16400a1d9d3d1291e',1,'kstring']]],
+  ['strcmp_12',['strcmp',['../namespacekstring.html#ab81130344dd44b8278dbda8b91252606',1,'kstring']]],
+  ['strcpy_13',['strcpy',['../namespacekstring.html#ab64877f0f03f2e396e35d7bca593d4f4',1,'kstring']]],
+  ['strlen_14',['strlen',['../namespacekstring.html#aa603abc2e61e091257c246cea81c4ea4',1,'kstring']]],
+  ['strncmp_15',['strncmp',['../namespacekstring.html#a020082fe92862a0d606c263e1be9ede5',1,'kstring::strncmp(const char *str1, const char *str2, const unsigned int n)'],['../namespacekstring.html#a4347a23ce97a3667fb2f891bad7f1287',1,'kstring::strncmp(const char *str1, const char *str2, const unsigned n)']]],
+  ['strrchr_16',['strrchr',['../namespacekstring.html#abe739cc20727564bc9042853fa924cd5',1,'kstring']]],
+  ['strstr_17',['strstr',['../namespacekstring.html#a73187e875bc72dd4f55303ffea2dc589',1,'kstring']]]
+];

@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['backspace_0',['backspace',['../namespacekbd.html#ace44d16c9fb084702e57c00eecdd2984',1,'kbd']]],
+  ['bg_1',['bg',['../structvga_1_1VGAColorChange.html#a3be50915eba099757abeaed5a48e5d28',1,'vga::VGAColorChange']]],
+  ['black_5fon_5fwhite_2',['BLACK_ON_WHITE',['../namespacevga_1_1color_1_1color__set.html#ae432834e069322a7210430e1f09cfc21',1,'vga::color::color_set']]]
+];
