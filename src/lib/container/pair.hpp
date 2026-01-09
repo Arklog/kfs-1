@@ -6,6 +6,12 @@
 #define KFS_1__PAIR_HPP
 
 namespace container {
+    /**
+     * A combination of two elements.
+     *
+     * @tparam T1 type of the first element
+     * @tparam T2 type of the second element
+     */
     template<typename T1, typename T2>
     struct pair {
         using first_type = T1;

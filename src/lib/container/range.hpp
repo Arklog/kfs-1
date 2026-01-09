@@ -35,12 +35,19 @@ namespace container {
         T _end;
     };
 
+    /**
+     * A range of two elements being iterated in parallel.
+     *
+     * @tparam T Type of the first iterator
+     * @tparam U Type of the second iterator
+     */
     template<is_iterator T, is_iterator U>
     struct dual_range {
         using iterator_type = typename container::PairIterator<pair<T, U>>;
         using value_type = iterator_type::value_type;
 
         dual_range(value_type item, unsigned int len): _begin{item}, _end{_begin + len} {}
+        dual_range(value_type begin, value_type end): _begin{begin}, _end{end} {}
 
         iterator_type begin() const {
             return _begin;

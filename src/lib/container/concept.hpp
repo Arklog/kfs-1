@@ -10,7 +10,8 @@
 namespace container {
 
     /**
-     * Concept to check if a type is iterable
+     * Check if a type is iterable, eg: have begin() and end() methods
+     *
      * @tparam T The type to check
      */
     template <typename T>
@@ -19,6 +20,11 @@ namespace container {
         { a.end() };
     };
 
+    /**
+     * Check if a type is a valid iterator
+     *
+     * @tparam T The type to check
+     */
     template<typename T>
     concept is_iterator = requires(T a, T b)
     {
@@ -43,6 +49,11 @@ namespace container {
         {static_cast<typename T::pointer_type>(a)} -> utility::same_as<typename T::pointer_type>;
     };
 
+    /**
+     * Check if a type is a valid pair
+     *
+     * @tparam T The type to check
+     */
     template<typename T>
     concept is_pair = requires(T a)
     {
@@ -50,6 +61,9 @@ namespace container {
         { a.second } -> utility::same_as<typename T::second_type&>;
     };
 
+    /**
+     * Check if a type is both a valid iterator and a valid pair
+     */
     template<typename T>
     concept is_pair_iterator = is_pair<T> && is_iterator<T>;
 }

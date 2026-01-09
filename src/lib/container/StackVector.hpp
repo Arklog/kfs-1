@@ -100,7 +100,11 @@ namespace container {
          * @param position The position at which to insert the element
          * @param value The value to insert
          *
-         * @return The position of the inserted element or
+         * @return The position of the inserted element or end() if insertion failed.
+         *
+         * @warning Insertion will fail if:
+         * - position does not belong to this StackVector
+         * - the StackVector is full
          */
         iterator insert(iterator position, T &&value) override {
             if (!_own_iterator(position) || _size == N)
@@ -116,6 +120,20 @@ namespace container {
             return position;
         }
 
+        /**
+         * Insert a range of elements at the given position.
+         * If the vector does not have enough space to accommodate all new elements, the insertion fails.
+         *
+         * @param position
+         * @param _begin
+         * @param _end
+         *
+         * @return an iterator to the newly inserted item or end() on failure
+         *
+         * @warning Will fail if:
+         * - position does not belong to this StackVector
+         * - the StackVector does not have enougth place to accomodate the elements
+         */
         iterator insert(iterator position, iterator _begin, iterator _end) override {
             auto length = _end - _begin;
             if (!_own_iterator(position) || length + size() > N)
@@ -145,6 +163,8 @@ namespace container {
          * @param item
          *
          * @return An iterator to the newly inserted element or end() on failure.
+         *
+         * @warning Will fail if the StackVector is full
          */
         iterator push_bash(T &&item) {
             if (_size == N)
@@ -176,12 +196,12 @@ namespace container {
         /**
          * Erase the element at the given position.
          *
-         * @param position
+         * @param position The position of the element to erase
          *
-         * @return begin() on success, end() on failure
+         * @return begin() on success, end() on failure.
          */
         iterator erase(iterator position) {
-            if (!_validate_position(position))
+            if (!_validate_position(position) || size() == 0)
                 return end();
 
             auto iter = position;
@@ -197,13 +217,13 @@ namespace container {
         /**
          * Erase the range [_begin, _end[ from the container.
          *
-         * @param _begin
-         * @param _end
+         * @param _begin The position of the first element to erase
+         * @param _end The position after the last element to erase
          *
          * @return begin() on success or end() on failure
          */
         iterator erase(iterator _begin, iterator _end) {
-            if (_begin > _end || !_own_iterator(_begin) || !_own_iterator(_end))
+            if (_begin > _end || !_validate_position(_begin) || !_own_iterator(_end))
                 return end();
 
             auto length = _end - _begin;
