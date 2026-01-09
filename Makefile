@@ -4,7 +4,7 @@ BUILDDIR := build
 ISODIR := $(BUILDDIR)/isodir/boot
 
 CMAKE_BUILD_TYPE ?= Release
-CMAKE := cmake -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
+CMAKE := CMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE) cmake
 
 .PHONY := test
 
@@ -21,7 +21,9 @@ bootloader:
 iso: link_kernel
 	mkdir -p $(ISODIR)/grub
 	cp $(KERNEL) $(ISODIR)/$(KERNEL)
-	echo 'menuentry "KFS-Cailloux" {' >  $(ISODIR)/grub/grub.cfg
+	echo 'set timeout=0' >  $(ISODIR)/grub/grub.cfg
+	echo 'set default=0' >> $(ISODIR)/grub/grub.cfg
+	echo 'menuentry "KFS-Cailloux" {' >>  $(ISODIR)/grub/grub.cfg
 	echo '    multiboot /boot/$(KERNEL)' >> $(ISODIR)/grub/grub.cfg
 	echo '}' >> $(ISODIR)/grub/grub.cfg
 	grub-mkrescue -o $(BUILDDIR)/$(ISO) $(BUILDDIR)/isodir
