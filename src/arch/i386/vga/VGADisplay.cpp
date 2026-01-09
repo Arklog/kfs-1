@@ -8,10 +8,6 @@ namespace vga {
     bool VGADisplay::testing = false;
     volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
 
-    static inline void outb(uint16_t port, uint8_t val) {
-        asm volatile("outb %0, %1" : : "a"(val), "Nd"(port));
-    }
-
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
             vga[i].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
