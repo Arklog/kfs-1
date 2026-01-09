@@ -7,6 +7,7 @@
 
 #include "concept.hpp"
 #include "iterator/PairIterator.hpp"
+#include "pair.hpp"
 
 namespace container {
     /**

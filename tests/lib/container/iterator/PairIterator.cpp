@@ -4,7 +4,7 @@
 
 #include <catch2/catch_all.hpp>
 #include "lib/container/iterator/PairIterator.hpp"
-
+#include "pair.hpp"
 #include "iterator/ContiguousIterator.hpp"
 
 TEST_CASE("PairIterator", "[container]") {
