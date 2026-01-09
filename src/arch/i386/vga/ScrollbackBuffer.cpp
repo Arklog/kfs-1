@@ -7,7 +7,6 @@
 
 namespace vga {
     ScrollbackBuffer::ScrollbackBuffer() :_buffer{} {
-        _buffer.push_bash({});
         clear();
     }
 
@@ -22,6 +21,9 @@ namespace vga {
         if (cursor.line >= MAX_LINES || cursor.column >= VGA_WIDTH)
             return;
 
+        while (_buffer.size() <= cursor.line) {
+            _buffer.push_bash({});
+        }
         _buffer[cursor.line].push_bash(c);
     }
 
