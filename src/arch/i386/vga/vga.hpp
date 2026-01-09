@@ -33,11 +33,16 @@ namespace vga {
             LIGHT_BROWN   = 14,
             WHITE         = 15,
         };
+
         namespace color_set {
+            using t_color_set = uint8_t;
             constexpr uint8_t    WHITE_ON_BLACK = BLACK << 4 | WHITE;
             constexpr uint8_t    BLACK_ON_WHITE = WHITE << 4 | BLACK;
             constexpr uint8_t    GREEN_ON_BLACK = BLACK << 4 | GREEN;
             constexpr uint8_t    RED_ON_BLACK   = BLACK << 4 | RED;
+            constexpr uint8_t    CYAN_ON_BLACK  = BLACK << 4 | CYAN;
+            constexpr uint8_t    BROWN_ON_BLACK = BLACK << 4 | BROWN;
+            constexpr uint8_t    DEFAULT        = WHITE_ON_BLACK;
         }
     }
 

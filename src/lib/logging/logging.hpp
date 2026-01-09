@@ -22,7 +22,7 @@
 
 namespace logging {
     using t_logger       = MONITOR_MACRO;
-    using t_logger_color = vga::color::t_color_set;
+    using t_logger_color = vga::color::color_set::t_color_set;
 
     /**
      * The log level type
@@ -75,11 +75,11 @@ namespace logging {
 
         logger << "["
 #ifndef TEST
-                << vga::VGAColorChange(log_color_map[log_level])
+                << log_color_map[log_level]
 #endif
                 << log_message_map[log_level]
 #ifndef TEST
-                << vga::VGAColorChange(vga::color::DEFAULT)
+                << vga::color::color_set::DEFAULT
 #endif
                 << "]: ";
 
