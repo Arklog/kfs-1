@@ -230,3 +230,12 @@ namespace kstring {
         return 0;
     }
 } // kstring
+
+void *memset(void *s, int c, unsigned long n) {
+    auto ptr = static_cast<uint8_t *>(s);
+
+    for (unsigned long i = 0; i < n; ++i) {
+        ptr[i] = static_cast<uint8_t>(c);
+    }
+    return s;
+}
