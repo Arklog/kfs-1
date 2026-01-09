@@ -42,6 +42,16 @@ namespace container {
 
         {static_cast<typename T::pointer_type>(a)} -> utility::same_as<typename T::pointer_type>;
     };
+
+    template<typename T>
+    concept is_pair = requires(T a)
+    {
+        { a.first } -> utility::same_as<typename T::first_type&>;
+        { a.second } -> utility::same_as<typename T::second_type&>;
+    };
+
+    template<typename T>
+    concept is_pair_iterator = is_pair<T> && is_iterator<T>;
 }
 
 #endif //KFS_1__CONCEPT_HPP

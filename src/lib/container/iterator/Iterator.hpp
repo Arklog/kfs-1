@@ -22,6 +22,8 @@ namespace container {
 
         virtual ~IteratorBase() = default;
 
+        virtual Derived& operator=(const Derived& other) = 0;
+
         virtual bool operator==(const Derived &other) const = 0;
 
         virtual bool operator!=(const Derived &other) const = 0;
@@ -52,9 +54,13 @@ namespace container {
 
         virtual int operator-(const Derived &) const = 0;
 
-        virtual Reference operator*() const = 0;
+        virtual Derived& operator+=(int) = 0;
 
-        virtual explicit operator Pointer() const = 0;
+        virtual Derived& operator-=(int) = 0;
+
+        virtual reference_type operator*() const = 0;
+
+        virtual explicit operator pointer_type() const = 0;
     };
 } // container
 

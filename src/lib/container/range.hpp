@@ -6,12 +6,21 @@
 #define KFS_1_RANGE_HPP
 
 #include "concept.hpp"
+#include "iterator/PairIterator.hpp"
 
 namespace container {
+    /**
+     * A range of values, is used in conjunction with range based for loop.
+     *
+     * @tparam T The type of iterator being iterated
+     *
+     * @snippet example.cpp container_range_example
+     */
     template<is_iterator T>
     struct range {
-        T _begin;
-        T _end;
+        using value_type = T;
+
+        range(const T& begin,const  T& end): _begin{begin}, _end{end} {}
 
         T begin() const {
             return _begin;
@@ -20,6 +29,31 @@ namespace container {
         T end() const {
             return _end;
         }
+
+    private:
+        T _begin;
+        T _end;
+    };
+
+    template<is_iterator T, is_iterator U>
+    struct dual_range {
+        using iterator_type = typename iterator::PairIterator<pair<T, U>>;
+        using value_type = iterator_type::value_type;
+
+        dual_range(iterator_type item, unsigned int len): _begin{item}, _end{item + len} {}
+
+        iterator_type begin() const {
+            return _begin;
+        }
+
+        iterator_type end() const {
+            return _end;
+        }
+
+    private:
+        iterator_type _begin;
+        iterator_type _end;
+
     };
 }
 

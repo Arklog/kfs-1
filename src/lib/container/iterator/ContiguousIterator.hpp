@@ -26,7 +26,7 @@ namespace container {
 
         ContiguousConstIterator(const ContiguousConstIterator &other) : _item(other._item) {}
 
-        ContiguousConstIterator &operator=(const ContiguousConstIterator<T>& other) {
+        ContiguousConstIterator &operator=(const ContiguousConstIterator& other) override {
             _item = other._item;
             return *this;
         }
@@ -97,6 +97,16 @@ namespace container {
             return _item - other._item;
         }
 
+        ContiguousConstIterator& operator+=(int n) override {
+            _item += n;
+            return *this;
+        }
+
+        ContiguousConstIterator& operator-=(int n) override {
+            _item -= n;
+            return *this;
+        }
+
         const Reference operator*() const override {
             return *_item;
         }
@@ -130,7 +140,7 @@ namespace container {
 
         // ContiguousIterator &operator=(const ContiguousIterator<const T>& other) = delete;
 
-        ContiguousIterator &operator=(const ContiguousIterator<T>& other) {
+        ContiguousIterator &operator=(const ContiguousIterator<T>& other) override {
             _item = other._item;
             return *this;
         }
@@ -203,6 +213,16 @@ namespace container {
 
         int operator-(const ContiguousIterator &other) const override {
             return _item - other._item;
+        }
+
+        ContiguousIterator& operator+=(int n) override {
+            _item += n;
+            return *this;
+        }
+
+        ContiguousIterator& operator-=(int n) override {
+            _item -= n;
+            return *this;
         }
 
         Reference operator*() const override {

@@ -1,8 +1,4 @@
 //
-// Created by pierre on 12/29/25.
+// Created by pierre on 1/9/26.
 //
-
 #include "Container.hpp"
-
-namespace container {
-} // container
