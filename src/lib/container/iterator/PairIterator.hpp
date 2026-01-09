@@ -9,7 +9,7 @@
 #include "concept.hpp"
 #include "iterator/Iterator.hpp"
 
-namespace container::iterator {
+namespace container {
     template<is_pair T>
     class PairIterator: public IteratorBase<PairIterator<T>, T, T *, T&>{
         static_assert(is_iterator<typename T::first_type> && is_iterator<typename T::second_type>, "pair elements should be iterators");

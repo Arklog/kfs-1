@@ -37,7 +37,7 @@ namespace container {
 
     template<is_iterator T, is_iterator U>
     struct dual_range {
-        using iterator_type = typename iterator::PairIterator<pair<T, U>>;
+        using iterator_type = typename container::PairIterator<pair<T, U>>;
         using value_type = iterator_type::value_type;
 
         dual_range(value_type item, unsigned int len): _begin{item}, _end{_begin + len} {}

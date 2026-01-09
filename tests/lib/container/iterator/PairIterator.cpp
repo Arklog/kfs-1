@@ -11,12 +11,12 @@ TEST_CASE("PairIterator", "[container]") {
     SECTION("CTOR") {
         {
             using iterator_type = container::ContiguousIterator<int>;
-            container::iterator::PairIterator<container::pair<iterator_type, iterator_type>> t{};
+            container::PairIterator<container::pair<iterator_type, iterator_type>> t{};
         }
 
         {
             using iterator_type = container::ContiguousIterator<int>;
-            container::iterator::PairIterator<container::pair<iterator_type, iterator_type>> t{iterator_type{nullptr}, iterator_type{nullptr}};
+            container::PairIterator<container::pair<iterator_type, iterator_type>> t{iterator_type{nullptr}, iterator_type{nullptr}};
         }
     }
 }
