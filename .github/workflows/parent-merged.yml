@@ -20,17 +20,22 @@ jobs:
             echo "Testing commit ${COMMIT}..."
             ALL_BRANCHES="$(git branch --remote --contains ${COMMIT} | sed 's/^[ *]*//')"
           
+            COMMIT_FOUND_IN_MAIN=0
+          
             for BRANCH in ${ALL_BRANCHES};
             do
               if [[ ! $CURRENT_BRANCH =~ ${BRANCH#origin/} ]]; then
                 NAME="${BRANCH#origin/}"
                 if [[ $NAME == "main" ]]; then
-                  echo "Commit ${COMMIT} found in main branch. Merge allowed."
-                  exit 0
-                else
-                  echo "Found parent branch ${NAME} for commit ${COMMIT}. Merge ${NAME} into main before proceeding."
-                  exit 1
+                  COMMIT_FOUND_IN_MAIN=1
                 fi
               fi
             done
+          
+            if [[ $COMMIT_FOUND_IN_MAIN -eq 0 ]]; then
+              echo "Commit ${COMMIT} not found in main branch. Failing the job."
+              exit 1
+            else
+              echo "Commit ${COMMIT} found in main branch."
+            fi
           done
