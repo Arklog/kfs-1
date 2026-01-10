@@ -20,6 +20,12 @@ jobs:
             echo "Testing commit ${COMMIT}..."
             ALL_BRANCHES="$(git branch --remote --contains ${COMMIT} | sed 's/^[ *]*//')"
           
+            # Skip if the commit is only in the current branch
+            if [[ ${ALL_BRANCHES#origin/} == $CURRENT_BRANCH ]]; then
+              echo "Commit ${COMMIT} is only in the current branch. Skipping."
+              continue
+            fi
+          
             COMMIT_FOUND_IN_MAIN=0
           
             for BRANCH in ${ALL_BRANCHES};
