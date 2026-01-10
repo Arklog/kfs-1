@@ -1,13 +1,15 @@
 name: Parent Merged
 on: [ push ]
 jobs:
-  clang-format-checking:
+  parent-merged:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Check Parent
         run: |
+          git fetch --all
+          
           CURRENT_BRANCH="$(git branch --show-current)"
           COMMITS="$(git log ${CURRENT_BRANCH} --pretty=format:'%H')"
           
