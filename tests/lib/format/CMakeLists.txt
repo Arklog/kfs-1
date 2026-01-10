@@ -10,5 +10,5 @@ target_link_libraries(test_format PRIVATE
         format
         libstring
 )
-
+target_compile_definitions(test_format PRIVATE KFS_HOST_TEST)
 catch_discover_tests(test_format)

@@ -1,5 +1,5 @@
 add_library(format OBJECT
-    format.cpp
+        format.cpp
 )
-target_compile_options(format PRIVATE ${KERN_COMPILER_FLAGS})
+target_compile_options(format PRIVATE ${KFLAGS})
 target_include_directories(format PUBLIC ${CMAKE_SOURCE_DIR}/src)

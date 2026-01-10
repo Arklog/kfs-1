@@ -33,11 +33,16 @@ namespace vga {
             LIGHT_BROWN   = 14,
             WHITE         = 15,
         };
+
         namespace color_set {
+            using t_color_set = uint8_t;
             constexpr uint8_t    WHITE_ON_BLACK = BLACK << 4 | WHITE;
             constexpr uint8_t    BLACK_ON_WHITE = WHITE << 4 | BLACK;
             constexpr uint8_t    GREEN_ON_BLACK = BLACK << 4 | GREEN;
             constexpr uint8_t    RED_ON_BLACK   = BLACK << 4 | RED;
+            constexpr uint8_t    CYAN_ON_BLACK  = BLACK << 4 | CYAN;
+            constexpr uint8_t    BROWN_ON_BLACK = BLACK << 4 | BROWN;
+            constexpr uint8_t    DEFAULT        = WHITE_ON_BLACK;
         }
     }
 
@@ -45,18 +50,18 @@ namespace vga {
      * Represents a VGA character (ASCII + color)
      */
     union t_vga_char {
-        struct [[gnu::packed]] {
+        struct [[gnu::packed]] vga_char_data {
             uint8_t ascii;
             uint8_t color;
         } data;
 
         uint16_t raw;
 
-        t_vga_char() = default;
+        constexpr t_vga_char() = default;
 
-        t_vga_char(uint8_t ascii, uint8_t color);
+        constexpr t_vga_char(uint8_t ascii, uint8_t color): data{.ascii = ascii, .color = color} {}
 
-        t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background);
+        constexpr t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background): data{.ascii = ascii, .color = static_cast<uint8_t>(background << 4 | (foreground & 0x0F))} {}
 
         /**
          * Get the foreground color

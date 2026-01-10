@@ -16,5 +16,6 @@ target_include_directories(
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src
 )
+target_compile_definitions(test_string PRIVATE KFS_HOST_TEST)
 
 catch_discover_tests(test_string)

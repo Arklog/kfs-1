@@ -13,6 +13,9 @@ SECTIONS
     .text : {
         *(.multiboot_header)
         *(.text*)
+    } :text
+
+    .rodata : {
         *(.rodata*)
     } :text
 

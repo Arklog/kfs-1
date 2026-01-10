@@ -9,7 +9,7 @@
 #include "lib/port/port.hpp"
 #include "arch/i386/vga/VGAMonitor.hpp"
 
-extern vga::VGAMonitor g_monitor;
+extern vga::VGAMonitor *g_monitor;
 
 namespace kbd {
     static constexpr uint16_t keyboard_data_port = 0x60;

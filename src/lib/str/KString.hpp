@@ -65,7 +65,16 @@ namespace kstring {
      * @param src segment to copy
      * @param len max index
      */
-    void            memcpy(void *dest, const void *src, unsigned int len);
+    void            memcpy(void *dest, const void *src, unsigned len);
+
+    /**
+     * Copy n bytes of src into dest, dest and src can overlap
+     *
+     * @param dest
+     * @param src
+     * @param len
+     */
+    void memmove(void *dest, const void *src, unsigned int len);
 
     /**
      * Compare the first len bytes of b1 and b2. Return the difference of the first non-identical byte or 0 if the
@@ -88,5 +97,9 @@ namespace kstring {
     int             safe_atoi(const char *str, int *res);
 
 }
+
+#ifndef KFS_HOST_TEST
+extern "C" void *memset(void *s, int c, unsigned long n);
+#endif
 
 #endif
