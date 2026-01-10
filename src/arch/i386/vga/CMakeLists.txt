@@ -10,7 +10,7 @@ add_library(libvga OBJECT
         ScrollbackBuffer.hpp
 )
 target_include_directories(libvga PRIVATE . ${CMAKE_SOURCE_DIR}/src)
-target_compile_options(libvga PRIVATE ${KERN_COMPILER_FLAGS})
+target_compile_options(libvga PRIVATE ${KFLAGS})
 
 add_library(libvga_test OBJECT $<TARGET_OBJECTS:libvga>)
 target_compile_options(libvga_test PRIVATE KFS_HOST_TESTS)

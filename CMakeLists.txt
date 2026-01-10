@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.31)
 project(kfs-1)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -25,8 +25,7 @@ FetchContent_MakeAvailable(
 #target_compile_options(Catch2 PUBLIC -m32)
 #target_compile_options(Catch2WithMain PUBLIC -m32)
 
-set(KERN_COMPILER_FLAGS
-        -O0
+set(KFLAGS
         -m32
         -Wall
         -Wextra
@@ -44,6 +43,19 @@ set(KERN_COMPILER_FLAGS
         -nostdinc
 )
 
+if (NOT DEFINED CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
+    message("CMAKE_BUILD_TYPE UNDEFINED")
+    set(CMAKE_BUILD_TYPE Debug)
+endif ()
+
+message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
+
+if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
+    set(KFLAGS ${KFLAGS} -O0)
+else ()
+    set(KFLAGS ${KFLAGS} -O2)
+endif ()
+
 ##################################
 # Main source code
 ##################################
@@ -56,9 +68,12 @@ add_subdirectory(src)
 
 include(CTest)
 include(Catch)
+
+# Force 32bit catch2 compilation
 target_compile_options(Catch2 PUBLIC -m32)
 target_link_options(Catch2 PUBLIC -m32)
 target_compile_options(Catch2WithMain PUBLIC -m32)
 target_link_options(Catch2WithMain PUBLIC -m32)
+
 enable_testing()
 add_subdirectory(tests)

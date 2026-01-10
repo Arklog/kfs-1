@@ -1,0 +1,6 @@
+add_executable(test_math math.cpp)
+target_include_directories(test_math PRIVATE ${CMAKE_SOURCE_DIR}/src .)
+target_compile_options(test_math PRIVATE -m32)
+target_link_options(test_math PRIVATE -m32)
+target_link_libraries(test_math PRIVATE Catch2::Catch2WithMain math)
+catch_discover_tests(test_math)

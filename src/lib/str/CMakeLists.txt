@@ -1,5 +1,5 @@
 add_library(libstring OBJECT
-    KString.cpp
+        KString.cpp
 )
-target_compile_options(libstring PRIVATE ${KERN_COMPILER_FLAGS})
+target_compile_options(libstring PRIVATE ${KFLAGS})
 target_include_directories(libstring PRIVATE ${CMAKE_SOURCE_DIR}/src)

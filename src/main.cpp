@@ -6,6 +6,7 @@
 #include "arch/i386/vga/vga.hpp"
 #include "arch/i386/vga/VGAMonitor.hpp"
 #include "arch/i386/keyboard/keyboardHandler.hpp"
+#include "lib/logging/logging.hpp"
 
     vga::VGAMonitor g_monitor;
 
@@ -13,7 +14,6 @@
 extern "C" void k_main() {
 
     g_monitor.init();
-    g_monitor << vga::color::color_set::BLACK_ON_WHITE << "Hello, World! Hello 42!" << vga::endl;
     g_monitor << "Hello, World! Hello 1!" << vga::endl;
     g_monitor << "Hello, World! Hello 2!" << vga::endl;
     g_monitor << "Hello, World! Hello 3!" << vga::endl;
@@ -89,6 +89,9 @@ extern "C" void k_main() {
     g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::RED } << "Hello, World! in black on red" << vga::endl;
     g_monitor << vga::color::color_set::WHITE_ON_BLACK << "Hello, World! in white on black" << vga::endl;
 
+
+    logging::set_logger(g_monitor);
+    logging::info("logging initialized");
 
     while (true) {
         kbd::handler();
