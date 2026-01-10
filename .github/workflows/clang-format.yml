@@ -4,11 +4,17 @@ jobs:
   clang-format-checking:
     runs-on: ubuntu-latest
     steps:
+      - name: Fix APT cache permissions
+        run: sudo chown -R runner:runner /var/cache/apt/archives
+
       - name: Restore cached package lists
         uses: actions/cache@v4
         with:
           path: /var/cache/apt/archives
           key: ${{ runner.os }}-Package-Lists-${{ github.ref_name }}
+
+      - name: Set APT back as root
+        run: sudo chown -R root:root /var/cache/apt/archives
 
       - name: Install additional dependencies
         run: |
@@ -19,7 +25,7 @@ jobs:
           xorriso \
           mtools
 
-      - name: Fix APT cache permissions
+      - name: Fix APT cache permissions again
         run: sudo chown -R runner:runner /var/cache/apt/archives
 
       - uses: actions/checkout@v2
