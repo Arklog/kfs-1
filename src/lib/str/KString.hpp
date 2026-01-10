@@ -98,6 +98,8 @@ namespace kstring {
 
 }
 
+#ifndef KFS_HOST_TEST
 extern "C" void *memset(void *s, int c, unsigned long n);
+#endif
 
 #endif

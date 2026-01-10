@@ -231,6 +231,7 @@ namespace kstring {
     }
 } // kstring
 
+#ifndef KFS_HOST_TEST
 void *memset(void *s, int c, unsigned long n) {
     auto ptr = static_cast<uint8_t *>(s);
 
@@ -239,3 +240,4 @@ void *memset(void *s, int c, unsigned long n) {
     }
     return s;
 }
+#endif
