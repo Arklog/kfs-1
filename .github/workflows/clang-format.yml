@@ -39,7 +39,7 @@ jobs:
         with:
           path: |
             build
-          key: ${{ runner.os }}-build-${{GITHUB_REF}}
+          key: ${{ runner.os }}-build-${{ github.ref_name }}
 
       - name: Run unit tests
         run: make test
@@ -51,4 +51,4 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: build
-          key: ${{ runner.os }}-build-${{GITHUB_REF}}
+          key: ${{ runner.os }}-build-${{ github.ref_name }}
