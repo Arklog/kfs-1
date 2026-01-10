@@ -1,0 +1,31 @@
+name: Parent Merged
+on: [ push ]
+jobs:
+  clang-format-checking:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check Parent
+        run: |
+          CURRENT_BRANCH="$(git branch --show-current)"
+          COMMITS="$(git log ${CURRENT_BRANCH} --pretty=format:'%H')"
+          
+          echo $CURRENT_BRANCH
+          
+          for COMMIT in ${COMMITS}; do
+            echo "Testing commit ${COMMIT}..."
+            ALL_BRANCHES="$(git branch --remote --contains ${COMMIT} | sed 's/^[ *]*//')"
+          
+            for BRANCH in ${ALL_BRANCHES};
+            do
+              if [[ ! $CURRENT_BRANCH =~ ${BRANCH#origin/} ]]; then
+                NAME="${BRANCH#origin/}"
+                if [[ $NAME == "main" ]]; then
+                  exit 0
+                else
+                  exit 1
+                fi
+              fi
+            done
+          done
