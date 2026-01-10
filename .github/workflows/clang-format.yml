@@ -5,11 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Restore cached package lists
-        uses: actions/cache/restore@v4
+        uses: actions/cache@v4
         with:
-          path: |
-            /var/cache/apt
-            /var/lib/apt/lists
+          path: /var/cache/apt/archives
           key: ${{ runner.os }}-Package-Lists-${{ github.ref_name }}
 
       - name: Install additional dependencies
@@ -21,21 +19,13 @@ jobs:
           xorriso \
           mtools
 
-      - name: Save cached build
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            /var/cache/apt
-            /var/lib/apt/lists
-          key: ${{ runner.os }}-Package-Lists-${{ github.ref_name }}
-
       - uses: actions/checkout@v2
       - uses: RafikFarhad/clang-format-github-action@v3
         with:
           sources: "src/**/*.hpp,src/**/*.cpp,test/**/*.cpp"
 
       - name: Restore cached build
-        uses: actions/cache/restore@v4
+        uses: actions/cache@v4
         with:
           path: |
             build
@@ -46,9 +36,3 @@ jobs:
 
       - name: Build image
         run: make iso
-
-      - name: Save cached build
-        uses: actions/cache/save@v4
-        with:
-          path: build
-          key: ${{ runner.os }}-build-${{ github.ref_name }}
