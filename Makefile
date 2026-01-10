@@ -4,7 +4,8 @@ BUILDDIR := build
 ISODIR := $(BUILDDIR)/isodir/boot
 
 CMAKE_BUILD_TYPE ?= Release
-CMAKE := CMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE) cmake
+CMAKE := cmake
+CMAKEFLAGS := -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
 
 .PHONY := test
 
@@ -12,7 +13,7 @@ link_kernel: kernel bootloader
 	ld -T src/linker.ld -o ${KERNEL} -m elf_i386 -Lbuild/src src/bootloader.o -lkernel
 
 kernel:
-	${CMAKE} . -B${BUILDDIR}
+	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --target kernel --parallel
 
 bootloader:
@@ -33,6 +34,6 @@ run: iso
 	qemu-system-i386 $(BUILDDIR)/$(ISO)
 
 test: kernel
-	${CMAKE} . -B${BUILDDIR}
+	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
