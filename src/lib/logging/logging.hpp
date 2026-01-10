@@ -12,13 +12,15 @@
 #include "arch/i386/vga/vga.hpp"
 #include "lib/format/format.hpp"
 
-#ifndef TEST
+#ifndef KFS_HOST_TEST
 # define MONITOR_MACRO vga::VGAMonitor
 # include "arch/i386/vga/VGAMonitor.hpp"
 #else
 # include <fstream>
 # define MONITOR_MACRO std::ofstream
 #endif
+
+// todo: define a virtual logger type and template children with overloaded operator<<(const char *)
 
 namespace logging {
     using t_logger       = MONITOR_MACRO;
@@ -74,11 +76,11 @@ namespace logging {
         auto &      logger = get_logger();
 
         logger << "["
-#ifndef TEST
+#ifndef KFS_HOST_TEST
                 << log_color_map[log_level]
 #endif
                 << log_message_map[log_level]
-#ifndef TEST
+#ifndef KFS_HOST_TEST
                 << vga::color::color_set::DEFAULT
 #endif
                 << "]: ";

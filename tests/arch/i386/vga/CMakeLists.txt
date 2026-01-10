@@ -16,5 +16,6 @@ target_include_directories(
         ${CMAKE_SOURCE_DIR}/src
 )
 target_compile_options(test_vga PRIVATE -m32)
+target_compile_definitions(test_vga PRIVATE KFS_HOST_TEST)
 
 catch_discover_tests(test_vga)
