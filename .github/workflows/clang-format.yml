@@ -19,6 +19,9 @@ jobs:
           xorriso \
           mtools
 
+      - name: Fix APT cache permissions
+        run: sudo chown -R runner:runner /var/cache/apt/archives
+
       - uses: actions/checkout@v2
       - uses: RafikFarhad/clang-format-github-action@v3
         with:
