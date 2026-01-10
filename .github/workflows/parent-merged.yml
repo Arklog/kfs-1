@@ -11,9 +11,6 @@ jobs:
 
       - name: Check Parent
         run: |
-#          git fetch --all
-#          git pull --all
-          
           CURRENT_BRANCH="$(git branch --show-current)"
           COMMITS="$(git log ${CURRENT_BRANCH} --pretty=format:'%H')"
           
