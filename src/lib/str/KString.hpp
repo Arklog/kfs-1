@@ -7,17 +7,30 @@
 
 namespace kstring {
     /**
-     * return the length of the given string
+     * Return the length of the c-string pointed to by str, excluding the terminating null byte ('\0').
+     *
      * @param str
-     * @return length
+     * @return The length of the string
+     *
+     * @warning str must be null-terminated.
+     * @warning str must be a valid pointer
+     *
+     * @snippet KString.cpp strlen
      */
     unsigned int    strlen(const char *str);
 
     /**
-     * compare the two given string and return the difference between their first different chars. O otherwise.
+     * Compare the two given string and return the difference between their first different chars. O otherwise.
+     *
      * @param str1
      * @param str2
+     *
      * @return the difference between the string
+     *
+     * @warning both str1 and str2 must be null-terminated.
+     * @warning both str1 and str2 must be valid pointers
+     *
+     * @snippet KString.cpp strcmp
      */
     int    strcmp(const char *str1, const char *str2);
 
