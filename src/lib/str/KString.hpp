@@ -36,39 +36,74 @@ namespace kstring {
 
     /**
      * compare the two given string until the n-th char, and return the difference between their first different chars. O otherwise.
+     *
      * @param str1
      * @param str2
-     * @param n the index to stop the comparison
-     * @return
+     * @param n The maximum number of character to compare
+     *
+     * @return The difference between the first non identical byte of str1 and str2. 0 if len is reached.
+     *
+     * @warning both str1 and str2 must be null-terminated if their length is less than n.
+     * @warning both str1 and str2 must be valid pointers
+     *
+     * @snippet KString.cpp strncmp
      */
     int    strncmp(const char *str1, const char *str2, const unsigned n);
 
     /**
      * search for the char chr within the given string, from its beginning. return a pointer on the char position or NULL if not found.
+     *
      * @param str
      * @param chr char to search for
-     * @return pointer on chr position or NULL
+     *
+     * @return The address of the first occurrence of chr in str, or NULL if not found.
+     *
+     * @warning str must be null-terminated
+     * @warning str must be a valid pointer
+     *
+     * @snippet KString.cpp strchr
      */
     const char      *strchr(const char *str, const char chr);
     /**
      * search for the char chr within the given string, from its end. return a pointer on the char position or NULL if not found.
+     *
      * @param str
      * @param chr char to search for
+     *
      * @return pointer on chr position or NULL
+     *
+     * @warning str must be null-terminated
+     * @warning str must be a valid pointer
+     *
+     * @snippet KString.cpp strrchr
      */
     const char      *strrchr(const char *str, const char chr);
     /**
      * search for the substring target within the given string. return a pointer on the substring beginning or NULL if not found.
+     *
      * @param str
      * @param target sub string to search for
-     * @return pointer on substring beginning or NULL
+     *
+     * @return Pointer on the first occurence of target in str. NULL if not found.
+     *
+     * @warning str and target must be null-terminated
+     * @warning str and target must be valid pointers
+     *
+     * @snippet KString.cpp strstr
      */
     const char      *strstr(const char *str, const char *target);
 
     /**
-     * Copy char by char the src string into the dest string.
+     * Copy src into dest until a null byte is reached.
+     *
      * @param dest string where perform copy
      * @param src string to copy
+     *
+     * @warning dest and str must be valid pointers
+     * @warning str must be null-terminated
+     * @warning dest must be able to accommodate src
+     *
+     * @snippet KString strcpy
      */
     void            strcpy(char *dest, const char *src);
 
