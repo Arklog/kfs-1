@@ -4,6 +4,18 @@ jobs:
   clang-format-checking:
     runs-on: ubuntu-latest
     steps:
+      - name: Fix APT cache permissions
+        run: sudo chown -R runner:runner /var/cache/apt/archives
+
+      - name: Restore cached package lists
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: ${{ runner.os }}-Package-Lists-${{ github.ref_name }}
+
+      - name: Set APT back as root
+        run: sudo chown -R root:root /var/cache/apt/archives
+
       - name: Install additional dependencies
         run: |
           sudo apt-get install -y \
@@ -13,35 +25,23 @@ jobs:
           xorriso \
           mtools
 
-      - uses: actions/checkout@v2
+      - name: Fix APT cache permissions again
+        run: sudo chown -R runner:runner /var/cache/apt/archives
 
+      - uses: actions/checkout@v2
       - uses: RafikFarhad/clang-format-github-action@v3
         with:
           sources: "src/**/*.hpp,src/**/*.cpp,test/**/*.cpp"
-      #      - uses: cpp-linter/cpp-linter-action@v2
-      #        id: linter
-      #        with:
-      #          style: 'file'  # Use .clang-format config file
-      #          tidy-checks: '.clang-tidy' # Use .clang-tidy config file
-      #           only 'update' a single comment in a pull request thread.
-      #          thread-comments: ${{ github.event_name == 'pull_request' && 'update' }}
-      #      - name: Fail fast?!
-      #        if: steps.linter.outputs.checks-failed > 0
-      #        run: exit 1
+
       - name: Restore cached build
-        uses: actions/cache/restore@v4
+        uses: actions/cache@v4
         with:
-          path: build
-          key: ${{ runner.os }}-build
+          path: |
+            build
+          key: ${{ runner.os }}-build-${{ github.ref_name }}
 
       - name: Run unit tests
         run: make test
 
       - name: Build image
         run: make iso
-
-      - name: Save cached build
-        uses: actions/cache/save@v4
-        with:
-          path: build
-          key: ${{ runner.os }}-build

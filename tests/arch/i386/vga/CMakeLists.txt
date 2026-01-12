@@ -1,4 +1,3 @@
-enable_testing()
 add_executable(test_vga
         vga.cpp
         VGAMonitor.cpp
@@ -19,4 +18,3 @@ target_include_directories(
 target_compile_options(test_vga PRIVATE -m32)
 
 catch_discover_tests(test_vga)
-

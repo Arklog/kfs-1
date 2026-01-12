@@ -7,7 +7,7 @@
 
 TEST_CASE("KString", "[kstring]") {
     SECTION("strlen") {
-        const char *str = "strken";
+        const char *str  = "strken";
         const char *str2 = "1";
         const char *str3 = "";
         const char *str4 = "a\0b";
@@ -81,7 +81,7 @@ TEST_CASE("KString", "[kstring]") {
     }
 
     SECTION("strcpy") {
-        char buffer[128];
+        char        buffer[128];
         const char *str1 = "Hello kernel";
 
         kstring::strcpy(buffer, "");
@@ -108,6 +108,18 @@ TEST_CASE("KString", "[kstring]") {
         REQUIRE(std::memcmp(dest, src, 128) == 0);
     }
 
+    SECTION("memmove") {
+        char buff[128];
+
+        std::memcpy(buff, "12345", 5);
+        memmove(buff, buff + 1, 4);
+        REQUIRE(std::memcmp(buff, "23455", 5) == 0);
+
+        std::memcpy(buff, "12345", 5);
+        memmove(buff + 1, buff, 4);
+        REQUIRE(std::memcmp(buff, "11234", 5) == 0);
+    }
+
     SECTION("memcmp") {
         char b1[128];
         char b2[128];
@@ -121,13 +133,13 @@ TEST_CASE("KString", "[kstring]") {
         // FAILURE
         b1[0] = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == 1);
-        b1[0] = 0;
+        b1[0]   = 0;
         b1[127] = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == 1);
         b1[127] = 0;
-        b2[0] = 1;
+        b2[0]   = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == -1);
-        b2[0] = 0;
+        b2[0]   = 0;
         b2[127] = 1;
         REQUIRE(kstring::memcmp(b1, b2, 128) == -1);
 
