@@ -16,8 +16,18 @@ extern "C" void k_main() {
     monitor << "test";
 
 
-    logging::set_logger(monitor);
-    logging::info("logging initialized");
+    /*logging::set_logger(monitor);
+    logging::info("logging initialized");*/
+    monitor << "test" << vga::color::color_set::BLACK_ON_WHITE << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
+    monitor << "test" << vga::endl;
 
     while (true) {
         kbd::handler();

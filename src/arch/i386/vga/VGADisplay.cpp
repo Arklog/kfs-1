@@ -30,6 +30,7 @@ namespace vga {
             auto cpy_size = line.size() * sizeof(t_vga_char);
             auto dest = vga + line_idx * VGA_WIDTH;
             kstring::memcpy((void *) dest, line.data(), cpy_size);
+            ++line_idx;
         }
     }
 

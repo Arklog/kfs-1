@@ -31,8 +31,10 @@ namespace vga {
             _buffer.newline(_cursor.line, _cursor.column);
             _cursor.newline();
         } else if (c == '\t') {
-            for (int i = 0; i < 4; ++i)
+            for (int i = 0; i < 4; ++i) {
                 put_char(' ');
+                _cursor.advance();
+            }
         } else {
             _buffer.write(_cursor,vga::t_vga_char(c, _color));
             _cursor.advance();
