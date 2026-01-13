@@ -33,6 +33,7 @@ set(KFLAGS
         -Werror
         -Wno-unused-parameter
         -Wno-missing-field-initializers
+        -fno-threadsafe-statics
         -ffreestanding
         -fno-builtin
         -fno-stack-protector
