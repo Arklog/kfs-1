@@ -46,8 +46,10 @@ namespace vga {
         void erase(const VGACursor &cursor);
 
         /**
-         * creates a new logical line.
+         * Create a new line below the given line, characters after column are moved to the new line.
+         *
          * @param line index of the new line.
+         * @param column index of the column where to split the line.
         */
         void newline(uint32_t line, uint16_t column);
 
