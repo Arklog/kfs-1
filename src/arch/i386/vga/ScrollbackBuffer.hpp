@@ -48,7 +48,7 @@ namespace vga {
         /**
          * Create a new line below the given line, characters after column are moved to the new line.
          *
-         * @param line index of the new line.
+         * @param line Index of the line below which to create the new line.
          * @param column index of the column where to split the line.
         */
         void newline(uint32_t line, uint16_t column);
