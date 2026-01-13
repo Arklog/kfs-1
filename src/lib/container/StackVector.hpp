@@ -27,6 +27,15 @@ namespace container {
             static_assert((utility::convertible_to<decltype(args), T> && ...), "Invalid type");
         }
 
+        /**
+         * Construct a StackVector from a range of iterators.
+         * If the range is larger than N, only the first N elements will be copied.
+         *
+         * @param begin The beginning of the range
+         * @param end The end of the range
+         *
+         * @snippet StackVector.cpp StackVector range constructor
+         */
         StackVector(iterator begin, iterator end) : Array<T, N>(), _size{0} {
             int idx = 0;
             for (const auto &i: container::range{begin, end}) {
@@ -40,6 +49,11 @@ namespace container {
             _size = end - begin;
         }
 
+        /**
+         * Copy constructor
+         *
+         * @param other  The StackVector to copy
+         */
         StackVector(const StackVector& other) : Array<T, N>(), _size{other._size} {
             int idx = 0;
 
@@ -48,6 +62,11 @@ namespace container {
             }
         }
 
+        /**
+         * Move constructor
+         *
+         * @param other The StackVector to move
+         */
         StackVector(StackVector &&other) noexcept : Array<T, N>(), _size{utility::move(other._size)} {
             int idx = 0;
 
@@ -56,18 +75,38 @@ namespace container {
             }
         }
 
+        /**
+         * Get an iterator to the end of the vector
+         *
+         * @return An iterator to the end of the vector, if N == 0 begin() == end()
+         */
         iterator end() override {
             return this->begin() + _size;
         }
 
+        /**
+         * Get a const iterator to the end of the vector
+         *
+         * @return A const iterator to the end of the vector, if N == 0 begin() == end()
+         */
         const_iterator end() const override {
             return cend();
         }
 
+        /**
+         * Get a const iterator to the end of the vector
+         *
+         * @return A const iterator to the end of the vector, if N == 0 begin() == end()
+         */
         const_iterator cend() const override {
             return this->cbegin() + _size;
         }
 
+        /**
+         * Get the current size of the vector
+         *
+         * @return The number of elements in the vector
+         */
         size_type size() const override {
             return _size;
         }
@@ -78,7 +117,13 @@ namespace container {
          * @param position The position at which to insert the element
          * @param value The value to insert
          *
-         * @return The position of the inserted element or
+         * @return The position of the inserted element or end() on failure.
+         *
+         * @warning will fail if:
+         * - position does not belong to this StackVector
+         * - the StackVector is full
+         *
+         * @snippet StackVector.cpp StackVector insert
          */
         iterator insert(iterator position, T &value) override {
             if (!_own_iterator(position) || _size == N)
@@ -105,6 +150,8 @@ namespace container {
          * @warning Insertion will fail if:
          * - position does not belong to this StackVector
          * - the StackVector is full
+         *
+         * @snippet StackVector.cpp StackVector insert
          */
         iterator insert(iterator position, T &&value) override {
             if (!_own_iterator(position) || _size == N)
@@ -121,7 +168,7 @@ namespace container {
         }
 
         /**
-         * Insert a range of elements at the given position.
+         * Insert [_begin, _end[ at the given position.
          * If the vector does not have enough space to accommodate all new elements, the insertion fails.
          *
          * @param position
@@ -133,6 +180,8 @@ namespace container {
          * @warning Will fail if:
          * - position does not belong to this StackVector
          * - the StackVector does not have enougth place to accomodate the elements
+         *
+         * @snippet StackVector.cpp StackVector insert range
          */
         iterator insert(iterator position, iterator _begin, iterator _end) override {
             auto length = _end - _begin;
@@ -165,6 +214,8 @@ namespace container {
          * @return An iterator to the newly inserted element or end() on failure.
          *
          * @warning Will fail if the StackVector is full
+         *
+         * @snippet StackVector.cpp StackVector push_back
          */
         iterator push_bash(T &&item) {
             if (_size == N)
@@ -181,6 +232,8 @@ namespace container {
          * @param args
          *
          * @return An iterator to the newly emplaced element or end() if the StackVector is full.
+         *
+         * @snippet StackVector.cpp StackVector emplace_back
          */
         template<typename... Args>
         iterator emplace_back(Args... args) {
@@ -199,6 +252,8 @@ namespace container {
          * @param position The position of the element to erase
          *
          * @return begin() on success, end() on failure.
+         *
+         * @snippet StackVector.cpp StackVector erase
          */
         iterator erase(iterator position) {
             if (!_validate_position(position) || size() == 0)
@@ -221,6 +276,8 @@ namespace container {
          * @param _end The position after the last element to erase
          *
          * @return begin() on success or end() on failure
+         *
+         * @snippet StackVector.cpp StackVector erase range
          */
         iterator erase(iterator _begin, iterator _end) {
             if (_begin > _end || !_validate_position(_begin) || !_own_iterator(_end))
