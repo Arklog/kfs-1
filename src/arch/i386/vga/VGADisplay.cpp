@@ -19,7 +19,7 @@ namespace vga {
 
     void VGADisplay::render(const ScrollbackBuffer &buffer, uint32_t view_line) {
         auto &raw_buff = buffer.get_buffer();
-        auto begin_iter = raw_buff.begin() + view_line - 1;
+        auto begin_iter = raw_buff.begin() + view_line;
         auto end_iter = math::min(raw_buff.end(), begin_iter + VGA_HEIGHT);
 
         if (begin_iter >= end_iter)

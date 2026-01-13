@@ -14,7 +14,7 @@ namespace vga {
     void VGAMonitor::clear() {
         _buffer.clear();
         _cursor.set(0, 0);
-        _view_line = 1;
+        _view_line = 0;
 
         VGADisplay::clear();
         _refresh();

@@ -38,13 +38,14 @@ namespace vga {
         if (_buffer.size() >= MAX_LINES)
             return;
 
-        auto new_line = _buffer.insert(_buffer.begin() + line, {});
+        auto new_line = _buffer.insert(_buffer.begin() + line + 1, {});
         if (new_line == _buffer.end()) {
             return ;
         }
 
-        auto next_line = new_line + 1;
-        new_line->insert(new_line->begin(), next_line->begin(), next_line->begin() + column);
+        auto previous_line = new_line - 1;
+        new_line->insert(new_line->begin(), previous_line->begin() + column, previous_line->end());
+        previous_line->erase(previous_line->begin() + column, previous_line->end());
 
         // uint16_t old_len = _line_len[line];
         // uint16_t new_len = (column < old_len) ? (old_len - column) : 0;
