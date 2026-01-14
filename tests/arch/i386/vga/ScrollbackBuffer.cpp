@@ -101,7 +101,9 @@ TEST_CASE("ScrollbackBuffer", "[vga]") {
             REQUIRE(buffer.line(0).size() == vga::VGA_WIDTH);
             REQUIRE(buffer.line(1).size() == 4);
 
-            for (const auto& i: {_buffer[0].begin() + 4, _buffer[0].end()}) {
+            int n  = 0;
+            for (auto i = _buffer[0].begin() + 4; i != _buffer[0].end(); ++i) {
+                REQUIRE(n++ + 4 < _buffer[0].size());
                 REQUIRE(i->data.ascii == 'x');
                 REQUIRE(i->data.color == vga::color::color_set::WHITE_ON_BLACK);
             }
