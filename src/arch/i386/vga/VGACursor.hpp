@@ -35,7 +35,7 @@ namespace vga {
         /**
          * get the cursor down of exactly one line. If the current column index is superior of the next line length, it takes its length as new value.
          */
-        void down(int next_line_len);
+        void down(int next_line_len, int last_line);
 
 
         /**

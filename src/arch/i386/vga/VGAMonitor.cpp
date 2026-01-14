@@ -67,7 +67,7 @@ namespace vga {
         if (_view_line + VGA_HEIGHT < _buffer.line_count()) {
             ++_view_line;
         }
-        _cursor.down(_buffer.line_length(_cursor.line + 1));
+        _cursor.down(_buffer.line_length(_cursor.line + 1), _buffer.line_count());
         _refresh();
     }
 

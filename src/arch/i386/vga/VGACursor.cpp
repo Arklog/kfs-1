@@ -35,7 +35,9 @@ namespace vga {
             column = prev_line_len;
     }
 
-    void VGACursor::down(int next_line_len) {
+    void VGACursor::down(int next_line_len, int last_line) {
+        if (int(line) == last_line)
+            return;
         ++line;
         if (column > next_line_len)
             column = next_line_len;

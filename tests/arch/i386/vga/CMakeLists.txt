@@ -2,7 +2,6 @@ add_executable(test_vga
         vga.cpp
         VGAMonitor.cpp
         ScrollbackBuffer.cpp
-        VGACursor.cpp
 )
 
 target_link_libraries(test_vga
