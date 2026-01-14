@@ -37,7 +37,6 @@ namespace vga {
         }
     }
 
-
     void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
         if (testing == true)
             return;

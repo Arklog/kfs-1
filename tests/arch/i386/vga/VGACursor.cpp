@@ -9,20 +9,26 @@
 
 TEST_CASE("VGACursor", "[vga]") {
     static uint8_t test_buff[25 * 80 * 2];
-    vga::VGADisplay::vga = reinterpret_cast<vga::t_vga_char*>(test_buff);
-    vga::VGADisplay::testing = true;
-    vga::VGAMonitor monitor;
-    monitor.init();
+    vga::VGACursor cursor;
 
-    monitor << "test1" << vga::endl;
-    monitor << "test2" << vga::endl;
-    monitor << "test3" << vga::endl;
-    monitor << "test4" << vga::endl;
-    monitor << "test5" << vga::endl;
-    monitor << "test6" << vga::endl;
-    monitor << "test7" << vga::endl;
-    monitor << "test8" << vga::endl;
-    monitor.backspace();
-    REQUIRE(monitor._cursor.line == 7);
-    //REQUIRE(monitor._cursor.column == monitor._buffer.line_length(7));
+    cursor.set(10, 24);
+    cursor.newline();
+    REQUIRE(cursor.line == 11);
+    REQUIRE(cursor.column == 0);
+    cursor.back(24);
+    REQUIRE(cursor.column == 24);
+    cursor.advance();
+    REQUIRE(cursor.column == 25);
+    cursor.up(32);
+    REQUIRE(cursor.line == 9);
+    REQUIRE(cursor.column == 25);
+    cursor.up(15);
+    REQUIRE(cursor.column == 15);
+    REQUIRE(cursor.line == 8);
+    cursor.down(8);
+    REQUIRE(cursor.column == 8);
+    REQUIRE(cursor.line == 9);
+    cursor.advance(8);
+    REQUIRE(cursor.column == 0);
+    REQUIRE(cursor.line == 10);
 }
