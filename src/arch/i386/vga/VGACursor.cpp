@@ -9,10 +9,10 @@ namespace vga {
 
     VGACursor::VGACursor(): line(0), column(0) {}
 
-    void VGACursor::advance(int line_len, int last_line) {
+    void VGACursor::advance(int line_len, int last_line, int new_line) {
         if (column < line_len)
             ++column;
-        else if (int(line) < last_line) {
+        else if (int(line) < last_line || new_line == 1) {
             column = 0;
             ++line;
         }

@@ -37,7 +37,7 @@ namespace vga {
             }
         } else {
             _buffer.write(_cursor,vga::t_vga_char(c, _color));
-            _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count());
+            _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count(), 1);
         }
 
         if (_cursor.line >= ScrollbackBuffer::MAX_LINES) {

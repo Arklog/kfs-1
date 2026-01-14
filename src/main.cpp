@@ -14,11 +14,12 @@ extern "C" void k_main() {
 
     monitor.init();
 
-    char first_line[81] = "first first first first first first first first first first first first first   ";
+    char first_line[85] = "first first first fdirst first first first first first first first first firstfirdfg";
 
-    char test_line[81] = "test test test test test test test test test test test test test test test test ";
+    //char test_line[81] = "test test test test test test test test test test test test test test test test ";
 
-    monitor << first_line << test_line;
+    monitor << first_line;
+
     while (true) {
         kbd::handler();
     }
