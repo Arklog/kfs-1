@@ -85,7 +85,7 @@ namespace vga {
 
         uint32_t prev = line_idx - 1;
         merge_lines(prev, line_idx);
-        _buffer.erase(_buffer.end() - 1);
+//        _buffer.erase(_buffer.end() - 1);
         //
         // for (uint32_t i = line_idx; i + 1 < _lines; ++i) {
         //     kstring::memcpy(

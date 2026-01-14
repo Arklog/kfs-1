@@ -19,6 +19,8 @@ namespace vga {
     class VGAMonitor {
     public:
         VGAMonitor();
+        VGAMonitor(const VGAMonitor&) = delete;
+        VGAMonitor& operator=(const VGAMonitor&) = delete;
 
         /**
          * clears the screen and the buffer.

@@ -15,7 +15,7 @@ vga::VGAMonitor *g_monitor = nullptr;
 namespace kbd {
 
     void handler() {
-        auto monitor = *g_monitor;
+        auto &monitor = *g_monitor;
 
         uint8_t scancode = inb(keyboard_data_port);
         bool released = scancode & 0x80;

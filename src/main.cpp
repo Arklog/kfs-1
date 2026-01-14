@@ -13,9 +13,6 @@ extern "C" void k_main() {
     g_monitor = &monitor;
 
     monitor.init();
-    monitor << "test";
-
-
     logging::set_logger(monitor);
     logging::info("logging initialized");
     monitor << "test" << vga::color::color_set::BLACK_ON_WHITE << vga::endl;
@@ -28,16 +25,6 @@ extern "C" void k_main() {
     monitor << "test" << vga::endl;
     monitor << "test" << vga::endl;
     monitor << "test" << vga::endl;
-    monitor.scroll_up();
-    monitor.scroll_up();
-    monitor.move_right();
-    monitor.move_right();
-    monitor.backspace();
-    monitor.scroll_up();
-    monitor.backspace();
-    monitor.scroll_up();
-    monitor.backspace();
-    monitor.scroll_up();
     monitor << vga::endl << vga::endl << vga::endl<< vga::endl;
 
     while (true) {
