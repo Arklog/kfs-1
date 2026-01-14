@@ -8,7 +8,7 @@
 #include "arch/i386/vga/VGADisplay.hpp"
 #include "catch2/catch_all.hpp"
 
-TEST_CASE("ScrollbackBuffer", "[vga]") {
+TEST_CASE("ScrollbackBuffer via monitor", "[vga]") {
     static uint8_t test_buff[25 * 80 * 2];
     vga::VGADisplay::vga = reinterpret_cast<vga::t_vga_char*>(test_buff);
     vga::VGADisplay::testing = true;
