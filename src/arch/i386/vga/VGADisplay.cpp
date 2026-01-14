@@ -18,19 +18,22 @@ namespace vga {
     }
 
     void VGADisplay::render(const ScrollbackBuffer &buffer, uint32_t view_line) {
-        auto &raw_buff = buffer.get_buffer();
-        auto begin_iter = raw_buff.begin() + view_line;
-        auto end_iter = math::min(raw_buff.end(), begin_iter + VGA_HEIGHT);
+        uint8_t color = color::color_set::WHITE_ON_BLACK;
+        for (uint32_t row = 0; row < VGA_HEIGHT; ++row) {
+            uint32_t src_line = view_line + row;
 
-        if (begin_iter >= end_iter)
-            return ;
+            uint16_t len = 0;
+            if (src_line < buffer.line_count())
+                len = buffer.line_length(src_line);
 
-        int line_idx = 0;
-        for (const auto &line: container::range{begin_iter, end_iter}) {
-            auto cpy_size = line.size() * sizeof(t_vga_char);
-            auto dest = vga + line_idx * VGA_WIDTH;
-            kstring::memcpy((void *) dest, line.data(), cpy_size);
-            ++line_idx;
+            for (uint16_t col = 0; col < VGA_WIDTH; ++col) {
+                if (src_line < buffer.line_count() && col < len) {
+                    vga[row * VGA_WIDTH + col].raw = buffer.line(src_line)[col].raw;
+                    color = buffer.line(src_line)[col].get_color();
+                } else {
+                    vga[row * VGA_WIDTH + col].raw = vga::t_vga_char(' ', color).raw;
+                }
+            }
         }
     }
 
