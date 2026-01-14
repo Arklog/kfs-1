@@ -24,7 +24,7 @@ namespace vga {
         while (_buffer.size() <= cursor.line) {
             _buffer.push_bash({});
         }
-        _buffer[cursor.line].push_bash(c);
+        _buffer[cursor.line].insert(cursor.column, c);
     }
 
     void ScrollbackBuffer::erase(const VGACursor &cursor) {
@@ -68,6 +68,9 @@ namespace vga {
         auto to_move = math::min(dst_line.available_space(), src_line.size());
         dst_line.insert(dst_line.end(), src_line.begin(), src_line.begin() + to_move);
         src_line.erase(src_line.begin(), src_line.begin() + to_move);
+
+        if (src_line.size() == 0)
+            _buffer.erase(src);
     }
 
     void ScrollbackBuffer::backspace(uint32_t line_idx, uint16_t col) {
@@ -114,5 +117,11 @@ namespace vga {
         _buffer.erase(_buffer.begin());
     }
 
+    const ScrollbackBuffer::buffer_type &ScrollbackBuffer::get_buffer() const {
+        return _buffer;
+    }
 
+    ScrollbackBuffer::buffer_type &ScrollbackBuffer::get_buffer() {
+        return _buffer;
+    }
 }

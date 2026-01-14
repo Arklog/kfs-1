@@ -104,7 +104,19 @@ namespace container {
          *
          * @return The position of the inserted element or
          */
-        iterator insert(iterator position, T &value) override {
+         iterator insert(unsigned int position, const T &value) {
+             return insert(this->begin() + position, value);
+         }
+
+        /**
+         * Insert value at position. If the vector is full the last element will be removed.
+         *
+         * @param position The position at which to insert the element
+         * @param value The value to insert
+         *
+         * @return The position of the inserted element or
+         */
+        iterator insert(iterator position, const T &value) override {
             if (!_own_iterator(position) || _size == N)
                 return end();
 
@@ -116,6 +128,22 @@ namespace container {
             ++_size;
 
             return position;
+        }
+
+        /**
+         * Insert value at position. If the vector is full the last element will be removed.
+         *
+         * @param position The position at which to insert the element
+         * @param value The value to insert
+         *
+         * @return The position of the inserted element or end() if insertion failed.
+         *
+         * @warning Insertion will fail if:
+         * - position does not belong to this StackVector
+         * - the StackVector is full
+         */
+        iterator insert(unsigned int position, T &&value) {
+            return insert(this->begin() + position, utility::move(value));
         }
 
         /**

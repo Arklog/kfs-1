@@ -33,7 +33,8 @@ namespace vga {
         void clear();
 
         /**
-         * writes a character at the current cursor position.
+         * Insert a character at the current cursor position.
+         *
          * @param cursor
          * @param c
          */
@@ -89,9 +90,9 @@ namespace vga {
          */
         void scroll_up();
 
-        const buffer_type &get_buffer() const {
-            return _buffer;
-        }
+        const buffer_type &get_buffer() const;
+
+        buffer_type &get_buffer();
 
     private:
         /** Character storage for each line. */
