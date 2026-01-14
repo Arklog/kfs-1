@@ -13,20 +13,12 @@ extern "C" void k_main() {
     g_monitor = &monitor;
 
     monitor.init();
-    logging::set_logger(monitor);
-    logging::info("logging initialized");
-    monitor << "test" << vga::color::color_set::BLACK_ON_WHITE << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << "test" << vga::endl;
-    monitor << vga::endl << vga::endl << vga::endl<< vga::endl;
 
+    char first_line[81] = "first first first first first first first first first first first first first   ";
+
+    char test_line[81] = "test test test test test test test test test test test test test test test test ";
+
+    monitor << first_line << test_line;
     while (true) {
         kbd::handler();
     }
