@@ -59,11 +59,7 @@ namespace vga {
         if (_view_line > 0) {
             --_view_line;
         }
-        if (_cursor.line > 0) {
-            --_cursor.line;
-            if (_cursor.column > _buffer.line_length(_cursor.line))
-                _cursor.column = _buffer.line_length(_cursor.line) - 1;
-        }
+        _cursor.up(_buffer.line_length(_cursor.line - 1));
         _refresh();
     }
 
@@ -71,32 +67,17 @@ namespace vga {
         if (_view_line + VGA_HEIGHT < _buffer.line_count()) {
             ++_view_line;
         }
-        if (_cursor.line + 1 < _buffer.line_count()) {
-            ++_cursor.line;
-            if (_cursor.column > _buffer.line_length(_cursor.line))
-                _cursor.column = _buffer.line_length(_cursor.line) - 1;
-        }
+        _cursor.down(_buffer.line_length(_cursor.line + 1));
         _refresh();
     }
 
     void VGAMonitor::move_left() {
-        if (_cursor.column > 0) {
-            --_cursor.column;
-        } else if (_cursor.line > 0) {
-            --_cursor.line;
-            _cursor.column = _buffer.line_length(_cursor.line) - 1;
-        }
+        _cursor.back(_buffer.line_length(_cursor.line - 1));
         _refresh();
     }
 
     void VGAMonitor::move_right() {
-        uint16_t len = _buffer.line_length(_cursor.line);
-        if (_cursor.column < len) {
-            ++_cursor.column;
-        } else if (_cursor.line + 1 < _buffer.line_count()) {
-            ++_cursor.line;
-            _cursor.column = 0;
-        }
+        _cursor.advance(_buffer.line_length(_cursor.line));
         _refresh();
     }
 
@@ -104,12 +85,7 @@ namespace vga {
         if (_cursor.line == 0 && _cursor.column == 0)
             return;
         _buffer.backspace(_cursor.line, _cursor.column);
-        if (_cursor.column > 0) {
-            --_cursor.column;
-        } else if (_cursor.line > 0) {
-            --_cursor.line;
-            _cursor.column = _buffer.line_length(_cursor.line) - 1;
-        }
+        _cursor.back(_buffer.line_length(_cursor.line - 1));
         _refresh();
     }
 
