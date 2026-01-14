@@ -20,7 +20,7 @@ namespace vga {
         /**
          * advance the cursor of exactly one column within the current line if it's not at end of line, or moves it forward on the next line otherwise.
          */
-        void advance(int line_len = -1);
+        void advance(int line_len, int last_line);
 
         /**
          * get the cursor back of exactly one column within the current line if it's not at beginning of line, or moves it backward on the prevline line otherwise.

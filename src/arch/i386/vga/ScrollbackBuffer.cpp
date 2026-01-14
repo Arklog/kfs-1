@@ -77,12 +77,11 @@ namespace vga {
         if (line_idx == 0 && col == 0)
             return;
 
-        if (col > 0) {
-            auto &line = _buffer[line_idx];
-            line.erase(line.begin() + col);
-            return;
-        }
 
+        auto &line = _buffer[line_idx];
+        line.erase(line.begin() + col);
+        if (col > 0)
+            return;
         uint32_t prev = line_idx - 1;
         merge_lines(prev, line_idx);
 //        _buffer.erase(_buffer.end() - 1);

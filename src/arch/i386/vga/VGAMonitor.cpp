@@ -33,11 +33,11 @@ namespace vga {
         } else if (c == '\t') {
             for (int i = 0; i < 4; ++i) {
                 put_char(' ');
-                _cursor.advance();
+                _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count());
             }
         } else {
             _buffer.write(_cursor,vga::t_vga_char(c, _color));
-            _cursor.advance();
+            _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count());
         }
 
         if (_cursor.line >= ScrollbackBuffer::MAX_LINES) {
@@ -77,7 +77,7 @@ namespace vga {
     }
 
     void VGAMonitor::move_right() {
-        _cursor.advance(_buffer.line_length(_cursor.line));
+        _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count());
         _refresh();
     }
 
