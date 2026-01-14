@@ -24,6 +24,14 @@ namespace vga {
         while (_buffer.size() <= cursor.line) {
             _buffer.push_bash({});
         }
+
+        // not enough space, insert new line
+        if (!_buffer[cursor.line].available_space()) {
+            newline(cursor.line, cursor.column);
+            _buffer[cursor.line + 1].insert(0, c);
+            return;
+        }
+
         _buffer[cursor.line].insert(cursor.column, c);
     }
 
