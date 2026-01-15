@@ -50,18 +50,18 @@ namespace vga {
      * Represents a VGA character (ASCII + color)
      */
     union t_vga_char {
-        struct [[gnu::packed]] {
+        struct [[gnu::packed]] vga_char_data {
             uint8_t ascii;
             uint8_t color;
         } data;
 
         uint16_t raw;
 
-        t_vga_char() = default;
+        constexpr t_vga_char() = default;
 
-        t_vga_char(uint8_t ascii, uint8_t color);
+        constexpr t_vga_char(uint8_t ascii, uint8_t color): data{.ascii = ascii, .color = color} {}
 
-        t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background);
+        constexpr t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background): data{.ascii = ascii, .color = static_cast<uint8_t>(background << 4 | (foreground & 0x0F))} {}
 
         /**
          * Get the foreground color

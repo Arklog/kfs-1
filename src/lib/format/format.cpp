@@ -4,7 +4,7 @@
 
 #include "format.hpp"
 
-char * format::format(char *buffer, int32_t value) {
+char * format::format(char *buffer, int value) {
     if (value < 0) {
         value = -value;
         *(buffer++) = '-';

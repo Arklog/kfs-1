@@ -3,15 +3,6 @@
 //
 #include "vga.hpp"
 
-vga::t_vga_char::t_vga_char(uint8_t ascii, uint8_t color) :
-    data{.ascii = ascii, .color = color} {
-}
-
-
-vga::t_vga_char::t_vga_char(uint8_t ascii, uint8_t foreground, uint8_t background) :
-    data{.ascii = ascii, .color = static_cast<uint8_t>(background << 4 | (foreground & 0x0F))} {
-}
-
 vga::color::t_vga_color vga::t_vga_char::get_foreground() const {
     return static_cast<color::t_vga_color>(data.color & 0x0F);
 }

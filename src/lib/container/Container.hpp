@@ -9,7 +9,7 @@ namespace container {
     template<typename T, typename IteratorType, typename ConstIteratorType>
     class Container {
     public:
-        virtual ~Container() = default;
+        ~Container() = default;
 
         using iterator       = IteratorType;
         using const_iterator = ConstIteratorType;
@@ -56,7 +56,7 @@ namespace container {
          */
         virtual size_type size() const = 0;
 
-        virtual iterator insert(iterator position, T &value) = 0;
+        virtual iterator insert(iterator position, const T &value) = 0;
 
         /**
         * Insert one element at position

@@ -4,13 +4,16 @@
 
 #include "VGADisplay.hpp"
 
+#include "lib/container/range.hpp"
+#include "lib/math/math.hpp"
+
 namespace vga {
     bool VGADisplay::testing = false;
     volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
 
     void VGADisplay::clear() {
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
-            vga[i].raw = vga::t_vga_char(' ', vga::color::WHITE).raw;
+            vga[i].raw = vga::t_vga_char(' ', vga::color::color_set::WHITE_ON_BLACK).raw;
         }
     }
 
@@ -33,7 +36,6 @@ namespace vga {
             }
         }
     }
-
 
     void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
         if (testing == true)

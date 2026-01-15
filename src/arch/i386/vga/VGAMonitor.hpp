@@ -19,6 +19,8 @@ namespace vga {
     class VGAMonitor {
     public:
         VGAMonitor();
+        VGAMonitor(const VGAMonitor&) = delete;
+        VGAMonitor& operator=(const VGAMonitor&) = delete;
 
         /**
          * clears the screen and the buffer.
@@ -109,10 +111,11 @@ namespace vga {
          */
         VGAMonitor &operator<<(const uint8_t changer);
 
-
-    private:
         ScrollbackBuffer       _buffer;
         VGACursor              _cursor;
+
+
+    private:
         uint8_t                _color;
         uint32_t               _view_line;
 

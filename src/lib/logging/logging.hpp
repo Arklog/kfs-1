@@ -12,17 +12,40 @@
 #include "arch/i386/vga/vga.hpp"
 #include "lib/format/format.hpp"
 
-#ifndef TEST
-# define MONITOR_MACRO vga::VGAMonitor
-# include "arch/i386/vga/VGAMonitor.hpp"
-#else
-# include <fstream>
-# define MONITOR_MACRO std::ofstream
-#endif
+// todo: define a virtual logger type and template children with overloaded operator<<(const char *)
 
 namespace logging {
-    using t_logger       = MONITOR_MACRO;
     using t_logger_color = vga::color::color_set::t_color_set;
+
+    class LoggerBase {
+    public:
+        virtual LoggerBase& operator<<(const char *) = 0;
+        virtual LoggerBase& operator<<(t_logger_color) = 0;
+    };
+
+    template<typename T>
+    class LoggerWrapper: public LoggerBase {
+    public:
+        LoggerWrapper(): _logger{} {}
+        LoggerWrapper(T* logger_interface): _logger(logger_interface) {};
+
+        LoggerWrapper& operator <<(const char *str) override {
+            *_logger << str;
+            return *this;
+        }
+
+        LoggerWrapper& operator<<(t_logger_color color) override {
+            *_logger << color;
+            return *this;
+        }
+
+    private:
+        T *_logger;
+    };
+
+    using t_logger       = LoggerBase;
+
+    extern t_logger *g_logger;
 
     /**
      * The log level type
@@ -47,9 +70,15 @@ namespace logging {
     /**
      * Set the global logging instance
      *
+     * @tparam The LoggerWrapper underlying type
      * @param logger
      */
-    void set_logger(t_logger &logger);
+     template<typename T>
+     void set_logger(T& logger) {
+         static LoggerWrapper<T> static_logger;
+         static_logger = LoggerWrapper<T>{&logger};
+         g_logger = &static_logger;
+     }
 
     /**
      * Get the global logging instance
@@ -74,11 +103,11 @@ namespace logging {
         auto &      logger = get_logger();
 
         logger << "["
-#ifndef TEST
+#ifndef KFS_HOST_TEST
                 << log_color_map[log_level]
 #endif
                 << log_message_map[log_level]
-#ifndef TEST
+#ifndef KFS_HOST_TEST
                 << vga::color::color_set::DEFAULT
 #endif
                 << "]: ";

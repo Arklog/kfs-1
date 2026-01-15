@@ -19,11 +19,7 @@ namespace logging {
             "ERROR"
     };
 
-    static t_logger *g_logger = nullptr;
-
-    void set_logger(t_logger &logger) {
-        g_logger = &logger;
-    }
+    t_logger *g_logger = nullptr;
 
     t_logger &get_logger() {
         return *g_logger;

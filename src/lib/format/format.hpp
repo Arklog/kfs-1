@@ -17,7 +17,7 @@ namespace format {
      *
      * @return NULL on error, otherwise a pointer to the next character after the formatted integer
      */
-    char * format(char *buffer, int32_t value);
+    char * format(char *buffer, int value);
 
     /**
      * Format a 32 bits unsigned integer into a buffer

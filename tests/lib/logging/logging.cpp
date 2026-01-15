@@ -8,7 +8,7 @@
 
 
 TEST_CASE("kprint", "[log]") {
-    logging::t_logger output("kprint.txt", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream output("kprint.txt", std::ofstream::out | std::ofstream::trunc);
     const std::string expected{
             "[DEBUG]: \n"
             "[INFO ]: \n"
@@ -32,7 +32,7 @@ TEST_CASE("kprint", "[log]") {
 }
 
 TEST_CASE("debug", "[log]") {
-    logging::t_logger output("debug.txt", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream output("debug.txt", std::ofstream::out | std::ofstream::trunc);
     const std::string expected{
             "[DEBUG]: 1 2 3 test\n"
     };
@@ -50,7 +50,7 @@ TEST_CASE("debug", "[log]") {
 }
 
 TEST_CASE("info", "[log]") {
-    logging::t_logger output("info.txt", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream output("info.txt", std::ofstream::out | std::ofstream::trunc);
     const std::string expected{
             "[INFO ]: test 12\n"
     };
@@ -68,7 +68,7 @@ TEST_CASE("info", "[log]") {
 }
 
 TEST_CASE("warn", "[log]") {
-    logging::t_logger output("warn.txt", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream output("warn.txt", std::ofstream::out | std::ofstream::trunc);
     const std::string expected{
             "[WARN ]: test 12\n"
     };
@@ -85,7 +85,7 @@ TEST_CASE("warn", "[log]") {
 }
 
 TEST_CASE("error", "[log]") {
-    logging::t_logger output("error.txt", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream output("error.txt", std::ofstream::out | std::ofstream::trunc);
     const std::string expected{
             "[ERROR]: test 12\n"
     };

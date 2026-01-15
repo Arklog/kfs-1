@@ -5,6 +5,7 @@
 #ifndef KFS_1_SCROLLBACKBUFFER_HPP
 #define KFS_1_SCROLLBACKBUFFER_HPP
 
+#include "lib/container/StackVector.hpp"
 #include "VGACursor.hpp"
 #include "vga.hpp"
 #include "include/stdint.hpp"
@@ -19,6 +20,10 @@ namespace vga {
     class ScrollbackBuffer {
     public:
         static constexpr uint32_t MAX_LINES = 300;
+        static constexpr t_vga_char default_char{' ', color::color_set::WHITE_ON_BLACK};
+
+        using line_type = container::StackVector<t_vga_char, vga::VGA_WIDTH>;
+        using buffer_type = container::StackVector<line_type, MAX_LINES>;
 
         ScrollbackBuffer();
 
@@ -28,7 +33,8 @@ namespace vga {
         void clear();
 
         /**
-         * writes a character at the current cursor position.
+         * Insert a character at the current cursor position.
+         *
          * @param cursor
          * @param c
          */
@@ -41,8 +47,10 @@ namespace vga {
         void erase(const VGACursor &cursor);
 
         /**
-         * creates a new logical line.
-         * @param line index of the new line.
+         * Create a new line below the given line, characters after column are moved to the new line.
+         *
+         * @param line Index of the line below which to create the new line.
+         * @param column index of the column where to split the line.
         */
         void newline(uint32_t line, uint16_t column);
 
@@ -55,16 +63,16 @@ namespace vga {
 
         /**
          * removes the character at the current cursor position.
-         * @param line current line of the cursor
+         * @param line_idx current line of the cursor
          * @param col current col of the cursor
          */
-        void backspace(uint32_t line, uint16_t col);
+        void backspace(uint32_t line_idx, uint16_t col);
 
         /**
          * returns a pointer to the first line's character of the given index.
          * @param index
          */
-        const t_vga_char *line(uint32_t index) const;
+        const line_type& line(uint32_t index) const;
 
         /**
          * returns the logical length of the given line.
@@ -82,15 +90,13 @@ namespace vga {
          */
         void scroll_up();
 
+        const buffer_type &get_buffer() const;
+
+        buffer_type &get_buffer();
+
     private:
         /** Character storage for each line. */
-        t_vga_char _buffer[MAX_LINES][vga::VGA_WIDTH];
-
-        /** Logical length of each line. */
-        uint16_t   _line_len[MAX_LINES];
-
-        /** Number of lines currently stored. */
-        uint32_t   _lines;
+        buffer_type _buffer;
     };
 
 }

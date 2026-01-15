@@ -229,6 +229,10 @@ namespace container {
             return *_item;
         }
 
+        Pointer operator->() const {
+            return _item;
+        }
+
         explicit operator Pointer() const override {
             return _item;
         }
