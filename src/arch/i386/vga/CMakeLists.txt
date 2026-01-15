@@ -11,4 +11,4 @@ add_library(libvga OBJECT
 )
 target_include_directories(libvga PRIVATE . ${CMAKE_SOURCE_DIR}/src)
 target_compile_options(libvga PRIVATE ${KFLAGS})
-target_link_libraries(libvga PUBLIC container math)
+target_link_libraries(libvga PUBLIC container math logging)
