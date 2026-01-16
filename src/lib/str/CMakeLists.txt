@@ -1,4 +1,4 @@
-add_library(libstring OBJECT
+add_library(libstring STATIC
         KString.cpp
 )
 target_compile_options(libstring PRIVATE ${KFLAGS})

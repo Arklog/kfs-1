@@ -1,4 +1,4 @@
-add_library(logging OBJECT
+add_library(logging STATIC
         logging.cpp
 )
 target_include_directories(logging PRIVATE . ${CMAKE_SOURCE_DIR}/src)

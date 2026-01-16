@@ -1,4 +1,4 @@
-add_library(format OBJECT
+add_library(format STATIC
         format.cpp
 )
 target_compile_options(format PRIVATE ${KFLAGS})

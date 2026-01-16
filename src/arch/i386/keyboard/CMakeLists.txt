@@ -1,4 +1,4 @@
-add_library(libkbd OBJECT
+add_library(libkbd STATIC
         keyboardHandler.hpp
         keyboardHandler.cpp
 )

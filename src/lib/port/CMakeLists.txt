@@ -1,4 +1,4 @@
-add_library(libport OBJECT
+add_library(libport STATIC
         port.cpp
 )
 target_compile_options(libport PRIVATE ${KFLAGS})
