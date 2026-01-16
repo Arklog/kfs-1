@@ -9,7 +9,7 @@ CMAKEFLAGS := -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
 
 DOCKER_IMAGE := kfs-cross-gcc:1.0.0
 
-.PHONY := test
+.PHONY := iso test docker-build
 
 kernel:
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
