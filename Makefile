@@ -23,8 +23,8 @@ iso: kernel
 	echo 'menuentry "KFS-Cailloux" {' >>  $(ISODIR)/grub/grub.cfg
 	echo '    multiboot /boot/$(KERNEL)' >> $(ISODIR)/grub/grub.cfg
 	echo '}' >> $(ISODIR)/grub/grub.cfg
-	grub-mkrescue -o $(BUILDDIR)/$(ISO) $(BUILDDIR)/isodir
-	echo "ISO created: $(BUILDDIR)/$(ISO)"
+	grub-mkrescue -o $(BUILDDIR)/$(ISO) -d /usr/lib/grub/i386-pc $(BUILDDIR)/isodir
+	@echo "ISO created: $(BUILDDIR)/$(ISO)"
 
 run: docker-build
 	qemu-system-i386 $(BUILDDIR)/$(ISO)
