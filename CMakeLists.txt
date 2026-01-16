@@ -2,7 +2,13 @@ cmake_minimum_required(VERSION 3.25)
 project(kfs-1)
 
 set(CMAKE_CXX_STANDARD 23)
-set(CXX_CROSS_COMPILER "/usr/local/bin/i686-elf-g++")
+
+# Set cross compiler path if not set
+if(NOT CXX_CROSS_COMPILER)
+    set(CXX_CROSS_COMPILER "/usr/local/bin/i686-elf-g++")
+endif()
+
+# Check if cross compiler exists
 if (EXISTS ${CXX_CROSS_COMPILER})
     message("Using cross compiler: ${CXX_CROSS_COMPILER}")
 else ()
