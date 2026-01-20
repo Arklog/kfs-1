@@ -3,7 +3,7 @@ ISO    := kfs.iso
 BUILDDIR := build
 ISODIR := $(BUILDDIR)/isodir/boot
 
-CMAKE_BUILD_TYPE ?= Release
+CMAKE_BUILD_TYPE ?= Debug
 CMAKE := cmake
 CMAKEFLAGS := -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
 

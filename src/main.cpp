@@ -8,90 +8,36 @@
 #include "arch/i386/keyboard/keyboardHandler.hpp"
 #include "lib/logging/logging.hpp"
 
-    vga::VGAMonitor g_monitor;
-
-
 extern "C" void k_main() {
+    vga::VGAMonitor  monitor{};
+    g_monitor = &monitor;
+    monitor.init();
+    logging::set_logger(monitor);
 
-    g_monitor.init();
-    g_monitor << "Hello, World! Hello 1!" << vga::endl;
-    g_monitor << "Hello, World! Hello 2!" << vga::endl;
-    g_monitor << "Hello, World! Hello 3!" << vga::endl;
-    g_monitor << "Hello, World! Hello 4!" << vga::endl;
-    g_monitor << "Hello, World! Hello 5!" << vga::endl;
-    g_monitor << "Hello, World! Hello 6!" << vga::endl;
-    g_monitor << "Hello, World! Hello 7!" << vga::endl;
-    g_monitor << "Hello, World! Hello 8!" << vga::endl;
-    g_monitor << "Hello, World! Hello 9!" << vga::endl;
-    g_monitor << "Hello, World! Hello 10!" << vga::endl;
-    g_monitor << "Hello, World! Hello 11!" << vga::endl;
-    g_monitor << "Hello, World! Hello 12!" << vga::endl;
-    g_monitor << "Hello, World! Hello 13!" << vga::endl;
-    g_monitor << "Hello, World! Hello 14!" << vga::endl;
-    g_monitor << "Hello, World! Hello 15!" << vga::endl;
-    g_monitor << "Hello, World! Hello 16!" << vga::endl;
-    g_monitor << "Hello, World! Hello 17!" << vga::endl;
-    g_monitor << "Hello, World! Hello 18!" << vga::endl;
-    g_monitor << "Hello, World! Hello 19!" << vga::endl;
-    g_monitor << "Hello, World! Hello 21!" << vga::endl;
-    g_monitor << "Hello, World! Hello 22!" << vga::endl;
-    g_monitor << "Hello, World! Hello 23!" << vga::endl;
-    g_monitor << "Hello, World! Hello 24!" << vga::endl;
-    g_monitor << "Hello, World! Hello 25!" << vga::endl;
-    g_monitor << "Hello, World! Hello 26!" << vga::endl;
-    g_monitor << "Hello, World! Hello 27!" << vga::endl;
-    g_monitor << "Hello, World! Hello 28!" << vga::endl;
-    g_monitor << "Hello, World! Hello 29!" << vga::endl;
-    g_monitor << "Hello, World! Hello 30!" << vga::endl;
-    g_monitor << "Hello, World! Hello 31!" << vga::endl;
-    g_monitor << "Hello, World! Hello 32!" << vga::endl;
-    g_monitor << "Hello, World! Hello 33!" << vga::endl;
-    g_monitor << "Hello, World! Hello 34!" << vga::endl;
-    g_monitor << "Hello, World! Hello 35!" << vga::endl;
-    g_monitor << "Hello, World! Hello 36!" << vga::endl;
-    g_monitor << "Hello, World! Hello 37!" << vga::endl;
-    g_monitor << "Hello, World! Hello 38!" << vga::endl;
-    g_monitor << "Hello, World! Hello 39!" << vga::endl;
-    g_monitor << "Hello, World! Hello 40!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << "Hello, World!" << vga::endl;
-    g_monitor << vga::color::BLUE << "Hello, World! in blue" << vga::endl;
-    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::GREEN } << "Hello, World! in black on green" << vga::endl;
-    g_monitor << vga::VGAColorChange{vga::color::BLACK, vga::color::RED } << "Hello, World! in black on red" << vga::endl;
-    g_monitor << vga::color::color_set::WHITE_ON_BLACK << "Hello, World! in white on black" << vga::endl;
-
-
-    logging::set_logger(g_monitor);
-    logging::info("logging initialized");
+    monitor << "test0" << "test1" << "test2" << "test3" << "test4" << "test5" << "test6" << "test7" << "test8" << "test9" << "tes10" << "tes11" << "tes12" << "tes13" << "tes14" << "tes15" << "tes16" << "tes17";
+    monitor << "test2" << vga::endl;
+    monitor << "test3" << vga::endl;
+    monitor << "test4" << vga::endl;
+    monitor << "test5" << vga::endl;
+    monitor << "test6" << vga::endl;
+    monitor << "test7" << vga::endl;
+    monitor << "test8" << vga::endl;
+    monitor << "test9" << vga::endl;
+    monitor << "test10" << vga::endl;
+    monitor << "test11" << vga::endl;
+    monitor << "test12" << vga::endl;
+    monitor << "test13" << vga::endl;
+    monitor << "test14" << vga::endl;
+    monitor << "test15" << vga::endl;
+    monitor << "test16" << vga::endl;
+    monitor << "test17" << vga::endl;
+    monitor << "test18" << vga::endl;
+    monitor << "test19" << vga::endl;
+    monitor << "test20" << vga::endl;
+    monitor << "test21" << vga::endl;
+    monitor << "test22" << vga::endl;
+    monitor << "test23" << vga::endl;
+    monitor << "test24" << vga::endl;
 
     while (true) {
         kbd::handler();

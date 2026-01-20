@@ -33,11 +33,13 @@ set(KFLAGS
         -Werror
         -Wno-unused-parameter
         -Wno-missing-field-initializers
+        -fno-threadsafe-statics
         -ffreestanding
         -fno-builtin
         -fno-stack-protector
         -fpie
         -fno-exceptions
+        -fno-use-cxa-atexit
         -fno-rtti
         -nostdlib
         -nostdinc
@@ -51,7 +53,7 @@ endif ()
 message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
-    set(KFLAGS ${KFLAGS} -O0)
+    set(KFLAGS ${KFLAGS} -O0 -g)
 else ()
     set(KFLAGS ${KFLAGS} -O2)
 endif ()

@@ -26,5 +26,6 @@ target_compile_options(
         PRIVATE
         -m32
 )
+target_compile_definitions(test_container PRIVATE KFS_HOST_TEST)
 
 catch_discover_tests(test_container)

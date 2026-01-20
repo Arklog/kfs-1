@@ -10,9 +10,13 @@ inline uint8_t inb(uint16_t port) {
     return ret;
 }
 
+vga::VGAMonitor *g_monitor = nullptr;
+
 namespace kbd {
 
     void handler() {
+        auto &monitor = *g_monitor;
+
         uint8_t scancode = inb(keyboard_data_port);
         bool released = scancode & 0x80;
         uint8_t code = scancode & 0x7F;
@@ -33,37 +37,37 @@ namespace kbd {
             }
 
             if (value == up && !keyboard[up]) {
-                g_monitor.scroll_up();
+                monitor.scroll_up();
                 keyboard[up] = true;
                 return;
             }
 
             if (value == down && !keyboard[down]) {
-                g_monitor.scroll_down();
+                monitor.scroll_down();
                 keyboard[down] = true;
                 return;
             }
 
             if (value == left && !keyboard[left]) {
-                g_monitor.move_left();
+                monitor.move_left();
                 keyboard[left] = true;
                 return;
             }
 
             if (value == right && !keyboard[right]) {
-                g_monitor.move_right();
+                monitor.move_right();
                 keyboard[right] = true;
                 return;
             }
 
             if (((value >= 32 && value <= 126) || value == '\n') && !keyboard[value]) {
-                g_monitor << (char)value;
+                monitor << (char)value;
                 keyboard[value] = true;
                 return;
             }
 
             if (value == '\b' && !keyboard['\b']) {
-                g_monitor.backspace();
+                monitor.backspace();
                 keyboard['\b'] = true;
             }
         }
