@@ -6,6 +6,7 @@
 #include "arch/i386/vga/VGAMonitor.hpp"
 #include "arch/i386/vga/VGADisplay.hpp"
 #include "catch2/catch_all.hpp"
+#include "lib/logging/logging.hpp"
 
 
 TEST_CASE("VGADisplay", "[vga]") {
@@ -14,6 +15,7 @@ TEST_CASE("VGADisplay", "[vga]") {
     vga::VGADisplay::testing = true;
     vga::VGAMonitor monitor;
     monitor.init();
+    logging::set_logger(monitor);
 
     char first_line[81] = "first first first first first first first first first first first first first   ";
 

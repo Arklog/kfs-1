@@ -1,6 +1,7 @@
 add_executable(test_vga
         vga.cpp
         VGAMonitor.cpp
+        ScrollbackBuffer.cpp
 )
 
 target_link_libraries(test_vga
@@ -9,6 +10,8 @@ target_link_libraries(test_vga
         libvga
         Catch2::Catch2WithMain
         libstring
+        logging
+        format
 )
 target_include_directories(
         test_vga
@@ -16,5 +19,6 @@ target_include_directories(
         ${CMAKE_SOURCE_DIR}/src
 )
 target_compile_options(test_vga PRIVATE -m32)
+target_compile_definitions(test_vga PRIVATE KFS_HOST_TEST)
 
 catch_discover_tests(test_vga)

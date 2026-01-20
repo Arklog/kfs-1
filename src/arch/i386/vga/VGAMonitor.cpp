@@ -7,7 +7,7 @@
 
 namespace vga {
 
-    VGAMonitor::VGAMonitor(): _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0) {
+    VGAMonitor::VGAMonitor(): _buffer{}, _cursor{}, _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0) {
         clear();
     }
 
@@ -23,7 +23,7 @@ namespace vga {
     void VGAMonitor::init() {
         _color = vga::color::color_set::WHITE_ON_BLACK;
         _view_line = 0;
-        clear();
+        this->clear();
     }
 
     void VGAMonitor::put_char(const char c) {
@@ -31,11 +31,13 @@ namespace vga {
             _buffer.newline(_cursor.line, _cursor.column);
             _cursor.newline();
         } else if (c == '\t') {
-            for (int i = 0; i < 4; ++i)
+            for (int i = 0; i < 4; ++i) {
                 put_char(' ');
+                _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count());
+            }
         } else {
             _buffer.write(_cursor,vga::t_vga_char(c, _color));
-            _cursor.advance();
+            _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count(), 1);
         }
 
         if (_cursor.line >= ScrollbackBuffer::MAX_LINES) {
@@ -45,24 +47,19 @@ namespace vga {
 
         if (_cursor.line >= _view_line + VGA_HEIGHT)
             ++_view_line;
-
-        _refresh();
     }
 
     void VGAMonitor::write(const char *str) {
         while (*str)
             put_char(*str++);
+        _refresh();
     }
 
     void VGAMonitor::scroll_up() {
         if (_view_line > 0) {
             --_view_line;
         }
-        if (_cursor.line > 0) {
-            --_cursor.line;
-            if (_cursor.column > _buffer.line_length(_cursor.line))
-                _cursor.column = _buffer.line_length(_cursor.line);
-        }
+        _cursor.up(_buffer.line_length(_cursor.line - 1));
         _refresh();
     }
 
@@ -70,32 +67,17 @@ namespace vga {
         if (_view_line + VGA_HEIGHT < _buffer.line_count()) {
             ++_view_line;
         }
-        if (_cursor.line + 1 < _buffer.line_count()) {
-            ++_cursor.line;
-            if (_cursor.column > _buffer.line_length(_cursor.line))
-                _cursor.column = _buffer.line_length(_cursor.line);
-        }
+        _cursor.down(_buffer.line_length(_cursor.line + 1), _buffer.line_count());
         _refresh();
     }
 
     void VGAMonitor::move_left() {
-        if (_cursor.column > 0) {
-            --_cursor.column;
-        } else if (_cursor.line > 0) {
-            --_cursor.line;
-            _cursor.column = _buffer.line_length(_cursor.line);
-        }
+        _cursor.back(_buffer.line_length(_cursor.line - 1));
         _refresh();
     }
 
     void VGAMonitor::move_right() {
-        uint16_t len = _buffer.line_length(_cursor.line);
-        if (_cursor.column < len) {
-            ++_cursor.column;
-        } else if (_cursor.line + 1 < _buffer.line_count()) {
-            ++_cursor.line;
-            _cursor.column = 0;
-        }
+        _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count());
         _refresh();
     }
 
@@ -103,12 +85,7 @@ namespace vga {
         if (_cursor.line == 0 && _cursor.column == 0)
             return;
         _buffer.backspace(_cursor.line, _cursor.column);
-        if (_cursor.column > 0) {
-            --_cursor.column;
-        } else if (_cursor.line > 0) {
-            --_cursor.line;
-            _cursor.column = _buffer.line_length(_cursor.line);
-        }
+        _cursor.back(_buffer.line_length(_cursor.line - 1));
         _refresh();
     }
 
@@ -138,6 +115,7 @@ namespace vga {
 
     VGAMonitor &VGAMonitor::operator<<(const char str) {
         put_char(str);
+        _refresh();
         return *this;
     }
 

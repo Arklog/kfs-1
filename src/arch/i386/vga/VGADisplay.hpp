@@ -10,6 +10,8 @@
 
 #include "ScrollbackBuffer.hpp"
 #include "VGACursor.hpp"
+#include "VGAMonitor.hpp"
+
 
 namespace vga {
     /**

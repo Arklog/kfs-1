@@ -17,12 +17,12 @@ namespace container {
         using const_iterator = Array<T, N>::const_iterator;
         using size_type      = Array<T, N>::size_type;
 
-        StackVector() :
+        constexpr StackVector() :
             Array<T, N>(), _size{0} {
         }
 
         template<typename ...Args>
-        StackVector(Args ...args): Array<T, N>(utility::forward<Args>(args)...), _size(sizeof...(args)) {
+        constexpr StackVector(Args ...args): Array<T, N>(utility::forward<Args>(args)...), _size(sizeof...(args)) {
             static_assert(sizeof...(args) <= N, "To many arguments");
             static_assert((utility::convertible_to<decltype(args), T> && ...), "Invalid type");
         }
@@ -40,6 +40,8 @@ namespace container {
             _size = end - begin;
         }
 
+        ~StackVector() = default;
+
         StackVector(const StackVector& other) : Array<T, N>(), _size{other._size} {
             int idx = 0;
 
@@ -54,6 +56,28 @@ namespace container {
             for (auto &i: other) {
                 this->_data[idx++] = utility::move(i);
             }
+        }
+
+        StackVector& operator=(const StackVector& other) {
+            if (this == &other)
+                return *this;
+
+            _size = other._size;
+
+            int idx = 0;
+            for (const auto &i: other) {
+                this->_data[idx++] = i;
+            }
+
+            return *this;
+        }
+
+        iterator begin() override {
+            return Array<T, N>::begin();
+        }
+
+        const_iterator begin() const override {
+            return Array<T, N>::begin();
         }
 
         iterator end() override {
@@ -80,7 +104,19 @@ namespace container {
          *
          * @return The position of the inserted element or
          */
-        iterator insert(iterator position, T &value) override {
+         iterator insert(unsigned int position, const T &value) {
+             return insert(this->begin() + position, value);
+         }
+
+        /**
+         * Insert value at position. If the vector is full the last element will be removed.
+         *
+         * @param position The position at which to insert the element
+         * @param value The value to insert
+         *
+         * @return The position of the inserted element or
+         */
+        iterator insert(iterator position, const T &value) override {
             if (!_own_iterator(position) || _size == N)
                 return end();
 
@@ -92,6 +128,22 @@ namespace container {
             ++_size;
 
             return position;
+        }
+
+        /**
+         * Insert value at position. If the vector is full the last element will be removed.
+         *
+         * @param position The position at which to insert the element
+         * @param value The value to insert
+         *
+         * @return The position of the inserted element or end() if insertion failed.
+         *
+         * @warning Insertion will fail if:
+         * - position does not belong to this StackVector
+         * - the StackVector is full
+         */
+        iterator insert(unsigned int position, T &&value) {
+            return insert(this->begin() + position, utility::move(value));
         }
 
         /**
@@ -174,6 +226,14 @@ namespace container {
             return this->begin() + _size++;
         }
 
+        iterator push_bash(const T& item) {
+            if (_size == N)
+                return end();
+
+            *(this->begin() + _size) = item;
+            return this->begin() + _size++;
+        }
+
         /**
          * Emplace an element at the end of the vector and adjust the size accordingly.
          *
@@ -209,9 +269,15 @@ namespace container {
                 *iter = utility::move(*(iter + 1));
                 ++iter;
             }
+
+            *(end() - 1) = T{};
             --_size;
 
             return this->begin();
+        }
+
+        iterator erase(unsigned position) {
+            return erase(this->begin() + position);
         }
 
         /**
@@ -235,6 +301,31 @@ namespace container {
 
             _size -= length;
             return this->begin();
+        }
+
+        void clear() {
+            for (auto& item: *this) {
+                item = T{};
+            }
+            _size = 0;
+        }
+
+        /**
+         * Get the maximum capacity of the StackVector
+         *
+         * @return The maximum number of elements the StackVector can hold
+         */
+        constexpr unsigned capacity() const {
+            return N;
+        }
+
+        /**
+         * Get the available space in the StackVector
+         *
+         * @return The number of elements that can still be added to the StackVector
+         */
+        unsigned available_space() const {
+            return N - _size;
         }
 
     private:
@@ -271,7 +362,6 @@ namespace container {
          * @return
          */
         iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
-            auto length = _end - _begin;
             auto distance = _begin - position;
 
             if (!distance)

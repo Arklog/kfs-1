@@ -20,7 +20,7 @@ namespace container {
         using pointer_type = Pointer;
         using reference_type = Reference;
 
-        virtual ~IteratorBase() = default;
+        ~IteratorBase() = default;
 
         virtual Derived& operator=(const Derived& other) = 0;
 
