@@ -7,4 +7,4 @@ RUN apt-get install -y make cmake git g++ nasm grub-common grub-pc-bin xorriso
 RUN mkdir /build
 WORKDIR /build
 
-CMD ["make", "iso"]
+CMD ["make"]

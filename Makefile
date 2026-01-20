@@ -3,7 +3,7 @@ ISO    := kfs.iso
 BUILDDIR := build
 ISODIR := $(BUILDDIR)/isodir/boot
 
-CMAKE_BUILD_TYPE ?= Debug
+CMAKE_BUILD_TYPE ?= Release
 CMAKE := cmake
 CMAKEFLAGS := -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
 
@@ -36,4 +36,8 @@ test: kernel
 
 docker-build:
 	docker build -t ${DOCKER_IMAGE} .
-	docker run --rm -v $(shell pwd):/build -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE}
+	docker run --rm -v $(shell pwd):/build -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make iso
+
+docker-build-debug:
+	docker build -t ${DOCKER_IMAGE} .
+	docker run --rm -v $(shell pwd):/build -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make CMAKE_BUILD_TYPE=Debug iso
