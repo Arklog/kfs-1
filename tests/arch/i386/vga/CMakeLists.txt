@@ -10,6 +10,8 @@ target_link_libraries(test_vga
         libvga
         Catch2::Catch2WithMain
         libstring
+        logging
+        format
 )
 target_include_directories(
         test_vga
