@@ -61,13 +61,13 @@ namespace kbd {
             }
 
             if (((value >= 32 && value <= 126) || value == '\n') && !keyboard[value]) {
-                monitor << (char)value;
+                monitor.handle_user_input((char)value);
                 keyboard[value] = true;
                 return;
             }
 
             if (value == '\b' && !keyboard['\b']) {
-                monitor.backspace();
+                monitor.handle_user_input('\b');
                 keyboard['\b'] = true;
             }
         }

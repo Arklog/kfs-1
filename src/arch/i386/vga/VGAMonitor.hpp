@@ -85,6 +85,16 @@ namespace vga {
         void set_colors(color::vga_color fg, color::vga_color bg);
 
         /**
+         * Sets the user imput limit at the given position.
+         */
+        void set_user_input_limit();
+
+        /**
+         * checks if the user changes are in the allowed area. Perfoms them if yes, do nothing else.
+         */
+        void handle_user_input(char inp);
+
+        /**
          * Stream insertion operator for a string.
          * @param str
          */
@@ -118,7 +128,8 @@ namespace vga {
     private:
         uint8_t                _color;
         uint32_t               _view_line;
-
+        uint32_t               _lim_line;
+        uint32_t               _lim_column;
 
         /**
          * refreshes the VGA display and cursor.

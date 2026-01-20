@@ -41,6 +41,7 @@ namespace vga {
             constexpr uint8_t    GREEN_ON_BLACK = BLACK << 4 | GREEN;
             constexpr uint8_t    RED_ON_BLACK   = BLACK << 4 | RED;
             constexpr uint8_t    CYAN_ON_BLACK  = BLACK << 4 | CYAN;
+            constexpr uint8_t    BLACK_ON_CYAN  = CYAN << 4 | BLACK;
             constexpr uint8_t    BROWN_ON_BLACK = BLACK << 4 | BROWN;
             constexpr uint8_t    DEFAULT        = WHITE_ON_BLACK;
         }

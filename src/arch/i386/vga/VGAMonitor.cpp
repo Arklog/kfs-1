@@ -3,11 +3,12 @@
 //
 
 #include "VGAMonitor.hpp"
+#include "lib/logging/logging.hpp"
 #include "vga.hpp"
 
 namespace vga {
 
-    VGAMonitor::VGAMonitor(): _buffer{}, _cursor{}, _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0) {
+    VGAMonitor::VGAMonitor(): _buffer{}, _cursor{}, _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0), _lim_line(0), _lim_column(0) {
         clear();
     }
 
@@ -15,6 +16,8 @@ namespace vga {
         _buffer.clear();
         _cursor.set(0, 0);
         _view_line = 0;
+        _lim_line = 0;
+        _lim_column = 0;
 
         VGADisplay::clear();
         _refresh();
@@ -108,13 +111,31 @@ namespace vga {
         VGADisplay::update_hw_cursor(_cursor, _view_line);
     }
 
+    void VGAMonitor::set_user_input_limit() {
+        _lim_column = _cursor.column;
+        _lim_line = _cursor.line;
+    }
+
+    void VGAMonitor::handle_user_input(char inp) {
+        if (_cursor.line >= _lim_line && _cursor.column >= _lim_column) {
+            if (inp == '\b') {
+                backspace();
+            } else {
+                put_char(inp);
+            }
+            _refresh();
+        }
+    }
+
     VGAMonitor &VGAMonitor::operator<<(const char *str) {
         write(str);
+        set_user_input_limit();
         return *this;
     }
 
     VGAMonitor &VGAMonitor::operator<<(const char str) {
         put_char(str);
+        set_user_input_limit();
         _refresh();
         return *this;
     }
