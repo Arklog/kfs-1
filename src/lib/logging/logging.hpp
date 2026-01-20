@@ -12,8 +12,6 @@
 #include "arch/i386/vga/vga.hpp"
 #include "lib/format/format.hpp"
 
-// todo: define a virtual logger type and template children with overloaded operator<<(const char *)
-
 namespace logging {
     using t_logger_color = vga::color::color_set::t_color_set;
 
