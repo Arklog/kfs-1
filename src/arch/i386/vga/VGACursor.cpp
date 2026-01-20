@@ -12,9 +12,6 @@ namespace vga {
 
     void VGACursor::advance(int line_len, int last_line, int new_line) {
 
-        if (line_len > 78)
-            logging::debug("line_len = {}", line_len);
-
         if (column < line_len && column < 79)
             ++column;
         else if (int(line) < last_line || new_line == 1) {
