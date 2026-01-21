@@ -37,3 +37,6 @@ test: kernel
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
+
+doc:
+	doxygen Doxyfile

@@ -21,6 +21,14 @@ namespace container {
             Array<T, N>(), _size{0} {
         }
 
+        /**
+         * Construct a StackVector from a list of arguments.
+         *
+         * @tparam Args The types of the arguments
+         * @param args The arguments to construct the StackVector from
+         *
+         * @snippet StackVector.cpp StackVector variadic constructor
+         */
         template<typename ...Args>
         constexpr StackVector(Args ...args): Array<T, N>(utility::forward<Args>(args)...), _size(sizeof...(args)) {
             static_assert(sizeof...(args) <= N, "To many arguments");
@@ -91,10 +99,24 @@ namespace container {
             return *this;
         }
 
+        /**
+         * Get an iterator to the beginning of the vector
+         *
+         * @return An iterator to the beginning of the vector
+         *
+         * @snippet StackVector.cpp StackVector begin
+         */
         iterator begin() override {
             return Array<T, N>::begin();
         }
 
+        /**
+         * Get a const iterator to the beginning of the vector
+         *
+         * @return A const iterator to the beginning of the vector
+         *
+         * @snippet StackVector.cpp StackVector begin const
+         */
         const_iterator begin() const override {
             return Array<T, N>::begin();
         }
@@ -103,6 +125,8 @@ namespace container {
          * Get an iterator to the end of the vector
          *
          * @return An iterator to the end of the vector, if N == 0 begin() == end()
+         *
+         * @snippet StackVector.cpp StackVector end
          */
         iterator end() override {
             return this->begin() + _size;
@@ -112,6 +136,8 @@ namespace container {
          * Get a const iterator to the end of the vector
          *
          * @return A const iterator to the end of the vector, if N == 0 begin() == end()
+         *
+         * @snippet StackVector.cpp StackVector end const
          */
         const_iterator end() const override {
             return cend();
@@ -121,6 +147,8 @@ namespace container {
          * Get a const iterator to the end of the vector
          *
          * @return A const iterator to the end of the vector, if N == 0 begin() == end()
+         *
+         * @snippet StackVector.cpp StackVector cend
          */
         const_iterator cend() const override {
             return this->cbegin() + _size;
@@ -130,13 +158,15 @@ namespace container {
          * Get the current size of the vector
          *
          * @return The number of elements in the vector
+         *
+         * @snippet StackVector.cpp StackVector size
          */
         size_type size() const override {
             return _size;
         }
 
         /**
-         * Insert value at position. If the vector is full the last element will be removed.
+         * Insert value at position. If the vector is full the operation fails.
          *
          * @param position The position at which to insert the element
          * @param value The value to insert
@@ -154,12 +184,18 @@ namespace container {
          }
 
         /**
-         * Insert value at position. If the vector is full the last element will be removed.
+         * Insert value at position. If the vector is full the operation fails.
          *
          * @param position The position at which to insert the element
          * @param value The value to insert
          *
          * @return The position of the inserted element or
+         *
+         * @warning will fail if:
+         * - position does not belong to this StackVector
+         * - the StackVector is full
+         *
+         * @snippet StackVector.cpp StackVector insert
          */
         iterator insert(iterator position, const T &value) override {
             if (!_own_iterator(position) || _size == N)
@@ -176,7 +212,7 @@ namespace container {
         }
 
         /**
-         * Insert value at position. If the vector is full the last element will be removed.
+         * Insert value at position. If the vector is full the operation fails.
          *
          * @param position The position at which to insert the element
          * @param value The value to insert
@@ -186,13 +222,15 @@ namespace container {
          * @warning Insertion will fail if:
          * - position does not belong to this StackVector
          * - the StackVector is full
+         *
+         * @snippet StackVector.cpp StackVector insert
          */
         iterator insert(unsigned int position, T &&value) {
             return insert(this->begin() + position, utility::move(value));
         }
 
         /**
-         * Insert value at position. If the vector is full the last element will be removed.
+         * Insert value at position. If the vector is full the operation fails.
          *
          * @param position The position at which to insert the element
          * @param value The value to insert
@@ -259,7 +297,28 @@ namespace container {
         }
 
         /**
-         * Add an element to the end of the vector and adjust the size accordingly.
+         * Insert [_begin, _end[ at the given position.
+         * If the vector does not have enough space to accommodate all new elements, the insertion fails.
+         *
+         * @param position
+         * @param _begin
+         * @param _end
+         *
+         * @return an iterator to the newly inserted item or end() on failure
+         *
+         * @warning Will fail if:
+         * - position does not belong to this StackVector
+         * - the StackVector does not have enougth place to accomodate the elements
+         *
+         * @snippet StackVector.cpp StackVector insert range
+         */
+        iterator insert(unsigned int position, iterator _begin, iterator _end) override {
+            return insert(this->begin() + position, _begin, _end);
+        }
+
+        /**
+         * Move an element to the end of the vector and adjust the size accordingly. Will fail if the StackVector
+         * is full.
          *
          * @param item
          *
@@ -273,10 +332,22 @@ namespace container {
             if (_size == N)
                 return end();
 
-            *(this->begin() + _size) = item;
+            *(this->begin() + _size) = utility::move(item);
             return this->begin() + _size++;
         }
 
+        /**
+         * Add an element to the end of the vector and adjust the size accordingly. Will fail if the StackVector
+         * is full.
+         *
+         * @param item
+         *
+         * @return An iterator to the newly inserted element or end() on failure.
+         *
+         * @warning Will fail if the StackVector is full
+         *
+         * @snippet StackVector.cpp StackVector push_back
+         */
         iterator push_bash(const T& item) {
             if (_size == N)
                 return end();
@@ -331,6 +402,15 @@ namespace container {
             return this->begin();
         }
 
+        /**
+         * Erase the element at the given position.
+         *
+         * @param position The position of the element to erase
+         *
+         * @return begin() on success, end() on failure.
+         *
+         * @snippet StackVector.cpp StackVector erase
+         */
         iterator erase(unsigned position) {
             return erase(this->begin() + position);
         }
@@ -342,6 +422,10 @@ namespace container {
          * @param _end The position after the last element to erase
          *
          * @return begin() on success or end() on failure
+         *
+         * @warning will fail if:
+         * - _begin > _end
+         * - _begin or _end are not valid iterator for this StackVector
          *
          * @snippet StackVector.cpp StackVector erase range
          */
@@ -360,6 +444,32 @@ namespace container {
             return this->begin();
         }
 
+        /**
+         * Erase length elements starting from position position. Will fail if position is out of range or there is not
+         * enough element to be erased.
+         *
+         * @param position
+         * @param length
+         *
+         * @return begin() on success or end() on failure.
+         *
+         * @warning will fail if:
+         * - position is out of range
+         * - there less than length elements starting from position
+         *
+         * @snippet StackVector.cpp StackVector erase range position
+         */
+        iterator erase(unsigned int position, unsigned int length) {
+            auto iter = this->begin() + position;
+
+            return erase(iter, iter + length);
+        }
+
+        /**
+         * Erase all elements from the StackVector
+         *
+         * @snippet StackVector.cpp StackVector clear
+         */
         void clear() {
             for (auto& item: *this) {
                 item = T{};
@@ -371,6 +481,8 @@ namespace container {
          * Get the maximum capacity of the StackVector
          *
          * @return The maximum number of elements the StackVector can hold
+         *
+         * @snippet StackVector.cpp StackVector capacity
          */
         constexpr unsigned capacity() const {
             return N;
@@ -380,6 +492,8 @@ namespace container {
          * Get the available space in the StackVector
          *
          * @return The number of elements that can still be added to the StackVector
+         *
+         * @snippet StackVector.cpp StackVector available_space
          */
         unsigned available_space() const {
             return N - _size;
