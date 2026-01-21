@@ -29,6 +29,7 @@ jobs:
         run: sudo chown -R runner:runner /var/cache/apt/archives
 
       - uses: actions/checkout@v2
+
       - uses: RafikFarhad/clang-format-github-action@v3
         with:
           sources: "src/**/*.hpp,src/**/*.cpp,test/**/*.cpp"
@@ -37,7 +38,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            build
+            .
           key: ${{ runner.os }}-build-${{ github.ref_name }}
 
       - name: Run unit tests

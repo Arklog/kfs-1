@@ -18,4 +18,4 @@ target_sources(container INTERFACE
         ${CMAKE_CURRENT_SOURCE_DIR}/pair.hpp
 )
 target_include_directories(container INTERFACE ${CMAKE_SOURCE_DIR}/src .)
-#target_compile_options(container PRIVATE ${KFLAGS})
+set_target_properties(container PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
