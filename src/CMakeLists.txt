@@ -1,4 +1,3 @@
-add_subdirectory(arch)
 add_subdirectory(lib)
 
 set(CMAKE_ASM_NASM_OBJECT_FORMAT elf32)

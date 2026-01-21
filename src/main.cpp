@@ -3,9 +3,9 @@
 //
 
 
-#include "arch/i386/vga/vga.hpp"
-#include "arch/i386/vga/VGAMonitor.hpp"
-#include "arch/i386/keyboard/keyboardHandler.hpp"
+#include "lib/vga/vga.hpp"
+#include "lib/vga/VGAMonitor.hpp"
+#include "lib/keyboard/keyboardHandler.hpp"
 #include "lib/logging/logging.hpp"
 
 extern "C" void k_main() {
@@ -28,7 +28,7 @@ extern "C" void k_main() {
     monitor << R"(    |   | '_\.'|   |  |  '--'.     /                 '  ; |./__;      :   )" << vga::endl;
     monitor << R"(    '   : |    |   :  \    `--'---'                  |  : ;|   :    .'    )" << vga::endl;
     monitor << "    ;   |,'    |   | ,'                              '  ,/ ;   | .'       " << vga::endl;
-    monitor << "    '---'      `----'                                '--'  `---'          " << vga::endl;
+    monitor << "    '---'      `----'                                '--'  `---'          "<< vga::endl;
 
     while (true) {
         kbd::handler();

@@ -3,9 +3,9 @@
 //
 
 
-#include "arch/i386/vga/vga.hpp"
-#include "arch/i386/vga/VGAMonitor.hpp"
-#include "arch/i386/vga/VGADisplay.hpp"
+#include "lib/vga/vga.hpp"
+#include "lib/vga/VGAMonitor.hpp"
+#include "lib/vga/VGADisplay.hpp"
 #include "catch2/catch_all.hpp"
 
 static const vga::ScrollbackBuffer::buffer_type::value_type empty_line{};

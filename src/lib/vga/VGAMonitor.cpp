@@ -80,7 +80,7 @@ namespace vga {
     }
 
     void VGAMonitor::move_right() {
-        _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count());
+        _cursor.advance(_buffer.line_length(_cursor.line), _buffer.line_count(), 0);
         _refresh();
     }
 
@@ -117,14 +117,33 @@ namespace vga {
     }
 
     void VGAMonitor::handle_user_input(char inp) {
-        if (_cursor.line >= _lim_line && _cursor.column >= _lim_column) {
-            if (inp == '\b') {
-                backspace();
-            } else {
-                put_char(inp);
+
+        if (_cursor.line < _lim_line)
+            return;
+        if (_cursor.line == _lim_line) {
+            if (_cursor.column < _lim_column)
+                return;
+            if (_cursor.column == _lim_column && inp == '\b') {
+                _buffer.backspace(_cursor.line, _cursor.column);
+                _refresh();
+                return;
             }
-            _refresh();
         }
+        if (inp == '\b') {
+            backspace();
+        } else {
+            put_char(inp);
+        }
+        _refresh();
+
+        //if (_cursor.line >= _lim_line && _cursor.column >= _lim_column) {
+          //  if (inp == '\b') {
+                //backspace();
+           // } else {
+                //put_char(inp);
+            //}
+            //_refresh();
+        //}
     }
 
     VGAMonitor &VGAMonitor::operator<<(const char *str) {
