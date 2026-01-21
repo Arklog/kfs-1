@@ -1,16 +1,16 @@
-KERNEL := kernel
-ISO    := kfs.iso
-BUILDDIR := build
-DOCKERBUILDDIR := build-docker
-ISODIR := $(BUILDDIR)/isodir/boot
+KERNEL 				:= kernel
+ISO    				:= kfs.iso
+BUILDDIR 			:= build
+DOCKERBUILDDIR 		:= build-docker
+ISODIR 				:= $(BUILDDIR)/isodir/boot
 
-CMAKE_BUILD_TYPE ?= Release
-CMAKE := cmake
-CMAKEFLAGS := -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
+CMAKE_BUILD_TYPE	?= Release
+CMAKE 				:= cmake
+CMAKEFLAGS 			:= -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
 
-DOCKER_IMAGE := kfs-cross-gcc:1.0.0
+DOCKER_IMAGE 		:= kfs-cross-gcc:1.0.0
 
-.PHONY := iso test docker-build
+.PHONY 				:= iso test docker-build
 
 kernel:
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
