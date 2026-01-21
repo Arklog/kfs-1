@@ -28,17 +28,18 @@ iso: kernel
 	@echo "ISO created: $(BUILDDIR)/$(ISO)"
 
 run: docker-build
-	qemu-system-i386 $(BUILDDIR)/$(ISO)
+	qemu-system-i386 $(DOCKERBUILDDIR)/$(ISO)
 
 test: kernel
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
 
-docker-build:
+docker-build-image:
 	docker build -t ${DOCKER_IMAGE} .
+
+docker-build: docker-build-image
 	docker run --rm -v $(shell pwd):/build -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make BUILDDIR=${DOCKERBUILDDIR} iso
 
-docker-build-debug:
-	docker build -t ${DOCKER_IMAGE} .
+docker-build-debug: docker-build-image
 	docker run --rm -v $(shell pwd):/build -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make CMAKE_BUILD_TYPE=Debug BUILDDIR=${DOCKERBUILDDIR} iso
