@@ -1,10 +1,9 @@
-add_subdirectory(arch)
 add_subdirectory(lib)
 
 set(CMAKE_ASM_NASM_OBJECT_FORMAT elf32)
 enable_language(ASM_NASM)
-add_library(bootloader OBJECT bootloader.s)
-set_source_files_properties(bootloader.s PROPERTIES LANGUAGE ASM_NASM)
+add_library(bootloader OBJECT bootloader.nasm)
+set_source_files_properties(bootloader.nasm PROPERTIES LANGUAGE ASM_NASM)
 target_compile_options(bootloader PRIVATE
     $<$<COMPILE_LANGUAGE:ASM_NASM>: -f elf32>
 )

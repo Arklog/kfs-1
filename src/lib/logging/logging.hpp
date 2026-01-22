@@ -9,7 +9,7 @@
 # define LOG_BUFFER_SIZE 1024
 #endif
 
-#include "arch/i386/vga/vga.hpp"
+#include "lib/vga/vga.hpp"
 #include "lib/format/format.hpp"
 
 // todo: define a virtual logger type and template children with overloaded operator<<(const char *)
