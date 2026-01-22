@@ -27,9 +27,16 @@ namespace vga {
         static void clear(int page);
 
         /**
-         * Renders the current visible portion of the scrollback buffer into the vga buffer.
+         * Renders the current page.
+         * @param page
+         */
+        static void render_page(int page);
+
+        /**
+         * Renders the current visible portion of the scrollback buffer into the vga buffer, at the given page.
          * @param buffer
          * @param view_line current first visible line.
+         * @param page current vga page.
          */
         static void render(const ScrollbackBuffer &buffer, uint32_t view_line, int page);
 
