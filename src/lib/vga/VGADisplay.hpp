@@ -24,14 +24,14 @@ namespace vga {
         /**
          * clear the vga buffer.
          */
-        static void clear();
+        static void clear(int page);
 
         /**
          * Renders the current visible portion of the scrollback buffer into the vga buffer.
          * @param buffer
          * @param view_line current first visible line.
          */
-        static void render(const ScrollbackBuffer &buffer, uint32_t view_line);
+        static void render(const ScrollbackBuffer &buffer, uint32_t view_line, int page);
 
         /**
          * handles display of the cursor on the screen.
