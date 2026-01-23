@@ -19,7 +19,7 @@ namespace vga {
      */
     class ScrollbackBuffer {
     public:
-        static constexpr uint32_t MAX_LINES = 300;
+        static constexpr uint32_t MAX_LINES = 50;
         static constexpr t_vga_char default_char{' ', color::color_set::WHITE_ON_BLACK};
 
         using line_type = container::StackVector<t_vga_char, vga::VGA_WIDTH>;
