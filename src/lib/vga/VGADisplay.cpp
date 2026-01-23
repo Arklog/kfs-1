@@ -11,13 +11,28 @@ namespace vga {
     bool VGADisplay::testing = false;
     volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
 
-    void VGADisplay::clear() {
+    void VGADisplay::clear(int page) {
+        vga += page * 2000;
         for (uint32_t i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
             vga[i].raw = vga::t_vga_char(' ', vga::color::color_set::WHITE_ON_BLACK).raw;
         }
+        vga -= page * 2000;
     }
 
-    void VGADisplay::render(const ScrollbackBuffer &buffer, uint32_t view_line) {
+    void VGADisplay::render_page(int page) {
+        unsigned short start_addr = page * 2000;
+        unsigned char high = (start_addr >> 8) & 0xFF;
+        unsigned char low  = start_addr & 0xFF;
+
+        outb(0x3D4, 0x0C);
+        outb(0x3D5, high);
+
+        outb(0x3D4, 0x0D);
+        outb(0x3D5, low);
+    }
+
+    void VGADisplay::render(const ScrollbackBuffer &buffer, uint32_t view_line, int page) {
+        vga += page * 2000;
         uint8_t color = color::color_set::WHITE_ON_BLACK;
         for (uint32_t row = 0; row < VGA_HEIGHT; ++row) {
             uint32_t src_line = view_line + row;
@@ -35,6 +50,8 @@ namespace vga {
                 }
             }
         }
+        vga -= page * 2000;
+        render_page(page);
     }
 
     void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
