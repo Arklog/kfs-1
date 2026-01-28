@@ -77,6 +77,7 @@ namespace kbd {
                 if (current_screen_iter == monitors.end())
                     current_screen_iter = monitors.begin();
                 g_monitor = &(*current_screen_iter);
+                vga::VGADisplay::render_page(g_monitor->get_page());
             }
         }
     }
