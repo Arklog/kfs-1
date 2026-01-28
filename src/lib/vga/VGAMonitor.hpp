@@ -85,6 +85,19 @@ namespace vga {
         void set_colors(color::vga_color fg, color::vga_color bg);
 
         /**
+         * Set the vga page number this monitor displays on
+         *
+         * @param pageno the page number
+         */
+        void set_page(unsigned int pageno);
+
+        /**
+         * Get the vga page number this monitor displays on
+         * @return
+         */
+        unsigned int get_page() const;
+
+        /**
          * Sets the user imput limit at the given position.
          */
         void set_user_input_limit();
@@ -130,6 +143,7 @@ namespace vga {
         uint32_t               _view_line;
         uint32_t               _lim_line;
         uint32_t               _lim_column;
+        uint8_t                _page_idx;
 
         /**
          * refreshes the VGA display and cursor.

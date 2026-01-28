@@ -19,7 +19,7 @@ namespace vga {
         _lim_line = 0;
         _lim_column = 0;
 
-        VGADisplay::clear();
+        VGADisplay::clear(_page_idx);
         _refresh();
     }
 
@@ -107,7 +107,7 @@ namespace vga {
     }
 
     void VGAMonitor::_refresh() {
-        VGADisplay::render(_buffer, _view_line);
+        VGADisplay::render(_buffer, _view_line, _page_idx);
         VGADisplay::update_hw_cursor(_cursor, _view_line);
     }
 
@@ -173,6 +173,15 @@ namespace vga {
     VGAMonitor &VGAMonitor::operator<<(const uint8_t changer) {
         _color = changer;
         return *this;
+    }
+
+    void VGAMonitor::set_page(unsigned int pageno) {
+        _page_idx = pageno;
+        _refresh();
+    }
+
+    unsigned int VGAMonitor::get_page() const {
+        return _page_idx;
     }
 
 }
