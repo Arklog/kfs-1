@@ -21,31 +21,43 @@ extern "C" void k_main() {
     // set first screen as current
     decltype(g_monitors)::iterator g_current_monitor = g_monitors.begin();
     g_monitor = &(*g_current_monitor);
-    auto &monitor = *g_monitor;
 
-    logging::set_logger(monitor);
+    for (unsigned i = 0; i < g_monitors.size(); ++i) {
+        auto &monitor = g_monitors[i];
+        g_current_monitor = g_monitors.begin() + i;
+        g_monitor = &(*g_current_monitor);
 
-    monitor << vga::color::color_set::CYAN_ON_BLACK;
-    monitor << "           ,--.                                        ,--,               " << vga::endl;
-    monitor << "       ,--/  /|    ,---,.  .--.--.                   ,--.'|      ,----,   " << vga::endl;
-    monitor << R"(    ,---,': / '  ,'  .' | /  /    '.              ,--,  | :    .'   .' \  )" << vga::endl;
-    monitor << "    :   : '/ / ,---.'   ||  :  /`. /     ,---,.,---.'|  : '  ,----,'    | " << vga::endl;
-    monitor << "    |   '   ,  |   |   .';  |  |--`    ,'  .' |;   : |  | ;  |    :  .  ; " << vga::endl;
-    monitor << "    '   |  /   :   :  :  |  :  ;_    ,---.'   ,|   | : _' |  ;    |.'  /  " << vga::endl;
-    monitor << R"(    |   ;  ;   :   |  |-, \  \    `. |   |    |:   : |.'  |  `----'/  ;   )" << vga::endl;
-    monitor << R"(    :   '   \  |   :  ;/|  `----.   \:   :  .' |   ' '  ; :    /  ;  /    )" << vga::endl;
-    monitor << R"(    |   |    ' |   |   .'  __ \  \  |:   |.'   \   \  .'. |   ;  /  /-,   )" << vga::endl;
-    monitor << R"(    '   : |.  \'   :  '   /  /`--'  /`---'      `---`:  | '  /  /  /.`|   )" << vga::endl;
-    monitor << R"(    |   | '_\.'|   |  |  '--'.     /                 '  ; |./__;      :   )" << vga::endl;
-    monitor << R"(    '   : |    |   :  \    `--'---'                  |  : ;|   :    .'    )" << vga::endl;
-    monitor << "    ;   |,'    |   | ,'                              '  ,/ ;   | .'       " << vga::endl;
-    monitor << "    '---'      `----'                                '--'  `---'          "<< vga::endl;
+        monitor.init();
+        logging::set_logger(monitor);
 
-    for (int i = 0; i < 4; ++i) {
-        logging::set_logger(g_monitors[i]);
-        logging::info("monitor {}", i);
+        monitor << vga::color::color_set::CYAN_ON_BLACK;
+        monitor << "           ,--.                                        ,--,               " << vga::endl;
+        monitor << "       ,--/  /|    ,---,.  .--.--.                   ,--.'|      ,----,   " << vga::endl;
+        monitor << R"(    ,---,': / '  ,'  .' | /  /    '.              ,--,  | :    .'   .' \  )" << vga::endl;
+        monitor << "    :   : '/ / ,---.'   ||  :  /`. /     ,---,.,---.'|  : '  ,----,'    | " << vga::endl;
+        monitor << "    |   '   ,  |   |   .';  |  |--`    ,'  .' |;   : |  | ;  |    :  .  ; " << vga::endl;
+        monitor << "    '   |  /   :   :  :  |  :  ;_    ,---.'   ,|   | : _' |  ;    |.'  /  " << vga::endl;
+        monitor << R"(    |   ;  ;   :   |  |-, \  \    `. |   |    |:   : |.'  |  `----'/  ;   )" << vga::endl;
+        monitor << R"(    :   '   \  |   :  ;/|  `----.   \:   :  .' |   ' '  ; :    /  ;  /    )" << vga::endl;
+        monitor << R"(    |   |    ' |   |   .'  __ \  \  |:   |.'   \   \  .'. |   ;  /  /-,   )" << vga::endl;
+        monitor << R"(    '   : |.  \'   :  '   /  /`--'  /`---'      `---`:  | '  /  /  /.`|   )" << vga::endl;
+        monitor << R"(    |   | '_\.'|   |  |  '--'.     /                 '  ; |./__;      :   )" << vga::endl;
+        monitor << R"(    '   : |    |   :  \    `--'---'                  |  : ;|   :    .'    )" << vga::endl;
+        monitor << "    ;   |,'    |   | ,'                              '  ,/ ;   | .'       " << vga::endl;
+        monitor << "    '---'      `----'                                '--'  `---'          "<< vga::endl;
+        monitor << vga::color::color_set::WHITE_ON_BLACK;
+
+        logging::debug("monitor {}", i);
     }
+
+    g_current_monitor = g_monitors.begin();
     logging::set_logger(*g_current_monitor);
+    g_monitor = &(*g_current_monitor);
+
+    logging::info("Welcome to KFS:");
+    logging::info("Credits:");
+    logging::info("\t- pducloux: aka 'magic ultra (sexy ?) unicorn ninja'");
+    logging::info("\t- hedubois: aka '?'");
 
     while (true) {
         kbd::handler(g_monitors, g_current_monitor);
