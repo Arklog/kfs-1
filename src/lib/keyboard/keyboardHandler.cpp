@@ -72,6 +72,7 @@ namespace kbd {
                 keyboard['\b'] = true;
             }
 
+            // if ctrl pressed we rotate monitor
             if (value == ctrl && !keyboard[ctrl]) {
                 ++current_screen_iter;
                 if (current_screen_iter == monitors.end())
