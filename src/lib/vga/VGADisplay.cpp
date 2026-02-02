@@ -54,17 +54,20 @@ namespace vga {
         render_page(page);
     }
 
-    void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line) {
-        if (testing == true)
+    void VGADisplay::update_hw_cursor(const VGACursor &cursor, uint32_t view_line, int page) {
+        if (testing)
             return;
 
         if (cursor.line < view_line || cursor.line >= view_line + VGA_HEIGHT)
             return;
 
-        uint16_t pos = (cursor.line - view_line) * VGA_WIDTH + cursor.column;
+        uint16_t start_addr = page * 2000;
+
+        uint16_t pos = start_addr + (cursor.line - view_line) * VGA_WIDTH + cursor.column;
 
         outb(0x3D4, 0x0F);
         outb(0x3D5, pos & 0xFF);
+
         outb(0x3D4, 0x0E);
         outb(0x3D5, (pos >> 8) & 0xFF);
     }

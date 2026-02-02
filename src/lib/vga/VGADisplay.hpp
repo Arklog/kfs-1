@@ -45,7 +45,7 @@ namespace vga {
          * @param cursor
          * @param view_line
          */
-        static void update_hw_cursor(const VGACursor &cursor, uint32_t view_line);
+        static void update_hw_cursor(const VGACursor &cursor, uint32_t view_line, int page);
 
 /*     private: */
         /** pointer to the VGA text buffer (0xB8000). */

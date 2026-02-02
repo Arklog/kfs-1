@@ -13,16 +13,16 @@
 extern "C" void k_main() {
     // create screens and assign vga page
     container::Array<vga::VGAMonitor, 4> g_monitors{};
-    g_monitors[0].set_page(0);
-    g_monitors[1].set_page(1);
-    g_monitors[2].set_page(2);
-    g_monitors[3].set_page(3);
+    g_monitors[0].init(0);
+    g_monitors[1].init(1);
+    g_monitors[2].init(2);
+    g_monitors[3].init(3);
 
     // set first screen as current
     decltype(g_monitors)::iterator g_current_monitor = g_monitors.begin();
     g_monitor = &(*g_current_monitor);
     auto &monitor = *g_monitor;
-    monitor.init();
+
     logging::set_logger(monitor);
 
     monitor << vga::color::color_set::CYAN_ON_BLACK;
@@ -40,7 +40,6 @@ extern "C" void k_main() {
     monitor << R"(    '   : |    |   :  \    `--'---'                  |  : ;|   :    .'    )" << vga::endl;
     monitor << "    ;   |,'    |   | ,'                              '  ,/ ;   | .'       " << vga::endl;
     monitor << "    '---'      `----'                                '--'  `---'          "<< vga::endl;
-
 
     for (int i = 0; i < 4; ++i) {
         logging::set_logger(g_monitors[i]);

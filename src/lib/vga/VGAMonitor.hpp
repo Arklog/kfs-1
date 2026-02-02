@@ -30,7 +30,7 @@ namespace vga {
         /**
          * ensure the good global monitor initialization.
          */
-        void init();
+        void init(uint8_t id);
 
         /**
          * writes a single character on the terminal.
@@ -85,13 +85,6 @@ namespace vga {
         void set_colors(color::vga_color fg, color::vga_color bg);
 
         /**
-         * Set the vga page number this monitor displays on
-         *
-         * @param pageno the page number
-         */
-        void set_page(unsigned int pageno);
-
-        /**
          * Get the vga page number this monitor displays on
          * @return
          */
@@ -135,7 +128,8 @@ namespace vga {
         VGAMonitor &operator<<(const uint8_t changer);
 
         ScrollbackBuffer       _buffer;
-        VGACursor              _cursor;
+        VGACursor              _cursor_write;
+        VGACursor              _user_cursor;
 
 
     private:
@@ -149,6 +143,11 @@ namespace vga {
          * refreshes the VGA display and cursor.
          */
         void       _refresh();
+        /**
+        * syncronizes user cursor and writting cursor. 
+         */
+        void sync_cursors();
+
 
     };
 
