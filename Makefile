@@ -42,7 +42,7 @@ docker-build-image:
 	docker build -t ${DOCKER_IMAGE} .
 
 docker-build: docker-build-image
-	docker run --rm -v $(shell pwd):/build -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make BUILDDIR=${DOCKERBUILDDIR} iso
+	docker run --rm -v $(shell pwd):/build:Z -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make BUILDDIR=${DOCKERBUILDDIR} iso
 
 docker-build-debug: docker-build-image
-	docker run --rm -v $(shell pwd):/build -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make CMAKE_BUILD_TYPE=Debug BUILDDIR=${DOCKERBUILDDIR} iso
+	docker run --rm -v $(shell pwd):/build:Z -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make CMAKE_BUILD_TYPE=Debug BUILDDIR=${DOCKERBUILDDIR} iso
