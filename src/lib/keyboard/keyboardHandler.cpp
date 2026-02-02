@@ -3,6 +3,7 @@
 //
 
 #include "keyboardHandler.hpp"
+#include "lib/logging/logging.hpp"
 
 inline uint8_t inb(uint16_t port) {
     uint8_t ret;
@@ -78,6 +79,8 @@ namespace kbd {
                 if (current_screen_iter == monitors.end())
                     current_screen_iter = monitors.begin();
                 g_monitor = &(*current_screen_iter);
+                logging::set_logger(*current_screen_iter);
+                logging::info("switched to screen {}", current_screen_iter - monitors.begin());
                 vga::VGADisplay::render_page(g_monitor->get_page());
             }
         }

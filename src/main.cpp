@@ -45,6 +45,11 @@ extern "C" void k_main() {
 //
 //    logging::info("prout");
 
+
+    for (int i = 0; i < 4; ++i) {
+        logging::set_logger(g_monitors[i]);
+        logging::info("monitor {}", i);
+    }
     while (true) {
         kbd::handler(g_monitors, g_current_monitor);
     }

@@ -30,6 +30,9 @@ iso: kernel
 run: docker-build
 	qemu-system-i386 $(DOCKERBUILDDIR)/$(ISO)
 
+run-debug: docker-build-debug
+	qemu-system-i386 -kernel ${DOCKERBUILDDIR}/isodir/boot/${KERNEL} -S -s -no-reboot
+
 test: kernel
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
