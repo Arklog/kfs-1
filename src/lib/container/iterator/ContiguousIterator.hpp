@@ -116,7 +116,7 @@ namespace container {
         }
     };
 
-/**
+    /**
      * Iterator specialization for contiguous memory area
      * @tparam T
      * @tparam Pointer
@@ -151,6 +151,11 @@ namespace container {
 
         bool operator==(const ContiguousIterator &other) const override {
             return _item == other._item;
+        }
+
+        template<typename CT, typename CPointer = T*, typename CReference = T&>
+        bool operator==(const ContiguousConstIterator<CT, CPointer, CReference> &other) const {
+            return _item == CPointer(other);
         }
 
         bool operator!=(const ContiguousIterator &other) const override {
