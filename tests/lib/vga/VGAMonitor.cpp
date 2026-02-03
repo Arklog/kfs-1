@@ -2,9 +2,9 @@
 // Created by alice on 07/01/2026.
 //
 
-#include "arch/i386/vga/vga.hpp"
-#include "arch/i386/vga/VGAMonitor.hpp"
-#include "arch/i386/vga/VGADisplay.hpp"
+#include "lib/vga/vga.hpp"
+#include "lib/vga/VGAMonitor.hpp"
+#include "lib/vga/VGADisplay.hpp"
 #include "catch2/catch_all.hpp"
 #include "lib/logging/logging.hpp"
 
@@ -51,3 +51,4 @@ TEST_CASE("VGAMonitor color modifier", "[vga]") {
     REQUIRE(c1->get_foreground() == vga::color::WHITE);
     REQUIRE(c2->get_background() == vga::color::CYAN);
 }
+

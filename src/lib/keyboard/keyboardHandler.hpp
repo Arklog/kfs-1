@@ -7,7 +7,7 @@
 
 #include "include/stdint.hpp"
 #include "lib/port/port.hpp"
-#include "arch/i386/vga/VGAMonitor.hpp"
+#include "lib/vga/VGAMonitor.hpp"
 
 extern vga::VGAMonitor *g_monitor;
 
@@ -98,8 +98,13 @@ namespace kbd {
         {0x2A, lshift, lshift},      // LShift
     };
 
-    inline bool keyboard[138] = {false};
-    void handler();
+    inline bool keyboard[138] = {false}; // keep trace of which key is pressed or not
+
+
+    using screen_container_type = container::Array<vga::VGAMonitor, 4>;
+    using screen_container_iterator_type = screen_container_type::iterator;
+
+    void handler(screen_container_type& monitors, screen_container_iterator_type &current_screen_iter);
 };
 
 

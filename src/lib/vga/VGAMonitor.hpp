@@ -19,8 +19,8 @@ namespace vga {
     class VGAMonitor {
     public:
         VGAMonitor();
-        VGAMonitor(const VGAMonitor&) = delete;
-        VGAMonitor& operator=(const VGAMonitor&) = delete;
+        VGAMonitor(const VGAMonitor&) = default;
+        VGAMonitor& operator=(const VGAMonitor&) = default;
 
         /**
          * clears the screen and the buffer.
@@ -28,9 +28,9 @@ namespace vga {
         void clear();
 
         /**
-         * ensure the good global monitor initialization.
+         * ensure the well global monitor initialization.
          */
-        void init();
+        void init(uint8_t id);
 
         /**
          * writes a single character on the terminal.
@@ -85,6 +85,22 @@ namespace vga {
         void set_colors(color::vga_color fg, color::vga_color bg);
 
         /**
+         * Get the vga page number this monitor displays on
+         * @return
+         */
+        unsigned int get_page() const;
+
+        /**
+         * Sets the user imput limit at the given position.
+         */
+        void set_user_input_limit();
+
+        /**
+         * checks if the user changes are in the allowed area. Perfoms them if yes, do nothing else.
+         */
+        void handle_user_input(char inp);
+
+        /**
          * Stream insertion operator for a string.
          * @param str
          */
@@ -112,18 +128,26 @@ namespace vga {
         VGAMonitor &operator<<(const uint8_t changer);
 
         ScrollbackBuffer       _buffer;
-        VGACursor              _cursor;
+        VGACursor              _cursor_write;
+        VGACursor              _user_cursor;
 
 
     private:
         uint8_t                _color;
         uint32_t               _view_line;
-
+        uint32_t               _lim_line;
+        uint32_t               _lim_column;
+        uint8_t                _page_idx;
 
         /**
          * refreshes the VGA display and cursor.
          */
         void       _refresh();
+        /**
+        * syncronizes user cursor and writting cursor. 
+         */
+        void _sync_cursors();
+
 
     };
 

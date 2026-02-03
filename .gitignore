@@ -1,4 +1,5 @@
 build/
+build-docker/
 .idea/
 cmake-build-debug/
 kern.bin
