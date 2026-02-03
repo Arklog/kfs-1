@@ -15,6 +15,9 @@
 namespace logging {
     using t_logger_color = vga::color::color_set::t_color_set;
 
+    /**
+     * Base logger class, provide required logger methods
+     */
     class LoggerBase {
     public:
         virtual LoggerBase& operator<<(const char *) = 0;
