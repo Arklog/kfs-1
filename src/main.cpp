@@ -27,7 +27,6 @@ extern "C" void k_main() {
         g_current_monitor = g_monitors.begin() + i;
         g_monitor = &(*g_current_monitor);
 
-        monitor.init();
         logging::set_logger(monitor);
 
         monitor << vga::color::color_set::CYAN_ON_BLACK;

@@ -28,7 +28,7 @@ namespace vga {
         void clear();
 
         /**
-         * ensure the good global monitor initialization.
+         * ensure the well global monitor initialization.
          */
         void init(uint8_t id);
 
@@ -146,7 +146,7 @@ namespace vga {
         /**
         * syncronizes user cursor and writting cursor. 
          */
-        void sync_cursors();
+        void _sync_cursors();
 
 
     };

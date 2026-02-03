@@ -150,7 +150,7 @@ namespace vga {
 
     VGAMonitor &VGAMonitor::operator<<(const char *str) {
         write(str);
-        sync_cursors();
+       _sync_cursors();
         _lim_line = _cursor_write.line;
         _lim_column = _cursor_write.column;
         return *this;
@@ -182,7 +182,7 @@ namespace vga {
         return _page_idx;
     }
 
-    void VGAMonitor::sync_cursors() {
+    void VGAMonitor::_sync_cursors() {
         _user_cursor.set(_cursor_write.line, _cursor_write.column);
     }
 }
