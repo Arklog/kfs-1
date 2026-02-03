@@ -15,6 +15,9 @@
 namespace logging {
     using t_logger_color = vga::color::color_set::t_color_set;
 
+    /**
+     * Base logger class, provide required logger methods
+     */
     class LoggerBase {
     public:
         virtual LoggerBase& operator<<(const char *) = 0;
@@ -94,6 +97,8 @@ namespace logging {
      * @param args      The arguments for the format string
      *
      * @return The number of character written
+     *
+     * @snippet logging.cpp logging printk
      */
     template<typename... TArgs>
     int printk(t_log_level log_level, const char *format, TArgs... args) {
@@ -124,6 +129,8 @@ namespace logging {
      * @param args      The format string's arguments
      *
      * @return The number of character written
+     *
+     * @snippet logging.cpp logging debug
      */
     template<typename... TArgs>
     int debug(const char *format, TArgs... args) {
@@ -138,6 +145,8 @@ namespace logging {
      * @param args      The format string's arguments
      *
      * @return The number of character written
+     *
+     * @snippet logging.cpp logging info
      */
     template<typename... TArgs>
     int info(const char *format, TArgs... args) {
@@ -152,6 +161,8 @@ namespace logging {
      * @param args      The format string's arguments
      *
      * @return The number of character written
+     *
+     * @snippet logging.cpp logging warn
      */
     template<typename... TArgs>
     int warn(const char *format, TArgs... args) {
@@ -166,6 +177,8 @@ namespace logging {
      * @param args      The format string's arguments
      *
      * @return The number of character written
+     *
+     * @snippet logging.cpp logging error
      */
     template<typename... TArgs>
     int error(const char *format, TArgs... args) {
