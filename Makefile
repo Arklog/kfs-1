@@ -39,6 +39,8 @@ test: kernel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
 
 docker-build-image:
+	mkdir -p ~/.config/containers
+	touch ~/.config/containers/nodocker
 	docker build -t ${DOCKER_IMAGE} .
 
 docker-build: docker-build-image
