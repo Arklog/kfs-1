@@ -56,7 +56,7 @@ extern "C" void k_main() {
     logging::info("Welcome to KFS:");
     logging::info("Credits:");
     logging::info("\t- pducloux: aka 'magic ultra (sexy ?) unicorn ninja'");
-    logging::info("\t- hedubois: aka '?'");
+    logging::info("\t- hedubois: aka 'sleepy goofy acrobat'");
 
     while (true) {
         kbd::handler(g_monitors, g_current_monitor);
