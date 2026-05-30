@@ -56,6 +56,7 @@ set(KFLAGS
         -fno-rtti
         -nostdlib
         -nostdinc
+        -nodefaultlibs
 )
 
 if (NOT DEFINED CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")

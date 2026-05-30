@@ -54,6 +54,7 @@ extern "C" void k_main() {
     g_monitor = &(*g_current_monitor);
 
     logging::info("Welcome to KFS:");
+    logging::info("A 42 school project");
     logging::info("Credits:");
     logging::info("\t- pducloux: aka 'magic ultra (sexy ?) unicorn ninja'");
     logging::info("\t- hedubois: aka 'sleepy goofy acrobat'");
