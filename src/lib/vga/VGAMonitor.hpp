@@ -36,7 +36,7 @@ namespace vga {
          * writes a single character on the terminal.
          * @param c
          */
-        void put_char(const char c);
+        void put_char(const char c, bool user_inp = false);
 
         /**
          * writes a string on the terminal.

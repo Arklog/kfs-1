@@ -87,7 +87,9 @@ namespace vga {
 
 
         auto &line = _buffer[line_idx];
-        line.erase(line.begin() + col);
+        if (line.begin() + col != 0)
+            line.erase(line.begin() + col);
+        
         if (col > 0)
             return;
         uint32_t prev = line_idx - 1;

@@ -31,18 +31,24 @@ namespace vga {
         this->clear();
     }
 
-    void VGAMonitor::put_char(const char c) {
+    void VGAMonitor::put_char(const char c, bool user_inp) {
         if (c == '\n') {
-            _buffer.newline(_cursor_write.line, _cursor_write.column);
-            _cursor_write.newline();
-        } else if (c == '\t') {
-            for (int i = 0; i < 4; ++i) {
-                put_char(' ');
-                _cursor_write.advance(_buffer.line_length(_cursor_write.line), _buffer.line_count());
+            if (user_inp) {
+                _buffer.newline(_user_cursor.line, _user_cursor.column);
+                _user_cursor.newline();
+
+            } else {
+               _buffer.newline(_cursor_write.line, _cursor_write.column);
+               _cursor_write.newline();
             }
         } else {
-            _buffer.write(_cursor_write,vga::t_vga_char(c, _color));
-            _cursor_write.advance(_buffer.line_length(_cursor_write.line), _buffer.line_count(), 1);
+            if (user_inp) {
+                _buffer.write(_user_cursor,vga::t_vga_char(c, _color));
+                _user_cursor.advance(_buffer.line_length(_user_cursor.line), _buffer.line_count(), 1);
+            } else {
+                _buffer.write(_cursor_write,vga::t_vga_char(c, _color));
+                _cursor_write.advance(_buffer.line_length(_cursor_write.line), _buffer.line_count(), 1);
+            }
         }
 
         if (_cursor_write.line >= ScrollbackBuffer::MAX_LINES) {
@@ -87,10 +93,10 @@ namespace vga {
     }
 
     void VGAMonitor::backspace() {
-        if (_cursor_write.line == 0 && _cursor_write.column == 0)
+        if (_user_cursor.line == 0 && _user_cursor.column == 0)
             return;
-        _buffer.backspace(_cursor_write.line, _cursor_write.column);
-        _cursor_write.back(_buffer.line_length(_cursor_write.line - 1));
+        _buffer.backspace(_user_cursor.line, _user_cursor.column);
+        _user_cursor.back(_buffer.line_length(_user_cursor.line - 1));
         _refresh();
     }
 
@@ -126,26 +132,12 @@ namespace vga {
                 return;
             }
         }
-        if (inp == '\b') {
+        if (inp == '\b')
             backspace();
-            _user_cursor.back(_buffer.line_length(_user_cursor.line - 1));
-        } else if (inp == '\n') {
-            put_char(inp);
-            _user_cursor.newline();
-        } else {
-            put_char(inp);
-            _user_cursor.advance(_buffer.line_length(_user_cursor.line), _buffer.line_count(), 1);
-        }
+        else
+            put_char(inp, true);
+        _cursor_write.set(_user_cursor.line, _user_cursor.column);
         _refresh();
-
-        //if (_cursor.line >= _lim_line && _cursor.column >= _lim_column) {
-          //  if (inp == '\b') {
-                //backspace();
-           // } else {
-                //put_char(inp);
-            //}
-            //_refresh();
-        //}
     }
 
     VGAMonitor &VGAMonitor::operator<<(const char *str) {
