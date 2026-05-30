@@ -16,6 +16,7 @@ vga::VGAMonitor *g_monitor = nullptr;
 namespace kbd {
 
     void handler(screen_container_type &monitors, screen_container_iterator_type &current_screen_iter) {
+#ifdef KEYBOARD_ENABLE
         auto &monitor = *g_monitor;
 
         uint8_t scancode = inb(keyboard_data_port);    // PS/2 code
@@ -85,5 +86,7 @@ namespace kbd {
                 vga::VGADisplay::render_page(g_monitor->get_page());
             }
         }
+
+#endif
     }
 }
