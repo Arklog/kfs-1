@@ -39,10 +39,12 @@ test: kernel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
 
 docker-build-image:
+	mkdir -p ~/.config/containers
+	touch ~/.config/containers/nodocker
 	docker build -t ${DOCKER_IMAGE} .
 
 docker-build: docker-build-image
-	docker run --rm -v $(shell pwd):/build:Z -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make BUILDDIR=${DOCKERBUILDDIR} iso
+	docker run --rm -v $(shell pwd):/build:Z ${DOCKER_IMAGE} make BUILDDIR=${DOCKERBUILDDIR} iso
 
 docker-build-debug: docker-build-image
-	docker run --rm -v $(shell pwd):/build:Z -u $(shell id -u):$(shell id -g) ${DOCKER_IMAGE} make CMAKE_BUILD_TYPE=Debug BUILDDIR=${DOCKERBUILDDIR} iso
+	docker run --rm -v $(shell pwd):/build:Z ${DOCKER_IMAGE} make CMAKE_BUILD_TYPE=Debug BUILDDIR=${DOCKERBUILDDIR} iso
