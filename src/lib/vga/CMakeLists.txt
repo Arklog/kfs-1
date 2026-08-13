@@ -1,15 +1,15 @@
-add_library(libvga STATIC
-        vga.cpp
-        VGAMonitor.cpp
-        VGAMonitor.hpp
-        VGACursor.cpp
-        VGACursor.hpp
-        VGADisplay.cpp
-        VGADisplay.hpp
-        ScrollbackBuffer.cpp
-        ScrollbackBuffer.hpp
+create_test_and_nontest(
+        NAME libvga
+        FILE_SRCS
+            vga.cpp
+            VGAMonitor.cpp
+            VGAMonitor.hpp
+            VGACursor.cpp
+            VGACursor.hpp
+            VGADisplay.cpp
+            VGADisplay.hpp
+            ScrollbackBuffer.cpp
+            ScrollbackBuffer.hpp
+        INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src
+        LIBRARIES container math logging libport
 )
-target_include_directories(libvga PRIVATE . ${CMAKE_SOURCE_DIR}/src)
-target_compile_options(libvga PRIVATE ${KFLAGS})
-target_link_libraries(libvga PUBLIC container math logging libport)
-set_target_properties(libvga PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
