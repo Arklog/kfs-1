@@ -32,7 +32,7 @@ run-bonus: docker-build
 run-debug: docker-build-debug
 	qemu-system-i386 -kernel ${DOCKERBUILDDIR}/isodir/boot/${KERNEL} -S -s -no-reboot
 
-test: all
+test:
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
