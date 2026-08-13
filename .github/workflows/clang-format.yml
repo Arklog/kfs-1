@@ -16,6 +16,9 @@ jobs:
       - name: Set APT back as root
         run: sudo chown -R root:root /var/cache/apt/archives
 
+      - name: Update apt
+        run: sudo apt-get update -y
+
       - name: Install additional dependencies
         run: |
           sudo apt-get install -y \
