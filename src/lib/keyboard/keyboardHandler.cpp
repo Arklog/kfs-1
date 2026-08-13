@@ -16,7 +16,8 @@ vga::VGAMonitor *g_monitor = nullptr;
 namespace kbd {
 
     void handler(screen_container_type &monitors, screen_container_iterator_type &current_screen_iter) {
-        auto &monitor = *g_monitor;
+#ifdef KEYBOARD_ENABLE
+        //auto &monitor = *g_monitor;
 
         uint8_t scancode = inb(keyboard_data_port);    // PS/2 code
         bool    released = scancode & 0x80;                 // is the key released
@@ -37,7 +38,7 @@ namespace kbd {
                 keyboard[value] = false;
                 return;
             }
-
+/*
             if (value == up && !keyboard[up]) {
                 monitor.scroll_up();
                 keyboard[up] = true;
@@ -71,7 +72,7 @@ namespace kbd {
             if (value == '\b' && !keyboard['\b']) {
                 monitor.handle_user_input('\b');
                 keyboard['\b'] = true;
-            }
+            } */
 
             // if ctrl pressed we rotate monitor
             if (value == ctrl && !keyboard[ctrl]) {
@@ -85,5 +86,7 @@ namespace kbd {
                 vga::VGADisplay::render_page(g_monitor->get_page());
             }
         }
+
+#endif
     }
 }

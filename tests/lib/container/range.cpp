@@ -5,7 +5,7 @@
 #include <catch2/catch_all.hpp>
 #include "lib/container/range.hpp"
 
-#include "StackVector.hpp"
+#include "lib/container/StackVector.hpp"
 
 TEST_CASE("basic range", "[container]") {
     container::StackVector<int, 10> v{1, 2, 3, 4};

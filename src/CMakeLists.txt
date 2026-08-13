@@ -8,11 +8,21 @@ target_compile_options(bootloader PRIVATE
     $<$<COMPILE_LANGUAGE:ASM_NASM>: -f elf32>
 )
 
+add_executable(kernel_bonus
+        main.cpp
+)
+target_include_directories(kernel_bonus PRIVATE .)
+target_link_libraries(kernel_bonus PRIVATE bootloader libport libvga libstring libkbd logging format)
+target_compile_options(kernel_bonus PRIVATE ${KFLAGS})
+target_compile_definitions(kernel_bonus PUBLIC KEYBOARD_ENABLE)
+target_link_options(kernel_bonus PRIVATE -T${CMAKE_SOURCE_DIR}/src/linker.ld -m32 ${KFLAGS})
+set_target_properties(kernel_bonus PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
+
 add_executable(kernel
         main.cpp
 )
 target_include_directories(kernel PRIVATE .)
-target_link_libraries(kernel PRIVATE bootloader libport libvga libstring libkbd logging format)
+target_link_libraries(kernel PRIVATE bootloader libport libvga libstring libkbd_disabled logging format)
 target_compile_options(kernel PRIVATE ${KFLAGS})
 target_link_options(kernel PRIVATE -T${CMAKE_SOURCE_DIR}/src/linker.ld -m32 ${KFLAGS})
 set_target_properties(kernel PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})

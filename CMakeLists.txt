@@ -56,6 +56,7 @@ set(KFLAGS
         -fno-rtti
         -nostdlib
         -nostdinc
+        -nodefaultlibs
 )
 
 if (NOT DEFINED CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
@@ -66,9 +67,9 @@ endif ()
 message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
-    set(KFLAGS ${KFLAGS} -O0 -g)
+    set(KFLAGS ${KFLAGS} -O2 -g)
 else ()
-    set(KFLAGS ${KFLAGS} -O2)
+    set(KFLAGS ${KFLAGS} -O2 -g)
 endif ()
 
 ##################################

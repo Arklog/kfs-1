@@ -24,6 +24,6 @@ This project introduces the fundamentals of operating system development. The go
 - [x] Add colors support to your I/O interface.
 - [x] Add helpers like printf / printk in order to print information / debug easily.
 - [x] Handle keyboard entries and print them.
-- [ ] Handle different screens, and keyboard shortcuts to switch easily between then.
+- [x] Handle different screens, and keyboard shortcuts to switch easily between then.
 
 
