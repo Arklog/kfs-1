@@ -312,7 +312,7 @@ namespace container {
          *
          * @snippet StackVector.cpp StackVector insert range
          */
-        iterator insert(unsigned int position, iterator _begin, iterator _end) override {
+        iterator insert(unsigned int position, iterator _begin, iterator _end) {
             return insert(this->begin() + position, _begin, _end);
         }
 

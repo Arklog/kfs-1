@@ -69,7 +69,7 @@ namespace container {
         }
 
         ContiguousConstIterator operator++(int) override {
-            ContiguousConstIterator tmp(*this);
+            auto tmp = *this;
             ++(*this);
             return tmp;
         }
@@ -80,7 +80,7 @@ namespace container {
         }
 
         ContiguousConstIterator operator--(int) override {
-            ContiguousConstIterator tmp(*this);
+            auto tmp = *this;
             --(*this);
             return tmp;
         }
