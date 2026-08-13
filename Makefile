@@ -17,6 +17,8 @@ DOCKER_MAKE			:= make -f ${DOCKER_MAKEFILE} 				\
 
 DOCKER_IMAGE 		:= kfs-cross-gcc:1.0.0
 
+DOCKER_RUN			:= docker run -v $(shell pwd):/build --user $(shell id -u):$(shell id -g)
+
 .PHONY 				:= all iso test docker-build
 
 all: docker-build ;
@@ -30,7 +32,7 @@ run-bonus: docker-build
 run-debug: docker-build-debug
 	qemu-system-i386 -kernel ${DOCKERBUILDDIR}/isodir/boot/${KERNEL} -S -s -no-reboot
 
-test: kernel
+test: all
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
@@ -41,7 +43,7 @@ docker-build-image:
 	docker build -t ${DOCKER_IMAGE} .
 
 docker-build: docker-build-image
-	docker run --rm -v $(shell pwd):/build ${DOCKER_IMAGE} ${DOCKER_MAKE} iso
+	${DOCKER_RUN} ${DOCKER_IMAGE} ${DOCKER_MAKE} iso
 
 docker-build-debug: docker-build-image
 	docker run --rm -v $(shell pwd):/build ${DOCKER_IMAGE} ${DOCKER_MAKE} iso
