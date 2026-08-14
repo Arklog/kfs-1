@@ -1,0 +1,22 @@
+[project]
+name = "documentation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Pierre", email = "pierr.ducloux@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "breathe>=4.36.0",
+    "exhale>=0.3.7",
+    "furo>=2025.12.19",
+    "sphinx>=9.1.0",
+]
+
+[project.scripts]
+documentation = "documentation:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"

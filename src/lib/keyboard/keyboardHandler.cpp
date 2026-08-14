@@ -5,12 +5,6 @@
 #include "keyboardHandler.hpp"
 #include "lib/logging/logging.hpp"
 
-inline uint8_t inb(uint16_t port) {
-    uint8_t ret;
-    asm volatile ("inb %1, %0" : "=a"(ret) : "Nd"(port));
-    return ret;
-}
-
 vga::VGAMonitor *g_monitor = nullptr;
 
 namespace kbd {
