@@ -14,7 +14,7 @@ release = '1.0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['breathe', 'exhale']
+extensions = ['breathe', 'exhale', 'sphinxcontrib.imagesvg']
 
 breathe_projects = {"KFS": "../doxyxml/xml"}
 breathe_default_project = "KFS"
@@ -23,15 +23,15 @@ exhale_args = {
     # These arguments are required
     "containmentFolder":     "./api",
     "rootFileName":          "library_root.rst",
-    "doxygenStripFromPath":  "..",
+    "doxygenStripFromPath":  "../../src",
     # Heavily encouraged optional argument (see docs)
     "rootFileTitle":         "Library API",
     # Suggested optional arguments
     "createTreeView":        True,
     # TIP: if using the sphinx-bootstrap-theme, you need
     # "treeViewIsBootstrap": True,
-    "exhaleExecutesDoxygen": False,
-    "exhaleDoxygenStdin":    "INPUT = ../.."
+    "exhaleExecutesDoxygen": True,
+    "exhaleDoxygenStdin":    "INPUT = ../../src"
 }
 
 primary_domain = 'cpp'
