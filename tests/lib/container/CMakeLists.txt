@@ -13,7 +13,7 @@ add_executable(test_container
 )
 target_link_libraries(test_container
         PRIVATE
-        container
+        container-test
         Catch2::Catch2WithMain
 )
 target_include_directories(

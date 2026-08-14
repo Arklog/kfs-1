@@ -6,13 +6,35 @@
 #define KFS_1_MATH_HPP
 
 namespace math {
+    /**
+     * Return the minimum of a and b
+     *
+     * @tparam T
+     * @param a
+     * @param b
+     *
+     * @return The minimum value between a and b
+     *
+     * @snippet math.cpp math min
+     */
     template<typename T>
-    T min(const T &&a, const T &&b) {
+    constexpr T min(const T &&a, const T &&b) {
         return a < b ? a : b;
     }
 
+    /**
+     * Return the maximum of a and b
+     *
+     * @tparam T
+     * @param a
+     * @param b
+     *
+     * @return The maximum value between a and b
+     *
+     * @snippet math.cpp math max
+     */
     template<typename T>
-    T max(const T &&a, const T &&b) {
+    constexpr T max(const T &&a, const T &&b) {
         return a > b ? a : b;
     }
 }

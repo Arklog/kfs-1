@@ -1,6 +1,6 @@
-add_library(format STATIC
-        format.cpp
+create_test_and_nontest(
+        NAME format
+        FILE_SRCS
+            format.cpp
+        INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src
 )
-target_compile_options(format PRIVATE ${KFLAGS})
-target_include_directories(format PUBLIC ${CMAKE_SOURCE_DIR}/src)
-set_target_properties(format PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})

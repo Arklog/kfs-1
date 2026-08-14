@@ -13,8 +13,8 @@ TEST_CASE("VGADisplay", "[vga]") {
     static uint8_t test_buff[25 * 80 * 2];
     vga::VGADisplay::vga = reinterpret_cast<vga::t_vga_char*>(test_buff);
     vga::VGADisplay::testing = true;
-    vga::VGAMonitor monitor;
-    monitor.init();
+    vga::VGAMonitor monitor{};
+    monitor.init(0);
     logging::set_logger(monitor);
 
     char first_line[81] = "first first first first first first first first first first first first first   ";
@@ -40,7 +40,7 @@ TEST_CASE("VGAMonitor color modifier", "[vga]") {
     vga::VGADisplay::vga = reinterpret_cast<vga::t_vga_char*>(test_buff);
     vga::VGADisplay::testing = true;
     vga::VGAMonitor monitor;
-    monitor.init();
+    monitor.init(0);
 
     monitor << "T" << vga::VGAColorChange{vga::color::BLACK, vga::color::CYAN} << "est";
     REQUIRE(vga::VGADisplay::vga[0].data.color == 15);

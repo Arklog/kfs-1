@@ -8,8 +8,13 @@
 #include "lib/math/math.hpp"
 
 namespace vga {
-    bool VGADisplay::testing = false;
-    volatile t_vga_char *VGADisplay::vga = reinterpret_cast<volatile t_vga_char *>(0xB8000);
+#ifndef KFS_HOST_TEST
+    bool                 VGADisplay::testing = false;
+    volatile t_vga_char *VGADisplay::vga     = reinterpret_cast<volatile t_vga_char *>(0xB8000);
+#else
+    bool                 VGADisplay::testing = true;
+    volatile t_vga_char *VGADisplay::vga     = new volatile t_vga_char[32000];
+#endif
 
     void VGADisplay::clear(int page) {
         vga += page * 2000;

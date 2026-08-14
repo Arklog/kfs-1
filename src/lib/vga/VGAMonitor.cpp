@@ -8,7 +8,7 @@
 
 namespace vga {
 
-    VGAMonitor::VGAMonitor(): _buffer{}, _cursor_write{}, _user_cursor{}, _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0), _lim_line(0), _lim_column(0) {
+    VGAMonitor::VGAMonitor(): _buffer{}, _cursor_write{}, _user_cursor{}, _color(vga::color::color_set::WHITE_ON_BLACK), _view_line(0), _lim_line(0), _lim_column(0), _page_idx(0) {
         _user_cursor.set(0, 0);
         _cursor_write.set(0, 0);
         clear();

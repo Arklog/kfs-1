@@ -1,7 +1,6 @@
-add_library(logging STATIC
-        logging.cpp
+create_test_and_nontest(
+        NAME logging
+        FILE_SRCS logging.cpp
+        INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src
+        LIBRARIES format libstring
 )
-target_include_directories(logging PRIVATE . ${CMAKE_SOURCE_DIR}/src)
-target_compile_options(logging PRIVATE ${KFLAGS})
-target_link_libraries(logging PUBLIC format)
-set_target_properties(logging PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
