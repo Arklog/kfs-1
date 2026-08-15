@@ -15,5 +15,4 @@ documentation for details.
    :caption: Contents:
 
    getting_started/getting_started
-   api_root
-   api/library_root
+   drivers/index
