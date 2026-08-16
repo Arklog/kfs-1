@@ -4,7 +4,7 @@
 
 #include "catch2/catch_all.hpp"
 
-#include "lib/vga/vga.hpp"
+#include "drivers/video/vga/vga.hpp"
 
 TEST_CASE("t_vga_char", "[libvga]") {
     SECTION("background color") {

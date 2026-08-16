@@ -1,9 +1,7 @@
-
-
 add_subdirectory(container)
 add_subdirectory(format)
+add_subdirectory(keyboard)
 add_subdirectory(logging)
 add_subdirectory(math)
-add_subdirectory(str)
 add_subdirectory(port)
-add_subdirectory(keyboard)
+add_subdirectory(str)

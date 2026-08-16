@@ -2,9 +2,9 @@
 // Created by alice on 07/01/2026.
 //
 
-#include "lib/vga/vga.hpp"
-#include "lib/vga/VGAMonitor.hpp"
-#include "lib/vga/VGADisplay.hpp"
+#include "drivers/video/vga/vga.hpp"
+#include "drivers/video/vga/VGAMonitor.hpp"
+#include "drivers/video/vga/VGADisplay.hpp"
 #include "catch2/catch_all.hpp"
 #include "lib/logging/logging.hpp"
 

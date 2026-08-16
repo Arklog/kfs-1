@@ -73,12 +73,6 @@ else ()
 endif ()
 
 ##################################
-# Main source code
-##################################
-
-add_subdirectory(src)
-
-##################################
 # Tests
 ##################################
 
@@ -91,5 +85,10 @@ target_link_options(Catch2 PUBLIC -m32)
 target_compile_options(Catch2WithMain PUBLIC -m32)
 target_link_options(Catch2WithMain PUBLIC -m32)
 
+##################################
+# Main source code
+##################################
+
 enable_testing()
+add_subdirectory(src)
 add_subdirectory(tests)

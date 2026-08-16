@@ -9,7 +9,7 @@
 # define LOG_BUFFER_SIZE 1024
 #endif
 
-#include "lib/vga/vga.hpp"
+#include "drivers/video/vga/vga.hpp"
 #include "lib/format/format.hpp"
 
 namespace logging {
