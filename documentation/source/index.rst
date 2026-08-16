@@ -14,5 +14,5 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
-   getting_started/getting_started
+   getting_started/index
    drivers/index

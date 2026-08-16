@@ -5,5 +5,5 @@ Implemented Kernel Drivers
 .. toctree::
     :maxdepth: 1
 
-    ps2/ps2
+    i8042/i8042
     vga/vga
