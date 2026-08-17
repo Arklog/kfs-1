@@ -19,13 +19,13 @@ function (create_test_and_nontest)
 
     add_library(${LIB_NAME} STATIC ${LIB_SRCS})
     target_include_directories(${LIB_NAME} PUBLIC ${LIB_INCLUDE_DIR} PRIVATE ${LIB_INCLUDE_DIR_PRIVATE})
-    target_link_libraries(${LIB_NAME} PUBLIC ${LIB_LIBRARIES})
+    target_link_libraries(${LIB_NAME} PRIVATE ${LIB_LIBRARIES})
     target_compile_options(${LIB_NAME} PRIVATE ${KFLAGS})
     set_target_properties(${LIB_NAME} PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
 
     add_library(${LIBTEST_NAME} STATIC ${LIBTEST_SRCS})
     target_include_directories(${LIBTEST_NAME} PUBLIC ${LIBTEST_INCLUDE_DIR} PRIVATE ${LIBTEST_INCLUDE_DIR_PRIVATE})
-    target_link_libraries(${LIBTEST_NAME} PUBLIC ${LIBTEST_LIBRARIES})
+    target_link_libraries(${LIBTEST_NAME} PRIVATE ${LIBTEST_LIBRARIES})
     target_compile_options(${LIBTEST_NAME} PRIVATE ${KFLAGS})
     target_compile_definitions(${LIBTEST_NAME} PRIVATE KFS_HOST_TEST)
     set_target_properties(${LIBTEST_NAME} PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
@@ -46,7 +46,16 @@ add_executable(kernel_bonus
         main.cpp
 )
 target_include_directories(kernel_bonus PRIVATE .)
-target_link_libraries(kernel_bonus PRIVATE bootloader libport libvga libstring libkbd logging format)
+target_link_libraries(kernel_bonus PRIVATE
+        bootloader
+        libport
+        libvga
+        libstring
+        libkbd
+        logging
+        KFS::Lib::format
+        KFS::Lib::container
+)
 target_compile_options(kernel_bonus PRIVATE ${KFLAGS})
 target_compile_definitions(kernel_bonus PUBLIC KEYBOARD_ENABLE)
 target_link_options(kernel_bonus PRIVATE -T${CMAKE_SOURCE_DIR}/src/linker.ld -m32 ${KFLAGS})

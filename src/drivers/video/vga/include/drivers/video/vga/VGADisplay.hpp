@@ -12,7 +12,6 @@
 #include "VGACursor.hpp"
 #include "VGAMonitor.hpp"
 
-
 namespace vga {
     /**
      * Handler for the vga writting operations. Renders a window on the

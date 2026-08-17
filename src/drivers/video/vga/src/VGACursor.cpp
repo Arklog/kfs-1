@@ -2,9 +2,9 @@
 // Created by pierre on 12/18/25.
 //
 
-#include "VGACursor.hpp"
+#include "drivers/video/vga/VGACursor.hpp"
 #include "lib/logging/logging.hpp"
-#include "vga.hpp"
+#include "drivers/video/vga/vga.hpp"
 
 namespace vga {
 

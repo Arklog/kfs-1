@@ -2,9 +2,9 @@
 // Created by pierre on 12/17/25.
 //
 
-#include "VGAMonitor.hpp"
+#include "drivers/video/vga/VGAMonitor.hpp"
 #include "lib/logging/logging.hpp"
-#include "vga.hpp"
+#include "drivers/video/vga/vga.hpp"
 
 namespace vga {
 

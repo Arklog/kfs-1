@@ -1,8 +1,9 @@
 //
 // Created by pierre on 1/7/26.
 //
+
 #include <catch2/catch_all.hpp>
-#include "lib/container/StackVector.hpp"
+#include <container/StackVector.hpp>
 #include "static_check.hpp"
 
 TEST_CASE("StackVector", "[container]") {

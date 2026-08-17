@@ -2,7 +2,7 @@
 // Created by alice on 21/12/2025.
 //
 
-#include "ScrollbackBuffer.hpp"
+#include "drivers/video/vga/ScrollbackBuffer.hpp"
 #include "lib/math/math.hpp"
 
 namespace vga {

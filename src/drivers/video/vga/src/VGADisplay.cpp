@@ -2,9 +2,9 @@
 // Created by alice on 21/12/2025.
 //
 
-#include "VGADisplay.hpp"
+#include "drivers/video/vga/VGADisplay.hpp"
 
-#include "../../../lib/container/include/range.hpp"
+#include "container/range.hpp"
 #include "lib/math/math.hpp"
 
 namespace vga {

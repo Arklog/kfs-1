@@ -5,9 +5,9 @@
 #ifndef KFS_1_STACKVECTOR_HPP
 #define KFS_1_STACKVECTOR_HPP
 
-#include "include/Array.hpp"
+#include "container/Array.hpp"
 #include "lib/utility/type_trait.hpp"
-#include "include/range.hpp"
+#include "container/range.hpp"
 
 namespace container {
     template<typename T, unsigned int N>

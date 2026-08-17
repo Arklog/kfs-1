@@ -7,8 +7,7 @@ target_include_directories(test_format PRIVATE
 )
 target_link_libraries(test_format PRIVATE
         Catch2::Catch2WithMain
-        format-test
-        libstring-test
+        KFS::Lib::format-test
 )
 target_compile_definitions(test_format PRIVATE KFS_HOST_TEST)
 catch_discover_tests(test_format)

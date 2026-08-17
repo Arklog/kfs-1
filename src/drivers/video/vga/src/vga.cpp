@@ -1,7 +1,7 @@
 //
 // Created by pierre on 12/17/25.
 //
-#include "vga.hpp"
+#include "drivers/video/vga/vga.hpp"
 
 vga::color::t_vga_color vga::t_vga_char::get_foreground() const {
     return static_cast<color::t_vga_color>(data.color & 0x0F);

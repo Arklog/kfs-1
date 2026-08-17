@@ -1,20 +1,23 @@
 create_test_and_nontest(
-        NAME libvga
+        NAME vga
         FILE_SRCS
-            vga.cpp
-            VGAMonitor.cpp
-            VGAMonitor.hpp
-            VGACursor.cpp
-            VGACursor.hpp
-            VGADisplay.cpp
-            VGADisplay.hpp
-            ScrollbackBuffer.cpp
-            ScrollbackBuffer.hpp
+            src/vga.cpp
+            src/VGAMonitor.cpp
+            src/VGACursor.cpp
+            src/VGADisplay.cpp
+            src/ScrollbackBuffer.cpp
+        INCLUDE_DIR
+            include
+            ${CMAKE_SOURCE_DIR}/src
         LIBRARIES
-            container
+            KFS::Lib::container
             math
             libport
             logging
 )
+
+# Theses alias are required in order to clion to provide autocompletion for them
+add_library(KFS::Drivers::vga ALIAS vga)
+add_library(KFS::Driver::vga-test ALIAS vga-test)
 
 add_subdirectory(tests)

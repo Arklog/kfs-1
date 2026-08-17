@@ -2,9 +2,9 @@
 // Created by pierre on 12/17/25.
 //
 
-#include "lib/container/include/Array.hpp"
-#include "drivers/video/vga/vga.hpp"
-#include "drivers/video/vga/VGAMonitor.hpp"
+#include "container/Array.hpp"
+#include "drivers/video/vga/include/drivers/video/vga/vga.hpp"
+#include "drivers/video/vga/include/drivers/video/vga/VGAMonitor.hpp"
 #include "lib/keyboard/keyboardHandler.hpp"
 #include "lib/logging/logging.hpp"
 

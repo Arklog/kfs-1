@@ -5,8 +5,8 @@
 #ifndef KFS_1__PAIRITERATOR_HPP
 #define KFS_1__PAIRITERATOR_HPP
 
-#include "../include/concept.hpp"
-#include "Iterator.hpp"
+#include "container/concept.hpp"
+#include "container/iterator/Iterator.hpp"
 
 namespace container {
     template<is_pair T>

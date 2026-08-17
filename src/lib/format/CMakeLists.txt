@@ -4,3 +4,8 @@ create_test_and_nontest(
             format.cpp
         INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src
 )
+
+add_library(KFS::Lib::format ALIAS format)
+add_library(KFS::Lib::format-test ALIAS format-test)
+
+add_subdirectory(tests)

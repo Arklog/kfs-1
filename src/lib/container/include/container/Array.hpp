@@ -5,8 +5,8 @@
 #ifndef KFS_1_KARRAY_HPP
 #define KFS_1_KARRAY_HPP
 
-#include "Container.hpp"
-#include "../iterator/ContiguousIterator.hpp"
+#include "container/Container.hpp"
+#include "container/iterator/ContiguousIterator.hpp"
 #include "lib/utility/utility.hpp"
 
 namespace container {

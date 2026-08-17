@@ -4,7 +4,7 @@
 
 #ifndef KFS_1__CONTIGUOUSITERATOR_HPP
 #define KFS_1__CONTIGUOUSITERATOR_HPP
-#include "Iterator.hpp"
+#include "container/iterator/Iterator.hpp"
 
 namespace container {
     template<typename T, typename Pointer, typename Reference>

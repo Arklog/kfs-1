@@ -2,7 +2,7 @@
 // Created by pierre on 12/17/25.
 //
 #include <catch2/catch_all.hpp>
-#include <../../../src/lib/container/include/Array.hpp>
+#include <container/Array.hpp>
 #include <string>
 #include "static_check.hpp"
 

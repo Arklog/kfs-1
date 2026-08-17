@@ -3,9 +3,9 @@
 //
 
 #include <catch2/catch_all.hpp>
-#include "../../../src/lib/container/include/range.hpp"
+#include <container/range.hpp>
+#include <container/StackVector.hpp>
 
-#include "lib/container/StackVector.hpp"
 
 TEST_CASE("basic range", "[container]") {
     container::StackVector<int, 10> v{1, 2, 3, 4};

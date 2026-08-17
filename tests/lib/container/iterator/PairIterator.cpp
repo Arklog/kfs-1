@@ -3,9 +3,9 @@
 //
 
 #include <catch2/catch_all.hpp>
-#include "lib/container/iterator/PairIterator.hpp"
-#include "../../../../src/lib/container/include/pair.hpp"
-#include "lib/container/iterator/ContiguousIterator.hpp"
+#include "container/iterator/PairIterator.hpp"
+#include "container/pair.hpp"
+#include "container/iterator/ContiguousIterator.hpp"
 
 TEST_CASE("PairIterator", "[container]") {
     SECTION("CTOR") {
