@@ -1,0 +1,16 @@
+add_executable(test_vga
+        vga.cpp
+        VGAMonitor.cpp
+        ScrollbackBuffer.cpp
+)
+
+target_link_libraries(test_vga
+        PRIVATE
+        KFS::Drivers::vga-test
+        KFS::Lib::container-test
+        Catch2::Catch2WithMain
+)
+target_compile_options(test_vga PRIVATE -m32)
+target_compile_definitions(test_vga PRIVATE KFS_HOST_TEST)
+
+catch_discover_tests(test_vga)
