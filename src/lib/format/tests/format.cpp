@@ -3,7 +3,7 @@
 //
 
 #include "catch2/catch_all.hpp"
-#include "lib/format/format.hpp"
+#include "format/format.hpp"
 
 TEST_CASE("libformat", "[format]") {
     SECTION("format uint32_t") {

@@ -10,10 +10,11 @@ create_test_and_nontest(
             include
             ${CMAKE_SOURCE_DIR}/src
         LIBRARIES
+            KFS::include
             KFS::Lib::container
-            math
-            libport
-            logging
+            KFS::Lib::logging
+            KFS::Lib::math
+            KFS::Lib::port
 )
 
 # Theses alias are required in order to clion to provide autocompletion for them

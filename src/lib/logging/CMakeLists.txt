@@ -11,3 +11,5 @@ create_test_and_nontest(
 
 add_library(KFS::Lib::logging ALIAS logging_generated)
 add_library(KFS::Lib::logging-test ALIAS logging_generated-test)
+
+add_subdirectory(tests)

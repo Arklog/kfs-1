@@ -6,7 +6,7 @@
 #define KFS_1_FORMAT_HPP
 
 #include "include/stdint.hpp"
-#include "lib/str/KString.hpp"
+#include "str/KString.hpp"
 
 namespace format {
     /**

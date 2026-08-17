@@ -91,4 +91,3 @@ target_link_options(Catch2WithMain PUBLIC -m32)
 
 enable_testing()
 add_subdirectory(src)
-add_subdirectory(tests)
