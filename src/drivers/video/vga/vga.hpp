@@ -67,6 +67,12 @@ namespace vga {
         /**
          * Get the foreground color
          * @return
+         *
+         * @code
+         * t_vga_char c{'c', color::color_set::WHITE_ON_BLACK};
+         *
+         * auto foreground = c.get_foreground(); // foreground == color::t_vga_color::WHITE
+         * @endcode
          */
         color::t_vga_color get_foreground() const;
 

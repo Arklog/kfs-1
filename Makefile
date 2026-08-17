@@ -26,7 +26,10 @@ DOCKER_RUN			:= docker run -v $(shell pwd):/build --user $(shell id -u):$(shell 
 
 .PHONY 				:= all iso test docker-build
 
-all: docker-build-iso docker-build-doc;
+all: docker-build-iso docker-build-doc
+	@echo "##############################################################"
+	@echo "Iso constructed at ${DOCKERBUILDDIR}/${ISO}"
+	@echo "Documentation available at documentation/build/html/index.html"
 
 run: docker-build-iso
 	qemu-system-i386 $(DOCKERBUILDDIR)/$(ISO)

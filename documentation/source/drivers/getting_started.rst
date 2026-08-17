@@ -11,7 +11,8 @@ According to wikipedia a kernel module is:
 
     `wikipedia <https://en.wikipedia.org/wiki/Driver_(software)>`__
 
-.. image:: kernel_driver_arch.svg
-    :alt: Userspace, Kernel and Hardware
+.. figure:: kernel_driver_arch.svg
+
+    *Gross representation of drivers*
 
 

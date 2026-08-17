@@ -6,4 +6,4 @@ Implemented Kernel Drivers
     :maxdepth: 1
 
     i8042/i8042
-    vga/vga
+    video/vga/vga
