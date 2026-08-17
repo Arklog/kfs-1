@@ -3,7 +3,7 @@
 //
 
 #include "drivers/video/vga/VGAMonitor.hpp"
-#include "lib/logging/logging.hpp"
+#include "logging/logging.hpp"
 #include "drivers/video/vga/vga.hpp"
 
 namespace vga {

@@ -2,7 +2,7 @@
 // Created by pierre on 12/23/25.
 //
 
-#include "logging.hpp"
+#include "logging/logging.hpp"
 
 namespace logging {
     const t_logger_color log_color_map[4] = {

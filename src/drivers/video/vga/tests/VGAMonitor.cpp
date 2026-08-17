@@ -6,7 +6,7 @@
 #include "drivers/video/vga/VGAMonitor.hpp"
 #include "drivers/video/vga/VGADisplay.hpp"
 #include "catch2/catch_all.hpp"
-#include "lib/logging/logging.hpp"
+#include "logging/logging.hpp"
 
 
 TEST_CASE("VGADisplay", "[vga]") {

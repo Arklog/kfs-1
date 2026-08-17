@@ -3,7 +3,7 @@
 //
 #include <fstream>
 
-#include "lib/logging/logging.hpp"
+#include "logging/logging.hpp"
 #include "catch2/catch_all.hpp"
 
 

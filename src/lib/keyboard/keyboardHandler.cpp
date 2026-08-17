@@ -3,7 +3,7 @@
 //
 
 #include "keyboardHandler.hpp"
-#include "lib/logging/logging.hpp"
+#include "logging/logging.hpp"
 
 vga::VGAMonitor *g_monitor = nullptr;
 

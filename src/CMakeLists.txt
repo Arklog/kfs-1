@@ -31,7 +31,9 @@ function (create_test_and_nontest)
     set_target_properties(${LIBTEST_NAME} PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
 endfunction()
 
+add_subdirectory(core)
 add_subdirectory(drivers)
+add_subdirectory(include)
 add_subdirectory(lib)
 
 set(CMAKE_ASM_NASM_OBJECT_FORMAT elf32)

@@ -8,3 +8,5 @@ create_test_and_nontest(
 
 add_library(KFS::Lib::utility ALIAS utility_generated)
 add_library(KFS::Lib::utility-test ALIAS utility_generated-test)
+
+add_subdirectory(tests)

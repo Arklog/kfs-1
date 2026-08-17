@@ -3,6 +3,8 @@ create_test_and_nontest(
         FILE_SRCS
             format.cpp
         INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src
+        LIBRARIES
+            KFS::include
 )
 
 add_library(KFS::Lib::format ALIAS format)
