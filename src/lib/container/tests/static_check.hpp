@@ -4,8 +4,8 @@
 
 #ifndef KFS_1__STATIC_CHECK_HPP
 #define KFS_1__STATIC_CHECK_HPP
-#include "lib/utility/type_trait.hpp"
-#include "lib/utility/utility.hpp"
+#include "utility/type_trait.hpp"
+#include "utility/utility.hpp"
 
 template<typename T>
 concept is_basic_container = requires (T t, const T ct)

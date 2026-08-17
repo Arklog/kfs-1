@@ -6,7 +6,7 @@
 #define KFS_1_STACKVECTOR_HPP
 
 #include "container/Array.hpp"
-#include "lib/utility/type_trait.hpp"
+#include "utility/type_trait.hpp"
 #include "container/range.hpp"
 
 namespace container {

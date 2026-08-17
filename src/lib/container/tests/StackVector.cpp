@@ -4,7 +4,7 @@
 
 #include <catch2/catch_all.hpp>
 #include <container/StackVector.hpp>
-#include "../../../../tests/lib/container/static_check.hpp"
+#include "static_check.hpp"
 
 TEST_CASE("StackVector", "[container]") {
     SECTION("static check") {

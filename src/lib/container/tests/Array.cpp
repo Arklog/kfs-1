@@ -4,7 +4,7 @@
 #include <catch2/catch_all.hpp>
 #include <container/Array.hpp>
 #include <string>
-#include "../../../../tests/lib/container/static_check.hpp"
+#include "static_check.hpp"
 
 template<typename IterType, typename ValueType>
 concept non_const_iterator = requires(IterType it, ValueType val)
