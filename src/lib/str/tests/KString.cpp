@@ -3,7 +3,7 @@
 //
 
 #include <catch2/catch_all.hpp>
-#include "lib/str/KString.hpp"
+#include "str/KString.hpp"
 
 TEST_CASE("KString", "[kstring]") {
     SECTION("strlen") {

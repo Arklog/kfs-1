@@ -5,7 +5,7 @@ create_test_and_nontest(
             keyboardHandler.hpp
         INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src
         LIBRARIES
-            libport
+            KFS::Lib::port
             KFS::Lib::logging
             KFS::include
 )
@@ -20,7 +20,7 @@ create_test_and_nontest(
         INCLUDE_DIR
             ${CMAKE_SOURCE_DIR}/src
         LIBRARIES
-            libport
+            KFS::Lib::port
             KFS::Lib::logging
             KFS::include
 )

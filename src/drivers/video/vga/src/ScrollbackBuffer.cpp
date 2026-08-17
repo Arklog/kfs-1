@@ -3,7 +3,7 @@
 //
 
 #include "drivers/video/vga/ScrollbackBuffer.hpp"
-#include "lib/math/math.hpp"
+#include "math/math.hpp"
 
 namespace vga {
     ScrollbackBuffer::ScrollbackBuffer() :_buffer{} {

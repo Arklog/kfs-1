@@ -5,7 +5,7 @@
 #include "drivers/video/vga/VGADisplay.hpp"
 
 #include "container/range.hpp"
-#include "lib/math/math.hpp"
+#include "math/math.hpp"
 
 namespace vga {
 #ifndef KFS_HOST_TEST

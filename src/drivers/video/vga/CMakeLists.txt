@@ -19,6 +19,6 @@ create_test_and_nontest(
 
 # Theses alias are required in order to clion to provide autocompletion for them
 add_library(KFS::Drivers::vga ALIAS vga)
-add_library(KFS::Driver::vga-test ALIAS vga-test)
+add_library(KFS::Drivers::vga-test ALIAS vga-test)
 
 add_subdirectory(tests)

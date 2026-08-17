@@ -9,7 +9,7 @@
 #include "container/StackVector.hpp"
 #include "VGACursor.hpp"
 #include "include/stdint.hpp"
-#include "lib/str/KString.hpp"
+#include "str/KString.hpp"
 
 namespace vga {
     /**

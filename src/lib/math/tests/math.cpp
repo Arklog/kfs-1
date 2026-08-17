@@ -1,7 +1,7 @@
 //
 // Created by pierre on 1/2/26.
 //
-#include "lib/math/math.hpp"
+#include "math/math.hpp"
 
 #include <catch2/catch_all.hpp>
 

@@ -5,8 +5,9 @@ create_test_and_nontest(
         INCLUDE_DIR
             ${CMAKE_CURRENT_SOURCE_DIR}/include
         LIBRARIES
-            format
-            libstring
+            KFS::Lib::format
+            KFS::Lib::string
+            KFS::Drivers::vga
 )
 
 add_library(KFS::Lib::logging ALIAS logging_generated)

@@ -6,7 +6,7 @@ add_executable(test_vga
 
 target_link_libraries(test_vga
         PRIVATE
-        KFS::Driver::vga-test
+        KFS::Drivers::vga-test
         KFS::Lib::container-test
         Catch2::Catch2WithMain
 )
