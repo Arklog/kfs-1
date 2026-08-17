@@ -13,13 +13,8 @@ add_executable(test_container
 )
 target_link_libraries(test_container
         PRIVATE
-        container-test
+        KFS::Lib::container-test
         Catch2::Catch2WithMain
-)
-target_include_directories(
-        test_container
-        PRIVATE
-        ${CMAKE_SOURCE_DIR}/src
 )
 target_compile_options(
         test_container

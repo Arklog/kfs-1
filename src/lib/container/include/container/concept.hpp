@@ -5,7 +5,7 @@
 #ifndef KFS_1__CONCEPT_HPP
 #define KFS_1__CONCEPT_HPP
 
-#include "lib/utility/type_trait.hpp"
+#include "utility/type_trait.hpp"
 
 namespace container {
 

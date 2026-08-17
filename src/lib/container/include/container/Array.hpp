@@ -7,7 +7,7 @@
 
 #include "container/Container.hpp"
 #include "container/iterator/ContiguousIterator.hpp"
-#include "lib/utility/utility.hpp"
+#include "utility/utility.hpp"
 
 namespace container {
     template<typename T, unsigned int N>

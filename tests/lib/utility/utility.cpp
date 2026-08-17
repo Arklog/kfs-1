@@ -2,7 +2,7 @@
 // Created by pierre on 1/6/26.
 //
 #include <catch2/catch_all.hpp>
-#include "lib/utility/utility.hpp"
+#include "../../../src/lib/utility/include/utility/utility.hpp"
 #include <type_traits>
 #include <string>
 
