@@ -5,7 +5,7 @@
 #ifndef KFS_1_SCROLLBACKBUFFER_HPP
 #define KFS_1_SCROLLBACKBUFFER_HPP
 
-#include "lib/container/StackVector.hpp"
+#include "container/StackVector.hpp"
 #include "VGACursor.hpp"
 #include "vga.hpp"
 #include "include/stdint.hpp"

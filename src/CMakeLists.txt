@@ -1,7 +1,7 @@
 function (create_test_and_nontest)
     set(options)
     set(oneValueArgs NAME)
-    set(multipleValueArgs FILE_SRCS LIBRARIES INCLUDE_DIR)
+    set(multipleValueArgs FILE_SRCS LIBRARIES INCLUDE_DIR INCLUDE_DIR_PRIVATE)
 
     cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multipleValueArgs}" ${ARGN})
 
@@ -9,20 +9,22 @@ function (create_test_and_nontest)
     set(LIB_SRCS ${ARG_FILE_SRCS})
     set(LIB_LIBRARIES ${ARG_LIBRARIES})
     set(LIB_INCLUDE_DIR ${ARG_INCLUDE_DIR})
+    set(LIB_INCLUDE_DIR_PRIVATE ${ARG_INCLUDE_DIR_PRIVATE})
 
     set(LIBTEST_NAME "${ARG_NAME}-test")
     set(LIBTEST_SRCS ${ARG_FILE_SRCS})
     list(TRANSFORM ARG_LIBRARIES APPEND "-test" OUTPUT_VARIABLE LIBTEST_LIBRARIES)
     set(LIBTEST_INCLUDE_DIR ${ARG_INCLUDE_DIR})
+    set(LIBTEST_INCLUDE_DIR_PRIVATE ${ARG_INCLUDE_DIR_PRIVATE})
 
     add_library(${LIB_NAME} STATIC ${LIB_SRCS})
-    target_include_directories(${LIB_NAME} PRIVATE ${LIB_INCLUDE_DIR})
+    target_include_directories(${LIB_NAME} PUBLIC ${LIB_INCLUDE_DIR} PRIVATE ${LIB_INCLUDE_DIR_PRIVATE})
     target_link_libraries(${LIB_NAME} PUBLIC ${LIB_LIBRARIES})
     target_compile_options(${LIB_NAME} PRIVATE ${KFLAGS})
     set_target_properties(${LIB_NAME} PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
 
     add_library(${LIBTEST_NAME} STATIC ${LIBTEST_SRCS})
-    target_include_directories(${LIBTEST_NAME} PRIVATE ${LIBTEST_INCLUDE_DIR})
+    target_include_directories(${LIBTEST_NAME} PUBLIC ${LIBTEST_INCLUDE_DIR} PRIVATE ${LIBTEST_INCLUDE_DIR_PRIVATE})
     target_link_libraries(${LIBTEST_NAME} PUBLIC ${LIBTEST_LIBRARIES})
     target_compile_options(${LIBTEST_NAME} PRIVATE ${KFLAGS})
     target_compile_definitions(${LIBTEST_NAME} PRIVATE KFS_HOST_TEST)

@@ -77,9 +77,16 @@ namespace vga {
         color::t_vga_color get_foreground() const;
 
         /**
-         * Get the background color
+         * Gets the background color stored in the upper four bits of the VGA
+         * attribute byte.
          *
-         * @return
+         * @return The background \ref vga::color::vga_color "VGA color code".
+         *
+         * @code
+         * t_vga_char c{'c', color::color_set::WHITE_ON_BLACK};
+         *
+         * auto background = c.get_background(); // background == color::BLACK
+         * @endcode
          */
         color::t_vga_color get_background() const;
 

@@ -4,7 +4,7 @@
 
 #include "VGADisplay.hpp"
 
-#include "lib/container/range.hpp"
+#include "../../../lib/container/include/range.hpp"
 #include "lib/math/math.hpp"
 
 namespace vga {
