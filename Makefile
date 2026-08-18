@@ -1,7 +1,7 @@
-KERNEL 					:= kernel					# Name of the iso to build
-ISO    					:= kfs.iso					# Name of the iso to build
-BUILDDIR 				:= build					# Non docker build directory (used to run tests on host)
-DOCKERBUILDDIR 			:= build-docker				# Docker build directory (where will docker build the iso)
+KERNEL 					:= kernel#					Name of the iso to build
+ISO    					:= kfs.iso#					Name of the iso to build
+BUILDDIR 				:= build#					Non docker build directory (used to run tests on host)
+DOCKERBUILDDIR 			:= build-docker#			# Docker build directory (where will docker build the iso)
 
 CMAKE_BUILD_TYPE		?= Release					# CMake build type
 CMAKE 					:= cmake					# CMake executable
@@ -32,6 +32,9 @@ all: docker-build-iso docker-build-doc
 	@echo "Documentation available at documentation/build/html/index.html"
 
 run: docker-build-iso
+	echo "${DOCKERBUILDDIR}"
+	echo "${ISO}"
+	$(info ISO=[${ISO}])
 	qemu-system-i386 $(DOCKERBUILDDIR)/$(ISO)
 
 run-bonus: docker-build-iso
