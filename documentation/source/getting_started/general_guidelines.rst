@@ -82,7 +82,7 @@ doubt for the reader.
     /**
     * Compute the size of the NULL terminated string pointed to by str not accounting for the NULL byte.
     *
-    * @return The size of string pointed to by str.
+    * @return The size of the NULL terminated string pointed to by str.
     *
     * @warning:
     *   - str must not be NULL
