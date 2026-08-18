@@ -6,8 +6,13 @@
 #set_target_properties(libport PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
 
 create_test_and_nontest(
-        NAME libport
+        NAME port
         FILE_SRCS port.cpp
-        INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src
+        INCLUDE_DIR
+            ${CMAKE_CURRENT_SOURCE_DIR}
         LIBRARIES
+            KFS::include
 )
+
+add_library(KFS::Lib::port ALIAS port)
+add_library(KFS::Lib::port-test ALIAS port-test)
