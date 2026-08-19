@@ -1,0 +1,62 @@
+\doxysection{Scrollback\+Buffer.\+hpp}
+\hypertarget{ScrollbackBuffer_8hpp_source}{}\label{ScrollbackBuffer_8hpp_source}\index{src/lib/vga/ScrollbackBuffer.hpp@{src/lib/vga/ScrollbackBuffer.hpp}}
+\mbox{\hyperlink{ScrollbackBuffer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ alice\ on\ 21/12/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_SCROLLBACKBUFFER\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_SCROLLBACKBUFFER\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{StackVector_8hpp}{lib/container/StackVector.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{VGACursor_8hpp}{VGACursor.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vga_8hpp}{vga.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stdint_8hpp}{include/stdint.hpp}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevga}{vga}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a207a5680f474b3920a5218565ea9b4b7}{ScrollbackBuffer}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a46a86d04ca5498227bc004cef9e126d4}{MAX\_LINES}}\ =\ 50;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{unionvga_1_1t__vga__char}{t\_vga\_char}}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a72c047ea6a8d88b5d612613f7befc977}{default\_char}}\{\textcolor{charliteral}{'\ '},\ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{color::color\_set::WHITE\_ON\_BLACK}}\};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{line\_type}}\ =\ \mbox{\hyperlink{classcontainer_1_1StackVector}{container::StackVector<t\_vga\_char,\ vga::VGA\_WIDTH>}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{buffer\_type}}\ =\ \mbox{\hyperlink{classcontainer_1_1StackVector}{container::StackVector<line\_type,\ MAX\_LINES>}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a207a5680f474b3920a5218565ea9b4b7}{ScrollbackBuffer}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_ab7ef355a0bdf7aab55342394d029d557}{clear}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_afa668a10c332b8a66d3bf44a2fa40083}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}}\ \&cursor,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionvga_1_1t__vga__char}{t\_vga\_char}}\ \&c);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a9e13865a68c7092a82330d973f61d54a}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}}\ \&cursor);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a268dd2d012494ea0e680d8c88a832262}{newline}}(\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a4b3210dee23a4de940d7d25d4489612d}{line}},\ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ column);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a45f9910030d0d93b24efd785c809cab3}{merge\_lines}}(\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ dst,\ \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ src);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a31cec428e9ad6372e14f3be5b73dcd1a}{backspace}}(\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ line\_idx,\ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ col);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{line\_type}}\&\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a4b3210dee23a4de940d7d25d4489612d}{line}}(\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a7238f566df00d0abf1da79b060017775}{line\_length}}(\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_aaaa3717da9ee2e62bf6560fee1946ad9}{line\_count}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a591d7ab77b12ddb4e0e17229b6cb6dd5}{scroll\_up}}();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{buffer\_type}}\ \&\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a87acf85d8acd8a576d9944551213f06d}{get\_buffer}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{buffer\_type}}\ \&\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a87acf85d8acd8a576d9944551213f06d}{get\_buffer}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{buffer\_type}}\ \_buffer;}
+\DoxyCodeLine{00100\ \ \ \ \ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_SCROLLBACKBUFFER\_HPP}}
+
+\end{DoxyCode}

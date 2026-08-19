@@ -1,0 +1,116 @@
+\doxysection{logging.\+hpp}
+\hypertarget{logging_8hpp_source}{}\label{logging_8hpp_source}\index{src/lib/logging/logging.hpp@{src/lib/logging/logging.hpp}}
+\mbox{\hyperlink{logging_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pierre\ on\ 12/23/25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_LOG\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_LOG\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LOG\_BUFFER\_SIZE}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#\ define\ LOG\_BUFFER\_SIZE\ 1024}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vga_8hpp}{lib/vga/vga.hpp}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{format_8hpp}{lib/format/format.hpp}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelogging}{logging}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\_logger\_color}}\ =\ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ade1b0830d2452b8c45323e0b91fed91a}{vga::color::color\_set::t\_color\_set}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlogging_1_1LoggerBase}{LoggerBase}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlogging_1_1LoggerBase}{LoggerBase}}\&\ \mbox{\hyperlink{classlogging_1_1LoggerBase_a9d4fb59aefa410d95c8ac2b5676caeb9}{operator<<}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlogging_1_1LoggerBase}{LoggerBase}}\&\ \mbox{\hyperlink{classlogging_1_1LoggerBase_aeadd8adf2ecc68774e630fa236abcd61}{operator<<}}(\mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\_logger\_color}})\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlogging_1_1LoggerWrapper_afc632457b025f0bb9753252041b7d550}{LoggerWrapper}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlogging_1_1LoggerBase}{LoggerBase}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogging_1_1LoggerWrapper_afc632457b025f0bb9753252041b7d550}{LoggerWrapper}}():\ \_logger\{\}\ \{\}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogging_1_1LoggerWrapper_a2c1a405aa1924d48cc30c81a83aff9e4}{LoggerWrapper}}(T*\ logger\_interface):\ \_logger(logger\_interface)\ \{\};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogging_1_1LoggerWrapper_afc632457b025f0bb9753252041b7d550}{LoggerWrapper}}\&\ \mbox{\hyperlink{classlogging_1_1LoggerWrapper_a82cecd382646f28633257318880c2b01}{operator\ <<}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ *\_logger\ <<\ str;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogging_1_1LoggerWrapper_afc632457b025f0bb9753252041b7d550}{LoggerWrapper}}\&\ \mbox{\hyperlink{classlogging_1_1LoggerWrapper_a6bf2177ca9ddd58b9484b3a14ab98c41}{operator<<}}(\mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\_logger\_color}}\ color)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ *\_logger\ <<\ color;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ T\ *\_logger;}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\_logger}}\ \ \ \ \ \ \ =\ \mbox{\hyperlink{classlogging_1_1LoggerBase}{LoggerBase}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\_logger}}\ *\mbox{\hyperlink{namespacelogging_a3350125d41b6824e9a48b0cba91624c2}{g\_logger}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f}{DEBUG}}\ =\ 0,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562}{INFO}}\ \ =\ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f}{DEBUG}}\ +\ 1,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3}{WARN}}\ \ =\ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562}{INFO}}\ +\ 1,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fabef691e55fd1813b7540614e718ab7f1}{ERROR}}\ =\ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3}{WARN}}\ +\ 1,}
+\DoxyCodeLine{00056\ \ \ \ \ \}\ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\_log\_level}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\_logger\_color}}\ \mbox{\hyperlink{namespacelogging_a15f50b6461121338397fe0cbcec19268}{log\_color\_map}}[4];}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespacelogging_a0bc62e748c9bc02b99d33d3709139ee3}{log\_message\_map}}[4];}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00075\ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelogging_aefa4c3eccb695e5cec62f0bf37e2f9aa}{set\_logger}}(T\&\ logger)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlogging_1_1LoggerWrapper}{LoggerWrapper<T>}}\ static\_logger;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ static\_logger\ =\ \mbox{\hyperlink{classlogging_1_1LoggerWrapper}{LoggerWrapper<T>}}\{\&logger\};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogging_a3350125d41b6824e9a48b0cba91624c2}{g\_logger}}\ =\ \&static\_logger;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\_logger}}\ \&\mbox{\hyperlink{namespacelogging_ad7fd1d7f9fcfed112f3a42ff5d50de1d}{get\_logger}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TArgs>}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}{printk}}(\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\_log\_level}}\ log\_level,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespaceformat}{format}},\ TArgs...\ args)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ buffer[\mbox{\hyperlink{logging_8hpp_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&\ \ \ \ \ \ logger\ =\ \mbox{\hyperlink{namespacelogging_ad7fd1d7f9fcfed112f3a42ff5d50de1d}{get\_logger}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ logger\ <<\ \textcolor{stringliteral}{"{}["{}}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#ifndef\ KFS\_HOST\_TEST}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacelogging_a15f50b6461121338397fe0cbcec19268}{log\_color\_map}}[log\_level]}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacelogging_a0bc62e748c9bc02b99d33d3709139ee3}{log\_message\_map}}[log\_level]}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#ifndef\ KFS\_HOST\_TEST}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a5f374a4a964c2eb29d138b541e17da79}{vga::color::color\_set::DEFAULT}}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}]:\ "{}};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ endbuffer\ =\ \mbox{\hyperlink{namespaceformat_af87dfa0efef75c15b6a604e608e47a16}{format::fmt}}(buffer,\ \mbox{\hyperlink{namespaceformat}{format}},\ args...);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ logger\ <<\ buffer\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ endbuffer\ -\/\ buffer\ +\ 9\ +\ 1;}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TArgs>}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacelogging_afd472d09a34c0ed99bb7fe6e1b574044}{debug}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespaceformat}{format}},\ TArgs...\ args)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}{printk}}(\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f}{DEBUG}},\ \mbox{\hyperlink{namespaceformat}{format}},\ args...);}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TArgs>}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacelogging_a9fa141ac1193aca6403bab4bc6170529}{info}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespaceformat}{format}},\ TArgs...\ args)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}{printk}}(\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562}{INFO}},\ \mbox{\hyperlink{namespaceformat}{format}},\ args...);}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TArgs>}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacelogging_abe960700ae2cdf3eba2c63f784d92e8f}{warn}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespaceformat}{format}},\ TArgs...\ args)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}{printk}}(\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3}{WARN}},\ \mbox{\hyperlink{namespaceformat}{format}},\ args...);}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TArgs>}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacelogging_a6ef1936d20a9b8e4c40edf074e0ecce9}{error}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespaceformat}{format}},\ TArgs...\ args)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}{printk}}(\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fabef691e55fd1813b7540614e718ab7f1}{ERROR}},\ \mbox{\hyperlink{namespaceformat}{format}},\ args...);}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_LOG\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,117 @@
+\doxysection{keyboard\+Handler.\+hpp}
+\hypertarget{keyboardHandler_8hpp_source}{}\label{keyboardHandler_8hpp_source}\index{src/lib/keyboard/keyboardHandler.hpp@{src/lib/keyboard/keyboardHandler.hpp}}
+\mbox{\hyperlink{keyboardHandler_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ alice\ on\ 21/12/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_KEYBOARDHANDLER\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_KEYBOARDHANDLER\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stdint_8hpp}{include/stdint.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{port_8hpp}{lib/port/port.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{VGAMonitor_8hpp}{lib/vga/VGAMonitor.hpp}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classvga_1_1VGAMonitor}{vga::VGAMonitor}}\ *\mbox{\hyperlink{keyboardHandler_8cpp_abbc063d4fb42463fd82cf5a6c6aa432a}{g\_monitor}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacekbd}{kbd}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ keyboard\_data\_port\ =\ 0x60;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structkbd_1_1KeyMapping}{KeyMapping}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{structkbd_1_1KeyMapping_a9a375266d4649dcf1a37f49263411226}{scancode}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{structkbd_1_1KeyMapping_ad8834e0804023c9746cd21e5134666c1}{normal}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{structkbd_1_1KeyMapping_afea5d5e47e48a7b823bfe4c2b2ae54cd}{shifted}};}
+\DoxyCodeLine{00021\ \ \ \ \ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_a379b33876c70c45007fdd9399d6cb345}{up}}\ \ \ \ \ \ \ \ =\ 128;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_a4c3ebe55216242e4f460c57095104e3c}{down}}\ \ \ \ \ \ =\ 129;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_af7459842b72afd3a3c54904df6ee7363}{left}}\ \ \ \ \ \ =\ 130;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_ab0e26587e9d1bc75e2ed0a2de676e64d}{right}}\ \ \ \ \ =\ 131;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_a6a4ad55c6abc8516a5fc22c3d5b17544}{ctrl}}\ \ \ \ \ \ =\ 132;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_a6293459fa2e5ddbdb125dc96b6e416e1}{alt}}\ \ \ \ \ \ \ =\ 133;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_ab803679165609459b58d407e8c4b8775}{lshift}}\ \ \ \ =\ 134;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_a602b1c0d62abd9ed2efe91273e8d9949}{rshift}}\ \ \ \ =\ 135;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_a2ebdaf844e28c26fb4d5e0dde60d5a59}{capslock}}\ \ =\ 136;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacekbd_ace44d16c9fb084702e57c00eecdd2984}{backspace}}\ =\ 137;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structkbd_1_1KeyMapping}{KeyMapping}}\ \mbox{\hyperlink{namespacekbd_ae5b7492b3aa131544b5da761dcb04520}{keymap}}[]\ =\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \{0x01,\ 27,\ 27\},}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \{0x02,\ \textcolor{charliteral}{'1'},\ \textcolor{charliteral}{'!'}\},}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{0x03,\ \textcolor{charliteral}{'2'},\ \textcolor{charliteral}{'@'}\},}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{0x04,\ \textcolor{charliteral}{'3'},\ \textcolor{charliteral}{'\#'}\},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \{0x05,\ \textcolor{charliteral}{'4'},\ \textcolor{charliteral}{'\$'}\},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{0x06,\ \textcolor{charliteral}{'5'},\ \textcolor{charliteral}{'\%'}\},}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \{0x07,\ \textcolor{charliteral}{'6'},\ \textcolor{charliteral}{'\string^'}\},}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{0x08,\ \textcolor{charliteral}{'7'},\ \textcolor{charliteral}{'\&'}\},}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{0x09,\ \textcolor{charliteral}{'8'},\ \textcolor{charliteral}{'*'}\},}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{0x0A,\ \textcolor{charliteral}{'9'},\ \textcolor{charliteral}{'('}\},}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{0x0B,\ \textcolor{charliteral}{'0'},\ \textcolor{charliteral}{')'}\},}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{0x0C,\ \textcolor{charliteral}{'-\/'},\ \textcolor{charliteral}{'\_'}\},}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \{0x0D,\ \textcolor{charliteral}{'='},\ \textcolor{charliteral}{'+'}\},}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{0x0E,\ \textcolor{charliteral}{'\(\backslash\)b'},\ \textcolor{charliteral}{'\(\backslash\)b'}\},}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{0x0F,\ \textcolor{charliteral}{'\(\backslash\)t'},\ \textcolor{charliteral}{'\(\backslash\)t'}\},}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{0x10,\ \textcolor{charliteral}{'q'},\ \textcolor{charliteral}{'Q'}\},}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{0x11,\ \textcolor{charliteral}{'w'},\ \textcolor{charliteral}{'W'}\},}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{0x12,\ \textcolor{charliteral}{'e'},\ \textcolor{charliteral}{'E'}\},}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{0x13,\ \textcolor{charliteral}{'r'},\ \textcolor{charliteral}{'R'}\},}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{0x14,\ \textcolor{charliteral}{'t'},\ \textcolor{charliteral}{'T'}\},}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{0x15,\ \textcolor{charliteral}{'y'},\ \textcolor{charliteral}{'Y'}\},}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{0x16,\ \textcolor{charliteral}{'u'},\ \textcolor{charliteral}{'U'}\},}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \{0x17,\ \textcolor{charliteral}{'i'},\ \textcolor{charliteral}{'I'}\},}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{0x18,\ \textcolor{charliteral}{'o'},\ \textcolor{charliteral}{'O'}\},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \{0x19,\ \textcolor{charliteral}{'p'},\ \textcolor{charliteral}{'P'}\},}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \{0x1A,\ \textcolor{charliteral}{'['},\ \textcolor{charliteral}{'\{'}\},}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \{0x1B,\ \textcolor{charliteral}{']'},\ \textcolor{charliteral}{'\}'}\},}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \{0x1C,\ \textcolor{charliteral}{'\(\backslash\)n'},\ \textcolor{charliteral}{'\(\backslash\)n'}\},}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{0x1E,\ \textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'A'}\},}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{0x1F,\ \textcolor{charliteral}{'s'},\ \textcolor{charliteral}{'S'}\},}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \{0x20,\ \textcolor{charliteral}{'d'},\ \textcolor{charliteral}{'D'}\},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \{0x21,\ \textcolor{charliteral}{'f'},\ \textcolor{charliteral}{'F'}\},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{0x22,\ \textcolor{charliteral}{'g'},\ \textcolor{charliteral}{'G'}\},}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{0x23,\ \textcolor{charliteral}{'h'},\ \textcolor{charliteral}{'H'}\},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{0x24,\ \textcolor{charliteral}{'j'},\ \textcolor{charliteral}{'J'}\},}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{0x25,\ \textcolor{charliteral}{'k'},\ \textcolor{charliteral}{'K'}\},}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{0x26,\ \textcolor{charliteral}{'l'},\ \textcolor{charliteral}{'L'}\},}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{0x27,\ \textcolor{charliteral}{';'},\ \textcolor{charliteral}{':'}\},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \{0x28,\ \textcolor{charliteral}{'\(\backslash\)''},\ \textcolor{charliteral}{'"{}'}\},}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \{0x29,\ \textcolor{charliteral}{'`'},\ \textcolor{charliteral}{'\string~'}\},}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{0x2B,\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'},\ \textcolor{charliteral}{'|'}\},}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{0x2C,\ \textcolor{charliteral}{'z'},\ \textcolor{charliteral}{'Z'}\},}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \{0x2D,\ \textcolor{charliteral}{'x'},\ \textcolor{charliteral}{'X'}\},}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \{0x2E,\ \textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'C'}\},}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{0x2F,\ \textcolor{charliteral}{'v'},\ \textcolor{charliteral}{'V'}\},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{0x30,\ \textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'B'}\},}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{0x31,\ \textcolor{charliteral}{'n'},\ \textcolor{charliteral}{'N'}\},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{0x32,\ \textcolor{charliteral}{'m'},\ \textcolor{charliteral}{'M'}\},}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \{0x33,\ \textcolor{charliteral}{','},\ \textcolor{charliteral}{'<'}\},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \{0x34,\ \textcolor{charliteral}{'.'},\ \textcolor{charliteral}{'>'}\},}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \{0x35,\ \textcolor{charliteral}{'/'},\ \textcolor{charliteral}{'?'}\},}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \{0x39,\ \textcolor{charliteral}{'\ '},\ \textcolor{charliteral}{'\ '}\},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrow}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \{0x48,\ \mbox{\hyperlink{namespacekbd_a379b33876c70c45007fdd9399d6cb345}{up}},\ \mbox{\hyperlink{namespacekbd_a379b33876c70c45007fdd9399d6cb345}{up}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Up\ arrow}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \{0x50,\ \mbox{\hyperlink{namespacekbd_a4c3ebe55216242e4f460c57095104e3c}{down}},\ \mbox{\hyperlink{namespacekbd_a4c3ebe55216242e4f460c57095104e3c}{down}}\},\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Down\ arrow}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \{0x4B,\ \mbox{\hyperlink{namespacekbd_af7459842b72afd3a3c54904df6ee7363}{left}},\ \mbox{\hyperlink{namespacekbd_af7459842b72afd3a3c54904df6ee7363}{left}}\},\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Left\ arrow}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{0x4D,\ \mbox{\hyperlink{namespacekbd_ab0e26587e9d1bc75e2ed0a2de676e64d}{right}},\ \mbox{\hyperlink{namespacekbd_ab0e26587e9d1bc75e2ed0a2de676e64d}{right}}\},\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Right\ arrow}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ctrl,\ alt,\ shift...}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{0x3A,\ \mbox{\hyperlink{namespacekbd_a2ebdaf844e28c26fb4d5e0dde60d5a59}{capslock}},\ \mbox{\hyperlink{namespacekbd_a2ebdaf844e28c26fb4d5e0dde60d5a59}{capslock}}\},\ \ \textcolor{comment}{//\ CapsLock}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \{0x1D,\ \mbox{\hyperlink{namespacekbd_a6a4ad55c6abc8516a5fc22c3d5b17544}{ctrl}},\ \mbox{\hyperlink{namespacekbd_a6a4ad55c6abc8516a5fc22c3d5b17544}{ctrl}}\},\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ LCtrl}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{0x38,\ \mbox{\hyperlink{namespacekbd_a6293459fa2e5ddbdb125dc96b6e416e1}{alt}},\ \mbox{\hyperlink{namespacekbd_a6293459fa2e5ddbdb125dc96b6e416e1}{alt}}\},\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ LAlt}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{0x36,\ \mbox{\hyperlink{namespacekbd_a602b1c0d62abd9ed2efe91273e8d9949}{rshift}},\ \mbox{\hyperlink{namespacekbd_a602b1c0d62abd9ed2efe91273e8d9949}{rshift}}\},\ \ \ \ \ \ \textcolor{comment}{//\ RShift}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{0x2A,\ \mbox{\hyperlink{namespacekbd_ab803679165609459b58d407e8c4b8775}{lshift}},\ \mbox{\hyperlink{namespacekbd_ab803679165609459b58d407e8c4b8775}{lshift}}\},\ \ \ \ \ \ \textcolor{comment}{//\ LShift}}
+\DoxyCodeLine{00099\ \ \ \ \ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacekbd_a5ea8d18417e69f49c9c4706913fb1606}{keyboard}}[138]\ =\ \{\textcolor{keyword}{false}\};\ \textcolor{comment}{//\ keep\ trace\ of\ which\ key\ is\ pressed\ or\ not}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacekbd_a2cfcfcbdc1786b4c4d4f630bf23e3b5e}{screen\_container\_type}}\ =\ \mbox{\hyperlink{classcontainer_1_1Array}{container::Array<vga::VGAMonitor,\ 4>}};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacekbd_a775a6d21f5d91d453d9dec49e8b7e5bb}{screen\_container\_iterator\_type}}\ =\ \mbox{\hyperlink{classcontainer_1_1Array_add940d252c051bddaffc5a4e39bd73de}{screen\_container\_type::iterator}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacekbd_a41ae1ab500e0e4201ad417bb11dbce8a}{handler}}(\mbox{\hyperlink{namespacekbd_a2cfcfcbdc1786b4c4d4f630bf23e3b5e}{screen\_container\_type}}\&\ monitors,\ \mbox{\hyperlink{namespacekbd_a775a6d21f5d91d453d9dec49e8b7e5bb}{screen\_container\_iterator\_type}}\ \&current\_screen\_iter);}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_KEYBOARDHANDLER\_HPP}}
+
+\end{DoxyCode}

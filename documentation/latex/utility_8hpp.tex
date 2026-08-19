@@ -1,0 +1,29 @@
+\doxysection{src/lib/utility/utility.hpp File Reference}
+\hypertarget{utility_8hpp}{}\label{utility_8hpp}\index{src/lib/utility/utility.hpp@{src/lib/utility/utility.hpp}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structutility_1_1remove__reference}{utility\+::remove\+\_\+reference$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structutility_1_1remove__reference_3_01T_01_6_01_4}{utility\+::remove\+\_\+reference$<$ T \& $>$}}
+\item 
+struct \mbox{\hyperlink{structutility_1_1remove__reference_3_01T_01_6_6_01_4}{utility\+::remove\+\_\+reference$<$ T \&\& $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceutility}{utility}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&\& \mbox{\hyperlink{namespaceutility_ae098fee6f93bd081ac555843cbe3963d}{utility\+::move}} (T \&\&a)
+\item 
+{\footnotesize template$<$typename T$>$ }\\T \&\& \mbox{\hyperlink{namespaceutility_aaa92e5278257837cdcfd3183b8bee036}{utility\+::forward}} (typename \mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&a)
+\item 
+{\footnotesize template$<$typename T$>$ }\\constexpr T \&\& \mbox{\hyperlink{namespaceutility_a5145fd9c7d71296d5309c791a7b52974}{utility\+::forward}} (typename \mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&\&a)
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{namespaceutility_ac35553d24bf3634e26c361e98028f23b}{utility\+::swap}} (T \&\&a, T \&\&b)
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{namespaceutility_a74c779522d08e1d2043355f9ea6c8439}{utility\+::swap}} (T \&a, T \&b)
+\end{DoxyCompactItemize}

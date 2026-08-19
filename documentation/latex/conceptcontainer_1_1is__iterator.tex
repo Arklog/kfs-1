@@ -1,0 +1,44 @@
+\doxysection{container\+::is\+\_\+iterator Concept Reference}
+\hypertarget{conceptcontainer_1_1is__iterator}{}\label{conceptcontainer_1_1is__iterator}\index{container::is\_iterator@{container::is\_iterator}}
+
+
+{\ttfamily \#include $<$concept.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptcontainer_1_1is__iterator}{container::is\_iterator}}\ =\ \ \textcolor{keyword}{requires}(T\ a,\ T\ b)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ ++a\ \}\ -\/>\ \mbox{\hyperlink{conceptutility_1_1same__as}{utility::same\_as<T\&>}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a++\ \}\ -\/>\ \mbox{\hyperlink{conceptutility_1_1same__as}{utility::same\_as<T>}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ -\/-\/a\ \}\ -\/>\ utility::same\_as<T\&>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a-\/-\/\ \}\ -\/>\ utility::same\_as<T>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ *a\ \}\ -\/>\ utility::same\_as<typename\ T::reference\_type\&>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ ==\ b\ \}\ -\/>\ utility::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ !=\ b\ \}\ -\/>\ utility::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ >\ b\ \}\ -\/>\ utility::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ <\ b\ \}\ -\/>\ utility::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ >=\ b\ \}\ -\/>\ utility::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ <=\ b\ \}\ -\/>\ utility::same\_as<bool>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ +\ 1\ \}\ -\/>\ utility::same\_as<T>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ -\/\ 1\ \}\ -\/>\ utility::same\_as<T>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a\ -\/\ b\ \}\ -\/>\ utility::same\_as<int>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{keyword}{static\_cast<}typename\ T::pointer\_type\textcolor{keyword}{>}(a)\}\ -\/>\ utility::same\_as<typename\ T::pointer\_type>;}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Check if a type is a valid iterator
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type to check \\
+\hline
+\end{DoxyTemplParams}

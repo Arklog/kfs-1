@@ -1,0 +1,27 @@
+\doxysection{container\+::is\+\_\+pair Concept Reference}
+\hypertarget{conceptcontainer_1_1is__pair}{}\label{conceptcontainer_1_1is__pair}\index{container::is\_pair@{container::is\_pair}}
+
+
+{\ttfamily \#include $<$concept.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptcontainer_1_1is__pair}{container::is\_pair}}\ =\ \ \textcolor{keyword}{requires}(T\ a)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a.first\ \}\ -\/>\ \mbox{\hyperlink{conceptutility_1_1same__as}{utility::same\_as<typename\ T::first\_type\&>}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a.second\ \}\ -\/>\ \mbox{\hyperlink{conceptutility_1_1same__as}{utility::same\_as<typename\ T::second\_type\&>}};}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Check if a type is a valid pair
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type to check \\
+\hline
+\end{DoxyTemplParams}

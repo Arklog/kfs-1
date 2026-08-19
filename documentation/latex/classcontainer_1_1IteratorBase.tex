@@ -1,0 +1,324 @@
+\doxysection{container\+::Iterator\+Base\texorpdfstring{$<$}{<} Derived, T, Pointer, Reference \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classcontainer_1_1IteratorBase}{}\label{classcontainer_1_1IteratorBase}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+
+
+{\ttfamily \#include $<$Iterator.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcontainer_1_1IteratorBase_a700abfcea00b4407c142af3d38231791}{value\+\_\+type}} = T
+\item 
+using \mbox{\hyperlink{classcontainer_1_1IteratorBase_a920cfaa6731f36f433010aac90432a02}{pointer\+\_\+type}} = Pointer
+\item 
+using \mbox{\hyperlink{classcontainer_1_1IteratorBase_ad5aec728dcc28a54aa77549b9be76797}{reference\+\_\+type}} = Reference
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcontainer_1_1IteratorBase_aaadc4860c4bf9a0aa95240165c5a0096}{\texorpdfstring{$\sim$}{\string~}\+Iterator\+Base}} ()=default
+\item 
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase_a2de13d1c5e99b352d494822fcb4ee112}{operator=}} (const Derived \&other)=0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_a0c96e81f98829f88cebdd53cb26dec30}{operator==}} (const Derived \&other) const =0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_adf55823af3da0afd969bd94c5cf46c60}{operator!=}} (const Derived \&other) const =0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_a1f724970204aabbfb0174473ce548f5c}{operator==}} (Pointer other) const =0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_a39d0735e5c174b8e7888fc06c721f907}{operator!=}} (Pointer other) const =0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_a6ca5fc42291fdb9cb59930a398d7299e}{operator$>$}} (const Derived \&other) const =0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_ac20717267dd8d41293179601c99b45b5}{operator$<$}} (const Derived \&other) const =0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_a0261aaaf234f2d7793dad815da7690eb}{operator$>$=}} (const Derived \&other) const =0
+\item 
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase_ab5a1add0832308fdf141a8e4a9641e99}{operator$<$=}} (const Derived \&other) const =0
+\item 
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase_a0e762c47b7b9a7ea107533ec4734b7dd}{operator++}} ()=0
+\item 
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase_ad94adf02c1e2de9b8b1fbc060b234c72}{operator++}} (int)=0
+\item 
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase_a1512090d60657a40aa22c454729a6dbd}{operator-\/-\/}} ()=0
+\item 
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase_a2e53b57e4a5f6ba805a364d8dfcc18ec}{operator-\/-\/}} (int)=0
+\item 
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase_a0f814a73447b908fbe078c38f63cc2cf}{operator+}} (int) const =0
+\item 
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase_a2d0de0447f8d3675dd82f2f7389a3ad7}{operator-\/}} (int) const =0
+\item 
+virtual int \mbox{\hyperlink{classcontainer_1_1IteratorBase_af75845f646fbcbc9a5dbba49c3b430f5}{operator-\/}} (const Derived \&) const =0
+\item 
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase_a5aaf5ad104ab66207b59ea9e9f973334}{operator+=}} (int)=0
+\item 
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase_a8401ec519528a589b9964f07e8a6c042}{operator-\/=}} (int)=0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1IteratorBase_ad5aec728dcc28a54aa77549b9be76797}{reference\+\_\+type}} \mbox{\hyperlink{classcontainer_1_1IteratorBase_af2afabdd2403bb0142ae53e3ab86a707}{operator\texorpdfstring{$\ast$}{*}}} () const =0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1IteratorBase_a5418beff8761ed5ea938ccc266e23e93}{operator pointer\+\_\+type}} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Derived, typename T, typename Pointer, typename Reference$>$\newline
+class container\+::\+Iterator\+Base$<$ Derived, T, Pointer, Reference $>$}
+Base iterator class 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Derived} & \\
+\hline
+{\em T} & The type of data, the iterator point on \\
+\hline
+{\em Pointer} & The data pointer type \\
+\hline
+{\em Reference} & The data reference type \\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{doc-typedef-members}
+\Hypertarget{classcontainer_1_1IteratorBase_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classcontainer_1_1IteratorBase_a920cfaa6731f36f433010aac90432a02}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!pointer\_type@{pointer\_type}}
+\index{pointer\_type@{pointer\_type}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{pointer\_type}{pointer\_type}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a920cfaa6731f36f433010aac90432a02} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+using \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::pointer\+\_\+type = Pointer}
+
+\Hypertarget{classcontainer_1_1IteratorBase_ad5aec728dcc28a54aa77549b9be76797}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!reference\_type@{reference\_type}}
+\index{reference\_type@{reference\_type}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{reference\_type}{reference\_type}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_ad5aec728dcc28a54aa77549b9be76797} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+using \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::reference\+\_\+type = Reference}
+
+\Hypertarget{classcontainer_1_1IteratorBase_a700abfcea00b4407c142af3d38231791}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a700abfcea00b4407c142af3d38231791} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+using \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::value\+\_\+type = T}
+
+
+
+\label{doc-constructors}
+\Hypertarget{classcontainer_1_1IteratorBase_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcontainer_1_1IteratorBase_aaadc4860c4bf9a0aa95240165c5a0096}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!````~IteratorBase@{\texorpdfstring{$\sim$}{\string~}IteratorBase}}
+\index{````~IteratorBase@{\texorpdfstring{$\sim$}{\string~}IteratorBase}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IteratorBase()}{\string~IteratorBase()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_aaadc4860c4bf9a0aa95240165c5a0096} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+\mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classcontainer_1_1IteratorBase}{Iterator\+Base}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcontainer_1_1IteratorBase_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcontainer_1_1IteratorBase_a5418beff8761ed5ea938ccc266e23e93}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator pointer\_type@{operator pointer\_type}}
+\index{operator pointer\_type@{operator pointer\_type}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator pointer\_type()}{operator pointer\_type()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a5418beff8761ed5ea938ccc266e23e93} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator \mbox{\hyperlink{classcontainer_1_1IteratorBase_a920cfaa6731f36f433010aac90432a02}{pointer\+\_\+type}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_a982308857e5ee2b0e86e14ac31de363c}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a982308857e5ee2b0e86e14ac31de363c}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_adf55823af3da0afd969bd94c5cf46c60}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_adf55823af3da0afd969bd94c5cf46c60} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const Derived \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_aa2c5784f13b9153ef7fb69509ec44f5c}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_aa2c5784f13b9153ef7fb69509ec44f5c}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a39d0735e5c174b8e7888fc06c721f907}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a39d0735e5c174b8e7888fc06c721f907} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator!= (\begin{DoxyParamCaption}\item[{Pointer}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classcontainer_1_1IteratorBase_af2afabdd2403bb0142ae53e3ab86a707}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_af2afabdd2403bb0142ae53e3ab86a707} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1IteratorBase_ad5aec728dcc28a54aa77549b9be76797}{reference\+\_\+type}} \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_af686b81d7e66c9a17f00cc626ee249e9}{container\+::\+Contiguous\+Const\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a47e67f0c1bc32699e978f34d140efb1f}{container\+::\+Contiguous\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1PairIterator_ace8c5999a6447a4196f8e31c190cdf00}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_ace8c5999a6447a4196f8e31c190cdf00}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a0f814a73447b908fbe078c38f63cc2cf}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a0f814a73447b908fbe078c38f63cc2cf} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator+ (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a08102a0a501b495f1cc3d21e69903fe4}{container\+::\+Contiguous\+Const\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a483b5334b2289ba35f882b642b4a341e}{container\+::\+Contiguous\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1PairIterator_a113a96aed8b2adbc77bbbfcaa7a02f0b}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a113a96aed8b2adbc77bbbfcaa7a02f0b}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a0e762c47b7b9a7ea107533ec4734b7dd}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a0e762c47b7b9a7ea107533ec4734b7dd} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator++ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ac9bafaef3407a3fd7ff85fc2cdbf0706}{container\+::\+Contiguous\+Const\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a5d99a06739971791d9d083a9d5d1c301}{container\+::\+Contiguous\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1PairIterator_aa084d8aa6fe05f4f9840394d37aa4dbc}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_aa084d8aa6fe05f4f9840394d37aa4dbc}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_ad94adf02c1e2de9b8b1fbc060b234c72}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_ad94adf02c1e2de9b8b1fbc060b234c72} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classcontainer_1_1IteratorBase_a5aaf5ad104ab66207b59ea9e9f973334}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a5aaf5ad104ab66207b59ea9e9f973334} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator+= (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a2aa9b2dcabdaf271ecd37e2fd89e3052}{container\+::\+Contiguous\+Const\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a16c97e8ca87f3468b12434827f1ae674}{container\+::\+Contiguous\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1PairIterator_a50e9118afaccb9566a4966c43f3d7ac9}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a50e9118afaccb9566a4966c43f3d7ac9}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_af75845f646fbcbc9a5dbba49c3b430f5}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_af75845f646fbcbc9a5dbba49c3b430f5} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual int \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const Derived \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classcontainer_1_1IteratorBase_a2d0de0447f8d3675dd82f2f7389a3ad7}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a2d0de0447f8d3675dd82f2f7389a3ad7} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ad6ffb3ea4af904cf08215f28f9e5b166}{container\+::\+Contiguous\+Const\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a832ad5b270d4ea9c63e9806776b3ea74}{container\+::\+Contiguous\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1PairIterator_a9f130a8ffa3a2dd5503c7e1fbb5bb9ce}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a9f130a8ffa3a2dd5503c7e1fbb5bb9ce}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a1512090d60657a40aa22c454729a6dbd}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a1512090d60657a40aa22c454729a6dbd} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator-\/-\/ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a75c252cda43cd4bcd81cd07801d2576b}{container\+::\+Contiguous\+Const\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a3ed5e3d7d90d2d34123ac33afcaa9a98}{container\+::\+Contiguous\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1PairIterator_ac2cf85758d5fff774ff266355df08c7f}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_ac2cf85758d5fff774ff266355df08c7f}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a2e53b57e4a5f6ba805a364d8dfcc18ec}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a2e53b57e4a5f6ba805a364d8dfcc18ec} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classcontainer_1_1IteratorBase_a8401ec519528a589b9964f07e8a6c042}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a8401ec519528a589b9964f07e8a6c042} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_aa86c23cc1c20cfd2de9a83be814c6f65}{container\+::\+Contiguous\+Const\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a7fe9f591d1df349571a958212b458bae}{container\+::\+Contiguous\+Iterator$<$ T, Pointer, Reference $>$}}, \mbox{\hyperlink{classcontainer_1_1PairIterator_abb1c377351a9b1e167e46cafe040788b}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_abb1c377351a9b1e167e46cafe040788b}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_ac20717267dd8d41293179601c99b45b5}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_ac20717267dd8d41293179601c99b45b5} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const Derived \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_a2df1d1cd18b33e361bb1b484019178a0}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a2df1d1cd18b33e361bb1b484019178a0}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_ab5a1add0832308fdf141a8e4a9641e99}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_ab5a1add0832308fdf141a8e4a9641e99} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator$<$= (\begin{DoxyParamCaption}\item[{const Derived \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_a2e2b053950db8a6ef1a782807c8001da}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a2e2b053950db8a6ef1a782807c8001da}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a2de13d1c5e99b352d494822fcb4ee112}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a2de13d1c5e99b352d494822fcb4ee112} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual Derived \& \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator= (\begin{DoxyParamCaption}\item[{const Derived \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_a9ca808b45dfc2e54e180028d3a908ce0}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a9ca808b45dfc2e54e180028d3a908ce0}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a0c96e81f98829f88cebdd53cb26dec30}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a0c96e81f98829f88cebdd53cb26dec30} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator== (\begin{DoxyParamCaption}\item[{const Derived \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_aca3a2640573e400b2a1ddfbaae464f56}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_aca3a2640573e400b2a1ddfbaae464f56}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a1f724970204aabbfb0174473ce548f5c}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a1f724970204aabbfb0174473ce548f5c} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator== (\begin{DoxyParamCaption}\item[{Pointer}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classcontainer_1_1IteratorBase_a6ca5fc42291fdb9cb59930a398d7299e}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a6ca5fc42291fdb9cb59930a398d7299e} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator$>$ (\begin{DoxyParamCaption}\item[{const Derived \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_a06d4fbf5f007ea2b9d9fb20d5c909407}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_a06d4fbf5f007ea2b9d9fb20d5c909407}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+\Hypertarget{classcontainer_1_1IteratorBase_a0261aaaf234f2d7793dad815da7690eb}\index{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!container::IteratorBase$<$ Derived, T, Pointer, Reference $>$@{container::IteratorBase$<$ Derived, T, Pointer, Reference $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1IteratorBase_a0261aaaf234f2d7793dad815da7690eb} 
+template$<$typename Derived, typename T, typename Pointer, typename Reference$>$ \\
+virtual bool \mbox{\hyperlink{classcontainer_1_1IteratorBase}{container\+::\+Iterator\+Base}}$<$ Derived, T, Pointer, Reference $>$\+::operator$>$= (\begin{DoxyParamCaption}\item[{const Derived \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1PairIterator_ae35821651b4d59895602c162c299420d}{container\+::\+Pair\+Iterator$<$ T $>$}}, and \mbox{\hyperlink{classcontainer_1_1PairIterator_ae35821651b4d59895602c162c299420d}{container\+::\+Pair\+Iterator$<$ pair$<$ T, U $>$ $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/lib/container/iterator/\mbox{\hyperlink{Iterator_8hpp}{Iterator.\+hpp}}\end{DoxyCompactItemize}

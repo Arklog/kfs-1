@@ -1,0 +1,67 @@
+\doxysection{src/lib/keyboard/keyboard\+Handler.hpp File Reference}
+\hypertarget{keyboardHandler_8hpp}{}\label{keyboardHandler_8hpp}\index{src/lib/keyboard/keyboardHandler.hpp@{src/lib/keyboard/keyboardHandler.hpp}}
+{\ttfamily \#include "{}include/stdint.\+hpp"{}}\newline
+{\ttfamily \#include "{}lib/port/port.\+hpp"{}}\newline
+{\ttfamily \#include "{}lib/vga/\+VGAMonitor.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structkbd_1_1KeyMapping}{kbd\+::\+Key\+Mapping}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacekbd}{kbd}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacekbd_a2cfcfcbdc1786b4c4d4f630bf23e3b5e}{kbd\+::screen\+\_\+container\+\_\+type}} = \mbox{\hyperlink{classcontainer_1_1Array}{container\+::\+Array}}$<$\mbox{\hyperlink{classvga_1_1VGAMonitor}{vga\+::\+VGAMonitor}}, 4$>$
+\item 
+using \mbox{\hyperlink{namespacekbd_a775a6d21f5d91d453d9dec49e8b7e5bb}{kbd\+::screen\+\_\+container\+\_\+iterator\+\_\+type}} = \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{screen\+\_\+container\+\_\+type\+::iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacekbd_a41ae1ab500e0e4201ad417bb11dbce8a}{kbd\+::handler}} (\mbox{\hyperlink{namespacekbd_a2cfcfcbdc1786b4c4d4f630bf23e3b5e}{screen\+\_\+container\+\_\+type}} \&monitors, \mbox{\hyperlink{namespacekbd_a775a6d21f5d91d453d9dec49e8b7e5bb}{screen\+\_\+container\+\_\+iterator\+\_\+type}} \&current\+\_\+screen\+\_\+iter)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{vga\+::\+VGAMonitor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{keyboardHandler_8hpp_abbc063d4fb42463fd82cf5a6c6aa432a}{g\+\_\+monitor}}
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_a379b33876c70c45007fdd9399d6cb345}{kbd\+::up}} = 128
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_a4c3ebe55216242e4f460c57095104e3c}{kbd\+::down}} = 129
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_af7459842b72afd3a3c54904df6ee7363}{kbd\+::left}} = 130
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_ab0e26587e9d1bc75e2ed0a2de676e64d}{kbd\+::right}} = 131
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_a6a4ad55c6abc8516a5fc22c3d5b17544}{kbd\+::ctrl}} = 132
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_a6293459fa2e5ddbdb125dc96b6e416e1}{kbd\+::alt}} = 133
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_ab803679165609459b58d407e8c4b8775}{kbd\+::lshift}} = 134
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_a602b1c0d62abd9ed2efe91273e8d9949}{kbd\+::rshift}} = 135
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_a2ebdaf844e28c26fb4d5e0dde60d5a59}{kbd\+::capslock}} = 136
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacekbd_ace44d16c9fb084702e57c00eecdd2984}{kbd\+::backspace}} = 137
+\item 
+constexpr \mbox{\hyperlink{structkbd_1_1KeyMapping}{Key\+Mapping}} \mbox{\hyperlink{namespacekbd_ae5b7492b3aa131544b5da761dcb04520}{kbd\+::keymap}} \mbox{[}$\,$\mbox{]}
+\item 
+bool \mbox{\hyperlink{namespacekbd_a5ea8d18417e69f49c9c4706913fb1606}{kbd\+::keyboard}} \mbox{[}138\mbox{]} = \{false\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{keyboardHandler_8hpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{keyboardHandler_8hpp_abbc063d4fb42463fd82cf5a6c6aa432a}\index{keyboardHandler.hpp@{keyboardHandler.hpp}!g\_monitor@{g\_monitor}}
+\index{g\_monitor@{g\_monitor}!keyboardHandler.hpp@{keyboardHandler.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_monitor}{g\_monitor}}
+{\footnotesize\ttfamily \label{keyboardHandler_8hpp_abbc063d4fb42463fd82cf5a6c6aa432a} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{vga\+::\+VGAMonitor}}\texorpdfstring{$\ast$}{*} g\+\_\+monitor\hspace{0.3cm}{\ttfamily [extern]}}
+

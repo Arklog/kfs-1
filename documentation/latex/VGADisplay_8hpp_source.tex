@@ -1,0 +1,41 @@
+\doxysection{VGADisplay.\+hpp}
+\hypertarget{VGADisplay_8hpp_source}{}\label{VGADisplay_8hpp_source}\index{src/lib/vga/VGADisplay.hpp@{src/lib/vga/VGADisplay.hpp}}
+\mbox{\hyperlink{VGADisplay_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ alice\ on\ 21/12/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_VGADISPLAY\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_VGADISPLAY\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stdint_8hpp}{include/stdint.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{port_8hpp}{lib/port/port.hpp}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ScrollbackBuffer_8hpp}{ScrollbackBuffer.hpp}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{VGACursor_8hpp}{VGACursor.hpp}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{VGAMonitor_8hpp}{VGAMonitor.hpp}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevga}{vga}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvga_1_1VGADisplay}{VGADisplay}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGADisplay_a32dc7d820c47dd337db68515cb5a5aa7}{clear}}(\textcolor{keywordtype}{int}\ page);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGADisplay_ab417f326e2fe3354c38c7a388a022f55}{render\_page}}(\textcolor{keywordtype}{int}\ page);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGADisplay_ada498195f45123064b1577d9c4e024a4}{render}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvga_1_1ScrollbackBuffer}{ScrollbackBuffer}}\ \&buffer,\ \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ view\_line,\ \textcolor{keywordtype}{int}\ page);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGADisplay_a77946b39023a50873fa5a172782fd20b}{update\_hw\_cursor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}}\ \&cursor,\ \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ view\_line,\ \textcolor{keywordtype}{int}\ page);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{/*\ \ \ \ \ private:\ */}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{unionvga_1_1t__vga__char}{t\_vga\_char}}*\ \mbox{\hyperlink{namespacevga}{vga}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvga_1_1VGADisplay_a189ee19d1a3a6a3570605ba1dc6f2fdd}{testing}};}
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_VGADISPLAY\_HPP}}
+
+\end{DoxyCode}

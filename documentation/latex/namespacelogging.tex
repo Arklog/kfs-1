@@ -1,0 +1,298 @@
+\doxysection{logging Namespace Reference}
+\hypertarget{namespacelogging}{}\label{namespacelogging}\index{logging@{logging}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlogging_1_1LoggerBase}{Logger\+Base}}
+\item 
+class \mbox{\hyperlink{classlogging_1_1LoggerWrapper}{Logger\+Wrapper}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\+\_\+logger\+\_\+color}} = \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ade1b0830d2452b8c45323e0b91fed91a}{vga\+::color\+::color\+\_\+set\+::t\+\_\+color\+\_\+set}}
+\item 
+using \mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\+\_\+logger}} = \mbox{\hyperlink{classlogging_1_1LoggerBase}{Logger\+Base}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\+\_\+log\+\_\+level}} \{ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f}{DEBUG}} = 0
+, \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562}{INFO}} = DEBUG + 1
+, \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3}{WARN}} = INFO + 1
+, \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fabef691e55fd1813b7540614e718ab7f1}{ERROR}} = WARN + 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\+\_\+logger}} \& \mbox{\hyperlink{namespacelogging_ad7fd1d7f9fcfed112f3a42ff5d50de1d}{get\+\_\+logger}} ()
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{namespacelogging_aefa4c3eccb695e5cec62f0bf37e2f9aa}{set\+\_\+logger}} (T \&logger)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}{printk}} (\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\+\_\+log\+\_\+level}} log\+\_\+level, const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_afd472d09a34c0ed99bb7fe6e1b574044}{debug}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_a9fa141ac1193aca6403bab4bc6170529}{info}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_abe960700ae2cdf3eba2c63f784d92e8f}{warn}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_a6ef1936d20a9b8e4c40edf074e0ecce9}{error}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\+\_\+logger\+\_\+color}} \mbox{\hyperlink{namespacelogging_a15f50b6461121338397fe0cbcec19268}{log\+\_\+color\+\_\+map}} \mbox{[}4\mbox{]}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacelogging_a0bc62e748c9bc02b99d33d3709139ee3}{log\+\_\+message\+\_\+map}} \mbox{[}4\mbox{]}
+\item 
+\mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\+\_\+logger}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacelogging_a3350125d41b6824e9a48b0cba91624c2}{g\+\_\+logger}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{namespacelogging_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}\index{logging@{logging}!t\_logger@{t\_logger}}
+\index{t\_logger@{t\_logger}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{t\_logger}{t\_logger}}
+{\footnotesize\ttfamily \label{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b} 
+using \mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{logging\+::t\+\_\+logger}} = \mbox{\hyperlink{classlogging_1_1LoggerBase}{Logger\+Base}}}
+
+\Hypertarget{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}\index{logging@{logging}!t\_logger\_color@{t\_logger\_color}}
+\index{t\_logger\_color@{t\_logger\_color}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{t\_logger\_color}{t\_logger\_color}}
+{\footnotesize\ttfamily \label{namespacelogging_a910b5de4c5fa33d9085613d8323b125c} 
+using \mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{logging\+::t\+\_\+logger\+\_\+color}} = \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ade1b0830d2452b8c45323e0b91fed91a}{vga\+::color\+::color\+\_\+set\+::t\+\_\+color\+\_\+set}}}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{namespacelogging_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}\index{logging@{logging}!t\_log\_level@{t\_log\_level}}
+\index{t\_log\_level@{t\_log\_level}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{t\_log\_level}{t\_log\_level}}
+{\footnotesize\ttfamily \label{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f} 
+enum \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{logging\+::t\+\_\+log\+\_\+level}}}
+
+The log level type \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!logging@{logging}}\index{logging@{logging}!DEBUG@{DEBUG}}}\Hypertarget{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f}\label{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f} 
+DEBUG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INFO@{INFO}!logging@{logging}}\index{logging@{logging}!INFO@{INFO}}}\Hypertarget{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562}\label{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562} 
+INFO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARN@{WARN}!logging@{logging}}\index{logging@{logging}!WARN@{WARN}}}\Hypertarget{namespacelogging_a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3}\label{namespacelogging_a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3} 
+WARN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!logging@{logging}}\index{logging@{logging}!ERROR@{ERROR}}}\Hypertarget{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fabef691e55fd1813b7540614e718ab7f1}\label{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fabef691e55fd1813b7540614e718ab7f1} 
+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacelogging_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacelogging_afd472d09a34c0ed99bb7fe6e1b574044}\index{logging@{logging}!debug@{debug}}
+\index{debug@{debug}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily \label{namespacelogging_afd472d09a34c0ed99bb7fe6e1b574044} 
+template$<$typename... TArgs$>$ \\
+int logging\+::debug (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format}{, }\item[{TArgs...}]{args}{}\end{DoxyParamCaption})}
+
+Log a debug message
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TArgs} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The format string \\
+\hline
+{\em args} & The format string\textquotesingle{}s arguments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of character written 
+\end{DoxyReturn}
+\Hypertarget{namespacelogging_a6ef1936d20a9b8e4c40edf074e0ecce9}\index{logging@{logging}!error@{error}}
+\index{error@{error}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily \label{namespacelogging_a6ef1936d20a9b8e4c40edf074e0ecce9} 
+template$<$typename... TArgs$>$ \\
+int logging\+::error (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format}{, }\item[{TArgs...}]{args}{}\end{DoxyParamCaption})}
+
+Log an error message
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TArgs} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The format string \\
+\hline
+{\em args} & The format string\textquotesingle{}s arguments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of character written 
+\end{DoxyReturn}
+\Hypertarget{namespacelogging_ad7fd1d7f9fcfed112f3a42ff5d50de1d}\index{logging@{logging}!get\_logger@{get\_logger}}
+\index{get\_logger@{get\_logger}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{get\_logger()}{get\_logger()}}
+{\footnotesize\ttfamily \label{namespacelogging_ad7fd1d7f9fcfed112f3a42ff5d50de1d} 
+\mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\+\_\+logger}} \& logging\+::get\+\_\+logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the global logging instance
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{namespacelogging_a9fa141ac1193aca6403bab4bc6170529}\index{logging@{logging}!info@{info}}
+\index{info@{info}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily \label{namespacelogging_a9fa141ac1193aca6403bab4bc6170529} 
+template$<$typename... TArgs$>$ \\
+int logging\+::info (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format}{, }\item[{TArgs...}]{args}{}\end{DoxyParamCaption})}
+
+Log an info message
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TArgs} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The format string \\
+\hline
+{\em args} & The format string\textquotesingle{}s arguments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of character written 
+\end{DoxyReturn}
+\Hypertarget{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}\index{logging@{logging}!printk@{printk}}
+\index{printk@{printk}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{printk()}{printk()}}
+{\footnotesize\ttfamily \label{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0} 
+template$<$typename... TArgs$>$ \\
+int logging\+::printk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\+\_\+log\+\_\+level}}}]{log\+\_\+level}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{format}{, }\item[{TArgs...}]{args}{}\end{DoxyParamCaption})}
+
+Log a message of log\+\_\+level level to the logger instance provided by set\+\_\+logger
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TArgs} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em log\+\_\+level} & The log level \\
+\hline
+{\em format} & The format string \\
+\hline
+{\em args} & The arguments for the format string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of character written 
+\end{DoxyReturn}
+\Hypertarget{namespacelogging_aefa4c3eccb695e5cec62f0bf37e2f9aa}\index{logging@{logging}!set\_logger@{set\_logger}}
+\index{set\_logger@{set\_logger}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{set\_logger()}{set\_logger()}}
+{\footnotesize\ttfamily \label{namespacelogging_aefa4c3eccb695e5cec62f0bf37e2f9aa} 
+template$<$typename T$>$ \\
+void logging\+::set\+\_\+logger (\begin{DoxyParamCaption}\item[{T \&}]{logger}{}\end{DoxyParamCaption})}
+
+Set the global logging instance
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em The} & \doxylink{classlogging_1_1LoggerWrapper}{Logger\+Wrapper} underlying type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em logger} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacelogging_abe960700ae2cdf3eba2c63f784d92e8f}\index{logging@{logging}!warn@{warn}}
+\index{warn@{warn}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily \label{namespacelogging_abe960700ae2cdf3eba2c63f784d92e8f} 
+template$<$typename... TArgs$>$ \\
+int logging\+::warn (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format}{, }\item[{TArgs...}]{args}{}\end{DoxyParamCaption})}
+
+Log a warning message
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TArgs} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The format string \\
+\hline
+{\em args} & The format string\textquotesingle{}s arguments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of character written 
+\end{DoxyReturn}
+
+
+\label{doc-var-members}
+\Hypertarget{namespacelogging_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacelogging_a3350125d41b6824e9a48b0cba91624c2}\index{logging@{logging}!g\_logger@{g\_logger}}
+\index{g\_logger@{g\_logger}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{g\_logger}{g\_logger}}
+{\footnotesize\ttfamily \label{namespacelogging_a3350125d41b6824e9a48b0cba91624c2} 
+\mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\+\_\+logger}} \texorpdfstring{$\ast$}{*} logging\+::g\+\_\+logger = nullptr}
+
+\Hypertarget{namespacelogging_a15f50b6461121338397fe0cbcec19268}\index{logging@{logging}!log\_color\_map@{log\_color\_map}}
+\index{log\_color\_map@{log\_color\_map}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{log\_color\_map}{log\_color\_map}}
+{\footnotesize\ttfamily \label{namespacelogging_a15f50b6461121338397fe0cbcec19268} 
+const \mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\+\_\+logger\+\_\+color}} logging\+::log\+\_\+color\+\_\+map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ae66c9f0f1b4977a8b801c50e2840734b}{vga::color::color\_set::CYAN\_ON\_BLACK}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{vga::color::color\_set::WHITE\_ON\_BLACK}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_af5f3e3b40a35ec53e5b033edcf64f6e1}{vga::color::color\_set::BROWN\_ON\_BLACK}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_afb91c2005c991f4f999c2caa24b4d761}{vga::color::color\_set::RED\_ON\_BLACK}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+A map of \doxylink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\+\_\+log\+\_\+level} to \doxylink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{t\+\_\+logger\+\_\+color}, allow to determine the color to be used when printing log message \Hypertarget{namespacelogging_a0bc62e748c9bc02b99d33d3709139ee3}\index{logging@{logging}!log\_message\_map@{log\_message\_map}}
+\index{log\_message\_map@{log\_message\_map}!logging@{logging}}
+\doxysubsubsection{\texorpdfstring{log\_message\_map}{log\_message\_map}}
+{\footnotesize\ttfamily \label{namespacelogging_a0bc62e748c9bc02b99d33d3709139ee3} 
+const char \texorpdfstring{$\ast$}{*} logging\+::log\+\_\+message\+\_\+map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}DEBUG"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}INFO\ "{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WARN\ "{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ERROR"{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+A map of \doxylink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\+\_\+log\+\_\+level} to const char \texorpdfstring{$\ast$}{*}, allow to determine the message to display when printing log message 

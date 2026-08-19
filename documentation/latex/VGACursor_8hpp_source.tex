@@ -1,0 +1,38 @@
+\doxysection{VGACursor.\+hpp}
+\hypertarget{VGACursor_8hpp_source}{}\label{VGACursor_8hpp_source}\index{src/lib/vga/VGACursor.hpp@{src/lib/vga/VGACursor.hpp}}
+\mbox{\hyperlink{VGACursor_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pierre\ on\ 12/18/25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_VGACURSOR\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_VGACURSOR\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stdint_8hpp}{include/stdint.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevga}{vga}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvga_1_1VGACursor_a07061ea6a5cb6f229fff7062cc01d0b6}{VGACursor}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ \mbox{\hyperlink{classvga_1_1VGACursor_a354276d3262bfbdaf28e0003a0edcab2}{line}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ \mbox{\hyperlink{classvga_1_1VGACursor_a4f65a2316cc82b2dc634855d34905ad7}{column}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvga_1_1VGACursor_a07061ea6a5cb6f229fff7062cc01d0b6}{VGACursor}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGACursor_a1ab200d82b2da3ad929ab0728d19c588}{advance}}(\textcolor{keywordtype}{int}\ line\_len,\ \textcolor{keywordtype}{int}\ last\_line,\ \textcolor{keywordtype}{int}\ new\_line\ =\ 0);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGACursor_a6126147ebe0b7434cb643c4c1c8a9d2b}{back}}(\textcolor{keywordtype}{int}\ prev\_line\_len);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGACursor_a2862aa7bb7b89277c5033bb5713281a5}{up}}(\textcolor{keywordtype}{int}\ prev\_line\_len);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGACursor_a0b7845c76e7dfacc0313b3d597cbdffb}{down}}(\textcolor{keywordtype}{int}\ next\_line\_len,\ \textcolor{keywordtype}{int}\ last\_line);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGACursor_a6764fde8729899a4599f0da29ed4d4f9}{newline}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvga_1_1VGACursor_a9d0a0c044d74b0e6b67446d8732cd0e4}{set}}(\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ l,\ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ c);}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_VGACURSOR\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,262 @@
+\doxysection{container\+::Container\texorpdfstring{$<$}{<} T, Iterator\+Type, Const\+Iterator\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classcontainer_1_1Container}{}\label{classcontainer_1_1Container}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+
+
+{\ttfamily \#include $<$Container.\+hpp$>$}
+
+Inheritance diagram for container\+::Container\texorpdfstring{$<$}{<} T, Iterator\+Type, Const\+Iterator\+Type \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcontainer_1_1Container}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} = Iterator\+Type
+\item 
+using \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} = Const\+Iterator\+Type
+\item 
+using \mbox{\hyperlink{classcontainer_1_1Container_a9d0655ce818093aeb96c2c51d07b70f4}{size\+\_\+type}} = unsigned int
+\item 
+using \mbox{\hyperlink{classcontainer_1_1Container_a0a7dde6e1a696386e7edbf6ca7510376}{value\+\_\+type}} = T
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcontainer_1_1Container_a4665423a7e648ec68cac3baae10db595}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container_a20f1c59ff5e430ebbcef4eee9afc1903}{begin}} ()=0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container_a23369b3b1ed516599cb433350133f971}{begin}} () const =0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container_abb5ee5dc2528c203efbe678bcf86353d}{end}} ()=0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container_a119d902c49745ef1b8a0cbacba4ba3d8}{end}} () const =0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container_abeeadac42d4838c66a884adef20281b7}{cbegin}} () const =0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container_a6d8668fcae93f178a000e86d5ae1aff3}{cend}} () const =0
+\item 
+virtual T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcontainer_1_1Container_a1b3bb2ad7dccbdbdd0ee569c40d3d6c6}{data}} () const =0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a9d0655ce818093aeb96c2c51d07b70f4}{size\+\_\+type}} \mbox{\hyperlink{classcontainer_1_1Container_a60a451e2b80ce1284f8c1358c50ddf11}{size}} () const =0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container_a349fbcf9441ccf5ecc96ac227c41cc9b}{insert}} (\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} position, const T \&value)=0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container_acd751b39079329eff6fbb2051f8e8dab}{insert}} (\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} position, T \&\&value)=0
+\item 
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container_a3f750148325df05d3e7abc936b541b07}{insert}} (\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} position, \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \+\_\+begin, \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \+\_\+end)=0
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{classcontainer_1_1Container_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+using \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::const\+\_\+iterator = Const\+Iterator\+Type}
+
+\Hypertarget{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+using \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::iterator = Iterator\+Type}
+
+\Hypertarget{classcontainer_1_1Container_a9d0655ce818093aeb96c2c51d07b70f4}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!size\_type@{size\_type}}
+\index{size\_type@{size\_type}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{size\_type}{size\_type}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a9d0655ce818093aeb96c2c51d07b70f4} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+using \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::size\+\_\+type = unsigned int}
+
+\Hypertarget{classcontainer_1_1Container_a0a7dde6e1a696386e7edbf6ca7510376}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a0a7dde6e1a696386e7edbf6ca7510376} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+using \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::value\+\_\+type = T}
+
+
+
+\label{doc-constructors}
+\Hypertarget{classcontainer_1_1Container_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcontainer_1_1Container_a4665423a7e648ec68cac3baae10db595}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!````~Container@{\texorpdfstring{$\sim$}{\string~}Container}}
+\index{````~Container@{\texorpdfstring{$\sim$}{\string~}Container}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Container()}{\string~Container()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a4665423a7e648ec68cac3baae10db595} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+\mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classcontainer_1_1Container}{Container}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcontainer_1_1Container_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcontainer_1_1Container_a23369b3b1ed516599cb433350133f971}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!begin@{begin}}
+\index{begin@{begin}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a23369b3b1ed516599cb433350133f971} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_a490d3ee41f7fd2c23af4243729111615}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_a20f1c59ff5e430ebbcef4eee9afc1903}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!begin@{begin}}
+\index{begin@{begin}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a20f1c59ff5e430ebbcef4eee9afc1903} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get an iterator to the beginning of the buffer \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_a14d0d9ff55d52f714760eb38d3ebbeea}{container\+::\+Array$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a14d0d9ff55d52f714760eb38d3ebbeea}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a14d0d9ff55d52f714760eb38d3ebbeea}{container\+::const\+\_\+iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a14d0d9ff55d52f714760eb38d3ebbeea}{container\+::iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a14d0d9ff55d52f714760eb38d3ebbeea}{container\+::size\+\_\+type$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_ab1ad0324c9048d1f5d46780854a185a2}{container\+::\+Stack\+Vector$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_ab1ad0324c9048d1f5d46780854a185a2}{container\+::\+Stack\+Vector$<$ line\+\_\+type, MAX\+\_\+\+LINES $>$}}, and \mbox{\hyperlink{classcontainer_1_1StackVector_ab1ad0324c9048d1f5d46780854a185a2}{container\+::\+Stack\+Vector$<$ t\+\_\+vga\+\_\+char, vga\+::\+VGA\+\_\+\+WIDTH $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_abeeadac42d4838c66a884adef20281b7}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_abeeadac42d4838c66a884adef20281b7} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::cbegin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get a constant iterator to the beginning of the buffer \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_aeb25c3e2d83c0b3b0338c1b9a14887ee}{container\+::\+Array$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aeb25c3e2d83c0b3b0338c1b9a14887ee}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aeb25c3e2d83c0b3b0338c1b9a14887ee}{container\+::const\+\_\+iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aeb25c3e2d83c0b3b0338c1b9a14887ee}{container\+::iterator$<$ T, N $>$}}, and \mbox{\hyperlink{classcontainer_1_1Array_aeb25c3e2d83c0b3b0338c1b9a14887ee}{container\+::size\+\_\+type$<$ T, N $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_a6d8668fcae93f178a000e86d5ae1aff3}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!cend@{cend}}
+\index{cend@{cend}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a6d8668fcae93f178a000e86d5ae1aff3} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::cend (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get a constant iterator to the end of the buffer \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_a05edf040a7a48fe46ed317225c5ccb16}{container\+::\+Array$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a05edf040a7a48fe46ed317225c5ccb16}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a05edf040a7a48fe46ed317225c5ccb16}{container\+::const\+\_\+iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a05edf040a7a48fe46ed317225c5ccb16}{container\+::iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a05edf040a7a48fe46ed317225c5ccb16}{container\+::size\+\_\+type$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_ad331dd3104acc41a2d2e1178b54ba0fe}{container\+::\+Stack\+Vector$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_ad331dd3104acc41a2d2e1178b54ba0fe}{container\+::\+Stack\+Vector$<$ line\+\_\+type, MAX\+\_\+\+LINES $>$}}, and \mbox{\hyperlink{classcontainer_1_1StackVector_ad331dd3104acc41a2d2e1178b54ba0fe}{container\+::\+Stack\+Vector$<$ t\+\_\+vga\+\_\+char, vga\+::\+VGA\+\_\+\+WIDTH $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_a1b3bb2ad7dccbdbdd0ee569c40d3d6c6}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!data@{data}}
+\index{data@{data}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a1b3bb2ad7dccbdbdd0ee569c40d3d6c6} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get a pointer to the raw container data \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_aa4a99f412b8648814291bac022b26abc}{container\+::\+Array$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aa4a99f412b8648814291bac022b26abc}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aa4a99f412b8648814291bac022b26abc}{container\+::const\+\_\+iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aa4a99f412b8648814291bac022b26abc}{container\+::iterator$<$ T, N $>$}}, and \mbox{\hyperlink{classcontainer_1_1Array_aa4a99f412b8648814291bac022b26abc}{container\+::size\+\_\+type$<$ T, N $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_a119d902c49745ef1b8a0cbacba4ba3d8}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!end@{end}}
+\index{end@{end}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a119d902c49745ef1b8a0cbacba4ba3d8} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\+\_\+iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_a60ba3577466422a4ad1ad247316095a3}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_abb5ee5dc2528c203efbe678bcf86353d}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!end@{end}}
+\index{end@{end}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_abb5ee5dc2528c203efbe678bcf86353d} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get an iterator to the end of the buffer \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_aa31a06d1f92573a187d6d5d5dd441115}{container\+::\+Array$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aa31a06d1f92573a187d6d5d5dd441115}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aa31a06d1f92573a187d6d5d5dd441115}{container\+::const\+\_\+iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aa31a06d1f92573a187d6d5d5dd441115}{container\+::iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_aa31a06d1f92573a187d6d5d5dd441115}{container\+::size\+\_\+type$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_ae438a29e383555ad48079ca932cec1e2}{container\+::\+Stack\+Vector$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_ae438a29e383555ad48079ca932cec1e2}{container\+::\+Stack\+Vector$<$ line\+\_\+type, MAX\+\_\+\+LINES $>$}}, and \mbox{\hyperlink{classcontainer_1_1StackVector_ae438a29e383555ad48079ca932cec1e2}{container\+::\+Stack\+Vector$<$ t\+\_\+vga\+\_\+char, vga\+::\+VGA\+\_\+\+WIDTH $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_a349fbcf9441ccf5ecc96ac227c41cc9b}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!insert@{insert}}
+\index{insert@{insert}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a349fbcf9441ccf5ecc96ac227c41cc9b} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}}]{position}{, }\item[{const T \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_a44e68502817a55707e3852054bca0edd}{container\+::\+Array$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a44e68502817a55707e3852054bca0edd}{container\+::const\+\_\+iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a44e68502817a55707e3852054bca0edd}{container\+::iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a44e68502817a55707e3852054bca0edd}{container\+::size\+\_\+type$<$ T, N $>$}}, and \mbox{\hyperlink{classcontainer_1_1StackVector_a22eee4897e31d0aafd6b2319398556ef}{container\+::\+Stack\+Vector$<$ T, N $>$}}.
+
+\Hypertarget{classcontainer_1_1Container_a3f750148325df05d3e7abc936b541b07}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!insert@{insert}}
+\index{insert@{insert}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a3f750148325df05d3e7abc936b541b07} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}}]{position}{, }\item[{\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}}]{\+\_\+begin}{, }\item[{\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}}]{\+\_\+end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Insert at most \doxylink{classcontainer_1_1Container_abb5ee5dc2528c203efbe678bcf86353d}{end()} -\/ position elements from the range \mbox{[}\+\_\+begin, \+\_\+end\mbox{]} at position position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position at which to insert \\
+\hline
+{\em \+\_\+begin} & The start of the range to insert \\
+\hline
+{\em \+\_\+end} & The end of the range to insert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The position at which the elements have been inserted or end on failure. 
+\end{DoxyReturn}
+\Hypertarget{classcontainer_1_1Container_acd751b39079329eff6fbb2051f8e8dab}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!insert@{insert}}
+\index{insert@{insert}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_acd751b39079329eff6fbb2051f8e8dab} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}}]{position}{, }\item[{T \&\&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Insert one element at position
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position at which to insert \\
+\hline
+{\em value} & The value to be inserted\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The position at which the element have been inserted or end on failure 
+\end{DoxyReturn}
+\Hypertarget{classcontainer_1_1Container_a60a451e2b80ce1284f8c1358c50ddf11}\index{container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}!size@{size}}
+\index{size@{size}!container::Container$<$ T, IteratorType, ConstIteratorType $>$@{container::Container$<$ T, IteratorType, ConstIteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classcontainer_1_1Container_a60a451e2b80ce1284f8c1358c50ddf11} 
+template$<$typename T, typename Iterator\+Type, typename Const\+Iterator\+Type$>$ \\
+virtual \mbox{\hyperlink{classcontainer_1_1Container_a9d0655ce818093aeb96c2c51d07b70f4}{size\+\_\+type}} \mbox{\hyperlink{classcontainer_1_1Container}{container\+::\+Container}}$<$ T, Iterator\+Type, Const\+Iterator\+Type $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get the number of allocated object of the container \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classcontainer_1_1Array_a02738a3a314c77ede4853b97b01cfe78}{container\+::\+Array$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a02738a3a314c77ede4853b97b01cfe78}{container\+::\+Array$<$ vga\+::\+VGAMonitor, 4 $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a02738a3a314c77ede4853b97b01cfe78}{container\+::const\+\_\+iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a02738a3a314c77ede4853b97b01cfe78}{container\+::iterator$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1Array_a02738a3a314c77ede4853b97b01cfe78}{container\+::size\+\_\+type$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_a334aee62d541c53c5c2e4ff5db464e00}{container\+::\+Stack\+Vector$<$ T, N $>$}}, \mbox{\hyperlink{classcontainer_1_1StackVector_a334aee62d541c53c5c2e4ff5db464e00}{container\+::\+Stack\+Vector$<$ line\+\_\+type, MAX\+\_\+\+LINES $>$}}, and \mbox{\hyperlink{classcontainer_1_1StackVector_a334aee62d541c53c5c2e4ff5db464e00}{container\+::\+Stack\+Vector$<$ t\+\_\+vga\+\_\+char, vga\+::\+VGA\+\_\+\+WIDTH $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/lib/container/\mbox{\hyperlink{Container_8hpp}{Container.\+hpp}}\end{DoxyCompactItemize}

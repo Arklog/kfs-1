@@ -1,0 +1,363 @@
+\doxysection{kstring Namespace Reference}
+\hypertarget{namespacekstring}{}\label{namespacekstring}\index{kstring@{kstring}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{strlen}} (const char \texorpdfstring{$\ast$}{*}str)
+\item 
+int \mbox{\hyperlink{namespacekstring_ab81130344dd44b8278dbda8b91252606}{strcmp}} (const char \texorpdfstring{$\ast$}{*}str1, const char \texorpdfstring{$\ast$}{*}str2)
+\item 
+int \mbox{\hyperlink{namespacekstring_a020082fe92862a0d606c263e1be9ede5}{strncmp}} (const char \texorpdfstring{$\ast$}{*}str1, const char \texorpdfstring{$\ast$}{*}str2, const unsigned int n)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacekstring_a435a26ce871779e16400a1d9d3d1291e}{strchr}} (const char \texorpdfstring{$\ast$}{*}str, const char chr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacekstring_abe739cc20727564bc9042853fa924cd5}{strrchr}} (const char \texorpdfstring{$\ast$}{*}str, const char chr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacekstring_a73187e875bc72dd4f55303ffea2dc589}{strstr}} (const char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}target)
+\item 
+void \mbox{\hyperlink{namespacekstring_ab64877f0f03f2e396e35d7bca593d4f4}{strcpy}} (char \texorpdfstring{$\ast$}{*}dest, const char \texorpdfstring{$\ast$}{*}str)
+\item 
+void \mbox{\hyperlink{namespacekstring_af17ba32dae7b366a7b6cf9c5eddecc54}{memcpy}} (void \texorpdfstring{$\ast$}{*}dest, const void \texorpdfstring{$\ast$}{*}src, unsigned len)
+\item 
+void \mbox{\hyperlink{namespacekstring_adf700fe756ac930309af58d595733f48}{memmove}} (void \texorpdfstring{$\ast$}{*}dest, const void \texorpdfstring{$\ast$}{*}src, unsigned int len)
+\item 
+int \mbox{\hyperlink{namespacekstring_a378e0d2a5dab987e1e9f57effc49854f}{memcmp}} (const void \texorpdfstring{$\ast$}{*}b1, const void \texorpdfstring{$\ast$}{*}b2, unsigned len)
+\item 
+int \mbox{\hyperlink{namespacekstring_a960fa7053dc68cdf78962f326fff6e3a}{safe\+\_\+atoi}} (const char \texorpdfstring{$\ast$}{*}str, int \texorpdfstring{$\ast$}{*}res)
+\item 
+int \mbox{\hyperlink{namespacekstring_a4347a23ce97a3667fb2f891bad7f1287}{strncmp}} (const char \texorpdfstring{$\ast$}{*}str1, const char \texorpdfstring{$\ast$}{*}str2, const unsigned n)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacekstring_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacekstring_a378e0d2a5dab987e1e9f57effc49854f}\index{kstring@{kstring}!memcmp@{memcmp}}
+\index{memcmp@{memcmp}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{memcmp()}{memcmp()}}
+{\footnotesize\ttfamily \label{namespacekstring_a378e0d2a5dab987e1e9f57effc49854f} 
+int kstring\+::memcmp (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{b1}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{b2}{, }\item[{unsigned}]{len}{}\end{DoxyParamCaption})}
+
+Compare the first len bytes of b1 and b2. Return the difference of the first non-\/identical byte or 0 if the buffer are identicals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b1} & \\
+\hline
+{\em b2} & \\
+\hline
+{\em len} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the buffer are identical or the difference of the first non-\/identical byte. 
+\end{DoxyReturn}
+\Hypertarget{namespacekstring_af17ba32dae7b366a7b6cf9c5eddecc54}\index{kstring@{kstring}!memcpy@{memcpy}}
+\index{memcpy@{memcpy}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{memcpy()}{memcpy()}}
+{\footnotesize\ttfamily \label{namespacekstring_af17ba32dae7b366a7b6cf9c5eddecc54} 
+void kstring\+::memcpy (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{dest}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{unsigned}]{len}{}\end{DoxyParamCaption})}
+
+Copy a src memory segment into another until the len index, casting them in char\texorpdfstring{$\ast$}{*}. 
+\begin{DoxyParams}{Parameters}
+{\em dest} & segment where perform the copy \\
+\hline
+{\em src} & segment to copy \\
+\hline
+{\em len} & max index \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacekstring_adf700fe756ac930309af58d595733f48}\index{kstring@{kstring}!memmove@{memmove}}
+\index{memmove@{memmove}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{memmove()}{memmove()}}
+{\footnotesize\ttfamily \label{namespacekstring_adf700fe756ac930309af58d595733f48} 
+void kstring\+::memmove (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{dest}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{unsigned int}]{len}{}\end{DoxyParamCaption})}
+
+Copy n bytes of src into dest, dest and src can overlap
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & \\
+\hline
+{\em src} & \\
+\hline
+{\em len} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacekstring_a960fa7053dc68cdf78962f326fff6e3a}\index{kstring@{kstring}!safe\_atoi@{safe\_atoi}}
+\index{safe\_atoi@{safe\_atoi}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{safe\_atoi()}{safe\_atoi()}}
+{\footnotesize\ttfamily \label{namespacekstring_a960fa7053dc68cdf78962f326fff6e3a} 
+int kstring\+::safe\+\_\+atoi (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{res}{}\end{DoxyParamCaption})}
+
+create an int from a char string. This implementation avoids int overflow and will return 0 if the result is ok, 1 otherwise. 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to cast into int \\
+\hline
+{\em res} & address of the int where the result could be find if the return was 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{namespacekstring_a435a26ce871779e16400a1d9d3d1291e}\index{kstring@{kstring}!strchr@{strchr}}
+\index{strchr@{strchr}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strchr()}{strchr()}}
+{\footnotesize\ttfamily \label{namespacekstring_a435a26ce871779e16400a1d9d3d1291e} 
+const char \texorpdfstring{$\ast$}{*} kstring\+::strchr (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{, }\item[{const char}]{chr}{}\end{DoxyParamCaption})}
+
+search for the char chr within the given string, from its beginning. return a pointer on the char position or NULL if not found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+{\em chr} & char to search for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The address of the first occurrence of chr in str, or NULL if not found.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+str must be null-\/terminated 
+
+str must be a valid pointer
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str\ =\ \textcolor{stringliteral}{"{}abcabc"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a435a26ce871779e16400a1d9d3d1291e}{kstring::strchr}}(str,\ \textcolor{charliteral}{'a'});\ \textcolor{comment}{//\ returns\ pointer\ "{}abcabc"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a435a26ce871779e16400a1d9d3d1291e}{kstring::strchr}}(str,\ \textcolor{charliteral}{'b'});\ \textcolor{comment}{//\ returns\ pointer\ "{}bcabc"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a435a26ce871779e16400a1d9d3d1291e}{kstring::strchr}}(str,\ \textcolor{charliteral}{'c'});\ \textcolor{comment}{//\ returns\ pointer\ "{}cabc"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ a[2]\ =\ \{\textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'v'}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a435a26ce871779e16400a1d9d3d1291e}{kstring::strchr}}(\textcolor{keyword}{nullptr},\ \textcolor{charliteral}{'a'});\ \textcolor{comment}{//\ Undefined\ behavior,\ str\ is\ not\ a\ valid\ pointer}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a435a26ce871779e16400a1d9d3d1291e}{kstring::strchr}}(a,\ \textcolor{charliteral}{'c'});\ \textcolor{comment}{//\ Undefined\ behavior,\ a\ is\ not\ null-\/terminated}}
+
+\end{DoxyCodeInclude}
+ \Hypertarget{namespacekstring_ab81130344dd44b8278dbda8b91252606}\index{kstring@{kstring}!strcmp@{strcmp}}
+\index{strcmp@{strcmp}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strcmp()}{strcmp()}}
+{\footnotesize\ttfamily \label{namespacekstring_ab81130344dd44b8278dbda8b91252606} 
+int kstring\+::strcmp (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str1}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{str2}{}\end{DoxyParamCaption})}
+
+Compare the two given string and return the difference between their first different chars. O otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str1} & \\
+\hline
+{\em str2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the difference between the string
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+both str1 and str2 must be null-\/terminated. 
+
+both str1 and str2 must be valid pointers
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_ab81130344dd44b8278dbda8b91252606}{kstring::strcmp}}(\textcolor{stringliteral}{"{}apple"{}},\ \textcolor{stringliteral}{"{}apple"{}});\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_ab81130344dd44b8278dbda8b91252606}{kstring::strcmp}}(\textcolor{stringliteral}{"{}apple"{}},\ \textcolor{stringliteral}{"{}appled"{}});\ \textcolor{comment}{//\ -\/100}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_ab81130344dd44b8278dbda8b91252606}{kstring::strcmp}}(\textcolor{stringliteral}{"{}appled"{}},\ \textcolor{stringliteral}{"{}apple"{}});\ \textcolor{comment}{//\ 100}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ a[4]\ =\ \{\textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'d'}\};}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_ab81130344dd44b8278dbda8b91252606}{kstring::strcmp}}(a,\ \textcolor{stringliteral}{"{}apple"{}});\ \textcolor{comment}{//\ Undefined\ behivior,\ a\ is\ not\ null-\/terminated}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_ab81130344dd44b8278dbda8b91252606}{kstring::strcmp}}(\textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{}"{}});\ \textcolor{comment}{//\ Undefined\ behavior,\ both\ str1\ is\ not\ a\ valid\ pointer}}
+\DoxyCodeLine{}
+
+\end{DoxyCodeInclude}
+ \Hypertarget{namespacekstring_ab64877f0f03f2e396e35d7bca593d4f4}\index{kstring@{kstring}!strcpy@{strcpy}}
+\index{strcpy@{strcpy}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strcpy()}{strcpy()}}
+{\footnotesize\ttfamily \label{namespacekstring_ab64877f0f03f2e396e35d7bca593d4f4} 
+void kstring\+::strcpy (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{dest}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{src}{}\end{DoxyParamCaption})}
+
+Copy src into dest until a null byte is reached.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & string where perform copy \\
+\hline
+{\em src} & string to copy\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+dest and str must be valid pointers 
+
+str must be null-\/terminated 
+
+dest must be able to accommodate src
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ \Hypertarget{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}\index{kstring@{kstring}!strlen@{strlen}}
+\index{strlen@{strlen}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strlen()}{strlen()}}
+{\footnotesize\ttfamily \label{namespacekstring_aa603abc2e61e091257c246cea81c4ea4} 
+unsigned int kstring\+::strlen (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
+
+Return the length of the c-\/string pointed to by str, excluding the terminating null byte (\textquotesingle{}\textbackslash{}0\textquotesingle{}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the string
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+str must be null-\/terminated. 
+
+str must be a valid pointer
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *a\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *b\ =\ \textcolor{stringliteral}{"{}Hello,\ World!"{}};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *c\ =\ \textcolor{stringliteral}{"{}abc\(\backslash\)0def"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(a);\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(b);\ \textcolor{comment}{//\ 13}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(c);\ \textcolor{comment}{//\ 3}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ d[4]\ =\ \{\textcolor{charliteral}{'t'},\ \textcolor{charliteral}{'e'},\ \textcolor{charliteral}{'s'},\ \textcolor{charliteral}{'t'}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(d);\ \textcolor{comment}{//\ Undefined\ behavior,\ d\ is\ not\ null-\/terminated}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(\textcolor{keyword}{nullptr});\ \textcolor{comment}{//\ Undefined\ behavior,\ str\ is\ not\ a\ valid\ pointer}}
+\DoxyCodeLine{}
+
+\end{DoxyCodeInclude}
+ \Hypertarget{namespacekstring_a020082fe92862a0d606c263e1be9ede5}\index{kstring@{kstring}!strncmp@{strncmp}}
+\index{strncmp@{strncmp}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strncmp()}{strncmp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespacekstring_a020082fe92862a0d606c263e1be9ede5} 
+int kstring\+::strncmp (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str1}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{str2}{, }\item[{const unsigned int}]{n}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacekstring_a4347a23ce97a3667fb2f891bad7f1287}\index{kstring@{kstring}!strncmp@{strncmp}}
+\index{strncmp@{strncmp}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strncmp()}{strncmp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespacekstring_a4347a23ce97a3667fb2f891bad7f1287} 
+int kstring\+::strncmp (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str1}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{str2}{, }\item[{const unsigned}]{n}{}\end{DoxyParamCaption})}
+
+compare the two given string until the n-\/th char, and return the difference between their first different chars. O otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str1} & \\
+\hline
+{\em str2} & \\
+\hline
+{\em n} & The maximum number of character to compare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The difference between the first non identical byte of str1 and str2. 0 if len is reached.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+both str1 and str2 must be null-\/terminated if their length is less than n. 
+
+both str1 and str2 must be valid pointers
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a020082fe92862a0d606c263e1be9ede5}{kstring::strncmp}}(\textcolor{stringliteral}{"{}banana"{}},\ \textcolor{stringliteral}{"{}bandana"{}},\ 3);\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a020082fe92862a0d606c263e1be9ede5}{kstring::strncmp}}(\textcolor{stringliteral}{"{}banana"{}},\ \textcolor{stringliteral}{"{}bandana"{}},\ 4);\ \textcolor{comment}{//\ -\/3}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ a[4]\ =\ \{\textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'d'}\};}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ b[4]\ =\ \{\textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'e'}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a020082fe92862a0d606c263e1be9ede5}{kstring::strncmp}}(a,\ b,\ 3);\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a020082fe92862a0d606c263e1be9ede5}{kstring::strncmp}}(a,\ b,\ 4);\ \textcolor{comment}{//\ -\/1}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a020082fe92862a0d606c263e1be9ede5}{kstring::strncmp}}(a,\ b,\ 5);\ \textcolor{comment}{//\ Undefined\ behavior,\ both\ a\ and\ b\ are\ not\ null-\/terminated}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a020082fe92862a0d606c263e1be9ede5}{kstring::strncmp}}(\textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{}test"{}},\ 2);\ \textcolor{comment}{//\ Undefined\ behavior,\ str1\ is\ not\ a\ valid\ pointer}}
+\DoxyCodeLine{}
+
+\end{DoxyCodeInclude}
+ \Hypertarget{namespacekstring_abe739cc20727564bc9042853fa924cd5}\index{kstring@{kstring}!strrchr@{strrchr}}
+\index{strrchr@{strrchr}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strrchr()}{strrchr()}}
+{\footnotesize\ttfamily \label{namespacekstring_abe739cc20727564bc9042853fa924cd5} 
+const char \texorpdfstring{$\ast$}{*} kstring\+::strrchr (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{, }\item[{const char}]{chr}{}\end{DoxyParamCaption})}
+
+search for the char chr within the given string, from its end. return a pointer on the char position or NULL if not found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+{\em chr} & char to search for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer on chr position or NULL
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+str must be null-\/terminated 
+
+str must be a valid pointer
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str\ =\ \textcolor{stringliteral}{"{}abcabc"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_abe739cc20727564bc9042853fa924cd5}{kstring::strrchr}}(str,\ \textcolor{charliteral}{'a'});\ \textcolor{comment}{//\ pointer\ to\ "{}abc"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_abe739cc20727564bc9042853fa924cd5}{kstring::strrchr}}(str,\ \textcolor{charliteral}{'b'});\ \textcolor{comment}{//\ pointer\ to\ "{}bc"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_abe739cc20727564bc9042853fa924cd5}{kstring::strrchr}}(str,\ \textcolor{charliteral}{'c'});\ \textcolor{comment}{//\ pointer\ to\ "{}c"{}}}
+\DoxyCodeLine{}
+
+\end{DoxyCodeInclude}
+ \Hypertarget{namespacekstring_a73187e875bc72dd4f55303ffea2dc589}\index{kstring@{kstring}!strstr@{strstr}}
+\index{strstr@{strstr}!kstring@{kstring}}
+\doxysubsubsection{\texorpdfstring{strstr()}{strstr()}}
+{\footnotesize\ttfamily \label{namespacekstring_a73187e875bc72dd4f55303ffea2dc589} 
+const char \texorpdfstring{$\ast$}{*} kstring\+::strstr (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{target}{}\end{DoxyParamCaption})}
+
+search for the substring target within the given string. return a pointer on the substring beginning or NULL if not found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+{\em target} & sub string to search for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer on the first occurence of target in str. NULL if not found.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+str and target must be null-\/terminated 
+
+str and target must be valid pointers
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str\ =\ \textcolor{stringliteral}{"{}abcabcd"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a73187e875bc72dd4f55303ffea2dc589}{kstring::strstr}}(str,\ \textcolor{stringliteral}{"{}bc"{}});\ \textcolor{comment}{//\ pointer\ to\ "{}bcabcd"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacekstring_a73187e875bc72dd4f55303ffea2dc589}{kstring::strstr}}(str,\ \textcolor{stringliteral}{"{}bcd"{}});\ \textcolor{comment}{//\ pointer\ to\ "{}bcd"{}}}
+
+\end{DoxyCodeInclude}
+ 

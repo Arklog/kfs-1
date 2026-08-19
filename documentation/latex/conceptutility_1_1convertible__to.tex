@@ -1,0 +1,28 @@
+\doxysection{utility\+::convertible\+\_\+to Concept Reference}
+\hypertarget{conceptutility_1_1convertible__to}{}\label{conceptutility_1_1convertible__to}\index{utility::convertible\_to@{utility::convertible\_to}}
+
+
+{\ttfamily \#include $<$type\+\_\+trait.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptutility_1_1convertible__to}{utility::convertible\_to}}\ =\ \ \textcolor{keyword}{requires}(T\ a)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ U\{a\}\ \};}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Check if type T is convertible to type U
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type to convert \\
+\hline
+{\em U} & The type to convert to \\
+\hline
+\end{DoxyTemplParams}

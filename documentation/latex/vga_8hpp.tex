@@ -1,0 +1,53 @@
+\doxysection{src/lib/vga/vga.hpp File Reference}
+\hypertarget{vga_8hpp}{}\label{vga_8hpp}\index{src/lib/vga/vga.hpp@{src/lib/vga/vga.hpp}}
+{\ttfamily \#include "{}include/stdint.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionvga_1_1t__vga__char}{vga\+::t\+\_\+vga\+\_\+char}}
+\item 
+struct \mbox{\hyperlink{structvga_1_1t__vga__char_1_1vga__char__data}{vga\+::t\+\_\+vga\+\_\+char\+::vga\+\_\+char\+\_\+data}}
+\item 
+struct \mbox{\hyperlink{structvga_1_1VGAColorChange}{vga\+::\+VGAColor\+Change}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacevga}{vga}}
+\item 
+namespace \mbox{\hyperlink{namespacevga_1_1color}{vga\+::color}}
+\item 
+namespace \mbox{\hyperlink{namespacevga_1_1color_1_1color__set}{vga\+::color\+::color\+\_\+set}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{vga\+::color\+::t\+\_\+vga\+\_\+color}}
+\item 
+using \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ade1b0830d2452b8c45323e0b91fed91a}{vga\+::color\+::color\+\_\+set\+::t\+\_\+color\+\_\+set}} = \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} \mbox{\hyperlink{namespacevga_af41df1149783a49ca19d8add73981eee}{vga\+::\+VGA\+\_\+\+WIDTH}} = 80
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} \mbox{\hyperlink{namespacevga_a77864c8ac1c4293d4569c10ec8b951e1}{vga\+::\+VGA\+\_\+\+HEIGHT}} = 25
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{vga\+::color\+::color\+\_\+set\+::\+WHITE\+\_\+\+ON\+\_\+\+BLACK}} = BLACK $<$$<$ 4 \texorpdfstring{$\vert$}{|} WHITE
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ae432834e069322a7210430e1f09cfc21}{vga\+::color\+::color\+\_\+set\+::\+BLACK\+\_\+\+ON\+\_\+\+WHITE}} = WHITE $<$$<$ 4 \texorpdfstring{$\vert$}{|} BLACK
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a2e94f1b802216b0f4ae2e588c1b48c57}{vga\+::color\+::color\+\_\+set\+::\+GREEN\+\_\+\+ON\+\_\+\+BLACK}} = BLACK $<$$<$ 4 \texorpdfstring{$\vert$}{|} GREEN
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_afb91c2005c991f4f999c2caa24b4d761}{vga\+::color\+::color\+\_\+set\+::\+RED\+\_\+\+ON\+\_\+\+BLACK}} = BLACK $<$$<$ 4 \texorpdfstring{$\vert$}{|} RED
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ae66c9f0f1b4977a8b801c50e2840734b}{vga\+::color\+::color\+\_\+set\+::\+CYAN\+\_\+\+ON\+\_\+\+BLACK}} = BLACK $<$$<$ 4 \texorpdfstring{$\vert$}{|} CYAN
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a820e92e8ce31013f9ef72f7e69f4adf7}{vga\+::color\+::color\+\_\+set\+::\+BLACK\+\_\+\+ON\+\_\+\+CYAN}} = CYAN $<$$<$ 4 \texorpdfstring{$\vert$}{|} BLACK
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_af5f3e3b40a35ec53e5b033edcf64f6e1}{vga\+::color\+::color\+\_\+set\+::\+BROWN\+\_\+\+ON\+\_\+\+BLACK}} = BLACK $<$$<$ 4 \texorpdfstring{$\vert$}{|} BROWN
+\item 
+constexpr \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a5f374a4a964c2eb29d138b541e17da79}{vga\+::color\+::color\+\_\+set\+::\+DEFAULT}} = \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{WHITE\+\_\+\+ON\+\_\+\+BLACK}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacevga_a1152ce7a7b8174e38181d0a21517a00d}{vga\+::endl}} = "{}\textbackslash{}n"{}
+\end{DoxyCompactItemize}

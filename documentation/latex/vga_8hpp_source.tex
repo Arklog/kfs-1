@@ -1,0 +1,89 @@
+\doxysection{vga.\+hpp}
+\hypertarget{vga_8hpp_source}{}\label{vga_8hpp_source}\index{src/lib/vga/vga.hpp@{src/lib/vga/vga.hpp}}
+\mbox{\hyperlink{vga_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pierre\ on\ 12/17/25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_VGA\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_VGA\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stdint_8hpp}{include/stdint.hpp}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevga}{vga}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ \mbox{\hyperlink{namespacevga_af41df1149783a49ca19d8add73981eee}{VGA\_WIDTH}}\ \ =\ 80;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ \mbox{\hyperlink{namespacevga_a77864c8ac1c4293d4569c10ec8b951e1}{VGA\_HEIGHT}}\ =\ 25;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevga_1_1color}{color}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{t\_vga\_color}}\ =\ \textcolor{keyword}{enum}\ vga\_color\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ BLACK\ \ \ \ \ \ \ \ \ =\ 0,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ BLUE\ \ \ \ \ \ \ \ \ \ =\ 1,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ GREEN\ \ \ \ \ \ \ \ \ =\ 2,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ CYAN\ \ \ \ \ \ \ \ \ \ =\ 3,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ RED\ \ \ \ \ \ \ \ \ \ \ =\ 4,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ MAGENTA\ \ \ \ \ \ \ =\ 5,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ BROWN\ \ \ \ \ \ \ \ \ =\ 6,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ LIGHT\_GREY\ \ \ \ =\ 7,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ DARK\_GREY\ \ \ \ \ =\ 8,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ LIGHT\_BLUE\ \ \ \ =\ 9,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ LIGHT\_GREEN\ \ \ =\ 10,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ LIGHT\_CYAN\ \ \ \ =\ 11,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ LIGHT\_RED\ \ \ \ \ =\ 12,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ LIGHT\_MAGENTA\ =\ 13,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ LIGHT\_BROWN\ \ \ =\ 14,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ WHITE\ \ \ \ \ \ \ \ \ =\ 15,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevga_1_1color_1_1color__set}{color\_set}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ade1b0830d2452b8c45323e0b91fed91a}{t\_color\_set}}\ =\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{WHITE\_ON\_BLACK}}\ =\ BLACK\ <<\ 4\ |\ WHITE;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ae432834e069322a7210430e1f09cfc21}{BLACK\_ON\_WHITE}}\ =\ WHITE\ <<\ 4\ |\ BLACK;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a2e94f1b802216b0f4ae2e588c1b48c57}{GREEN\_ON\_BLACK}}\ =\ BLACK\ <<\ 4\ |\ GREEN;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_afb91c2005c991f4f999c2caa24b4d761}{RED\_ON\_BLACK}}\ \ \ =\ BLACK\ <<\ 4\ |\ RED;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ae66c9f0f1b4977a8b801c50e2840734b}{CYAN\_ON\_BLACK}}\ \ =\ BLACK\ <<\ 4\ |\ CYAN;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a820e92e8ce31013f9ef72f7e69f4adf7}{BLACK\_ON\_CYAN}}\ \ =\ CYAN\ <<\ 4\ |\ BLACK;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_af5f3e3b40a35ec53e5b033edcf64f6e1}{BROWN\_ON\_BLACK}}\ =\ BLACK\ <<\ 4\ |\ BROWN;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a5f374a4a964c2eb29d138b541e17da79}{DEFAULT}}\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{WHITE\_ON\_BLACK}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionvga_1_1t__vga__char_a9678a404f3dc1e1c88943713f3e78df3}{t\_vga\_char}}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }[[gnu::packed]]\ \mbox{\hyperlink{structvga_1_1t__vga__char_1_1vga__char__data}{vga\_char\_data}}\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{structvga_1_1t__vga__char_1_1vga__char__data_abfc0c7632037cf5811a6252fb862f603}{ascii}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{structvga_1_1t__vga__char_1_1vga__char__data_a606b2fddaf9b6df1dceb242a842a1cb3}{color}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a56f67a2a9a7eff9376d482ba7461f075}{data}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\_t}}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a1409420f041d6f2d50ede6b4edafd6e9}{raw}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a9678a404f3dc1e1c88943713f3e78df3}{t\_vga\_char}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a96842b7448a7857fbc553472a8d4cb78}{t\_vga\_char}}(\mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ ascii,\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ \mbox{\hyperlink{namespacevga_1_1color}{color}}):\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a56f67a2a9a7eff9376d482ba7461f075}{data}}\{.ascii\ =\ ascii,\ .\mbox{\hyperlink{namespacevga_1_1color}{color}}\ =\ \mbox{\hyperlink{namespacevga_1_1color}{color}}\}\ \{\}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a9d63f3284caa042a1158b6316cb4ece5}{t\_vga\_char}}(\mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ ascii,\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ foreground,\ \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}\ background):\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a56f67a2a9a7eff9376d482ba7461f075}{data}}\{.ascii\ =\ ascii,\ .\mbox{\hyperlink{namespacevga_1_1color}{color}}\ =\ static\_cast<\mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\_t}}>(background\ <<\ 4\ |\ (foreground\ \&\ 0x0F))\}\ \{\}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_adbca9dffb9bed523295ffa351ec02f8d}{get\_foreground}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_af78c587d7db32d729589e8ad7d1f1cc0}{get\_background}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_ac3ff834f79d6376e3f620e9aa1a40278}{get\_color}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a84d7604b223a3948932c874ddf498452}{set\_foreground}}(\mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ \mbox{\hyperlink{namespacevga_1_1color}{color}});}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_ae48f5eeed0d537bb9a36ad24204c1670}{set\_background}}(\mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ \mbox{\hyperlink{namespacevga_1_1color}{color}});}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{unionvga_1_1t__vga__char_a55b13839821adea8f93e283fb44d51b0}{set\_color}}(\mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ foreground,\ \mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ background);}
+\DoxyCodeLine{00105\ \ \ \ \ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvga_1_1VGAColorChange}{VGAColorChange}}\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ \mbox{\hyperlink{structvga_1_1VGAColorChange_afae03dde0159342d663eb8dbd55da3a7}{fg}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacevga_1_1color_ae7f04fc071748601a21094aa1215f7ec}{color::t\_vga\_color}}\ \mbox{\hyperlink{structvga_1_1VGAColorChange_a3be50915eba099757abeaed5a48e5d28}{bg}};}
+\DoxyCodeLine{00113\ \ \ \ \ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespacevga_a1152ce7a7b8174e38181d0a21517a00d}{endl}}\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_VGA\_HPP}}
+
+\end{DoxyCode}

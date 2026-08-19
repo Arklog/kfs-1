@@ -1,0 +1,293 @@
+\doxysection{vga\+::VGAMonitor Class Reference}
+\hypertarget{classvga_1_1VGAMonitor}{}\label{classvga_1_1VGAMonitor}\index{vga::VGAMonitor@{vga::VGAMonitor}}
+
+
+{\ttfamily \#include $<$VGAMonitor.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor_af25e1305b5ee94655c73d2f74e404011}{VGAMonitor}} ()
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor_a76e78950b6a6b95734f2861cc85ed47a}{VGAMonitor}} (const \mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \&)=default
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a262a9b4fc1a23045e7d98ea92f1b8e9c}{operator=}} (const \mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \&)=default
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_acda6597145e3fe3da78763946af4e272}{clear}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_a3a029802215d7bc119276c37b71dcb56}{init}} (\mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} id)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_ad8881e106e2b4522464c61e89310f17c}{put\+\_\+char}} (const char c)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_ac5702a8421ba825ea730cd5e2f1d75e1}{write}} (const char \texorpdfstring{$\ast$}{*}str)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_a2541e1f796439a30c1b645d710e42c2b}{scroll\+\_\+up}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_a4d95585f7708c88ebc93984fe09cf8a5}{scroll\+\_\+down}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_a6cc644082edded6d226db78a9a7b24f7}{move\+\_\+left}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_a8869bd1c24f273c547fa6174e8a797fc}{move\+\_\+right}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_a480e06f82c8cfac8a5a1e3b56aed7bfc}{backspace}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_aaf2dc24706abac0bd81d428f33752e48}{set\+\_\+fg\+\_\+color}} (color\+::vga\+\_\+color fg)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_ab8451f860f232936cb2669cfb45f22c2}{set\+\_\+bg\+\_\+color}} (color\+::vga\+\_\+color bg)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_ad9be0ddb7a9563f801bcffbc4e9a10f6}{set\+\_\+colors}} (color\+::vga\+\_\+color fg, color\+::vga\+\_\+color bg)
+\item 
+unsigned int \mbox{\hyperlink{classvga_1_1VGAMonitor_ad8b8da718f1815affee68f130ad82bce}{get\+\_\+page}} () const
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_adb259958221d9b90475c49325ce06f71}{set\+\_\+user\+\_\+input\+\_\+limit}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGAMonitor_a414a689d4f5122de0f3d8de68a0664f5}{handle\+\_\+user\+\_\+input}} (char inp)
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a6f7287a77a5d079cbcc70331225f53ab}{operator$<$$<$}} (const char \texorpdfstring{$\ast$}{*}str)
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a961c0798288e7c98286b83d53c39d870}{operator$<$$<$}} (const char str)
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a818da3b634ea710b6362d1a7d422182f}{operator$<$$<$}} (const int nbr)
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a2c9b6314c90de7c0d5cc0c40419d180d}{operator$<$$<$}} (const \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} unbr)
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a971162f0c3980de40639b0a45d19bc1f}{operator$<$$<$}} (const color\+::vga\+\_\+color fg)
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a4372befd53971b06dca5a15657eb2b80}{operator$<$$<$}} (const \mbox{\hyperlink{structvga_1_1VGAColorChange}{VGAColor\+Change}} changer)
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& \mbox{\hyperlink{classvga_1_1VGAMonitor_a6700141fd261bf390750f759c58f252c}{operator$<$$<$}} (const \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} changer)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvga_1_1ScrollbackBuffer}{Scrollback\+Buffer}} \mbox{\hyperlink{classvga_1_1VGAMonitor_ae867ecbf4c7581620bedce728c0aa1b3}{\+\_\+buffer}}
+\item 
+\mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} \mbox{\hyperlink{classvga_1_1VGAMonitor_aa8059d35b501f1d2c67a1da302ccb13b}{\+\_\+cursor\+\_\+write}}
+\item 
+\mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} \mbox{\hyperlink{classvga_1_1VGAMonitor_a879de6e37cd173c24c27b2dc3728da8f}{\+\_\+user\+\_\+cursor}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+High-\/level terminal interface. Coordinates the buffer, cursor and display logics. 
+
+\label{doc-constructors}
+\Hypertarget{classvga_1_1VGAMonitor_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvga_1_1VGAMonitor_af25e1305b5ee94655c73d2f74e404011}\index{vga::VGAMonitor@{vga::VGAMonitor}!VGAMonitor@{VGAMonitor}}
+\index{VGAMonitor@{VGAMonitor}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{VGAMonitor()}{VGAMonitor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_af25e1305b5ee94655c73d2f74e404011} 
+vga\+::\+VGAMonitor\+::\+VGAMonitor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classvga_1_1VGAMonitor_a76e78950b6a6b95734f2861cc85ed47a}\index{vga::VGAMonitor@{vga::VGAMonitor}!VGAMonitor@{VGAMonitor}}
+\index{VGAMonitor@{VGAMonitor}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{VGAMonitor()}{VGAMonitor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a76e78950b6a6b95734f2861cc85ed47a} 
+vga\+::\+VGAMonitor\+::\+VGAMonitor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classvga_1_1VGAMonitor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvga_1_1VGAMonitor_a480e06f82c8cfac8a5a1e3b56aed7bfc}\index{vga::VGAMonitor@{vga::VGAMonitor}!backspace@{backspace}}
+\index{backspace@{backspace}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{backspace()}{backspace()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a480e06f82c8cfac8a5a1e3b56aed7bfc} 
+void vga\+::\+VGAMonitor\+::backspace (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+performs a backspace operation. \Hypertarget{classvga_1_1VGAMonitor_acda6597145e3fe3da78763946af4e272}\index{vga::VGAMonitor@{vga::VGAMonitor}!clear@{clear}}
+\index{clear@{clear}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_acda6597145e3fe3da78763946af4e272} 
+void vga\+::\+VGAMonitor\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+clears the screen and the buffer. \Hypertarget{classvga_1_1VGAMonitor_ad8b8da718f1815affee68f130ad82bce}\index{vga::VGAMonitor@{vga::VGAMonitor}!get\_page@{get\_page}}
+\index{get\_page@{get\_page}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{get\_page()}{get\_page()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_ad8b8da718f1815affee68f130ad82bce} 
+unsigned int vga\+::\+VGAMonitor\+::get\+\_\+page (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the vga page number this monitor displays on \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classvga_1_1VGAMonitor_a414a689d4f5122de0f3d8de68a0664f5}\index{vga::VGAMonitor@{vga::VGAMonitor}!handle\_user\_input@{handle\_user\_input}}
+\index{handle\_user\_input@{handle\_user\_input}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{handle\_user\_input()}{handle\_user\_input()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a414a689d4f5122de0f3d8de68a0664f5} 
+void vga\+::\+VGAMonitor\+::handle\+\_\+user\+\_\+input (\begin{DoxyParamCaption}\item[{char}]{inp}{}\end{DoxyParamCaption})}
+
+checks if the user changes are in the allowed area. Perfoms them if yes, do nothing else. User input should never be displayed by other way, such as stream insertion operator. \Hypertarget{classvga_1_1VGAMonitor_a3a029802215d7bc119276c37b71dcb56}\index{vga::VGAMonitor@{vga::VGAMonitor}!init@{init}}
+\index{init@{init}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a3a029802215d7bc119276c37b71dcb56} 
+void vga\+::\+VGAMonitor\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}}}]{id}{}\end{DoxyParamCaption})}
+
+ensure the well global monitor initialization. \Hypertarget{classvga_1_1VGAMonitor_a6cc644082edded6d226db78a9a7b24f7}\index{vga::VGAMonitor@{vga::VGAMonitor}!move\_left@{move\_left}}
+\index{move\_left@{move\_left}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{move\_left()}{move\_left()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a6cc644082edded6d226db78a9a7b24f7} 
+void vga\+::\+VGAMonitor\+::move\+\_\+left (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+moves the cursor of 1 column to the left. \Hypertarget{classvga_1_1VGAMonitor_a8869bd1c24f273c547fa6174e8a797fc}\index{vga::VGAMonitor@{vga::VGAMonitor}!move\_right@{move\_right}}
+\index{move\_right@{move\_right}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{move\_right()}{move\_right()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a8869bd1c24f273c547fa6174e8a797fc} 
+void vga\+::\+VGAMonitor\+::move\+\_\+right (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+moves the cursor of 1 column to the right. \Hypertarget{classvga_1_1VGAMonitor_a6f7287a77a5d079cbcc70331225f53ab}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a6f7287a77a5d079cbcc70331225f53ab} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
+
+Stream insertion operator for a string. DON\textquotesingle{}T use it to display user input. Use \doxylink{classvga_1_1VGAMonitor_a414a689d4f5122de0f3d8de68a0664f5}{handle\+\_\+user\+\_\+input()} instead. 
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1VGAMonitor_a961c0798288e7c98286b83d53c39d870}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a961c0798288e7c98286b83d53c39d870} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const char}]{str}{}\end{DoxyParamCaption})}
+
+Stream insertion operator for a single character. 
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1VGAMonitor_a971162f0c3980de40639b0a45d19bc1f}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a971162f0c3980de40639b0a45d19bc1f} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const color\+::vga\+\_\+color}]{fg}{}\end{DoxyParamCaption})}
+
+Stream foreground color modifier operator. \Hypertarget{classvga_1_1VGAMonitor_a818da3b634ea710b6362d1a7d422182f}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a818da3b634ea710b6362d1a7d422182f} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const int}]{nbr}{}\end{DoxyParamCaption})}
+
+Stream insertion operator for an integer. 
+\begin{DoxyParams}{Parameters}
+{\em nbr} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1VGAMonitor_a2c9b6314c90de7c0d5cc0c40419d180d}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a2c9b6314c90de7c0d5cc0c40419d180d} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{unbr}{}\end{DoxyParamCaption})}
+
+Stream insertion operator for an unsigned integer. 
+\begin{DoxyParams}{Parameters}
+{\em unbr} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1VGAMonitor_a6700141fd261bf390750f759c58f252c}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a6700141fd261bf390750f759c58f252c} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}}}]{changer}{}\end{DoxyParamCaption})}
+
+Stream colors modifier operator via t\+\_\+color\+\_\+set. \Hypertarget{classvga_1_1VGAMonitor_a4372befd53971b06dca5a15657eb2b80}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a4372befd53971b06dca5a15657eb2b80} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvga_1_1VGAColorChange}{VGAColor\+Change}}}]{changer}{}\end{DoxyParamCaption})}
+
+Stream colors modifier operator. \Hypertarget{classvga_1_1VGAMonitor_a262a9b4fc1a23045e7d98ea92f1b8e9c}\index{vga::VGAMonitor@{vga::VGAMonitor}!operator=@{operator=}}
+\index{operator=@{operator=}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a262a9b4fc1a23045e7d98ea92f1b8e9c} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \& vga\+::\+VGAMonitor\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvga_1_1VGAMonitor}{VGAMonitor}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classvga_1_1VGAMonitor_ad8881e106e2b4522464c61e89310f17c}\index{vga::VGAMonitor@{vga::VGAMonitor}!put\_char@{put\_char}}
+\index{put\_char@{put\_char}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{put\_char()}{put\_char()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_ad8881e106e2b4522464c61e89310f17c} 
+void vga\+::\+VGAMonitor\+::put\+\_\+char (\begin{DoxyParamCaption}\item[{const char}]{c}{}\end{DoxyParamCaption})}
+
+writes a single character on the terminal. 
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1VGAMonitor_a4d95585f7708c88ebc93984fe09cf8a5}\index{vga::VGAMonitor@{vga::VGAMonitor}!scroll\_down@{scroll\_down}}
+\index{scroll\_down@{scroll\_down}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{scroll\_down()}{scroll\_down()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a4d95585f7708c88ebc93984fe09cf8a5} 
+void vga\+::\+VGAMonitor\+::scroll\+\_\+down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+scrolls the visible window down by one line. \Hypertarget{classvga_1_1VGAMonitor_a2541e1f796439a30c1b645d710e42c2b}\index{vga::VGAMonitor@{vga::VGAMonitor}!scroll\_up@{scroll\_up}}
+\index{scroll\_up@{scroll\_up}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{scroll\_up()}{scroll\_up()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a2541e1f796439a30c1b645d710e42c2b} 
+void vga\+::\+VGAMonitor\+::scroll\+\_\+up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+scrolls the visible window up by one line. \Hypertarget{classvga_1_1VGAMonitor_ab8451f860f232936cb2669cfb45f22c2}\index{vga::VGAMonitor@{vga::VGAMonitor}!set\_bg\_color@{set\_bg\_color}}
+\index{set\_bg\_color@{set\_bg\_color}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{set\_bg\_color()}{set\_bg\_color()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_ab8451f860f232936cb2669cfb45f22c2} 
+void vga\+::\+VGAMonitor\+::set\+\_\+bg\+\_\+color (\begin{DoxyParamCaption}\item[{color\+::vga\+\_\+color}]{bg}{}\end{DoxyParamCaption})}
+
+changes background color. \Hypertarget{classvga_1_1VGAMonitor_ad9be0ddb7a9563f801bcffbc4e9a10f6}\index{vga::VGAMonitor@{vga::VGAMonitor}!set\_colors@{set\_colors}}
+\index{set\_colors@{set\_colors}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{set\_colors()}{set\_colors()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_ad9be0ddb7a9563f801bcffbc4e9a10f6} 
+void vga\+::\+VGAMonitor\+::set\+\_\+colors (\begin{DoxyParamCaption}\item[{color\+::vga\+\_\+color}]{fg}{, }\item[{color\+::vga\+\_\+color}]{bg}{}\end{DoxyParamCaption})}
+
+changes both foreground and background colors. \Hypertarget{classvga_1_1VGAMonitor_aaf2dc24706abac0bd81d428f33752e48}\index{vga::VGAMonitor@{vga::VGAMonitor}!set\_fg\_color@{set\_fg\_color}}
+\index{set\_fg\_color@{set\_fg\_color}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{set\_fg\_color()}{set\_fg\_color()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_aaf2dc24706abac0bd81d428f33752e48} 
+void vga\+::\+VGAMonitor\+::set\+\_\+fg\+\_\+color (\begin{DoxyParamCaption}\item[{color\+::vga\+\_\+color}]{fg}{}\end{DoxyParamCaption})}
+
+changes foreground color. \Hypertarget{classvga_1_1VGAMonitor_adb259958221d9b90475c49325ce06f71}\index{vga::VGAMonitor@{vga::VGAMonitor}!set\_user\_input\_limit@{set\_user\_input\_limit}}
+\index{set\_user\_input\_limit@{set\_user\_input\_limit}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{set\_user\_input\_limit()}{set\_user\_input\_limit()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_adb259958221d9b90475c49325ce06f71} 
+void vga\+::\+VGAMonitor\+::set\+\_\+user\+\_\+input\+\_\+limit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Sets the user imput limit at the given position. \Hypertarget{classvga_1_1VGAMonitor_ac5702a8421ba825ea730cd5e2f1d75e1}\index{vga::VGAMonitor@{vga::VGAMonitor}!write@{write}}
+\index{write@{write}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_ac5702a8421ba825ea730cd5e2f1d75e1} 
+void vga\+::\+VGAMonitor\+::write (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
+
+writes a string on the terminal. 
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{classvga_1_1VGAMonitor_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvga_1_1VGAMonitor_ae867ecbf4c7581620bedce728c0aa1b3}\index{vga::VGAMonitor@{vga::VGAMonitor}!\_buffer@{\_buffer}}
+\index{\_buffer@{\_buffer}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{\_buffer}{\_buffer}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_ae867ecbf4c7581620bedce728c0aa1b3} 
+\mbox{\hyperlink{classvga_1_1ScrollbackBuffer}{Scrollback\+Buffer}} vga\+::\+VGAMonitor\+::\+\_\+buffer}
+
+\Hypertarget{classvga_1_1VGAMonitor_aa8059d35b501f1d2c67a1da302ccb13b}\index{vga::VGAMonitor@{vga::VGAMonitor}!\_cursor\_write@{\_cursor\_write}}
+\index{\_cursor\_write@{\_cursor\_write}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{\_cursor\_write}{\_cursor\_write}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_aa8059d35b501f1d2c67a1da302ccb13b} 
+\mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} vga\+::\+VGAMonitor\+::\+\_\+cursor\+\_\+write}
+
+\Hypertarget{classvga_1_1VGAMonitor_a879de6e37cd173c24c27b2dc3728da8f}\index{vga::VGAMonitor@{vga::VGAMonitor}!\_user\_cursor@{\_user\_cursor}}
+\index{\_user\_cursor@{\_user\_cursor}!vga::VGAMonitor@{vga::VGAMonitor}}
+\doxysubsubsection{\texorpdfstring{\_user\_cursor}{\_user\_cursor}}
+{\footnotesize\ttfamily \label{classvga_1_1VGAMonitor_a879de6e37cd173c24c27b2dc3728da8f} 
+\mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} vga\+::\+VGAMonitor\+::\+\_\+user\+\_\+cursor}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/lib/vga/\mbox{\hyperlink{VGAMonitor_8hpp}{VGAMonitor.\+hpp}}\item 
+src/lib/vga/\mbox{\hyperlink{VGAMonitor_8cpp}{VGAMonitor.\+cpp}}\end{DoxyCompactItemize}

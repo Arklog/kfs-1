@@ -1,0 +1,115 @@
+\doxysection{vga\+::VGACursor Class Reference}
+\hypertarget{classvga_1_1VGACursor}{}\label{classvga_1_1VGACursor}\index{vga::VGACursor@{vga::VGACursor}}
+
+
+{\ttfamily \#include $<$VGACursor.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvga_1_1VGACursor_a07061ea6a5cb6f229fff7062cc01d0b6}{VGACursor}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGACursor_a1ab200d82b2da3ad929ab0728d19c588}{advance}} (int line\+\_\+len, int last\+\_\+line, int new\+\_\+line=0)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGACursor_a6126147ebe0b7434cb643c4c1c8a9d2b}{back}} (int prev\+\_\+line\+\_\+len)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGACursor_a2862aa7bb7b89277c5033bb5713281a5}{up}} (int prev\+\_\+line\+\_\+len)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGACursor_a0b7845c76e7dfacc0313b3d597cbdffb}{down}} (int next\+\_\+line\+\_\+len, int last\+\_\+line)
+\item 
+void \mbox{\hyperlink{classvga_1_1VGACursor_a6764fde8729899a4599f0da29ed4d4f9}{newline}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1VGACursor_a9d0a0c044d74b0e6b67446d8732cd0e4}{set}} (\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} l, \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} c)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} \mbox{\hyperlink{classvga_1_1VGACursor_a354276d3262bfbdaf28e0003a0edcab2}{line}}
+\item 
+\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} \mbox{\hyperlink{classvga_1_1VGACursor_a4f65a2316cc82b2dc634855d34905ad7}{column}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Purely logical cursor defined by its position (line and column index within the \doxylink{classvga_1_1ScrollbackBuffer}{Scrollback\+Buffer}). 
+
+\label{doc-constructors}
+\Hypertarget{classvga_1_1VGACursor_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvga_1_1VGACursor_a07061ea6a5cb6f229fff7062cc01d0b6}\index{vga::VGACursor@{vga::VGACursor}!VGACursor@{VGACursor}}
+\index{VGACursor@{VGACursor}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{VGACursor()}{VGACursor()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a07061ea6a5cb6f229fff7062cc01d0b6} 
+vga\+::\+VGACursor\+::\+VGACursor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classvga_1_1VGACursor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvga_1_1VGACursor_a1ab200d82b2da3ad929ab0728d19c588}\index{vga::VGACursor@{vga::VGACursor}!advance@{advance}}
+\index{advance@{advance}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a1ab200d82b2da3ad929ab0728d19c588} 
+void vga\+::\+VGACursor\+::advance (\begin{DoxyParamCaption}\item[{int}]{line\+\_\+len}{, }\item[{int}]{last\+\_\+line}{, }\item[{int}]{new\+\_\+line}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+advance the cursor of exactly one column within the current line if it\textquotesingle{}s not at end of line, or moves it forward on the next line otherwise. \Hypertarget{classvga_1_1VGACursor_a6126147ebe0b7434cb643c4c1c8a9d2b}\index{vga::VGACursor@{vga::VGACursor}!back@{back}}
+\index{back@{back}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a6126147ebe0b7434cb643c4c1c8a9d2b} 
+void vga\+::\+VGACursor\+::back (\begin{DoxyParamCaption}\item[{int}]{prev\+\_\+line\+\_\+len}{}\end{DoxyParamCaption})}
+
+get the cursor back of exactly one column within the current line if it\textquotesingle{}s not at beginning of line, or moves it backward on the prevline line otherwise. \Hypertarget{classvga_1_1VGACursor_a0b7845c76e7dfacc0313b3d597cbdffb}\index{vga::VGACursor@{vga::VGACursor}!down@{down}}
+\index{down@{down}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{down()}{down()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a0b7845c76e7dfacc0313b3d597cbdffb} 
+void vga\+::\+VGACursor\+::down (\begin{DoxyParamCaption}\item[{int}]{next\+\_\+line\+\_\+len}{, }\item[{int}]{last\+\_\+line}{}\end{DoxyParamCaption})}
+
+get the cursor down of exactly one line. If the current column index is superior of the next line length, it takes its length as new value. \Hypertarget{classvga_1_1VGACursor_a6764fde8729899a4599f0da29ed4d4f9}\index{vga::VGACursor@{vga::VGACursor}!newline@{newline}}
+\index{newline@{newline}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{newline()}{newline()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a6764fde8729899a4599f0da29ed4d4f9} 
+void vga\+::\+VGACursor\+::newline (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+get down the cursor at the beginning of the next line. \Hypertarget{classvga_1_1VGACursor_a9d0a0c044d74b0e6b67446d8732cd0e4}\index{vga::VGACursor@{vga::VGACursor}!set@{set}}
+\index{set@{set}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a9d0a0c044d74b0e6b67446d8732cd0e4} 
+void vga\+::\+VGACursor\+::set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{l}{, }\item[{\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}}}]{c}{}\end{DoxyParamCaption})}
+
+set the cursor position at the precise specified indexes. 
+\begin{DoxyParams}{Parameters}
+{\em l} & line index \\
+\hline
+{\em c} & column index \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1VGACursor_a2862aa7bb7b89277c5033bb5713281a5}\index{vga::VGACursor@{vga::VGACursor}!up@{up}}
+\index{up@{up}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{up()}{up()}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a2862aa7bb7b89277c5033bb5713281a5} 
+void vga\+::\+VGACursor\+::up (\begin{DoxyParamCaption}\item[{int}]{prev\+\_\+line\+\_\+len}{}\end{DoxyParamCaption})}
+
+get the cursor up of exactly one line. If the current column index is superior of the previous line length, it takes its length as new value. 
+
+\label{doc-variable-members}
+\Hypertarget{classvga_1_1VGACursor_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvga_1_1VGACursor_a4f65a2316cc82b2dc634855d34905ad7}\index{vga::VGACursor@{vga::VGACursor}!column@{column}}
+\index{column@{column}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{column}{column}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a4f65a2316cc82b2dc634855d34905ad7} 
+\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} vga\+::\+VGACursor\+::column}
+
+\Hypertarget{classvga_1_1VGACursor_a354276d3262bfbdaf28e0003a0edcab2}\index{vga::VGACursor@{vga::VGACursor}!line@{line}}
+\index{line@{line}!vga::VGACursor@{vga::VGACursor}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily \label{classvga_1_1VGACursor_a354276d3262bfbdaf28e0003a0edcab2} 
+\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} vga\+::\+VGACursor\+::line}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/lib/vga/\mbox{\hyperlink{VGACursor_8hpp}{VGACursor.\+hpp}}\item 
+src/lib/vga/\mbox{\hyperlink{VGACursor_8cpp}{VGACursor.\+cpp}}\end{DoxyCompactItemize}

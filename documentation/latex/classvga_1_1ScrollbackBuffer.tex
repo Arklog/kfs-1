@@ -1,0 +1,227 @@
+\doxysection{vga\+::Scrollback\+Buffer Class Reference}
+\hypertarget{classvga_1_1ScrollbackBuffer}{}\label{classvga_1_1ScrollbackBuffer}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+
+
+{\ttfamily \#include $<$Scrollback\+Buffer.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{line\+\_\+type}} = \mbox{\hyperlink{classcontainer_1_1StackVector}{container\+::\+Stack\+Vector}}$<$\mbox{\hyperlink{unionvga_1_1t__vga__char}{t\+\_\+vga\+\_\+char}}, \mbox{\hyperlink{namespacevga_af41df1149783a49ca19d8add73981eee}{vga\+::\+VGA\+\_\+\+WIDTH}}$>$
+\item 
+using \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{buffer\+\_\+type}} = \mbox{\hyperlink{classcontainer_1_1StackVector}{container\+::\+Stack\+Vector}}$<$\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{line\+\_\+type}}, \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a46a86d04ca5498227bc004cef9e126d4}{MAX\+\_\+\+LINES}}$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a207a5680f474b3920a5218565ea9b4b7}{Scrollback\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_ab7ef355a0bdf7aab55342394d029d557}{clear}} ()
+\item 
+void \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_afa668a10c332b8a66d3bf44a2fa40083}{write}} (const \mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} \&cursor, const \mbox{\hyperlink{unionvga_1_1t__vga__char}{t\+\_\+vga\+\_\+char}} \&c)
+\item 
+void \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a9e13865a68c7092a82330d973f61d54a}{erase}} (const \mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} \&cursor)
+\item 
+void \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a268dd2d012494ea0e680d8c88a832262}{newline}} (\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a4b3210dee23a4de940d7d25d4489612d}{line}}, \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} column)
+\item 
+void \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a45f9910030d0d93b24efd785c809cab3}{merge\+\_\+lines}} (\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} dst, \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} src)
+\item 
+void \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a31cec428e9ad6372e14f3be5b73dcd1a}{backspace}} (\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} line\+\_\+idx, \mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} col)
+\item 
+const \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{line\+\_\+type}} \& \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a4b3210dee23a4de940d7d25d4489612d}{line}} (\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} index) const
+\item 
+\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a7238f566df00d0abf1da79b060017775}{line\+\_\+length}} (\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} index) const
+\item 
+\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_aaaa3717da9ee2e62bf6560fee1946ad9}{line\+\_\+count}} () const
+\item 
+void \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a591d7ab77b12ddb4e0e17229b6cb6dd5}{scroll\+\_\+up}} ()
+\item 
+const \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{buffer\+\_\+type}} \& \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a87acf85d8acd8a576d9944551213f06d}{get\+\_\+buffer}} () const
+\item 
+\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{buffer\+\_\+type}} \& \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a0c63881dcf52160b214cbcfad9c574a2}{get\+\_\+buffer}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a46a86d04ca5498227bc004cef9e126d4}{MAX\+\_\+\+LINES}} = 50
+\item 
+static constexpr \mbox{\hyperlink{unionvga_1_1t__vga__char}{t\+\_\+vga\+\_\+char}} \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a72c047ea6a8d88b5d612613f7befc977}{default\+\_\+char}} \{\textquotesingle{} \textquotesingle{}, \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{color\+::color\+\_\+set\+::\+WHITE\+\_\+\+ON\+\_\+\+BLACK}}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Logical buffer storing all written lines, currently visible or not. Lines has here a logical length which can be different of this actual displayed length. This class is responsible for all text modifications. 
+
+\label{doc-typedef-members}
+\Hypertarget{classvga_1_1ScrollbackBuffer_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!buffer\_type@{buffer\_type}}
+\index{buffer\_type@{buffer\_type}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{buffer\_type}{buffer\_type}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4} 
+using \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{vga\+::\+Scrollback\+Buffer\+::buffer\+\_\+type}} = \mbox{\hyperlink{classcontainer_1_1StackVector}{container\+::\+Stack\+Vector}}$<$\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{line\+\_\+type}}, \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a46a86d04ca5498227bc004cef9e126d4}{MAX\+\_\+\+LINES}}$>$}
+
+\Hypertarget{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!line\_type@{line\_type}}
+\index{line\_type@{line\_type}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{line\_type}{line\_type}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4} 
+using \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{vga\+::\+Scrollback\+Buffer\+::line\+\_\+type}} = \mbox{\hyperlink{classcontainer_1_1StackVector}{container\+::\+Stack\+Vector}}$<$\mbox{\hyperlink{unionvga_1_1t__vga__char}{t\+\_\+vga\+\_\+char}}, \mbox{\hyperlink{namespacevga_af41df1149783a49ca19d8add73981eee}{vga\+::\+VGA\+\_\+\+WIDTH}}$>$}
+
+
+
+\label{doc-constructors}
+\Hypertarget{classvga_1_1ScrollbackBuffer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a207a5680f474b3920a5218565ea9b4b7}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!ScrollbackBuffer@{ScrollbackBuffer}}
+\index{ScrollbackBuffer@{ScrollbackBuffer}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{ScrollbackBuffer()}{ScrollbackBuffer()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a207a5680f474b3920a5218565ea9b4b7} 
+vga\+::\+Scrollback\+Buffer\+::\+Scrollback\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classvga_1_1ScrollbackBuffer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a31cec428e9ad6372e14f3be5b73dcd1a}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!backspace@{backspace}}
+\index{backspace@{backspace}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{backspace()}{backspace()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a31cec428e9ad6372e14f3be5b73dcd1a} 
+void vga\+::\+Scrollback\+Buffer\+::backspace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{line\+\_\+idx}{, }\item[{\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}}}]{col}{}\end{DoxyParamCaption})}
+
+removes the character at the current cursor position. 
+\begin{DoxyParams}{Parameters}
+{\em line\+\_\+idx} & current line of the cursor \\
+\hline
+{\em col} & current col of the cursor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1ScrollbackBuffer_ab7ef355a0bdf7aab55342394d029d557}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!clear@{clear}}
+\index{clear@{clear}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_ab7ef355a0bdf7aab55342394d029d557} 
+void vga\+::\+Scrollback\+Buffer\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+clears the entire buffer. \Hypertarget{classvga_1_1ScrollbackBuffer_a9e13865a68c7092a82330d973f61d54a}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!erase@{erase}}
+\index{erase@{erase}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a9e13865a68c7092a82330d973f61d54a} 
+void vga\+::\+Scrollback\+Buffer\+::erase (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} \&}]{cursor}{}\end{DoxyParamCaption})}
+
+erases the character present at the current cursor position. 
+\begin{DoxyParams}{Parameters}
+{\em cursor} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a0c63881dcf52160b214cbcfad9c574a2}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!get\_buffer@{get\_buffer}}
+\index{get\_buffer@{get\_buffer}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_buffer()}{get\_buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a0c63881dcf52160b214cbcfad9c574a2} 
+\mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{Scrollback\+Buffer\+::buffer\+\_\+type}} \& vga\+::\+Scrollback\+Buffer\+::get\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classvga_1_1ScrollbackBuffer_a87acf85d8acd8a576d9944551213f06d}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!get\_buffer@{get\_buffer}}
+\index{get\_buffer@{get\_buffer}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_buffer()}{get\_buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a87acf85d8acd8a576d9944551213f06d} 
+const \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_a47e63a0e7db97da8b579fae3510f9ac4}{Scrollback\+Buffer\+::buffer\+\_\+type}} \& vga\+::\+Scrollback\+Buffer\+::get\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classvga_1_1ScrollbackBuffer_a4b3210dee23a4de940d7d25d4489612d}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!line@{line}}
+\index{line@{line}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{line()}{line()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a4b3210dee23a4de940d7d25d4489612d} 
+const \mbox{\hyperlink{classvga_1_1ScrollbackBuffer_af058b9118dff608c600f052d8220e3a4}{Scrollback\+Buffer\+::line\+\_\+type}} \& vga\+::\+Scrollback\+Buffer\+::line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{index}{}\end{DoxyParamCaption}) const}
+
+returns a pointer to the first line\textquotesingle{}s character of the given index. 
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1ScrollbackBuffer_aaaa3717da9ee2e62bf6560fee1946ad9}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!line\_count@{line\_count}}
+\index{line\_count@{line\_count}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{line\_count()}{line\_count()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_aaaa3717da9ee2e62bf6560fee1946ad9} 
+\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} vga\+::\+Scrollback\+Buffer\+::line\+\_\+count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+returns the number of logical lines within the buffer. \Hypertarget{classvga_1_1ScrollbackBuffer_a7238f566df00d0abf1da79b060017775}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!line\_length@{line\_length}}
+\index{line\_length@{line\_length}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{line\_length()}{line\_length()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a7238f566df00d0abf1da79b060017775} 
+\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} vga\+::\+Scrollback\+Buffer\+::line\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{index}{}\end{DoxyParamCaption}) const}
+
+returns the logical length of the given line. 
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a45f9910030d0d93b24efd785c809cab3}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!merge\_lines@{merge\_lines}}
+\index{merge\_lines@{merge\_lines}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{merge\_lines()}{merge\_lines()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a45f9910030d0d93b24efd785c809cab3} 
+void vga\+::\+Scrollback\+Buffer\+::merge\+\_\+lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{dst}{, }\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{src}{}\end{DoxyParamCaption})}
+
+merges lines when backspace is pressed at column 0. 
+\begin{DoxyParams}{Parameters}
+{\em dst} & destination index line. \\
+\hline
+{\em src} & source index line (can be removed). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a268dd2d012494ea0e680d8c88a832262}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!newline@{newline}}
+\index{newline@{newline}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{newline()}{newline()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a268dd2d012494ea0e680d8c88a832262} 
+void vga\+::\+Scrollback\+Buffer\+::newline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{line}{, }\item[{\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}}}]{column}{}\end{DoxyParamCaption})}
+
+Create a new line below the given line, characters after column are moved to the new line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Index of the line below which to create the new line. \\
+\hline
+{\em column} & index of the column where to split the line. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a591d7ab77b12ddb4e0e17229b6cb6dd5}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!scroll\_up@{scroll\_up}}
+\index{scroll\_up@{scroll\_up}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{scroll\_up()}{scroll\_up()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a591d7ab77b12ddb4e0e17229b6cb6dd5} 
+void vga\+::\+Scrollback\+Buffer\+::scroll\+\_\+up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+scrolls the buffer up when the maximum line is reached (erasing the first one). \Hypertarget{classvga_1_1ScrollbackBuffer_afa668a10c332b8a66d3bf44a2fa40083}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!write@{write}}
+\index{write@{write}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_afa668a10c332b8a66d3bf44a2fa40083} 
+void vga\+::\+Scrollback\+Buffer\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvga_1_1VGACursor}{VGACursor}} \&}]{cursor}{, }\item[{const \mbox{\hyperlink{unionvga_1_1t__vga__char}{t\+\_\+vga\+\_\+char}} \&}]{c}{}\end{DoxyParamCaption})}
+
+Insert a character at the current cursor position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{classvga_1_1ScrollbackBuffer_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvga_1_1ScrollbackBuffer_a72c047ea6a8d88b5d612613f7befc977}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!default\_char@{default\_char}}
+\index{default\_char@{default\_char}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{default\_char}{default\_char}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a72c047ea6a8d88b5d612613f7befc977} 
+\mbox{\hyperlink{unionvga_1_1t__vga__char}{t\+\_\+vga\+\_\+char}} vga\+::\+Scrollback\+Buffer\+::default\+\_\+char \{\textquotesingle{} \textquotesingle{}, \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_a316ee65f66087c11e74cc1df0facb828}{color\+::color\+\_\+set\+::\+WHITE\+\_\+\+ON\+\_\+\+BLACK}}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{classvga_1_1ScrollbackBuffer_a46a86d04ca5498227bc004cef9e126d4}\index{vga::ScrollbackBuffer@{vga::ScrollbackBuffer}!MAX\_LINES@{MAX\_LINES}}
+\index{MAX\_LINES@{MAX\_LINES}!vga::ScrollbackBuffer@{vga::ScrollbackBuffer}}
+\doxysubsubsection{\texorpdfstring{MAX\_LINES}{MAX\_LINES}}
+{\footnotesize\ttfamily \label{classvga_1_1ScrollbackBuffer_a46a86d04ca5498227bc004cef9e126d4} 
+\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} vga\+::\+Scrollback\+Buffer\+::\+MAX\+\_\+\+LINES = 50\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/lib/vga/\mbox{\hyperlink{ScrollbackBuffer_8hpp}{Scrollback\+Buffer.\+hpp}}\item 
+src/lib/vga/\mbox{\hyperlink{ScrollbackBuffer_8cpp}{Scrollback\+Buffer.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,26 @@
+\doxysection{container\+::is\+\_\+iterable Concept Reference}
+\hypertarget{conceptcontainer_1_1is__iterable}{}\label{conceptcontainer_1_1is__iterable}\index{container::is\_iterable@{container::is\_iterable}}
+
+
+{\ttfamily \#include $<$concept.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptcontainer_1_1is__iterable}{container::is\_iterable}}\ =\ \ \textcolor{keyword}{requires}(T\ a)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a.begin()\ \}\ -\/>\ \mbox{\hyperlink{conceptutility_1_1same__as}{utility::same\_as}}<\textcolor{keyword}{decltype}(a.end())>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ a.end()\ \};}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Check if a type is iterable, eg\+: have begin() and end() methods
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type to check \\
+\hline
+\end{DoxyTemplParams}

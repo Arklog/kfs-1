@@ -1,0 +1,17 @@
+\doxysection{container\+::is\+\_\+pair\+\_\+iterator Concept Reference}
+\hypertarget{conceptcontainer_1_1is__pair__iterator}{}\label{conceptcontainer_1_1is__pair__iterator}\index{container::is\_pair\_iterator@{container::is\_pair\_iterator}}
+
+
+{\ttfamily \#include $<$concept.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptcontainer_1_1is__pair__iterator}{container::is\_pair\_iterator}}\ =\ \ \mbox{\hyperlink{conceptcontainer_1_1is__pair}{is\_pair<T>}}\ \&\&\ \mbox{\hyperlink{conceptcontainer_1_1is__iterator}{is\_iterator<T>}}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Check if a type is both a valid iterator and a valid pair 

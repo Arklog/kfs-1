@@ -1,0 +1,61 @@
+\doxysection{range.\+hpp}
+\hypertarget{range_8hpp_source}{}\label{range_8hpp_source}\index{src/lib/container/range.hpp@{src/lib/container/range.hpp}}
+\mbox{\hyperlink{range_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pierre\ on\ 1/6/26.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_RANGE\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_RANGE\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{concept_8hpp}{concept.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{PairIterator_8hpp}{iterator/PairIterator.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pair_8hpp}{pair.hpp}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecontainer}{container}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{template}<is\_iterator\ T>}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcontainer_1_1range_a760338f5d70b570c8b0e77e0cebaa8e6}{range}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structcontainer_1_1range_a176fd9a50f319d6c2a8e06cdbee32444}{value\_type}}\ =\ T;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcontainer_1_1range_a760338f5d70b570c8b0e77e0cebaa8e6}{range}}(\textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{structcontainer_1_1range_ae55a5ee38b2e36e434cd1ea06c219bb1}{begin}},\textcolor{keyword}{const}\ \ T\&\ \mbox{\hyperlink{structcontainer_1_1range_a6e79fa30d5c25827badde2912ed119e2}{end}}):\ \_begin\{\mbox{\hyperlink{structcontainer_1_1range_ae55a5ee38b2e36e434cd1ea06c219bb1}{begin}}\},\ \_end\{\mbox{\hyperlink{structcontainer_1_1range_a6e79fa30d5c25827badde2912ed119e2}{end}}\}\ \{\}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{structcontainer_1_1range_ae55a5ee38b2e36e434cd1ea06c219bb1}{begin}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_begin;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{structcontainer_1_1range_a6e79fa30d5c25827badde2912ed119e2}{end}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_end;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ T\ \_begin;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ T\ \_end;}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{template}<is\_iterator\ T,\ is\_iterator\ U>}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcontainer_1_1dual__range_ad6cb9fabdc68ed6e9e94e68ac608a1e9}{dual\_range}}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\_type}}\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classcontainer_1_1PairIterator}{container::PairIterator<pair<T,\ U>}}>;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\_type}}\ =\ iterator\_type::value\_type;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcontainer_1_1dual__range_ad6cb9fabdc68ed6e9e94e68ac608a1e9}{dual\_range}}(\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\_type}}\ item,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ len):\ \_begin\{item\},\ \_end\{\_begin\ +\ len\}\ \{\}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcontainer_1_1dual__range_ad88643da42e91ec5f151079b6418cafa}{dual\_range}}(\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\_type}}\ \mbox{\hyperlink{structcontainer_1_1dual__range_a1f8bc17c405b7c1a2bd5425582eb4249}{begin}},\ \mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\_type}}\ \mbox{\hyperlink{structcontainer_1_1dual__range_a183108d4fef16f11a8b477455a812e6e}{end}}):\ \_begin\{\mbox{\hyperlink{structcontainer_1_1dual__range_a1f8bc17c405b7c1a2bd5425582eb4249}{begin}}\},\ \_end\{\mbox{\hyperlink{structcontainer_1_1dual__range_a183108d4fef16f11a8b477455a812e6e}{end}}\}\ \{\}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\_type}}\ \mbox{\hyperlink{structcontainer_1_1dual__range_a1f8bc17c405b7c1a2bd5425582eb4249}{begin}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_begin;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\_type}}\ \mbox{\hyperlink{structcontainer_1_1dual__range_a183108d4fef16f11a8b477455a812e6e}{end}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_end;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\_type}}\ \_begin;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\_type}}\ \_end;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \};}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_RANGE\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,110 @@
+\doxysection{format Namespace Reference}
+\hypertarget{namespaceformat}{}\label{namespaceformat}\index{format@{format}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceformat_abfbc86f27e8602ca57c23d7629b9cf7c}{format}} (char \texorpdfstring{$\ast$}{*}buffer, int value)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceformat_a0a0dfa1a4881602d28ee5ad992103459}{format}} (char \texorpdfstring{$\ast$}{*}buffer, \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}} value)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceformat_af2fff0ec24e8d2ff4279660b35d53b6d}{format}} (char \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}value)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceformat_af87dfa0efef75c15b6a604e608e47a16}{fmt}} (char \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format\+\_\+str)
+\item 
+{\footnotesize template$<$typename T, typename ... Args$>$ }\\char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceformat_afcf73db12cbfc1385fb510542747e2c1}{fmt}} (char \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format\+\_\+str, T value, Args ... args)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceformat_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceformat_af87dfa0efef75c15b6a604e608e47a16}\index{format@{format}!fmt@{fmt}}
+\index{fmt@{fmt}!format@{format}}
+\doxysubsubsection{\texorpdfstring{fmt()}{fmt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceformat_af87dfa0efef75c15b6a604e608e47a16} 
+char \texorpdfstring{$\ast$}{*} format\+::fmt (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{format\+\_\+str}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespaceformat_afcf73db12cbfc1385fb510542747e2c1}\index{format@{format}!fmt@{fmt}}
+\index{fmt@{fmt}!format@{format}}
+\doxysubsubsection{\texorpdfstring{fmt()}{fmt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceformat_afcf73db12cbfc1385fb510542747e2c1} 
+template$<$typename T, typename ... Args$>$ \\
+char \texorpdfstring{$\ast$}{*} format\+::fmt (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{format\+\_\+str}{, }\item[{T}]{value}{, }\item[{Args ...}]{args}{}\end{DoxyParamCaption})}
+
+Format the arguments into the buffer according to the format string. The format string uses "{}\{\}"{} as format specifiers for each argument.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & \\
+\hline
+{\em format\+\_\+str} & \\
+\hline
+{\em value} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{namespaceformat_af2fff0ec24e8d2ff4279660b35d53b6d}\index{format@{format}!format@{format}}
+\index{format@{format}!format@{format}}
+\doxysubsubsection{\texorpdfstring{format()}{format()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{namespaceformat_af2fff0ec24e8d2ff4279660b35d53b6d} 
+char \texorpdfstring{$\ast$}{*} format\+::format (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{value}{}\end{DoxyParamCaption})}
+
+Format a C-\/string into a buffer
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to write into \\
+\hline
+{\em value} & The C-\/string to format\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NULL on error, otherwise a pointer to the next character after the formatted string 
+\end{DoxyReturn}
+\Hypertarget{namespaceformat_abfbc86f27e8602ca57c23d7629b9cf7c}\index{format@{format}!format@{format}}
+\index{format@{format}!format@{format}}
+\doxysubsubsection{\texorpdfstring{format()}{format()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{namespaceformat_abfbc86f27e8602ca57c23d7629b9cf7c} 
+char \texorpdfstring{$\ast$}{*} format\+::format (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{int}]{value}{}\end{DoxyParamCaption})}
+
+Format a 32 bits signed integer into a buffer
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to write into \\
+\hline
+{\em value} & The integer to format\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NULL on error, otherwise a pointer to the next character after the formatted integer 
+\end{DoxyReturn}
+\Hypertarget{namespaceformat_a0a0dfa1a4881602d28ee5ad992103459}\index{format@{format}!format@{format}}
+\index{format@{format}!format@{format}}
+\doxysubsubsection{\texorpdfstring{format()}{format()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{namespaceformat_a0a0dfa1a4881602d28ee5ad992103459} 
+char \texorpdfstring{$\ast$}{*} format\+::format (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{\mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\+\_\+t}}}]{value}{}\end{DoxyParamCaption})}
+
+Format a 32 bits unsigned integer into a buffer
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to write into \\
+\hline
+{\em value} & The integer to format\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NULL on error, otherwise a pointer to the next character after the formatted integer 
+\end{DoxyReturn}

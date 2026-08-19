@@ -1,0 +1,100 @@
+\doxysection{container\+::dual\+\_\+range\texorpdfstring{$<$}{<} T, U \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structcontainer_1_1dual__range}{}\label{structcontainer_1_1dual__range}\index{container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}}
+
+
+{\ttfamily \#include $<$range.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\+\_\+type}} = typename \mbox{\hyperlink{classcontainer_1_1PairIterator}{container\+::\+Pair\+Iterator}}$<$\mbox{\hyperlink{structcontainer_1_1pair}{pair}}$<$T, U$>$$>$
+\item 
+using \mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\+\_\+type}} = iterator\+\_\+type\+::value\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcontainer_1_1dual__range_ad6cb9fabdc68ed6e9e94e68ac608a1e9}{dual\+\_\+range}} (\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\+\_\+type}} item, unsigned int len)
+\item 
+\mbox{\hyperlink{structcontainer_1_1dual__range_ad88643da42e91ec5f151079b6418cafa}{dual\+\_\+range}} (\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\+\_\+type}} \mbox{\hyperlink{structcontainer_1_1dual__range_a1f8bc17c405b7c1a2bd5425582eb4249}{begin}}, \mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\+\_\+type}} \mbox{\hyperlink{structcontainer_1_1dual__range_a183108d4fef16f11a8b477455a812e6e}{end}})
+\item 
+\mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\+\_\+type}} \mbox{\hyperlink{structcontainer_1_1dual__range_a1f8bc17c405b7c1a2bd5425582eb4249}{begin}} () const
+\item 
+\mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\+\_\+type}} \mbox{\hyperlink{structcontainer_1_1dual__range_a183108d4fef16f11a8b477455a812e6e}{end}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$is\+\_\+iterator T, is\+\_\+iterator U$>$\newline
+struct container\+::dual\+\_\+range$<$ T, U $>$}
+A range of two elements being iterated in parallel.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the first iterator \\
+\hline
+{\em U} & Type of the second iterator \\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{doc-typedef-members}
+\Hypertarget{structcontainer_1_1dual__range_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}\index{container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}!iterator\_type@{iterator\_type}}
+\index{iterator\_type@{iterator\_type}!container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{iterator\_type}{iterator\_type}}
+{\footnotesize\ttfamily \label{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af} 
+template$<$is\+\_\+iterator T, is\+\_\+iterator U$>$ \\
+using \mbox{\hyperlink{structcontainer_1_1dual__range}{container\+::dual\+\_\+range}}$<$ T, U $>$\+::iterator\+\_\+type = typename \mbox{\hyperlink{classcontainer_1_1PairIterator}{container\+::\+Pair\+Iterator}}$<$\mbox{\hyperlink{structcontainer_1_1pair}{pair}}$<$T, U$>$$>$}
+
+\Hypertarget{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}\index{container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily \label{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38} 
+template$<$is\+\_\+iterator T, is\+\_\+iterator U$>$ \\
+using \mbox{\hyperlink{structcontainer_1_1dual__range}{container\+::dual\+\_\+range}}$<$ T, U $>$\+::value\+\_\+type = iterator\+\_\+type\+::value\+\_\+type}
+
+
+
+\label{doc-constructors}
+\Hypertarget{structcontainer_1_1dual__range_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structcontainer_1_1dual__range_ad6cb9fabdc68ed6e9e94e68ac608a1e9}\index{container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}!dual\_range@{dual\_range}}
+\index{dual\_range@{dual\_range}!container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{dual\_range()}{dual\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structcontainer_1_1dual__range_ad6cb9fabdc68ed6e9e94e68ac608a1e9} 
+template$<$is\+\_\+iterator T, is\+\_\+iterator U$>$ \\
+\mbox{\hyperlink{structcontainer_1_1dual__range}{container\+::dual\+\_\+range}}$<$ T, U $>$\+::dual\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\+\_\+type}}}]{item}{, }\item[{unsigned int}]{len}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structcontainer_1_1dual__range_ad88643da42e91ec5f151079b6418cafa}\index{container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}!dual\_range@{dual\_range}}
+\index{dual\_range@{dual\_range}!container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{dual\_range()}{dual\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structcontainer_1_1dual__range_ad88643da42e91ec5f151079b6418cafa} 
+template$<$is\+\_\+iterator T, is\+\_\+iterator U$>$ \\
+\mbox{\hyperlink{structcontainer_1_1dual__range}{container\+::dual\+\_\+range}}$<$ T, U $>$\+::dual\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\+\_\+type}}}]{begin}{, }\item[{\mbox{\hyperlink{structcontainer_1_1dual__range_a355b3a0d59bd7a71f1dcb7b64fd67c38}{value\+\_\+type}}}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{structcontainer_1_1dual__range_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structcontainer_1_1dual__range_a1f8bc17c405b7c1a2bd5425582eb4249}\index{container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}!begin@{begin}}
+\index{begin@{begin}!container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{structcontainer_1_1dual__range_a1f8bc17c405b7c1a2bd5425582eb4249} 
+template$<$is\+\_\+iterator T, is\+\_\+iterator U$>$ \\
+\mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\+\_\+type}} \mbox{\hyperlink{structcontainer_1_1dual__range}{container\+::dual\+\_\+range}}$<$ T, U $>$\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structcontainer_1_1dual__range_a183108d4fef16f11a8b477455a812e6e}\index{container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}!end@{end}}
+\index{end@{end}!container::dual\_range$<$ T, U $>$@{container::dual\_range$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \label{structcontainer_1_1dual__range_a183108d4fef16f11a8b477455a812e6e} 
+template$<$is\+\_\+iterator T, is\+\_\+iterator U$>$ \\
+\mbox{\hyperlink{structcontainer_1_1dual__range_af9c40ef755b10bf6ff9638c989b124af}{iterator\+\_\+type}} \mbox{\hyperlink{structcontainer_1_1dual__range}{container\+::dual\+\_\+range}}$<$ T, U $>$\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/lib/container/\mbox{\hyperlink{range_8hpp}{range.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,43 @@
+\doxysection{src/lib/keyboard/keyboard\+Handler.cpp File Reference}
+\hypertarget{keyboardHandler_8cpp}{}\label{keyboardHandler_8cpp}\index{src/lib/keyboard/keyboardHandler.cpp@{src/lib/keyboard/keyboardHandler.cpp}}
+{\ttfamily \#include "{}keyboard\+Handler.\+hpp"{}}\newline
+{\ttfamily \#include "{}lib/logging/logging.\+hpp"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacekbd}{kbd}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} \mbox{\hyperlink{keyboardHandler_8cpp_a2e1e8e2c5724c1e8fd2dff2eada06479}{inb}} (\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}} port)
+\item 
+void \mbox{\hyperlink{namespacekbd_a41ae1ab500e0e4201ad417bb11dbce8a}{kbd\+::handler}} (\mbox{\hyperlink{namespacekbd_a2cfcfcbdc1786b4c4d4f630bf23e3b5e}{screen\+\_\+container\+\_\+type}} \&monitors, \mbox{\hyperlink{namespacekbd_a775a6d21f5d91d453d9dec49e8b7e5bb}{screen\+\_\+container\+\_\+iterator\+\_\+type}} \&current\+\_\+screen\+\_\+iter)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{vga\+::\+VGAMonitor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{keyboardHandler_8cpp_abbc063d4fb42463fd82cf5a6c6aa432a}{g\+\_\+monitor}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{keyboardHandler_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{keyboardHandler_8cpp_a2e1e8e2c5724c1e8fd2dff2eada06479}\index{keyboardHandler.cpp@{keyboardHandler.cpp}!inb@{inb}}
+\index{inb@{inb}!keyboardHandler.cpp@{keyboardHandler.cpp}}
+\doxysubsubsection{\texorpdfstring{inb()}{inb()}}
+{\footnotesize\ttfamily \label{keyboardHandler_8cpp_a2e1e8e2c5724c1e8fd2dff2eada06479} 
+\mbox{\hyperlink{stdint_8hpp_a0ba18cab9bd5513695cbe748e9bb4879}{uint8\+\_\+t}} inb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8hpp_a64be82add362de7c99ce6671d7f4f0a6}{uint16\+\_\+t}}}]{port}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-var-members}
+\Hypertarget{keyboardHandler_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{keyboardHandler_8cpp_abbc063d4fb42463fd82cf5a6c6aa432a}\index{keyboardHandler.cpp@{keyboardHandler.cpp}!g\_monitor@{g\_monitor}}
+\index{g\_monitor@{g\_monitor}!keyboardHandler.cpp@{keyboardHandler.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_monitor}{g\_monitor}}
+{\footnotesize\ttfamily \label{keyboardHandler_8cpp_abbc063d4fb42463fd82cf5a6c6aa432a} 
+\mbox{\hyperlink{classvga_1_1VGAMonitor}{vga\+::\+VGAMonitor}}\texorpdfstring{$\ast$}{*} g\+\_\+monitor = nullptr}
+

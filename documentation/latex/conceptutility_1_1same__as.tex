@@ -1,0 +1,25 @@
+\doxysection{utility\+::same\+\_\+as Concept Reference}
+\hypertarget{conceptutility_1_1same__as}{}\label{conceptutility_1_1same__as}\index{utility::same\_as@{utility::same\_as}}
+
+
+{\ttfamily \#include $<$type\+\_\+trait.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptutility_1_1same__as}{utility::same\_as}}\ =\ \ \mbox{\hyperlink{structutility_1_1is__same_ac6b1a92def9b41089df75d462caa6f47}{is\_same<T,\ U>::value}}\ \&\&\ \mbox{\hyperlink{structutility_1_1is__same_ac6b1a92def9b41089df75d462caa6f47}{is\_same<U,\ T>::value}}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Check if T and U are of the same type
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em U} & \\
+\hline
+\end{DoxyTemplParams}

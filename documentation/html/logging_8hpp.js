@@ -1,0 +1,21 @@
+var logging_8hpp =
+[
+    [ "logging::LoggerBase", "classlogging_1_1LoggerBase.html", "classlogging_1_1LoggerBase" ],
+    [ "logging::LoggerWrapper< T >", "classlogging_1_1LoggerWrapper.html", "classlogging_1_1LoggerWrapper" ],
+    [ "LOG_BUFFER_SIZE", "logging_8hpp.html#a381c342b2b34df0b1a5b39c0d94da4e1", null ],
+    [ "logging::t_logger", "namespacelogging.html#aa31b97e0c227424a5b41e6a3e2f6ba8b", null ],
+    [ "logging::t_logger_color", "namespacelogging.html#a910b5de4c5fa33d9085613d8323b125c", null ],
+    [ "logging::t_log_level", "namespacelogging.html#a4f888751f1d2c7a4c14111a9e105437f", [
+      [ "logging::DEBUG", "namespacelogging.html#a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f", null ],
+      [ "logging::INFO", "namespacelogging.html#a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562", null ],
+      [ "logging::WARN", "namespacelogging.html#a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3", null ],
+      [ "logging::ERROR", "namespacelogging.html#a4f888751f1d2c7a4c14111a9e105437fabef691e55fd1813b7540614e718ab7f1", null ]
+    ] ],
+    [ "logging::debug", "namespacelogging.html#afd472d09a34c0ed99bb7fe6e1b574044", null ],
+    [ "logging::error", "namespacelogging.html#a6ef1936d20a9b8e4c40edf074e0ecce9", null ],
+    [ "logging::get_logger", "namespacelogging.html#ad7fd1d7f9fcfed112f3a42ff5d50de1d", null ],
+    [ "logging::info", "namespacelogging.html#a9fa141ac1193aca6403bab4bc6170529", null ],
+    [ "logging::printk", "namespacelogging.html#a638313b4bd512bdf06b1a99e25b3bca0", null ],
+    [ "logging::set_logger", "namespacelogging.html#aefa4c3eccb695e5cec62f0bf37e2f9aa", null ],
+    [ "logging::warn", "namespacelogging.html#abe960700ae2cdf3eba2c63f784d92e8f", null ]
+];

@@ -1,0 +1,49 @@
+\doxysection{Container.\+hpp}
+\hypertarget{Container_8hpp_source}{}\label{Container_8hpp_source}\index{src/lib/container/Container.hpp@{src/lib/container/Container.hpp}}
+\mbox{\hyperlink{Container_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pierre\ on\ 12/29/25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_CONTAINER\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_CONTAINER\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecontainer}{container}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ IteratorType,\ \textcolor{keyword}{typename}\ ConstIteratorType>}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcontainer_1_1Container}{Container}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1Container_a4665423a7e648ec68cac3baae10db595}{\string~Container}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \ \ \ \ \ \ =\ IteratorType;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\_iterator}}\ =\ ConstIteratorType;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcontainer_1_1Container_a9d0655ce818093aeb96c2c51d07b70f4}{size\_type}}\ \ \ \ \ \ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcontainer_1_1Container_a0a7dde6e1a696386e7edbf6ca7510376}{value\_type}}\ \ \ \ \ =\ T;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_a20f1c59ff5e430ebbcef4eee9afc1903}{begin}}()\ =\ 0;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\_iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_a23369b3b1ed516599cb433350133f971}{begin}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_abb5ee5dc2528c203efbe678bcf86353d}{end}}()\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\_iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_a119d902c49745ef1b8a0cbacba4ba3d8}{end}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\_iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_abeeadac42d4838c66a884adef20281b7}{cbegin}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_a61f5f2b67c8ad4a1d1f283b332f23e1d}{const\_iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_a6d8668fcae93f178a000e86d5ae1aff3}{cend}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ T\ *\mbox{\hyperlink{classcontainer_1_1Container_a1b3bb2ad7dccbdbdd0ee569c40d3d6c6}{data}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_a9d0655ce818093aeb96c2c51d07b70f4}{size\_type}}\ \mbox{\hyperlink{classcontainer_1_1Container_a60a451e2b80ce1284f8c1358c50ddf11}{size}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_a349fbcf9441ccf5ecc96ac227c41cc9b}{insert}}(\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ position,\ \textcolor{keyword}{const}\ T\ \&value)\ =\ 0;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_acd751b39079329eff6fbb2051f8e8dab}{insert}}(\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ position,\ T\ \&\&value)\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \mbox{\hyperlink{classcontainer_1_1Container_a3f750148325df05d3e7abc936b541b07}{insert}}(\mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ position,\ \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \_begin,\ \mbox{\hyperlink{classcontainer_1_1Container_aa79e136153fbed55581f0d53a2bcbe35}{iterator}}\ \_end)\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ \};}
+\DoxyCodeLine{00082\ \}\ \textcolor{comment}{//\ container}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_CONTAINER\_HPP}}
+
+\end{DoxyCode}

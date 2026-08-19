@@ -1,0 +1,52 @@
+\doxysection{format.\+hpp}
+\hypertarget{format_8hpp_source}{}\label{format_8hpp_source}\index{src/lib/format/format.hpp@{src/lib/format/format.hpp}}
+\mbox{\hyperlink{format_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pierre\ on\ 12/18/25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_FORMAT\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_FORMAT\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stdint_8hpp}{include/stdint.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KString_8hpp}{lib/str/KString.hpp}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceformat}{format}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{namespaceformat}{format}}(\textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{namespaceformat}{format}}(\textcolor{keywordtype}{char}\ *buffer,\ \mbox{\hyperlink{stdint_8hpp_a398ec93d6bf48539b258a3dd78e32c82}{uint32\_t}}\ value);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{namespaceformat}{format}}(\textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{namespaceformat_af87dfa0efef75c15b6a604e608e47a16}{fmt}}(\textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format\_str)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ more\ format\ specifier,\ copy\ the\ rest\ of\ the\ string\ and\ return}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacekstring_af17ba32dae7b366a7b6cf9c5eddecc54}{kstring::memcpy}}(buffer,\ format\_str,\ \mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(format\_str)\ +\ 1);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ buffer\ +\ \mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(buffer);}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ ...\ Args>}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{namespaceformat_af87dfa0efef75c15b6a604e608e47a16}{fmt}}(\textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format\_str,\ T\ value,\ Args\ ...\ args)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ next\ =\ \mbox{\hyperlink{namespacekstring_a73187e875bc72dd4f55303ffea2dc589}{kstring::strstr}}(format\_str,\ \textcolor{stringliteral}{"{}\{\}"{}});}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ more\ format\ specifier,\ copy\ the\ rest\ of\ the\ string\ and\ return}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (next\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacekstring_af17ba32dae7b366a7b6cf9c5eddecc54}{kstring::memcpy}}(buffer,\ format\_str,\ \mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(format\_str)\ +\ 1);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ buffer\ +\ \mbox{\hyperlink{namespacekstring_aa603abc2e61e091257c246cea81c4ea4}{kstring::strlen}}(buffer);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copy\ up\ to\ the\ next\ format\ specifier}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacekstring_af17ba32dae7b366a7b6cf9c5eddecc54}{kstring::memcpy}}(buffer,\ format\_str,\ next\ -\/\ format\_str);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ buffer\ +=\ next\ -\/\ format\_str;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ buffer\ =\ \mbox{\hyperlink{namespaceformat}{format}}(buffer,\ value);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Increment\ next\ to\ skip\ the\ "{}\{\}"{}}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ next\ +=\ 2;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceformat_af87dfa0efef75c15b6a604e608e47a16}{fmt}}(buffer,\ next,\ args...);}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KFS\_1\_FORMAT\_HPP}}
+
+\end{DoxyCode}

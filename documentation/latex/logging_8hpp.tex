@@ -1,0 +1,65 @@
+\doxysection{src/lib/logging/logging.hpp File Reference}
+\hypertarget{logging_8hpp}{}\label{logging_8hpp}\index{src/lib/logging/logging.hpp@{src/lib/logging/logging.hpp}}
+{\ttfamily \#include "{}lib/vga/vga.\+hpp"{}}\newline
+{\ttfamily \#include "{}lib/format/format.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlogging_1_1LoggerBase}{logging\+::\+Logger\+Base}}
+\item 
+class \mbox{\hyperlink{classlogging_1_1LoggerWrapper}{logging\+::\+Logger\+Wrapper$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacelogging}{logging}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{logging_8hpp_a381c342b2b34df0b1a5b39c0d94da4e1}{LOG\+\_\+\+BUFFER\+\_\+\+SIZE}}~1024
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacelogging_a910b5de4c5fa33d9085613d8323b125c}{logging\+::t\+\_\+logger\+\_\+color}} = \mbox{\hyperlink{namespacevga_1_1color_1_1color__set_ade1b0830d2452b8c45323e0b91fed91a}{vga\+::color\+::color\+\_\+set\+::t\+\_\+color\+\_\+set}}
+\item 
+using \mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{logging\+::t\+\_\+logger}} = \mbox{\hyperlink{classlogging_1_1LoggerBase}{Logger\+Base}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{logging\+::t\+\_\+log\+\_\+level}} \{ \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa682501b7fb187303796e3f533735b51f}{logging\+::\+DEBUG}} = 0
+, \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fa599d39352a6b7a4d371ea9e27bd22562}{logging\+::\+INFO}} = DEBUG + 1
+, \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437faa00f075d3e980cd854510e52ec60e5e3}{logging\+::\+WARN}} = INFO + 1
+, \mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437fabef691e55fd1813b7540614e718ab7f1}{logging\+::\+ERROR}} = WARN + 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{namespacelogging_aefa4c3eccb695e5cec62f0bf37e2f9aa}{logging\+::set\+\_\+logger}} (T \&logger)
+\item 
+\mbox{\hyperlink{namespacelogging_aa31b97e0c227424a5b41e6a3e2f6ba8b}{t\+\_\+logger}} \& \mbox{\hyperlink{namespacelogging_ad7fd1d7f9fcfed112f3a42ff5d50de1d}{logging\+::get\+\_\+logger}} ()
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_a638313b4bd512bdf06b1a99e25b3bca0}{logging\+::printk}} (\mbox{\hyperlink{namespacelogging_a4f888751f1d2c7a4c14111a9e105437f}{t\+\_\+log\+\_\+level}} log\+\_\+level, const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_afd472d09a34c0ed99bb7fe6e1b574044}{logging\+::debug}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_a9fa141ac1193aca6403bab4bc6170529}{logging\+::info}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_abe960700ae2cdf3eba2c63f784d92e8f}{logging\+::warn}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\item 
+{\footnotesize template$<$typename... TArgs$>$ }\\int \mbox{\hyperlink{namespacelogging_a6ef1936d20a9b8e4c40edf074e0ecce9}{logging\+::error}} (const char \texorpdfstring{$\ast$}{*}format, TArgs... args)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{logging_8hpp_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{logging_8hpp_a381c342b2b34df0b1a5b39c0d94da4e1}\index{logging.hpp@{logging.hpp}!LOG\_BUFFER\_SIZE@{LOG\_BUFFER\_SIZE}}
+\index{LOG\_BUFFER\_SIZE@{LOG\_BUFFER\_SIZE}!logging.hpp@{logging.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_BUFFER\_SIZE}{LOG\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{logging_8hpp_a381c342b2b34df0b1a5b39c0d94da4e1} 
+\#define LOG\+\_\+\+BUFFER\+\_\+\+SIZE~1024}
+

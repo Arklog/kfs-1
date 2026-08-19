@@ -1,0 +1,75 @@
+\doxysection{utility Namespace Reference}
+\hypertarget{namespaceutility}{}\label{namespaceutility}\index{utility@{utility}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structutility_1_1is__same}{is\+\_\+same}}
+\item 
+struct \mbox{\hyperlink{structutility_1_1is__same_3_01T_00_01T_01_4}{is\+\_\+same$<$ T, T $>$}}
+\item 
+struct \mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}
+\item 
+struct \mbox{\hyperlink{structutility_1_1remove__reference_3_01T_01_6_01_4}{remove\+\_\+reference$<$ T \& $>$}}
+\item 
+struct \mbox{\hyperlink{structutility_1_1remove__reference_3_01T_01_6_6_01_4}{remove\+\_\+reference$<$ T \&\& $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{conceptutility_1_1same__as}{same\+\_\+as}}
+\item 
+concept \mbox{\hyperlink{conceptutility_1_1convertible__to}{convertible\+\_\+to}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&\& \mbox{\hyperlink{namespaceutility_ae098fee6f93bd081ac555843cbe3963d}{move}} (T \&\&a)
+\item 
+{\footnotesize template$<$typename T$>$ }\\T \&\& \mbox{\hyperlink{namespaceutility_aaa92e5278257837cdcfd3183b8bee036}{forward}} (typename \mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&a)
+\item 
+{\footnotesize template$<$typename T$>$ }\\constexpr T \&\& \mbox{\hyperlink{namespaceutility_a5145fd9c7d71296d5309c791a7b52974}{forward}} (typename \mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&\&a)
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{namespaceutility_ac35553d24bf3634e26c361e98028f23b}{swap}} (T \&\&a, T \&\&b)
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{namespaceutility_a74c779522d08e1d2043355f9ea6c8439}{swap}} (T \&a, T \&b)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceutility_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceutility_a5145fd9c7d71296d5309c791a7b52974}\index{utility@{utility}!forward@{forward}}
+\index{forward@{forward}!utility@{utility}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceutility_a5145fd9c7d71296d5309c791a7b52974} 
+template$<$typename T$>$ \\
+T \&\& utility\+::forward (\begin{DoxyParamCaption}\item[{typename \mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&\&}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{namespaceutility_aaa92e5278257837cdcfd3183b8bee036}\index{utility@{utility}!forward@{forward}}
+\index{forward@{forward}!utility@{utility}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceutility_aaa92e5278257837cdcfd3183b8bee036} 
+template$<$typename T$>$ \\
+T \&\& utility\+::forward (\begin{DoxyParamCaption}\item[{typename \mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&}]{a}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceutility_ae098fee6f93bd081ac555843cbe3963d}\index{utility@{utility}!move@{move}}
+\index{move@{move}!utility@{utility}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{namespaceutility_ae098fee6f93bd081ac555843cbe3963d} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{structutility_1_1remove__reference}{remove\+\_\+reference}}$<$ T $>$\+::type \&\& utility\+::move (\begin{DoxyParamCaption}\item[{T \&\&}]{a}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceutility_ac35553d24bf3634e26c361e98028f23b}\index{utility@{utility}!swap@{swap}}
+\index{swap@{swap}!utility@{utility}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceutility_ac35553d24bf3634e26c361e98028f23b} 
+template$<$typename T$>$ \\
+void utility\+::swap (\begin{DoxyParamCaption}\item[{T \&\&}]{a}{, }\item[{T \&\&}]{b}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceutility_a74c779522d08e1d2043355f9ea6c8439}\index{utility@{utility}!swap@{swap}}
+\index{swap@{swap}!utility@{utility}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceutility_a74c779522d08e1d2043355f9ea6c8439} 
+template$<$typename T$>$ \\
+void utility\+::swap (\begin{DoxyParamCaption}\item[{T \&}]{a}{, }\item[{T \&}]{b}{}\end{DoxyParamCaption})}
+

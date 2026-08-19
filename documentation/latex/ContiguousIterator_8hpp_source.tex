@@ -1,0 +1,247 @@
+\doxysection{Contiguous\+Iterator.\+hpp}
+\hypertarget{ContiguousIterator_8hpp_source}{}\label{ContiguousIterator_8hpp_source}\index{src/lib/container/iterator/ContiguousIterator.hpp@{src/lib/container/iterator/ContiguousIterator.hpp}}
+\mbox{\hyperlink{ContiguousIterator_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pierre\ on\ 1/8/26.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ KFS\_1\_\_CONTIGUOUSITERATOR\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ KFS\_1\_\_CONTIGUOUSITERATOR\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Iterator_8hpp}{Iterator.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecontainer}{container}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Po\textcolor{keywordtype}{int}er,\ \textcolor{keyword}{typename}\ Reference>}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcontainer_1_1ContiguousIterator}{ContiguousIterator}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Po\textcolor{keywordtype}{int}er\ =\ const\ T\ *,\ \textcolor{keyword}{typename}\ Reference\ =\ const\ T\ \&>}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcontainer_1_1IteratorBase}{IteratorBase}}<ContiguousConstIterator<T,\ Pointer,\ Reference>,\ const\ T,\ Pointer,\ Reference>\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Pointer\ \_item;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_aec5cdf549175c57eb6a9c51c8d00e5a2}{ContiguousConstIterator}}(Pointer\ item)\ :}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_item(item)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a9cd60b32a02ac7b123d54b32c3a5b6bb}{ContiguousConstIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator}{ContiguousIterator<T,\ T*,\ T\&>}}\ \&other):\ \_item\{\&(*other)\}\ \{\}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_af275c706b884255c012e722f34f6a6d5}{ContiguousConstIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\ :\ \_item(other.\_item)\ \{\}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&\mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a76551bf1488926fce26c250a60428b1f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\&\ other)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \_item\ =\ other.\_item;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_aaa1e6e4f42d39fbbe4531f82bcc62e96}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ ==\ other.\_item;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_af66ff8816ec0ae299c6c9d7bf315df5c}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ !=\ other.\_item;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a13f273ddd27b32d07f0f4bca97184386}{operator==}}(Pointer\ other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ ==\ other;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a1e1f544075ab636367967b284321909f}{operator!=}}(Pointer\ other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ !=\ other;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a584302de9010c7cc38154d73271fad3e}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ >\ other.\_item;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_abdc03ffd94ef3e99593de74b3129cabd}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ <\ other.\_item;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a06ef414e7e9617dc07eb4c95caada08f}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ >=\ other.\_item;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a17fc94253af62b7a5abce303db025938}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ <=\ other.\_item;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&\mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ac9bafaef3407a3fd7ff85fc2cdbf0706}{operator++}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ ++\_item;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a44208a7838c762d55cfecff42ba61e3a}{operator++}}(\textcolor{keywordtype}{int})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ tmp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ ++(*this);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&\mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a75c252cda43cd4bcd81cd07801d2576b}{operator-\/-\/}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/\_item;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ab3750e19f6ea7a462eb83d1d4e6bed20}{operator-\/-\/}}(\textcolor{keywordtype}{int})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ tmp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/(*this);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a08102a0a501b495f1cc3d21e69903fe4}{operator+}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}(\_item\ +\ n);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ad6ffb3ea4af904cf08215f28f9e5b166}{operator-\/}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}(\_item\ -\/\ n);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a0b10f99cd79a31a5efdf7886e98de212}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ -\/\ other.\_item;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\&\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_a2aa9b2dcabdaf271ecd37e2fd89e3052}{operator+=}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \_item\ +=\ n;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_ada9733a626f308f190846a5d384d482c}{ContiguousConstIterator}}\&\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_aa86c23cc1c20cfd2de9a83be814c6f65}{operator-\/=}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \_item\ -\/=\ n;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Reference\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator_af686b81d7e66c9a17f00cc626ee249e9}{operator*}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\_item;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ Pointer()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Po\textcolor{keywordtype}{int}er\ =\ T\ *,\ \textcolor{keyword}{typename}\ Reference\ =\ T\ \&>}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcontainer_1_1IteratorBase}{IteratorBase}}<ContiguousIterator<T,\ Pointer,\ Reference>,\ T,\ Pointer,\ Reference>\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ Pointer\ \_item;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_aad8c76447272a206ce07bc22dbd7a79f}{ContiguousIterator}}(Pointer\ item)\ :}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \_item(item)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a6b205ec55a7e0322c1d7292889c50c66}{ContiguousIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\ :\ \_item(other.\_item)\ \{\}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ explicit\ ContiguousIterator(const\ ContiguousIterator<const\ T>\&\ other)\ =\ delete;}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ContiguousIterator\ \&operator=(const\ ContiguousIterator<const\ T>\&\ other)\ =\ delete;}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&\mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a51639e28be0ceb04e9407429caee772b}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator<T>}}\&\ other)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \_item\ =\ other.\_item;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator}{ContiguousConstIterator<T,\ const\ Pointer,\ const\ Reference>}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator}{ContiguousConstIterator<T,\ const\ Pointer,\ const\ Reference>}}\{\_item\};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_aed69ebb406aedde57623fcbbcc15d925}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ ==\ other.\_item;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ CT,\ \textcolor{keyword}{typename}\ CPo\textcolor{keywordtype}{int}er\ =\ T*,\ \textcolor{keyword}{typename}\ CReference\ =\ T\&>}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a72e5bca9d028e791c50335087f866d72}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousConstIterator}{ContiguousConstIterator<CT,\ CPointer,\ CReference>}}\ \&other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ ==\ CPointer(other);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a4c4e55b91e478eabc529dc30ff1aa53e}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ other);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_af84e62e338e4eac30c38429bc202a29d}{operator==}}(Pointer\ other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ ==\ other;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_aa507d18f85f98d1874be559851c1df11}{operator!=}}(Pointer\ other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(\_item\ ==\ other);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_ac0626680f1aacf2e3fb8900577a36bbf}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ >\ other.\_item;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a384d4030724b1d2fbc4efa33f96eea36}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ <\ other.\_item;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_afaca4e69797c09d93adb7984a4e7a166}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ >=\ other.\_item;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_ae047e81be186773d3cd7253659c16afd}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ <=\ other.\_item;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&\mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a5d99a06739971791d9d083a9d5d1c301}{operator++}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ ++\_item;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a3ec07f2522f3a904f2a3723d6e4d6811}{operator++}}(\textcolor{keywordtype}{int})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ tmp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ ++(*this);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&\mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a3ed5e3d7d90d2d34123ac33afcaa9a98}{operator-\/-\/}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/\_item;}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_ad5d8412cc6e331ab0c275d922983d479}{operator-\/-\/}}(\textcolor{keywordtype}{int})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ tmp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/(*this);}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a483b5334b2289ba35f882b642b4a341e}{operator+}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}(\_item\ +\ n);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a832ad5b270d4ea9c63e9806776b3ea74}{operator-\/}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}(\_item\ -\/\ n);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a5cea9a7c116cb74eddfec202fc815d46}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\ \&other)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item\ -\/\ other.\_item;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\&\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a16c97e8ca87f3468b12434827f1ae674}{operator+=}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \_item\ +=\ n;}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a01bc6a13543983222541dcf52c1b7eeb}{ContiguousIterator}}\&\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a7fe9f591d1df349571a958212b458bae}{operator-\/=}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \_item\ -\/=\ n;}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ Reference\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a47e67f0c1bc32699e978f34d140efb1f}{operator*}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\_item;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ Pointer\ \mbox{\hyperlink{classcontainer_1_1ContiguousIterator_a5f8771a23730a6ddab40e7a97d55f2ce}{operator-\/>}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ Pointer()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_item;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \};}
+\DoxyCodeLine{00245\ \}\ \textcolor{comment}{//\ namespace\ container}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ KFS\_1\_\_CONTIGUOUSITERATOR\_HPP}}
+
+\end{DoxyCode}
