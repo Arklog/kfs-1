@@ -8,7 +8,6 @@ create_test_and_nontest(
             src/ScrollbackBuffer.cpp
         INCLUDE_DIR
             include
-            ${CMAKE_SOURCE_DIR}/src
         LIBRARIES
             KFS::include
             KFS::Lib::container
