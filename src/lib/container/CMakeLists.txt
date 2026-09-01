@@ -3,19 +3,16 @@
 # This file sets up the utils static library
 ################################################
 
-add_library(container INTERFACE)
-
-target_sources(container INTERFACE
-        ${CMAKE_CURRENT_SOURCE_DIR}/Array.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/Container.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/Container.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/StackVector.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/iterator/Iterator.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/iterator/ContiguousIterator.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/concept.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/range.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/iterator/PairIterator.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pair.hpp
+create_test_and_nontest(
+        NAME container_generated
+        FILE_SRCS
+            src/Container.cpp
+        INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include
+        LIBRARIES
+            KFS::Lib::utility
 )
-target_include_directories(container INTERFACE ${CMAKE_SOURCE_DIR}/src .)
-set_target_properties(container PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
+
+add_library(KFS::Lib::container ALIAS container_generated)
+add_library(KFS::Lib::container-test ALIAS container_generated-test)
+
+add_subdirectory(tests)

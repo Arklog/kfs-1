@@ -1,6 +1,15 @@
-add_library(libstring STATIC
-        KString.cpp
+create_test_and_nontest(
+        NAME libstring
+        FILE_SRCS
+            src/KString.cpp
+        INCLUDE_DIR
+            ${CMAKE_CURRENT_SOURCE_DIR}/include
+        LIBRARIES
+            KFS::include
+            KFS::core
 )
-target_compile_options(libstring PRIVATE ${KFLAGS})
-target_include_directories(libstring PRIVATE ${CMAKE_SOURCE_DIR}/src)
-set_target_properties(libstring PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
+
+add_library(KFS::Lib::string ALIAS libstring)
+add_library(KFS::Lib::string-test ALIAS libstring-test)
+
+add_subdirectory(tests)

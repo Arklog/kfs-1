@@ -56,6 +56,7 @@ set(KFLAGS
         -fno-rtti
         -nostdlib
         -nostdinc
+        -nodefaultlibs
 )
 
 if (NOT DEFINED CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
@@ -66,16 +67,10 @@ endif ()
 message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
-    set(KFLAGS ${KFLAGS} -O0 -g)
+    set(KFLAGS ${KFLAGS} -O2 -g)
 else ()
-    set(KFLAGS ${KFLAGS} -O2)
+    set(KFLAGS ${KFLAGS} -O2 -g)
 endif ()
-
-##################################
-# Main source code
-##################################
-
-add_subdirectory(src)
 
 ##################################
 # Tests
@@ -90,5 +85,9 @@ target_link_options(Catch2 PUBLIC -m32)
 target_compile_options(Catch2WithMain PUBLIC -m32)
 target_link_options(Catch2WithMain PUBLIC -m32)
 
+##################################
+# Main source code
+##################################
+
 enable_testing()
-add_subdirectory(tests)
+add_subdirectory(src)
