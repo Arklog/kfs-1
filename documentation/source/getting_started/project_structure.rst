@@ -1,3 +1,5 @@
+.. _getting_started_project_structure:
+
 #################
 Project Structure
 #################

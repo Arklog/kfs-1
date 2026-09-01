@@ -16,3 +16,6 @@ According to wikipedia a kernel module is:
     *Gross representation of drivers*
 
 
+How to implement a KFS driver
+*****************************
+

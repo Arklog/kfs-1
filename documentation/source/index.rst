@@ -10,9 +10,18 @@ Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
 documentation for details.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
 
-   getting_started/index
-   drivers/index
+.. toctree::
+    :maxdepth: 2
+    :caption: Getting Started:
+
+    getting_started/compilation
+    getting_started/project_structure
+    getting_started/general_guideline
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Drivers:
+
+    drivers/getting_started
+    drivers/list/index
