@@ -1,0 +1,66 @@
+
+.. _file_lib_container_include_container_StackVector.hpp:
+
+File StackVector.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container_include_container>` (``lib/container/include/container``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/container/include/container/StackVector.hpp``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_container_include_container_StackVector.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``container/Array.hpp`` (:ref:`file_lib_container_include_container_Array.hpp`)
+
+- ``container/range.hpp`` (:ref:`file_lib_container_include_container_range.hpp`)
+
+- ``utility/type_trait.hpp`` (:ref:`file_lib_utility_include_utility_type_trait.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp`
+
+- :ref:`file_lib_container_tests_StackVector.cpp`
+
+- :ref:`file_lib_container_tests_range.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_container`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classcontainer_1_1StackVector`
+

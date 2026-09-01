@@ -1,0 +1,57 @@
+
+.. _file_lib_logging_tests_logging.cpp:
+
+File logging.cpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_logging_tests>` (``lib/logging/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/logging/tests/logging.cpp``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_logging_tests_logging.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``catch2/catch_all.hpp``
+
+- ``fstream``
+
+- ``logging/logging.hpp`` (:ref:`file_lib_logging_include_logging_logging.hpp`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_tests_2logging_8cpp_1a952d30051b72677ce7a370995c9df833`
+
+- :ref:`exhale_function_tests_2logging_8cpp_1a5e894f6c3b64f11c76acae1f7316d764`
+
+- :ref:`exhale_function_tests_2logging_8cpp_1a770e5d14553065193471ba4428c379d6`
+
+- :ref:`exhale_function_tests_2logging_8cpp_1a1b57172ddd14c86f18376dc371eec65f`
+
+- :ref:`exhale_function_tests_2logging_8cpp_1a6d73eca0fe34b97aa6e03c3ab7d82c13`
+

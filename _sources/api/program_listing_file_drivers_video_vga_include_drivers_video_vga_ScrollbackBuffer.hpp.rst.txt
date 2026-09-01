@@ -1,0 +1,68 @@
+
+.. _program_listing_file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp:
+
+Program Listing for File ScrollbackBuffer.hpp
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp>` (``drivers/video/vga/include/drivers/video/vga/ScrollbackBuffer.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by alice on 21/12/2025.
+   //
+   
+   #ifndef KFS_1_SCROLLBACKBUFFER_HPP
+   #define KFS_1_SCROLLBACKBUFFER_HPP
+   
+   #include "vga.hpp"
+   #include "container/StackVector.hpp"
+   #include "VGACursor.hpp"
+   #include "include/stdint.hpp"
+   #include "str/KString.hpp"
+   
+   namespace vga {
+       class ScrollbackBuffer {
+       public:
+           static constexpr uint32_t MAX_LINES = 50;
+           static constexpr t_vga_char default_char{' ', color::color_set::WHITE_ON_BLACK};
+   
+           using line_type = container::StackVector<t_vga_char, vga::VGA_WIDTH>;
+           using buffer_type = container::StackVector<line_type, MAX_LINES>;
+   
+           ScrollbackBuffer();
+   
+           void clear();
+   
+           void write(const VGACursor &cursor, const t_vga_char &c);
+   
+           void erase(const VGACursor &cursor);
+   
+           void newline(uint32_t line, uint16_t column);
+   
+           void merge_lines(uint32_t dst, uint32_t src);
+   
+           void backspace(uint32_t line_idx, uint16_t col);
+   
+           const line_type& line(uint32_t index) const;
+   
+           uint16_t line_length(uint32_t index) const;
+   
+           uint32_t line_count() const;
+   
+           void scroll_up();
+   
+           const buffer_type &get_buffer() const;
+   
+           buffer_type &get_buffer();
+   
+       private:
+           buffer_type _buffer;
+       };
+   
+   }
+   
+   
+   #endif //KFS_1_SCROLLBACKBUFFER_HPP

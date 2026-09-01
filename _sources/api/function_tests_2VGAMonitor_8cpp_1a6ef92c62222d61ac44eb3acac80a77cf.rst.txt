@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2VGAMonitor_8cpp_1a6ef92c62222d61ac44eb3acac80a77cf:
+
+Function TEST_CASE("VGAMonitor color modifier", "")
+===================================================
+
+- Defined in :ref:`file_drivers_video_vga_tests_VGAMonitor.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("VGAMonitor color modifier", "")
+   :project: KFS

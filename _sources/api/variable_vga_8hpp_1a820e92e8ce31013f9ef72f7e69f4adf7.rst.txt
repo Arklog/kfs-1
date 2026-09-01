@@ -1,0 +1,14 @@
+.. _exhale_variable_vga_8hpp_1a820e92e8ce31013f9ef72f7e69f4adf7:
+
+Variable vga::color::color_set::BLACK_ON_CYAN
+=============================================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: vga::color::color_set::BLACK_ON_CYAN
+   :project: KFS

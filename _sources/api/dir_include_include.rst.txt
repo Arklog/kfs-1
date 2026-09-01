@@ -1,0 +1,21 @@
+.. _dir_include_include:
+
+
+Directory include
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``include/include``
+
+Subdirectories
+--------------
+
+- :ref:`dir_include_include_include`
+
+
+

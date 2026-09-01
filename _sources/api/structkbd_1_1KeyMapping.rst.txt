@@ -1,0 +1,17 @@
+.. _exhale_struct_structkbd_1_1KeyMapping:
+
+Struct KeyMapping
+=================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: kbd::KeyMapping
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

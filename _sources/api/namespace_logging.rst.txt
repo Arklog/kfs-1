@@ -1,0 +1,68 @@
+
+.. _namespace_logging:
+
+Namespace logging
+=================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classlogging_1_1LoggerBase`
+
+- :ref:`exhale_class_classlogging_1_1LoggerWrapper`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_logging_8hpp_1afd472d09a34c0ed99bb7fe6e1b574044`
+
+- :ref:`exhale_function_logging_8hpp_1a6ef1936d20a9b8e4c40edf074e0ecce9`
+
+- :ref:`exhale_function_logging_8hpp_1ad7fd1d7f9fcfed112f3a42ff5d50de1d`
+
+- :ref:`exhale_function_logging_8hpp_1a9fa141ac1193aca6403bab4bc6170529`
+
+- :ref:`exhale_function_logging_8hpp_1a638313b4bd512bdf06b1a99e25b3bca0`
+
+- :ref:`exhale_function_logging_8hpp_1aefa4c3eccb695e5cec62f0bf37e2f9aa`
+
+- :ref:`exhale_function_logging_8hpp_1abe960700ae2cdf3eba2c63f784d92e8f`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_logging_8hpp_1aa31b97e0c227424a5b41e6a3e2f6ba8b`
+
+- :ref:`exhale_typedef_logging_8hpp_1a910b5de4c5fa33d9085613d8323b125c`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_logging_8hpp_1a3350125d41b6824e9a48b0cba91624c2`
+
+- :ref:`exhale_variable_logging_8hpp_1a15f50b6461121338397fe0cbcec19268`
+
+- :ref:`exhale_variable_logging_8hpp_1a0bc62e748c9bc02b99d33d3709139ee3`

@@ -1,0 +1,14 @@
+.. _exhale_function_logging_8hpp_1a638313b4bd512bdf06b1a99e25b3bca0:
+
+Template Function logging::printk
+=================================
+
+- Defined in :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: logging::printk(t_log_level, const char *, TArgs...)
+   :project: KFS

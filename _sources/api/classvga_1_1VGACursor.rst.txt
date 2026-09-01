@@ -1,0 +1,17 @@
+.. _exhale_class_classvga_1_1VGACursor:
+
+Class VGACursor
+===============
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_VGACursor.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: vga::VGACursor
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

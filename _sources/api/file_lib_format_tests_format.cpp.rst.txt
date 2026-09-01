@@ -1,0 +1,47 @@
+
+.. _file_lib_format_tests_format.cpp:
+
+File format.cpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_format_tests>` (``lib/format/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/format/tests/format.cpp``)
+--------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_format_tests_format.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``catch2/catch_all.hpp``
+
+- ``format/format.hpp`` (:ref:`file_lib_format_include_format_format.hpp`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_tests_2format_8cpp_1acf803c31f9db4079afb5addfa557809f`
+

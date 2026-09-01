@@ -1,0 +1,14 @@
+.. _exhale_variable_defines_8hpp_1a1efb44f5e869d07426696389f5cb9fd5:
+
+Variable NULL
+=============
+
+- Defined in :ref:`file_core_include_core_defines.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: NULL
+   :project: KFS

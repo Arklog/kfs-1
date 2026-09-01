@@ -1,0 +1,14 @@
+.. _exhale_function_range_8cpp_1a6454a2dbbce8cd79490fc8f8f36fe95e:
+
+Function TEST_CASE("pair range", "")
+====================================
+
+- Defined in :ref:`file_lib_container_tests_range.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("pair range", "")
+   :project: KFS

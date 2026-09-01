@@ -1,0 +1,49 @@
+
+.. _file_core_include_core_defines.hpp:
+
+File defines.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_core_include_core>` (``core/include/core``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``core/include/core/defines.hpp``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_core_include_core_defines.hpp.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_lib_str_src_KString.cpp`
+
+
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_defines_8hpp_1aef31d1e2f79e0cfb86fe8ef78d0ec834`
+
+- :ref:`exhale_variable_defines_8hpp_1acaad8808739e6b343ae04d0deada6068`
+
+- :ref:`exhale_variable_defines_8hpp_1a1efb44f5e869d07426696389f5cb9fd5`
+

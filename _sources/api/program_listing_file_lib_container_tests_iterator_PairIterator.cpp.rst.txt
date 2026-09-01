@@ -1,0 +1,34 @@
+
+.. _program_listing_file_lib_container_tests_iterator_PairIterator.cpp:
+
+Program Listing for File PairIterator.cpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_container_tests_iterator_PairIterator.cpp>` (``lib/container/tests/iterator/PairIterator.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 1/9/26.
+   //
+   
+   #include <catch2/catch_all.hpp>
+   #include "container/iterator/PairIterator.hpp"
+   #include "container/pair.hpp"
+   #include "container/iterator/ContiguousIterator.hpp"
+   
+   TEST_CASE("PairIterator", "[container]") {
+       SECTION("CTOR") {
+           {
+               using iterator_type = container::ContiguousIterator<int>;
+               container::PairIterator<container::pair<iterator_type, iterator_type>> t{};
+           }
+   
+           {
+               using iterator_type = container::ContiguousIterator<int>;
+               container::PairIterator<container::pair<iterator_type, iterator_type>> t{iterator_type{nullptr}, iterator_type{nullptr}};
+           }
+       }
+   }

@@ -1,0 +1,14 @@
+.. _exhale_variable_keyboardHandler_8hpp_1a602b1c0d62abd9ed2efe91273e8d9949:
+
+Variable kbd::rshift
+====================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: kbd::rshift
+   :project: KFS

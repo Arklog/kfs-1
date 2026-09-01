@@ -1,0 +1,48 @@
+
+.. _file_lib_math_include_math_math.hpp:
+
+File math.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_math_include_math>` (``lib/math/include/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/math/include/math/math.hpp``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_math_include_math_math.hpp.rst
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_math`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_include_2math_2math_8hpp_1a6602dafaab8d48f3937ece67dcef3dcc`
+
+- :ref:`exhale_function_include_2math_2math_8hpp_1ab4fe263d852700dbca36337e4b73f48c`
+

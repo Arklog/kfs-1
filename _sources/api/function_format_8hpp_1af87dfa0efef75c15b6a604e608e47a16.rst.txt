@@ -1,0 +1,14 @@
+.. _exhale_function_format_8hpp_1af87dfa0efef75c15b6a604e608e47a16:
+
+Function format::fmt(char \*, const char \*)
+============================================
+
+- Defined in :ref:`file_lib_format_include_format_format.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: format::fmt(char *, const char *)
+   :project: KFS

@@ -1,0 +1,26 @@
+.. _exhale_class_classcontainer_1_1PairIterator:
+
+Template Class PairIterator
+===========================
+
+- Defined in :ref:`file_lib_container_include_container_iterator_PairIterator.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public container::IteratorBase< PairIterator< T >, T, T *, T & >`` (:ref:`exhale_class_classcontainer_1_1IteratorBase`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: container::PairIterator
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

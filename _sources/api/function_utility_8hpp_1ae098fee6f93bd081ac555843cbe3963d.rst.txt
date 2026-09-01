@@ -1,0 +1,14 @@
+.. _exhale_function_utility_8hpp_1ae098fee6f93bd081ac555843cbe3963d:
+
+Template Function utility::move
+===============================
+
+- Defined in :ref:`file_lib_utility_include_utility_utility.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: utility::move(T&&)
+   :project: KFS

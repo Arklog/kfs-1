@@ -1,0 +1,72 @@
+
+.. _file_lib_format_include_format_format.hpp:
+
+File format.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_format_include_format>` (``lib/format/include/format``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/format/include/format/format.hpp``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_format_include_format_format.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``include/stdint.hpp`` (:ref:`file_include_include_include_stdint.hpp`)
+
+- ``str/KString.hpp`` (:ref:`file_lib_str_include_str_KString.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_lib_format_src_format.cpp`
+
+- :ref:`file_lib_format_tests_format.cpp`
+
+- :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_format`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_format_8hpp_1afcf73db12cbfc1385fb510542747e2c1`
+
+- :ref:`exhale_function_format_8hpp_1af87dfa0efef75c15b6a604e608e47a16`
+
+- :ref:`exhale_function_format_8hpp_1af2fff0ec24e8d2ff4279660b35d53b6d`
+
+- :ref:`exhale_function_format_8hpp_1a0a0dfa1a4881602d28ee5ad992103459`
+
+- :ref:`exhale_function_format_8hpp_1abfbc86f27e8602ca57c23d7629b9cf7c`
+

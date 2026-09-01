@@ -1,0 +1,125 @@
+
+.. _file_drivers_video_vga_include_drivers_video_vga_vga.hpp:
+
+File vga.hpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video_vga_include_drivers_video_vga>` (``drivers/video/vga/include/drivers/video/vga``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``drivers/video/vga/include/drivers/video/vga/vga.hpp``)
+--------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_drivers_video_vga_include_drivers_video_vga_vga.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``include/stdint.hpp`` (:ref:`file_include_include_include_stdint.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp`
+
+- :ref:`file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp`
+
+- :ref:`file_drivers_video_vga_src_VGACursor.cpp`
+
+- :ref:`file_drivers_video_vga_src_VGAMonitor.cpp`
+
+- :ref:`file_drivers_video_vga_src_vga.cpp`
+
+- :ref:`file_drivers_video_vga_tests_ScrollbackBuffer.cpp`
+
+- :ref:`file_drivers_video_vga_tests_VGAMonitor.cpp`
+
+- :ref:`file_drivers_video_vga_tests_vga.cpp`
+
+- :ref:`file_lib_logging_include_logging_logging.hpp`
+
+- :ref:`file_main.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_vga`
+
+- :ref:`namespace_vga__color`
+
+- :ref:`namespace_vga__color__color_set`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structvga_1_1t__vga__char_1_1vga__char__data`
+
+- :ref:`exhale_struct_structvga_1_1VGAColorChange`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_vga_8hpp_1ade1b0830d2452b8c45323e0b91fed91a`
+
+- :ref:`exhale_typedef_vga_8hpp_1a8974eb980ece679e22c5d41ca968f56c`
+
+
+Unions
+------
+
+
+- :ref:`exhale_union_unionvga_1_1t__vga__char`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_vga_8hpp_1a820e92e8ce31013f9ef72f7e69f4adf7`
+
+- :ref:`exhale_variable_vga_8hpp_1ae432834e069322a7210430e1f09cfc21`
+
+- :ref:`exhale_variable_vga_8hpp_1af5f3e3b40a35ec53e5b033edcf64f6e1`
+
+- :ref:`exhale_variable_vga_8hpp_1ae66c9f0f1b4977a8b801c50e2840734b`
+
+- :ref:`exhale_variable_vga_8hpp_1a5f374a4a964c2eb29d138b541e17da79`
+
+- :ref:`exhale_variable_vga_8hpp_1a2e94f1b802216b0f4ae2e588c1b48c57`
+
+- :ref:`exhale_variable_vga_8hpp_1afb91c2005c991f4f999c2caa24b4d761`
+
+- :ref:`exhale_variable_vga_8hpp_1a316ee65f66087c11e74cc1df0facb828`
+
+- :ref:`exhale_variable_vga_8hpp_1a1152ce7a7b8174e38181d0a21517a00d`
+
+- :ref:`exhale_variable_vga_8hpp_1a77864c8ac1c4293d4569c10ec8b951e1`
+
+- :ref:`exhale_variable_vga_8hpp_1af41df1149783a49ca19d8add73981eee`
+

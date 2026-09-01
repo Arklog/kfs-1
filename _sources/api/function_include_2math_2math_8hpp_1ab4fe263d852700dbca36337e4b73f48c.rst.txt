@@ -1,0 +1,14 @@
+.. _exhale_function_include_2math_2math_8hpp_1ab4fe263d852700dbca36337e4b73f48c:
+
+Template Function math::min
+===========================
+
+- Defined in :ref:`file_lib_math_include_math_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: math::min(const T&&, const T&&)
+   :project: KFS

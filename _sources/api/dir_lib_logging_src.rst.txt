@@ -1,0 +1,21 @@
+.. _dir_lib_logging_src:
+
+
+Directory src
+=============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_logging>` (``lib/logging``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/logging/src``
+
+
+Files
+-----
+
+- :ref:`file_lib_logging_src_logging.cpp`
+
+

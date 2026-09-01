@@ -1,0 +1,93 @@
+
+.. _program_listing_file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp:
+
+Program Listing for File VGAMonitor.hpp
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp>` (``drivers/video/vga/include/drivers/video/vga/VGAMonitor.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 12/17/25.
+   //
+   
+   #ifndef KFS_1_VGAMONITOR_HPP
+   #define KFS_1_VGAMONITOR_HPP
+   
+   #include "vga.hpp"
+   #include "include/stdint.hpp"
+   #include "VGACursor.hpp"
+   #include "ScrollbackBuffer.hpp"
+   #include "VGADisplay.hpp"
+   
+   namespace vga {
+       class VGAMonitor {
+       public:
+           VGAMonitor();
+           VGAMonitor(const VGAMonitor&) = default;
+           VGAMonitor& operator=(const VGAMonitor&) = default;
+   
+           void clear();
+   
+           void init(uint8_t id);
+   
+           void put_char(const char c);
+   
+           void write(const char* str);
+   
+           void scroll_up();
+   
+           void scroll_down();
+   
+           void move_left();
+   
+           void move_right();
+   
+           void backspace();
+   
+           void set_fg_color(color::vga_color fg);
+   
+           void set_bg_color(color::vga_color bg);
+   
+           void set_colors(color::vga_color fg, color::vga_color bg);
+   
+           unsigned int get_page() const;
+   
+           void set_user_input_limit();
+   
+           void handle_user_input(char inp);
+   
+           VGAMonitor &operator<<(const char *str);
+   
+           VGAMonitor &operator<<(const char str);
+   
+           VGAMonitor &operator<<(const color::vga_color fg);
+   
+           VGAMonitor &operator<<(const VGAColorChange changer);
+   
+           VGAMonitor &operator<<(const uint8_t changer);
+   
+           ScrollbackBuffer       _buffer;
+           VGACursor              _cursor_write;
+           VGACursor              _user_cursor;
+   
+   
+       private:
+           uint8_t                _color;
+           uint32_t               _view_line;
+           uint32_t               _lim_line;
+           uint32_t               _lim_column;
+           uint8_t                _page_idx;
+   
+           void       _refresh();
+           void _sync_cursors();
+   
+   
+       };
+   
+   }
+   
+   #endif //KFS_1_VGAMONITOR_HPP

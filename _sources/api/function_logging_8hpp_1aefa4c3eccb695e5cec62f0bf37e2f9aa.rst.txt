@@ -1,0 +1,14 @@
+.. _exhale_function_logging_8hpp_1aefa4c3eccb695e5cec62f0bf37e2f9aa:
+
+Template Function logging::set_logger
+=====================================
+
+- Defined in :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: logging::set_logger(T&)
+   :project: KFS

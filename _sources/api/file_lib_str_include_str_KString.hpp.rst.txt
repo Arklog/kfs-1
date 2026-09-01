@@ -1,0 +1,80 @@
+
+.. _file_lib_str_include_str_KString.hpp:
+
+File KString.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_str_include_str>` (``lib/str/include/str``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/str/include/str/KString.hpp``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_str_include_str_KString.hpp.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp`
+
+- :ref:`file_lib_format_include_format_format.hpp`
+
+- :ref:`file_lib_str_src_KString.cpp`
+
+- :ref:`file_lib_str_tests_KString.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_kstring`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_KString_8hpp_1a378e0d2a5dab987e1e9f57effc49854f`
+
+- :ref:`exhale_function_KString_8hpp_1af17ba32dae7b366a7b6cf9c5eddecc54`
+
+- :ref:`exhale_function_KString_8hpp_1adf700fe756ac930309af58d595733f48`
+
+- :ref:`exhale_function_KString_8hpp_1a960fa7053dc68cdf78962f326fff6e3a`
+
+- :ref:`exhale_function_KString_8hpp_1a435a26ce871779e16400a1d9d3d1291e`
+
+- :ref:`exhale_function_KString_8hpp_1ab81130344dd44b8278dbda8b91252606`
+
+- :ref:`exhale_function_KString_8hpp_1a8e09d80f2d43156b51ee21ae73a6b52b`
+
+- :ref:`exhale_function_KString_8hpp_1aa603abc2e61e091257c246cea81c4ea4`
+
+- :ref:`exhale_function_KString_8hpp_1a4347a23ce97a3667fb2f891bad7f1287`
+
+- :ref:`exhale_function_KString_8hpp_1abe739cc20727564bc9042853fa924cd5`
+
+- :ref:`exhale_function_KString_8hpp_1a73187e875bc72dd4f55303ffea2dc589`
+
+- :ref:`exhale_function_KString_8hpp_1af4de15efc3cb006cb2b51893d455e308`
+

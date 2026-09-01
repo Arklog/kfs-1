@@ -1,0 +1,14 @@
+.. _exhale_function_port_8hpp_1a2e1e8e2c5724c1e8fd2dff2eada06479:
+
+Function inb(uint16_t)
+======================
+
+- Defined in :ref:`file_lib_port_include_port_port.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: inb(uint16_t)
+   :project: KFS

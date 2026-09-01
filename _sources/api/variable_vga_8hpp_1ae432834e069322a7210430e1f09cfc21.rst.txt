@@ -1,0 +1,14 @@
+.. _exhale_variable_vga_8hpp_1ae432834e069322a7210430e1f09cfc21:
+
+Variable vga::color::color_set::BLACK_ON_WHITE
+==============================================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: vga::color::color_set::BLACK_ON_WHITE
+   :project: KFS

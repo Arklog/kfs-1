@@ -1,0 +1,47 @@
+
+.. _file_lib_port_src_port.cpp:
+
+File port.cpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_port_src>` (``lib/port/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/port/src/port.cpp``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_port_src_port.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``../include/port/port.hpp``
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_port_8cpp_1a2e1e8e2c5724c1e8fd2dff2eada06479`
+
+- :ref:`exhale_function_port_8cpp_1a8bf7a9af91c08e6f876aaffeccd48ff3`
+

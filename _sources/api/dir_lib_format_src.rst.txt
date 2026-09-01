@@ -1,0 +1,21 @@
+.. _dir_lib_format_src:
+
+
+Directory src
+=============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_format>` (``lib/format``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/format/src``
+
+
+Files
+-----
+
+- :ref:`file_lib_format_src_format.cpp`
+
+

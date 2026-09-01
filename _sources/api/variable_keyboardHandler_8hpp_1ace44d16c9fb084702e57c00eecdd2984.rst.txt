@@ -1,0 +1,14 @@
+.. _exhale_variable_keyboardHandler_8hpp_1ace44d16c9fb084702e57c00eecdd2984:
+
+Variable kbd::backspace
+=======================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: kbd::backspace
+   :project: KFS

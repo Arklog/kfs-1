@@ -1,0 +1,14 @@
+.. _exhale_typedef_stdint_8hpp_1ab98e3fd00411dc43753c9fcd0f2fb845:
+
+Typedef int32_t
+===============
+
+- Defined in :ref:`file_include_include_include_stdint.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: int32_t
+   :project: KFS

@@ -1,0 +1,63 @@
+
+.. _file_lib_logging_src_logging.cpp:
+
+File logging.cpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_logging_src>` (``lib/logging/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/logging/src/logging.cpp``)
+--------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_logging_src_logging.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``logging/logging.hpp`` (:ref:`file_lib_logging_include_logging_logging.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_logging`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_logging_8hpp_1ad7fd1d7f9fcfed112f3a42ff5d50de1d`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_logging_8hpp_1a3350125d41b6824e9a48b0cba91624c2`
+
+- :ref:`exhale_variable_logging_8hpp_1a15f50b6461121338397fe0cbcec19268`
+
+- :ref:`exhale_variable_logging_8hpp_1a0bc62e748c9bc02b99d33d3709139ee3`
+

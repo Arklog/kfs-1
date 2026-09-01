@@ -1,0 +1,14 @@
+.. _exhale_variable_vga_8hpp_1a5f374a4a964c2eb29d138b541e17da79:
+
+Variable vga::color::color_set::DEFAULT
+=======================================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: vga::color::color_set::DEFAULT
+   :project: KFS

@@ -1,0 +1,2232 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Library API - KFS 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=3e69a11e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #282C34;
+  --color-code-foreground: #ABB2BF;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">KFS 1.0.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">KFS 1.0.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/compilation.html">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Drivers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../drivers/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../drivers/list/index.html">Implemented Kernel Drivers</a><input aria-label="Toggle navigation of Implemented Kernel Drivers" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../drivers/list/i8042/i8042.html">i8042</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drivers/list/video/vga/vga.html">VGA</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/api/library_root.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="library-api">
+<h1>Library API<a class="headerlink" href="#library-api" title="Link to this heading">¶</a></h1>
+<section id="class-hierarchy">
+<h2>Class Hierarchy<a class="headerlink" href="#class-hierarchy" title="Link to this heading">¶</a></h2>
+<ul class="treeView" id="class-treeView">
+  <li>
+    <ul class="collapsibleList">
+      <li>Namespace <a href="namespace_container.html#namespace-container">container</a><ul><li>Template Struct <a href="structcontainer_1_1dual__range.html#exhale-struct-structcontainer-1-1dual-range">dual_range</a></li><li>Template Struct <a href="structcontainer_1_1pair.html#exhale-struct-structcontainer-1-1pair">pair</a></li><li>Template Struct <a href="structcontainer_1_1range.html#exhale-struct-structcontainer-1-1range">range</a></li><li>Template Class <a href="classcontainer_1_1Array.html#exhale-class-classcontainer-1-1Array">Array</a></li><li>Template Class <a href="classcontainer_1_1Container.html#exhale-class-classcontainer-1-1Container">Container</a></li><li>Template Class <a href="classcontainer_1_1ContiguousConstIterator.html#exhale-class-classcontainer-1-1ContiguousConstIterator">ContiguousConstIterator</a></li><li>Template Class <a href="classcontainer_1_1ContiguousIterator.html#exhale-class-classcontainer-1-1ContiguousIterator">ContiguousIterator</a></li><li>Template Class <a href="classcontainer_1_1IteratorBase.html#exhale-class-classcontainer-1-1IteratorBase">IteratorBase</a></li><li>Template Class <a href="classcontainer_1_1PairIterator.html#exhale-class-classcontainer-1-1PairIterator">PairIterator</a></li><li class="lastChild">Template Class <a href="classcontainer_1_1StackVector.html#exhale-class-classcontainer-1-1StackVector">StackVector</a></li></ul></li><li>Namespace <a href="namespace_kbd.html#namespace-kbd">kbd</a><ul><li class="lastChild">Struct <a href="structkbd_1_1KeyMapping.html#exhale-struct-structkbd-1-1KeyMapping">KeyMapping</a></li></ul></li><li>Namespace <a href="namespace_logging.html#namespace-logging">logging</a><ul><li>Class <a href="classlogging_1_1LoggerBase.html#exhale-class-classlogging-1-1LoggerBase">LoggerBase</a></li><li>Template Class <a href="classlogging_1_1LoggerWrapper.html#exhale-class-classlogging-1-1LoggerWrapper">LoggerWrapper</a></li><li class="lastChild">Enum <a href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html#exhale-enum-logging-8hpp-1a4f888751f1d2c7a4c14111a9e105437f">t_log_level</a></li></ul></li><li>Namespace <a href="namespace_utility.html#namespace-utility">utility</a><ul><li>Template Struct <a href="structutility_1_1is__same.html#exhale-struct-structutility-1-1is-same">is_same</a></li><li>Template Struct <a href="structutility_1_1is__same_3_01T_00_01T_01_4.html#exhale-struct-structutility-1-1is-same-3-01T-00-01T-01-4">is_same&lt; T, T &gt;</a></li><li>Template Struct <a href="structutility_1_1remove__reference.html#exhale-struct-structutility-1-1remove-reference">remove_reference</a></li><li>Template Struct <a href="structutility_1_1remove__reference_3_01T_01_6_01_4.html#exhale-struct-structutility-1-1remove-reference-3-01T-01-6-01-4">remove_reference&lt; T &amp; &gt;</a></li><li class="lastChild">Template Struct <a href="structutility_1_1remove__reference_3_01T_01_6_6_01_4.html#exhale-struct-structutility-1-1remove-reference-3-01T-01-6-6-01-4">remove_reference&lt; T &amp;&amp; &gt;</a></li></ul></li><li>Namespace <a href="namespace_vga.html#namespace-vga">vga</a><ul><li>Struct <a href="structvga_1_1VGAColorChange.html#exhale-struct-structvga-1-1VGAColorChange">VGAColorChange</a></li><li>Class <a href="classvga_1_1ScrollbackBuffer.html#exhale-class-classvga-1-1ScrollbackBuffer">ScrollbackBuffer</a></li><li>Class <a href="classvga_1_1VGACursor.html#exhale-class-classvga-1-1VGACursor">VGACursor</a></li><li>Class <a href="classvga_1_1VGADisplay.html#exhale-class-classvga-1-1VGADisplay">VGADisplay</a></li><li>Class <a href="classvga_1_1VGAMonitor.html#exhale-class-classvga-1-1VGAMonitor">VGAMonitor</a></li><li class="lastChild">Union <a href="unionvga_1_1t__vga__char.html#exhale-union-unionvga-1-1t-vga-char">t_vga_char</a></li></ul></li><li class="lastChild">Struct <a href="structvga_1_1t__vga__char_1_1vga__char__data.html#exhale-struct-structvga-1-1t-vga-char-1-1vga-char-data">vga_char_data</a></li>
+    </ul>
+  </li><!-- only tree view element -->
+</ul><!-- /treeView class-treeView --></section>
+<section id="full-api">
+<h2>Full API<a class="headerlink" href="#full-api" title="Link to this heading">¶</a></h2>
+<section id="namespaces">
+<h3>Namespaces<a class="headerlink" href="#namespaces" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_container.html">Namespace container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_container.html#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_format.html">Namespace format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_format.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_kbd.html">Namespace kbd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_kbd.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_kbd.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_kbd.html#typedefs">Typedefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_kbd.html#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_kstring.html">Namespace kstring</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_kstring.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_logging.html">Namespace logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_logging.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_logging.html#enums">Enums</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_logging.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_logging.html#typedefs">Typedefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_logging.html#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_math.html">Namespace math</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_math.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_utility.html">Namespace utility</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_utility.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_utility.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_vga.html">Namespace vga</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga.html#unions">Unions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga.html#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_vga__color.html">Namespace vga::color</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga__color.html#namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga__color.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_vga__color__color_set.html">Namespace vga::color::color_set</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga__color__color_set.html#typedefs">Typedefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_vga__color__color_set.html#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="classes-and-structs">
+<h3>Classes and Structs<a class="headerlink" href="#classes-and-structs" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structcontainer_1_1dual__range.html">Template Struct dual_range</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structcontainer_1_1dual__range.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structcontainer_1_1dual__range.html#_CPPv4I_11is_iterator_11is_iteratorEN9container10dual_rangeE"><code class="docutils literal notranslate"><span class="pre">container::dual_range</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1dual__range.html#_CPPv4N9container10dual_range13iterator_typeE"><code class="docutils literal notranslate"><span class="pre">iterator_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1dual__range.html#_CPPv4N9container10dual_range10value_typeE"><code class="docutils literal notranslate"><span class="pre">value_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1dual__range.html#_CPPv4N9container10dual_range10dual_rangeE10value_typej"><code class="docutils literal notranslate"><span class="pre">dual_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1dual__range.html#_CPPv4N9container10dual_range10dual_rangeE10value_type10value_type"><code class="docutils literal notranslate"><span class="pre">dual_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1dual__range.html#_CPPv4NK9container10dual_range5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1dual__range.html#_CPPv4NK9container10dual_range3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structcontainer_1_1pair.html">Template Struct pair</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structcontainer_1_1pair.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structcontainer_1_1pair.html#_CPPv4I00EN9container4pairE"><code class="docutils literal notranslate"><span class="pre">container::pair</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1pair.html#_CPPv4N9container4pair10first_typeE"><code class="docutils literal notranslate"><span class="pre">first_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1pair.html#_CPPv4N9container4pair11second_typeE"><code class="docutils literal notranslate"><span class="pre">second_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1pair.html#_CPPv4N9container4pair4pairEv"><code class="docutils literal notranslate"><span class="pre">pair()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1pair.html#_CPPv4N9container4pair4pairERK2T1RK2T2"><code class="docutils literal notranslate"><span class="pre">pair()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1pair.html#_CPPv4N9container4pair5firstE"><code class="docutils literal notranslate"><span class="pre">first</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1pair.html#_CPPv4N9container4pair6secondE"><code class="docutils literal notranslate"><span class="pre">second</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structcontainer_1_1range.html">Template Struct range</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structcontainer_1_1range.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structcontainer_1_1range.html#_CPPv4I_11is_iteratorEN9container5rangeE"><code class="docutils literal notranslate"><span class="pre">container::range</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1range.html#_CPPv4N9container5range10value_typeE"><code class="docutils literal notranslate"><span class="pre">value_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1range.html#_CPPv4N9container5range5rangeERK1TRK1T"><code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1range.html#_CPPv4NK9container5range5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structcontainer_1_1range.html#_CPPv4NK9container5range3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structkbd_1_1KeyMapping.html">Struct KeyMapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structkbd_1_1KeyMapping.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structkbd_1_1KeyMapping.html#_CPPv4N3kbd10KeyMappingE"><code class="docutils literal notranslate"><span class="pre">kbd::KeyMapping</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structkbd_1_1KeyMapping.html#_CPPv4N3kbd10KeyMapping8scancodeE"><code class="docutils literal notranslate"><span class="pre">scancode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structkbd_1_1KeyMapping.html#_CPPv4N3kbd10KeyMapping6normalE"><code class="docutils literal notranslate"><span class="pre">normal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structkbd_1_1KeyMapping.html#_CPPv4N3kbd10KeyMapping7shiftedE"><code class="docutils literal notranslate"><span class="pre">shifted</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structutility_1_1is__same.html">Template Struct is_same</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structutility_1_1is__same.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structutility_1_1is__same.html#_CPPv4I00EN7utility7is_sameE"><code class="docutils literal notranslate"><span class="pre">utility::is_same</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structutility_1_1is__same.html#_CPPv4N7utility7is_same5valueE"><code class="docutils literal notranslate"><span class="pre">value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structutility_1_1is__same_3_01T_00_01T_01_4.html">Template Struct is_same&lt; T, T &gt;</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structutility_1_1is__same_3_01T_00_01T_01_4.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structutility_1_1is__same_3_01T_00_01T_01_4.html#_CPPv4I0EN7utility7is_sameI1T1TEE"><code class="docutils literal notranslate"><span class="pre">utility::is_same&lt;</span> <span class="pre">T,</span> <span class="pre">T</span> <span class="pre">&gt;</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structutility_1_1is__same_3_01T_00_01T_01_4.html#_CPPv4N7utility7is_sameI1T1TE5valueE"><code class="docutils literal notranslate"><span class="pre">value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structutility_1_1remove__reference.html">Template Struct remove_reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structutility_1_1remove__reference.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structutility_1_1remove__reference.html#_CPPv4I0EN7utility16remove_referenceE"><code class="docutils literal notranslate"><span class="pre">utility::remove_reference</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structutility_1_1remove__reference.html#_CPPv4N7utility16remove_reference4typeE"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_01_4.html">Template Struct remove_reference&lt; T &amp; &gt;</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_01_4.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_01_4.html#_CPPv4I0EN7utility16remove_referenceIR1TEE"><code class="docutils literal notranslate"><span class="pre">utility::remove_reference&lt;</span> <span class="pre">T</span> <span class="pre">&amp;</span> <span class="pre">&gt;</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_01_4.html#_CPPv4N7utility16remove_referenceIR1TE4typeE"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_6_01_4.html">Template Struct remove_reference&lt; T &amp;&amp; &gt;</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_6_01_4.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_6_01_4.html#_CPPv4I0EN7utility16remove_referenceIRR1TEE"><code class="docutils literal notranslate"><span class="pre">utility::remove_reference&lt;</span> <span class="pre">T</span> <span class="pre">&amp;&amp;</span> <span class="pre">&gt;</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structutility_1_1remove__reference_3_01T_01_6_6_01_4.html#_CPPv4N7utility16remove_referenceIRR1TE4typeE"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structvga_1_1t__vga__char_1_1vga__char__data.html">Struct vga_char_data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structvga_1_1t__vga__char_1_1vga__char__data.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structvga_1_1t__vga__char_1_1vga__char__data.html#_CPPv4N3vga10t_vga_char13vga_char_dataE"><code class="docutils literal notranslate"><span class="pre">vga::t_vga_char::vga_char_data</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structvga_1_1t__vga__char_1_1vga__char__data.html#_CPPv4N3vga10t_vga_char13vga_char_data5asciiE"><code class="docutils literal notranslate"><span class="pre">ascii</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structvga_1_1t__vga__char_1_1vga__char__data.html#_CPPv4N3vga10t_vga_char13vga_char_data5colorE"><code class="docutils literal notranslate"><span class="pre">color</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structvga_1_1VGAColorChange.html">Struct VGAColorChange</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structvga_1_1VGAColorChange.html#struct-documentation">Struct Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structvga_1_1VGAColorChange.html#_CPPv4N3vga14VGAColorChangeE"><code class="docutils literal notranslate"><span class="pre">vga::VGAColorChange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structvga_1_1VGAColorChange.html#_CPPv4N3vga14VGAColorChange2fgE"><code class="docutils literal notranslate"><span class="pre">fg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="structvga_1_1VGAColorChange.html#_CPPv4N3vga14VGAColorChange2bgE"><code class="docutils literal notranslate"><span class="pre">bg</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcontainer_1_1Array.html">Template Class Array</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1Array.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1Array.html#base-type">Base Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1Array.html#derived-types">Derived Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1Array.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4I0_jEN9container5ArrayE"><code class="docutils literal notranslate"><span class="pre">container::Array</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array8iteratorE"><code class="docutils literal notranslate"><span class="pre">iterator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array14const_iteratorE"><code class="docutils literal notranslate"><span class="pre">const_iterator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array9size_typeE"><code class="docutils literal notranslate"><span class="pre">size_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array10value_typeE"><code class="docutils literal notranslate"><span class="pre">value_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array5ArrayEv"><code class="docutils literal notranslate"><span class="pre">Array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4IDpEN9container5Array5ArrayEDp4Args"><code class="docutils literal notranslate"><span class="pre">Array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array5ArrayE8iterator8iterator"><code class="docutils literal notranslate"><span class="pre">Array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array5ArrayERK5Array"><code class="docutils literal notranslate"><span class="pre">Array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array5ArrayERR5Array"><code class="docutils literal notranslate"><span class="pre">Array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5ArrayaSERK5Array"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5ArrayaSERR5Array"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4I_jENK9container5ArrayplE5ArrayI1TXpl1N2N1EERK5ArrayI1T2N1E"><code class="docutils literal notranslate"><span class="pre">operator+()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5ArrayixEj"><code class="docutils literal notranslate"><span class="pre">operator[]()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4NK9container5ArrayixEj"><code class="docutils literal notranslate"><span class="pre">operator[]()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4NK9container5Array5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4NK9container5Array3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4NK9container5Array6cbeginEv"><code class="docutils literal notranslate"><span class="pre">cbegin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4NK9container5Array4cendEv"><code class="docutils literal notranslate"><span class="pre">cend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4NK9container5Array4dataEv"><code class="docutils literal notranslate"><span class="pre">data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4NK9container5Array4sizeEv"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4IDpEN9container5Array7emplaceE8iterator8iteratorDpRR4Args"><code class="docutils literal notranslate"><span class="pre">emplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array7emplaceE8iteratorRR1T"><code class="docutils literal notranslate"><span class="pre">emplace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array6insertE8iteratorRK1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array6insertE8iteratorRR1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array6insertE8iterator8iterator8iterator"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Array.html#_CPPv4N9container5Array5_dataE"><code class="docutils literal notranslate"><span class="pre">_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcontainer_1_1Container.html">Template Class Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1Container.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1Container.html#derived-type">Derived Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1Container.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4I000EN9container9ContainerE"><code class="docutils literal notranslate"><span class="pre">container::Container</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container8iteratorE"><code class="docutils literal notranslate"><span class="pre">iterator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container14const_iteratorE"><code class="docutils literal notranslate"><span class="pre">const_iterator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container9size_typeE"><code class="docutils literal notranslate"><span class="pre">size_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container10value_typeE"><code class="docutils literal notranslate"><span class="pre">value_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9ContainerD0Ev"><code class="docutils literal notranslate"><span class="pre">~Container()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4NK9container9Container5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4NK9container9Container3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4NK9container9Container6cbeginEv"><code class="docutils literal notranslate"><span class="pre">cbegin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4NK9container9Container4cendEv"><code class="docutils literal notranslate"><span class="pre">cend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4NK9container9Container4dataEv"><code class="docutils literal notranslate"><span class="pre">data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4NK9container9Container4sizeEv"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container6insertE8iteratorRK1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container6insertE8iteratorRR1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1Container.html#_CPPv4N9container9Container6insertE8iterator8iterator8iterator"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html">Template Class ContiguousConstIterator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4I000EN9container23ContiguousConstIteratorE"><code class="docutils literal notranslate"><span class="pre">container::ContiguousConstIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIterator23ContiguousConstIteratorEv"><code class="docutils literal notranslate"><span class="pre">ContiguousConstIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIterator23ContiguousConstIteratorE7Pointer"><code class="docutils literal notranslate"><span class="pre">ContiguousConstIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIterator23ContiguousConstIteratorERK18ContiguousIteratorI1TP1TR1TE"><code class="docutils literal notranslate"><span class="pre">ContiguousConstIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIterator23ContiguousConstIteratorERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">ContiguousConstIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIteratoraSERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratoreqERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorneERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratoreqE7Pointer"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorneE7Pointer"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorgtERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator&gt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorltERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorgeERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator&gt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorleERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator&lt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIteratorppEv"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIteratorppEi"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIteratormmEv"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIteratormmEi"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorplEi"><code class="docutils literal notranslate"><span class="pre">operator+()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratormiEi"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratormiERK23ContiguousConstIterator"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIteratorpLEi"><code class="docutils literal notranslate"><span class="pre">operator+=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4N9container23ContiguousConstIteratormIEi"><code class="docutils literal notranslate"><span class="pre">operator-=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratormlEv"><code class="docutils literal notranslate"><span class="pre">operator*()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousConstIterator.html#_CPPv4NK9container23ContiguousConstIteratorcv7PointerEv"><code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">Pointer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html">Template Class ContiguousIterator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4I000EN9container18ContiguousIteratorE"><code class="docutils literal notranslate"><span class="pre">container::ContiguousIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIterator18ContiguousIteratorEv"><code class="docutils literal notranslate"><span class="pre">ContiguousIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIterator18ContiguousIteratorE7Pointer"><code class="docutils literal notranslate"><span class="pre">ContiguousIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIterator18ContiguousIteratorERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">ContiguousIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIteratoraSERK18ContiguousIteratorI1TE"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorcv23ContiguousConstIteratorI1TK7PointerK9ReferenceEEv"><code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">ContiguousConstIterator&lt;</span> <span class="pre">T,</span> <span class="pre">const</span> <span class="pre">Pointer,</span> <span class="pre">const</span> <span class="pre">Reference</span> <span class="pre">&gt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratoreqERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4I000ENK9container18ContiguousIteratoreqEbRK23ContiguousConstIteratorI2CT8CPointer10CReferenceE"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorneERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratoreqE7Pointer"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorneE7Pointer"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorgtERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">operator&gt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorltERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">operator&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorgeERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">operator&gt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorleERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">operator&lt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIteratorppEv"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIteratorppEi"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIteratormmEv"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIteratormmEi"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorplEi"><code class="docutils literal notranslate"><span class="pre">operator+()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratormiEi"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratormiERK18ContiguousIterator"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIteratorpLEi"><code class="docutils literal notranslate"><span class="pre">operator+=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4N9container18ContiguousIteratormIEi"><code class="docutils literal notranslate"><span class="pre">operator-=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratormlEv"><code class="docutils literal notranslate"><span class="pre">operator*()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorptEv"><code class="docutils literal notranslate"><span class="pre">operator-&gt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1ContiguousIterator.html#_CPPv4NK9container18ContiguousIteratorcv7PointerEv"><code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">Pointer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcontainer_1_1IteratorBase.html">Template Class IteratorBase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4I0000EN9container12IteratorBaseE"><code class="docutils literal notranslate"><span class="pre">container::IteratorBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBase10value_typeE"><code class="docutils literal notranslate"><span class="pre">value_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBase12pointer_typeE"><code class="docutils literal notranslate"><span class="pre">pointer_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBase14reference_typeE"><code class="docutils literal notranslate"><span class="pre">reference_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBaseD0Ev"><code class="docutils literal notranslate"><span class="pre">~IteratorBase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBaseaSERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBaseeqERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBaseneERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBaseeqE7Pointer"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBaseneE7Pointer"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBasegtERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator&gt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBaseltERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBasegeERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator&gt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBaseleERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator&lt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBaseppEv"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBaseppEi"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBasemmEv"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBasemmEi"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBaseplEi"><code class="docutils literal notranslate"><span class="pre">operator+()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBasemiEi"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBasemiERK7Derived"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBasepLEi"><code class="docutils literal notranslate"><span class="pre">operator+=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4N9container12IteratorBasemIEi"><code class="docutils literal notranslate"><span class="pre">operator-=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBasemlEv"><code class="docutils literal notranslate"><span class="pre">operator*()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1IteratorBase.html#_CPPv4NK9container12IteratorBasecv12pointer_typeEv"><code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">pointer_type()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcontainer_1_1PairIterator.html">Template Class PairIterator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1PairIterator.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1PairIterator.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1PairIterator.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4I_7is_pairEN9container12PairIteratorE"><code class="docutils literal notranslate"><span class="pre">container::PairIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator10first_typeE"><code class="docutils literal notranslate"><span class="pre">first_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator11second_typeE"><code class="docutils literal notranslate"><span class="pre">second_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator10value_typeE"><code class="docutils literal notranslate"><span class="pre">value_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator12pointer_typeE"><code class="docutils literal notranslate"><span class="pre">pointer_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator14reference_typeE"><code class="docutils literal notranslate"><span class="pre">reference_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator12PairIteratorEv"><code class="docutils literal notranslate"><span class="pre">PairIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator12PairIteratorERK10value_type"><code class="docutils literal notranslate"><span class="pre">PairIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator12PairIteratorERK10first_typeRK11second_type"><code class="docutils literal notranslate"><span class="pre">PairIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator12PairIteratorERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">PairIterator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIteratoraSERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratoreqERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorneERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratoreqE12pointer_type"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorneE12pointer_type"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorgtERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator&gt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorltERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorgeERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator&gt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorleERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator&lt;=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIteratorppEv"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIteratorppEi"><code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIteratormmEv"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIteratormmEi"><code class="docutils literal notranslate"><span class="pre">operator--()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorplEi"><code class="docutils literal notranslate"><span class="pre">operator+()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorplEj"><code class="docutils literal notranslate"><span class="pre">operator+()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratormiEi"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratormiERK12PairIterator"><code class="docutils literal notranslate"><span class="pre">operator-()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIteratorpLEi"><code class="docutils literal notranslate"><span class="pre">operator+=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIteratormIEi"><code class="docutils literal notranslate"><span class="pre">operator-=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratormlEv"><code class="docutils literal notranslate"><span class="pre">operator*()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4NK9container12PairIteratorcv12pointer_typeEv"><code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">pointer_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator4pairE"><code class="docutils literal notranslate"><span class="pre">pair</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator5firstE"><code class="docutils literal notranslate"><span class="pre">first</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1PairIterator.html#_CPPv4N9container12PairIterator6secondE"><code class="docutils literal notranslate"><span class="pre">second</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcontainer_1_1StackVector.html">Template Class StackVector</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1StackVector.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1StackVector.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classcontainer_1_1StackVector.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4I0_jEN9container11StackVectorE"><code class="docutils literal notranslate"><span class="pre">container::StackVector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector8iteratorE"><code class="docutils literal notranslate"><span class="pre">iterator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector14const_iteratorE"><code class="docutils literal notranslate"><span class="pre">const_iterator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector9size_typeE"><code class="docutils literal notranslate"><span class="pre">size_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector11StackVectorEv"><code class="docutils literal notranslate"><span class="pre">StackVector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4IDpEN9container11StackVector11StackVectorEDp4Args"><code class="docutils literal notranslate"><span class="pre">StackVector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector11StackVectorE8iterator8iterator"><code class="docutils literal notranslate"><span class="pre">StackVector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector11StackVectorERK11StackVector"><code class="docutils literal notranslate"><span class="pre">StackVector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector11StackVectorERR11StackVector"><code class="docutils literal notranslate"><span class="pre">StackVector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVectorD0Ev"><code class="docutils literal notranslate"><span class="pre">~StackVector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVectoraSERK11StackVector"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4NK9container11StackVector5beginEv"><code class="docutils literal notranslate"><span class="pre">begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4NK9container11StackVector3endEv"><code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4NK9container11StackVector4cendEv"><code class="docutils literal notranslate"><span class="pre">cend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4NK9container11StackVector4sizeEv"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector6insertEjRK1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector6insertE8iteratorRK1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector6insertEjRR1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector6insertE8iteratorRR1T"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector6insertE8iterator8iterator8iterator"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector6insertEj8iterator8iterator"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector9push_bashERR1T"><code class="docutils literal notranslate"><span class="pre">push_bash()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector9push_bashERK1T"><code class="docutils literal notranslate"><span class="pre">push_bash()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4IDpEN9container11StackVector12emplace_backE8iteratorDp4Args"><code class="docutils literal notranslate"><span class="pre">emplace_back()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector5eraseE8iterator"><code class="docutils literal notranslate"><span class="pre">erase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector5eraseEj"><code class="docutils literal notranslate"><span class="pre">erase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector5eraseE8iterator8iterator"><code class="docutils literal notranslate"><span class="pre">erase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector5eraseEjj"><code class="docutils literal notranslate"><span class="pre">erase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4N9container11StackVector5clearEv"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4NK9container11StackVector8capacityEv"><code class="docutils literal notranslate"><span class="pre">capacity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcontainer_1_1StackVector.html#_CPPv4NK9container11StackVector15available_spaceEv"><code class="docutils literal notranslate"><span class="pre">available_space()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classlogging_1_1LoggerBase.html">Class LoggerBase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classlogging_1_1LoggerBase.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classlogging_1_1LoggerBase.html#derived-type">Derived Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classlogging_1_1LoggerBase.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classlogging_1_1LoggerBase.html#_CPPv4N7logging10LoggerBaseE"><code class="docutils literal notranslate"><span class="pre">logging::LoggerBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classlogging_1_1LoggerBase.html#_CPPv4N7logging10LoggerBaselsEPKc"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classlogging_1_1LoggerBase.html#_CPPv4N7logging10LoggerBaselsE14t_logger_color"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html">Template Class LoggerWrapper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#_CPPv4I0EN7logging13LoggerWrapperE"><code class="docutils literal notranslate"><span class="pre">logging::LoggerWrapper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#_CPPv4N7logging13LoggerWrapper13LoggerWrapperEv"><code class="docutils literal notranslate"><span class="pre">LoggerWrapper()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#_CPPv4N7logging13LoggerWrapper13LoggerWrapperEP1T"><code class="docutils literal notranslate"><span class="pre">LoggerWrapper()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#_CPPv4N7logging13LoggerWrapperlsEPKc"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classlogging_1_1LoggerWrapper.html#_CPPv4N7logging13LoggerWrapperlsE14t_logger_color"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html">Class ScrollbackBuffer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBufferE"><code class="docutils literal notranslate"><span class="pre">vga::ScrollbackBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer9line_typeE"><code class="docutils literal notranslate"><span class="pre">line_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer11buffer_typeE"><code class="docutils literal notranslate"><span class="pre">buffer_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer16ScrollbackBufferEv"><code class="docutils literal notranslate"><span class="pre">ScrollbackBuffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer5clearEv"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer5writeERK9VGACursorRK10t_vga_char"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer5eraseERK9VGACursor"><code class="docutils literal notranslate"><span class="pre">erase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer7newlineE8uint32_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">newline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer11merge_linesE8uint32_t8uint32_t"><code class="docutils literal notranslate"><span class="pre">merge_lines()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer9backspaceE8uint32_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">backspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4NK3vga16ScrollbackBuffer4lineE8uint32_t"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4NK3vga16ScrollbackBuffer11line_lengthE8uint32_t"><code class="docutils literal notranslate"><span class="pre">line_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4NK3vga16ScrollbackBuffer10line_countEv"><code class="docutils literal notranslate"><span class="pre">line_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer9scroll_upEv"><code class="docutils literal notranslate"><span class="pre">scroll_up()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4NK3vga16ScrollbackBuffer10get_bufferEv"><code class="docutils literal notranslate"><span class="pre">get_buffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer10get_bufferEv"><code class="docutils literal notranslate"><span class="pre">get_buffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer9MAX_LINESE"><code class="docutils literal notranslate"><span class="pre">MAX_LINES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1ScrollbackBuffer.html#_CPPv4N3vga16ScrollbackBuffer12default_charE"><code class="docutils literal notranslate"><span class="pre">default_char</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classvga_1_1VGACursor.html">Class VGACursor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classvga_1_1VGACursor.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursorE"><code class="docutils literal notranslate"><span class="pre">vga::VGACursor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor9VGACursorEv"><code class="docutils literal notranslate"><span class="pre">VGACursor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor7advanceEiii"><code class="docutils literal notranslate"><span class="pre">advance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor4backEi"><code class="docutils literal notranslate"><span class="pre">back()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor2upEi"><code class="docutils literal notranslate"><span class="pre">up()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor4downEii"><code class="docutils literal notranslate"><span class="pre">down()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor7newlineEv"><code class="docutils literal notranslate"><span class="pre">newline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor3setE8uint32_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor4lineE"><code class="docutils literal notranslate"><span class="pre">line</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGACursor.html#_CPPv4N3vga9VGACursor6columnE"><code class="docutils literal notranslate"><span class="pre">column</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classvga_1_1VGADisplay.html">Class VGADisplay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classvga_1_1VGADisplay.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classvga_1_1VGADisplay.html#_CPPv4N3vga10VGADisplayE"><code class="docutils literal notranslate"><span class="pre">vga::VGADisplay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGADisplay.html#_CPPv4N3vga10VGADisplay5clearEi"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGADisplay.html#_CPPv4N3vga10VGADisplay11render_pageEi"><code class="docutils literal notranslate"><span class="pre">render_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGADisplay.html#_CPPv4N3vga10VGADisplay6renderERK16ScrollbackBuffer8uint32_ti"><code class="docutils literal notranslate"><span class="pre">render()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGADisplay.html#_CPPv4N3vga10VGADisplay16update_hw_cursorERK9VGACursor8uint32_ti"><code class="docutils literal notranslate"><span class="pre">update_hw_cursor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGADisplay.html#_CPPv4N3vga10VGADisplay3vgaE"><code class="docutils literal notranslate"><span class="pre">vga</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGADisplay.html#_CPPv4N3vga10VGADisplay7testingE"><code class="docutils literal notranslate"><span class="pre">testing</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classvga_1_1VGAMonitor.html">Class VGAMonitor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classvga_1_1VGAMonitor.html#class-documentation">Class Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitorE"><code class="docutils literal notranslate"><span class="pre">vga::VGAMonitor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor10VGAMonitorEv"><code class="docutils literal notranslate"><span class="pre">VGAMonitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor10VGAMonitorERK10VGAMonitor"><code class="docutils literal notranslate"><span class="pre">VGAMonitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitoraSERK10VGAMonitor"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor5clearEv"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor4initE7uint8_t"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor8put_charEKc"><code class="docutils literal notranslate"><span class="pre">put_char()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor5writeEPKc"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor9scroll_upEv"><code class="docutils literal notranslate"><span class="pre">scroll_up()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor11scroll_downEv"><code class="docutils literal notranslate"><span class="pre">scroll_down()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor9move_leftEv"><code class="docutils literal notranslate"><span class="pre">move_left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor10move_rightEv"><code class="docutils literal notranslate"><span class="pre">move_right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor9backspaceEv"><code class="docutils literal notranslate"><span class="pre">backspace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor12set_fg_colorEN5color9vga_colorE"><code class="docutils literal notranslate"><span class="pre">set_fg_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor12set_bg_colorEN5color9vga_colorE"><code class="docutils literal notranslate"><span class="pre">set_bg_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor10set_colorsEN5color9vga_colorEN5color9vga_colorE"><code class="docutils literal notranslate"><span class="pre">set_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4NK3vga10VGAMonitor8get_pageEv"><code class="docutils literal notranslate"><span class="pre">get_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor20set_user_input_limitEv"><code class="docutils literal notranslate"><span class="pre">set_user_input_limit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor17handle_user_inputEc"><code class="docutils literal notranslate"><span class="pre">handle_user_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitorlsEPKc"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitorlsEKc"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitorlsEKN5color9vga_colorE"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitorlsEK14VGAColorChange"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitorlsEK7uint8_t"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor7_bufferE"><code class="docutils literal notranslate"><span class="pre">_buffer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor13_cursor_writeE"><code class="docutils literal notranslate"><span class="pre">_cursor_write</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="classvga_1_1VGAMonitor.html#_CPPv4N3vga10VGAMonitor12_user_cursorE"><code class="docutils literal notranslate"><span class="pre">_user_cursor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="enums">
+<h3>Enums<a class="headerlink" href="#enums" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html">Enum t_log_level</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html#enum-documentation">Enum Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html#_CPPv4N7logging11t_log_levelE"><code class="docutils literal notranslate"><span class="pre">t_log_level</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html#_CPPv4N7logging11t_log_level5DEBUGE"><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html#_CPPv4N7logging11t_log_level4INFOE"><code class="docutils literal notranslate"><span class="pre">INFO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html#_CPPv4N7logging11t_log_level4WARNE"><code class="docutils literal notranslate"><span class="pre">WARN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_logging_8hpp_1a4f888751f1d2c7a4c14111a9e105437f.html#_CPPv4N7logging11t_log_level5ERRORE"><code class="docutils literal notranslate"><span class="pre">ERROR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="unions">
+<h3>Unions<a class="headerlink" href="#unions" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="unionvga_1_1t__vga__char.html">Union t_vga_char</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unionvga_1_1t__vga__char.html#union-documentation">Union Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_charE"><code class="docutils literal notranslate"><span class="pre">vga::t_vga_char</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char10t_vga_charEv"><code class="docutils literal notranslate"><span class="pre">t_vga_char()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char10t_vga_charE7uint8_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">t_vga_char()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char10t_vga_charE7uint8_t7uint8_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">t_vga_char()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4NK3vga10t_vga_char14get_foregroundEv"><code class="docutils literal notranslate"><span class="pre">get_foreground()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4NK3vga10t_vga_char14get_backgroundEv"><code class="docutils literal notranslate"><span class="pre">get_background()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4NK3vga10t_vga_char9get_colorEv"><code class="docutils literal notranslate"><span class="pre">get_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char14set_foregroundEN5color11t_vga_colorE"><code class="docutils literal notranslate"><span class="pre">set_foreground()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char14set_backgroundEN5color11t_vga_colorE"><code class="docutils literal notranslate"><span class="pre">set_background()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char9set_colorEN5color11t_vga_colorEN5color11t_vga_colorE"><code class="docutils literal notranslate"><span class="pre">set_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char4dataE"><code class="docutils literal notranslate"><span class="pre">data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char3rawE"><code class="docutils literal notranslate"><span class="pre">raw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char13vga_char_dataE"><code class="docutils literal notranslate"><span class="pre">vga::t_vga_char::vga_char_data</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char13vga_char_data5asciiE"><code class="docutils literal notranslate"><span class="pre">ascii</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="unionvga_1_1t__vga__char.html#_CPPv4N3vga10t_vga_char13vga_char_data5colorE"><code class="docutils literal notranslate"><span class="pre">color</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_example_8cpp_1aad8426223e45febdb3e6b6ba7be40e97.html">Function for</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_example_8cpp_1aad8426223e45febdb3e6b6ba7be40e97.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_format_8hpp_1af87dfa0efef75c15b6a604e608e47a16.html">Function format::fmt(char *, const char *)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_format_8hpp_1af87dfa0efef75c15b6a604e608e47a16.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_format_8hpp_1af87dfa0efef75c15b6a604e608e47a16.html#_CPPv4N6format3fmtEPcPKc"><code class="docutils literal notranslate"><span class="pre">fmt()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_format_8hpp_1afcf73db12cbfc1385fb510542747e2c1.html">Template Function format::fmt(char *, const char *, T, Args …)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_format_8hpp_1afcf73db12cbfc1385fb510542747e2c1.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_format_8hpp_1afcf73db12cbfc1385fb510542747e2c1.html#_CPPv4I0DpEN6format3fmtEPcPcPKc1TDp4Args"><code class="docutils literal notranslate"><span class="pre">fmt()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_format_8hpp_1abfbc86f27e8602ca57c23d7629b9cf7c.html">Function format::format(char *, int)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_format_8hpp_1abfbc86f27e8602ca57c23d7629b9cf7c.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_format_8hpp_1abfbc86f27e8602ca57c23d7629b9cf7c.html#_CPPv4N6format6formatEPci"><code class="docutils literal notranslate"><span class="pre">format()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_format_8hpp_1a0a0dfa1a4881602d28ee5ad992103459.html">Function format::format(char *, uint32_t)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_format_8hpp_1a0a0dfa1a4881602d28ee5ad992103459.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_format_8hpp_1a0a0dfa1a4881602d28ee5ad992103459.html#_CPPv4N6format6formatEPc8uint32_t"><code class="docutils literal notranslate"><span class="pre">format()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_format_8hpp_1af2fff0ec24e8d2ff4279660b35d53b6d.html">Function format::format(char *, const char *)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_format_8hpp_1af2fff0ec24e8d2ff4279660b35d53b6d.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_format_8hpp_1af2fff0ec24e8d2ff4279660b35d53b6d.html#_CPPv4N6format6formatEPcPKc"><code class="docutils literal notranslate"><span class="pre">format()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_port_8hpp_1a2e1e8e2c5724c1e8fd2dff2eada06479.html">Function inb(uint16_t)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_port_8hpp_1a2e1e8e2c5724c1e8fd2dff2eada06479.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_port_8hpp_1a2e1e8e2c5724c1e8fd2dff2eada06479.html#_CPPv43inb8uint16_t"><code class="docutils literal notranslate"><span class="pre">inb()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_port_8cpp_1a2e1e8e2c5724c1e8fd2dff2eada06479.html">Function inb(uint16_t)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_port_8cpp_1a2e1e8e2c5724c1e8fd2dff2eada06479.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_port_8cpp_1a2e1e8e2c5724c1e8fd2dff2eada06479.html#_CPPv43inb8uint16_t"><code class="docutils literal notranslate"><span class="pre">inb()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_main_8cpp_1af7f3d2cc454ba929fe2930681bb3b4be.html">Function k_main</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_main_8cpp_1af7f3d2cc454ba929fe2930681bb3b4be.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_keyboardHandler_8cpp_1a41ae1ab500e0e4201ad417bb11dbce8a.html">Function kbd::handler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_keyboardHandler_8cpp_1a41ae1ab500e0e4201ad417bb11dbce8a.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_keyboardHandler_8cpp_1a41ae1ab500e0e4201ad417bb11dbce8a.html#_CPPv4N3kbd7handlerER21screen_container_typeR30screen_container_iterator_type"><code class="docutils literal notranslate"><span class="pre">handler()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1a378e0d2a5dab987e1e9f57effc49854f.html">Function kstring::memcmp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1a378e0d2a5dab987e1e9f57effc49854f.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1a378e0d2a5dab987e1e9f57effc49854f.html#_CPPv4N7kstring6memcmpEPKvPKvj"><code class="docutils literal notranslate"><span class="pre">memcmp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1af17ba32dae7b366a7b6cf9c5eddecc54.html">Function kstring::memcpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1af17ba32dae7b366a7b6cf9c5eddecc54.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1af17ba32dae7b366a7b6cf9c5eddecc54.html#_CPPv4N7kstring6memcpyEPvPKvj"><code class="docutils literal notranslate"><span class="pre">memcpy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1adf700fe756ac930309af58d595733f48.html">Function kstring::memmove</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1adf700fe756ac930309af58d595733f48.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1adf700fe756ac930309af58d595733f48.html#_CPPv4N7kstring7memmoveEPvPKvj"><code class="docutils literal notranslate"><span class="pre">memmove()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1a960fa7053dc68cdf78962f326fff6e3a.html">Function kstring::safe_atoi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1a960fa7053dc68cdf78962f326fff6e3a.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1a960fa7053dc68cdf78962f326fff6e3a.html#_CPPv4N7kstring9safe_atoiEPKcPi"><code class="docutils literal notranslate"><span class="pre">safe_atoi()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1a435a26ce871779e16400a1d9d3d1291e.html">Function kstring::strchr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1a435a26ce871779e16400a1d9d3d1291e.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1a435a26ce871779e16400a1d9d3d1291e.html#_CPPv4N7kstring6strchrEPKcKc"><code class="docutils literal notranslate"><span class="pre">strchr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1ab81130344dd44b8278dbda8b91252606.html">Function kstring::strcmp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1ab81130344dd44b8278dbda8b91252606.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1ab81130344dd44b8278dbda8b91252606.html#_CPPv4N7kstring6strcmpEPKcPKc"><code class="docutils literal notranslate"><span class="pre">strcmp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1a8e09d80f2d43156b51ee21ae73a6b52b.html">Function kstring::strcpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1a8e09d80f2d43156b51ee21ae73a6b52b.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1a8e09d80f2d43156b51ee21ae73a6b52b.html#_CPPv4N7kstring6strcpyEPcPKc"><code class="docutils literal notranslate"><span class="pre">strcpy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1aa603abc2e61e091257c246cea81c4ea4.html">Function kstring::strlen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1aa603abc2e61e091257c246cea81c4ea4.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1aa603abc2e61e091257c246cea81c4ea4.html#_CPPv4N7kstring6strlenEPKc"><code class="docutils literal notranslate"><span class="pre">strlen()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1a4347a23ce97a3667fb2f891bad7f1287.html">Function kstring::strncmp(const char *, const char *, const unsigned)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1a4347a23ce97a3667fb2f891bad7f1287.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1a4347a23ce97a3667fb2f891bad7f1287.html#_CPPv4N7kstring7strncmpEPKcPKcKj"><code class="docutils literal notranslate"><span class="pre">strncmp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_src_2KString_8cpp_1a020082fe92862a0d606c263e1be9ede5.html">Function kstring::strncmp(const char *, const char *, const unsigned int)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_src_2KString_8cpp_1a020082fe92862a0d606c263e1be9ede5.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_src_2KString_8cpp_1a020082fe92862a0d606c263e1be9ede5.html#_CPPv4N7kstring7strncmpEPKcPKcKj"><code class="docutils literal notranslate"><span class="pre">strncmp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1abe739cc20727564bc9042853fa924cd5.html">Function kstring::strrchr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1abe739cc20727564bc9042853fa924cd5.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1abe739cc20727564bc9042853fa924cd5.html#_CPPv4N7kstring7strrchrEPKcKc"><code class="docutils literal notranslate"><span class="pre">strrchr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1a73187e875bc72dd4f55303ffea2dc589.html">Function kstring::strstr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1a73187e875bc72dd4f55303ffea2dc589.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1a73187e875bc72dd4f55303ffea2dc589.html#_CPPv4N7kstring6strstrEPKcPKc"><code class="docutils literal notranslate"><span class="pre">strstr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_logging_8hpp_1afd472d09a34c0ed99bb7fe6e1b574044.html">Template Function logging::debug</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_logging_8hpp_1afd472d09a34c0ed99bb7fe6e1b574044.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_logging_8hpp_1afd472d09a34c0ed99bb7fe6e1b574044.html#_CPPv4IDpEN7logging5debugEiPKcDp5TArgs"><code class="docutils literal notranslate"><span class="pre">debug()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_logging_8hpp_1a6ef1936d20a9b8e4c40edf074e0ecce9.html">Template Function logging::error</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_logging_8hpp_1a6ef1936d20a9b8e4c40edf074e0ecce9.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_logging_8hpp_1a6ef1936d20a9b8e4c40edf074e0ecce9.html#_CPPv4IDpEN7logging5errorEiPKcDp5TArgs"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_logging_8hpp_1ad7fd1d7f9fcfed112f3a42ff5d50de1d.html">Function logging::get_logger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_logging_8hpp_1ad7fd1d7f9fcfed112f3a42ff5d50de1d.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_logging_8hpp_1ad7fd1d7f9fcfed112f3a42ff5d50de1d.html#_CPPv4N7logging10get_loggerEv"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_logging_8hpp_1a9fa141ac1193aca6403bab4bc6170529.html">Template Function logging::info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_logging_8hpp_1a9fa141ac1193aca6403bab4bc6170529.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_logging_8hpp_1a9fa141ac1193aca6403bab4bc6170529.html#_CPPv4IDpEN7logging4infoEiPKcDp5TArgs"><code class="docutils literal notranslate"><span class="pre">info()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_logging_8hpp_1a638313b4bd512bdf06b1a99e25b3bca0.html">Template Function logging::printk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_logging_8hpp_1a638313b4bd512bdf06b1a99e25b3bca0.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_logging_8hpp_1a638313b4bd512bdf06b1a99e25b3bca0.html#_CPPv4IDpEN7logging6printkEi11t_log_levelPKcDp5TArgs"><code class="docutils literal notranslate"><span class="pre">printk()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_logging_8hpp_1aefa4c3eccb695e5cec62f0bf37e2f9aa.html">Template Function logging::set_logger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_logging_8hpp_1aefa4c3eccb695e5cec62f0bf37e2f9aa.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_logging_8hpp_1aefa4c3eccb695e5cec62f0bf37e2f9aa.html#_CPPv4I0EN7logging10set_loggerEvR1T"><code class="docutils literal notranslate"><span class="pre">set_logger()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_logging_8hpp_1abe960700ae2cdf3eba2c63f784d92e8f.html">Template Function logging::warn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_logging_8hpp_1abe960700ae2cdf3eba2c63f784d92e8f.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_logging_8hpp_1abe960700ae2cdf3eba2c63f784d92e8f.html#_CPPv4IDpEN7logging4warnEiPKcDp5TArgs"><code class="docutils literal notranslate"><span class="pre">warn()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_include_2math_2math_8hpp_1a6602dafaab8d48f3937ece67dcef3dcc.html">Template Function math::max</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_include_2math_2math_8hpp_1a6602dafaab8d48f3937ece67dcef3dcc.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_include_2math_2math_8hpp_1a6602dafaab8d48f3937ece67dcef3dcc.html#_CPPv4I0EN4math3maxE1TRRK1TRRK1T"><code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_include_2math_2math_8hpp_1ab4fe263d852700dbca36337e4b73f48c.html">Template Function math::min</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_include_2math_2math_8hpp_1ab4fe263d852700dbca36337e4b73f48c.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_include_2math_2math_8hpp_1ab4fe263d852700dbca36337e4b73f48c.html#_CPPv4I0EN4math3minE1TRRK1TRRK1T"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_KString_8hpp_1af4de15efc3cb006cb2b51893d455e308.html">Function memset(void *, int, unsigned long)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_KString_8hpp_1af4de15efc3cb006cb2b51893d455e308.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_KString_8hpp_1af4de15efc3cb006cb2b51893d455e308.html#_CPPv46memsetPvim"><code class="docutils literal notranslate"><span class="pre">memset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_src_2KString_8cpp_1af4de15efc3cb006cb2b51893d455e308.html">Function memset(void *, int, unsigned long)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_src_2KString_8cpp_1af4de15efc3cb006cb2b51893d455e308.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_src_2KString_8cpp_1af4de15efc3cb006cb2b51893d455e308.html#_CPPv46memsetPvim"><code class="docutils literal notranslate"><span class="pre">memset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_port_8hpp_1a8bf7a9af91c08e6f876aaffeccd48ff3.html">Function outb(uint16_t, uint8_t)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_port_8hpp_1a8bf7a9af91c08e6f876aaffeccd48ff3.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_port_8hpp_1a8bf7a9af91c08e6f876aaffeccd48ff3.html#_CPPv44outb8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">outb()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_port_8cpp_1a8bf7a9af91c08e6f876aaffeccd48ff3.html">Function outb(uint16_t, uint8_t)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_port_8cpp_1a8bf7a9af91c08e6f876aaffeccd48ff3.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_port_8cpp_1a8bf7a9af91c08e6f876aaffeccd48ff3.html#_CPPv44outb8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">outb()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2ScrollbackBuffer_8cpp_1ae42637cca23d86306a08ae50c6a6895f.html">Function TEST_CASE(“ScrollbackBuffer”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2ScrollbackBuffer_8cpp_1ae42637cca23d86306a08ae50c6a6895f.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2vga_8cpp_1a752219c751b06b58796b8187958cf3bd.html">Function TEST_CASE(“t_vga_char”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2vga_8cpp_1a752219c751b06b58796b8187958cf3bd.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2VGAMonitor_8cpp_1abd5a85d74f504e6a2c8efc69e2219526.html">Function TEST_CASE(“VGADisplay”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2VGAMonitor_8cpp_1abd5a85d74f504e6a2c8efc69e2219526.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2VGAMonitor_8cpp_1a6ef92c62222d61ac44eb3acac80a77cf.html">Function TEST_CASE(“VGAMonitor color modifier”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2VGAMonitor_8cpp_1a6ef92c62222d61ac44eb3acac80a77cf.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_Array_8cpp_1a5bec3f088523c9965d0917b5b210a697.html">Function TEST_CASE(“KArray”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_Array_8cpp_1a5bec3f088523c9965d0917b5b210a697.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_ContiguousIterator_8cpp_1a290b06bbe7179f28a7b2cbca9a721e45.html">Function TEST_CASE(“ContiguousIterator”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_ContiguousIterator_8cpp_1a290b06bbe7179f28a7b2cbca9a721e45.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_PairIterator_8cpp_1a77d869a07f4993fa3144fc464ecf9b64.html">Function TEST_CASE(“PairIterator”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_PairIterator_8cpp_1a77d869a07f4993fa3144fc464ecf9b64.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_range_8cpp_1afb2774e3ef7de13773fd97de436189cd.html">Function TEST_CASE(“basic range”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_range_8cpp_1afb2774e3ef7de13773fd97de436189cd.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_range_8cpp_1a6454a2dbbce8cd79490fc8f8f36fe95e.html">Function TEST_CASE(“pair range”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_range_8cpp_1a6454a2dbbce8cd79490fc8f8f36fe95e.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_StackVector_8cpp_1a79bfa20fd58e2f7a023424cbb16953c0.html">Function TEST_CASE(“StackVector”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_StackVector_8cpp_1a79bfa20fd58e2f7a023424cbb16953c0.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2format_8cpp_1acf803c31f9db4079afb5addfa557809f.html">Function TEST_CASE(“libformat”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2format_8cpp_1acf803c31f9db4079afb5addfa557809f.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2logging_8cpp_1a5e894f6c3b64f11c76acae1f7316d764.html">Function TEST_CASE(“kprint”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2logging_8cpp_1a5e894f6c3b64f11c76acae1f7316d764.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2logging_8cpp_1a6d73eca0fe34b97aa6e03c3ab7d82c13.html">Function TEST_CASE(“debug”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2logging_8cpp_1a6d73eca0fe34b97aa6e03c3ab7d82c13.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2logging_8cpp_1a770e5d14553065193471ba4428c379d6.html">Function TEST_CASE(“info”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2logging_8cpp_1a770e5d14553065193471ba4428c379d6.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2logging_8cpp_1a952d30051b72677ce7a370995c9df833.html">Function TEST_CASE(“warn”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2logging_8cpp_1a952d30051b72677ce7a370995c9df833.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2logging_8cpp_1a1b57172ddd14c86f18376dc371eec65f.html">Function TEST_CASE(“error”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2logging_8cpp_1a1b57172ddd14c86f18376dc371eec65f.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2math_8cpp_1a3000df79d04412ac99b4c617fca4958e.html">Function TEST_CASE(“math”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2math_8cpp_1a3000df79d04412ac99b4c617fca4958e.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_tests_2KString_8cpp_1a7349d71d6c82d214c4e536a5c2aacb6b.html">Function TEST_CASE(“KString”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_tests_2KString_8cpp_1a7349d71d6c82d214c4e536a5c2aacb6b.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_utility_8cpp_1af9ace1cc42f0e0cb2879682a38b7d495.html">Function TEST_CASE(“utility”, “”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_utility_8cpp_1af9ace1cc42f0e0cb2879682a38b7d495.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_utility_8hpp_1aaa92e5278257837cdcfd3183b8bee036.html">Template Function utility::forward(typename remove_reference&lt;T&gt;::type&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_utility_8hpp_1aaa92e5278257837cdcfd3183b8bee036.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_utility_8hpp_1aaa92e5278257837cdcfd3183b8bee036.html#_CPPv4I0EN7utility7forwardERR1TRN16remove_referenceI1TE4typeE"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_utility_8hpp_1a5145fd9c7d71296d5309c791a7b52974.html">Template Function utility::forward(typename remove_reference&lt;T&gt;::type&amp;&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_utility_8hpp_1a5145fd9c7d71296d5309c791a7b52974.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_utility_8hpp_1a5145fd9c7d71296d5309c791a7b52974.html#_CPPv4I0EN7utility7forwardERR1TRRN16remove_referenceI1TE4typeE"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_utility_8hpp_1ae098fee6f93bd081ac555843cbe3963d.html">Template Function utility::move</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_utility_8hpp_1ae098fee6f93bd081ac555843cbe3963d.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_utility_8hpp_1ae098fee6f93bd081ac555843cbe3963d.html#_CPPv4I0EN7utility4moveERRN16remove_referenceI1TE4typeERR1T"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_utility_8hpp_1ac35553d24bf3634e26c361e98028f23b.html">Template Function utility::swap(T&amp;&amp;, T&amp;&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_utility_8hpp_1ac35553d24bf3634e26c361e98028f23b.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_utility_8hpp_1ac35553d24bf3634e26c361e98028f23b.html#_CPPv4I0EN7utility4swapEvRR1TRR1T"><code class="docutils literal notranslate"><span class="pre">swap()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_utility_8hpp_1a74c779522d08e1d2043355f9ea6c8439.html">Template Function utility::swap(T&amp;, T&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_utility_8hpp_1a74c779522d08e1d2043355f9ea6c8439.html#function-documentation">Function Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function_utility_8hpp_1a74c779522d08e1d2043355f9ea6c8439.html#_CPPv4I0EN7utility4swapEvR1TR1T"><code class="docutils literal notranslate"><span class="pre">swap()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_example_8cpp_1aa9504f5e2f3ab7bd69ea33e52cb06fb9.html">Variable arr1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_example_8cpp_1aa9504f5e2f3ab7bd69ea33e52cb06fb9.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_example_8cpp_1a2d1bdb1a381278919c4fd51525fdb29c.html">Variable arr2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_example_8cpp_1a2d1bdb1a381278919c4fd51525fdb29c.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_tests_2ScrollbackBuffer_8cpp_1afd7a1121acb1f64dc201cd240912c2f5.html">Variable empty_line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_tests_2ScrollbackBuffer_8cpp_1afd7a1121acb1f64dc201cd240912c2f5.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8cpp_1abbc063d4fb42463fd82cf5a6c6aa432a.html">Variable g_monitor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8cpp_1abbc063d4fb42463fd82cf5a6c6aa432a.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8cpp_1abbc063d4fb42463fd82cf5a6c6aa432a.html#_CPPv49g_monitor"><code class="docutils literal notranslate"><span class="pre">g_monitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1abbc063d4fb42463fd82cf5a6c6aa432a.html">Variable g_monitor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1abbc063d4fb42463fd82cf5a6c6aa432a.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1abbc063d4fb42463fd82cf5a6c6aa432a.html#_CPPv49g_monitor"><code class="docutils literal notranslate"><span class="pre">g_monitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_defines_8hpp_1aef31d1e2f79e0cfb86fe8ef78d0ec834.html">Variable INT_MAX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_defines_8hpp_1aef31d1e2f79e0cfb86fe8ef78d0ec834.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_defines_8hpp_1aef31d1e2f79e0cfb86fe8ef78d0ec834.html#_CPPv47INT_MAX"><code class="docutils literal notranslate"><span class="pre">INT_MAX</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_defines_8hpp_1acaad8808739e6b343ae04d0deada6068.html">Variable INT_MIN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_defines_8hpp_1acaad8808739e6b343ae04d0deada6068.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_defines_8hpp_1acaad8808739e6b343ae04d0deada6068.html#_CPPv47INT_MIN"><code class="docutils literal notranslate"><span class="pre">INT_MIN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a6293459fa2e5ddbdb125dc96b6e416e1.html">Variable kbd::alt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a6293459fa2e5ddbdb125dc96b6e416e1.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a6293459fa2e5ddbdb125dc96b6e416e1.html#_CPPv4N3kbd3altE"><code class="docutils literal notranslate"><span class="pre">alt</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ace44d16c9fb084702e57c00eecdd2984.html">Variable kbd::backspace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ace44d16c9fb084702e57c00eecdd2984.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ace44d16c9fb084702e57c00eecdd2984.html#_CPPv4N3kbd9backspaceE"><code class="docutils literal notranslate"><span class="pre">backspace</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a2ebdaf844e28c26fb4d5e0dde60d5a59.html">Variable kbd::capslock</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a2ebdaf844e28c26fb4d5e0dde60d5a59.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a2ebdaf844e28c26fb4d5e0dde60d5a59.html#_CPPv4N3kbd8capslockE"><code class="docutils literal notranslate"><span class="pre">capslock</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a6a4ad55c6abc8516a5fc22c3d5b17544.html">Variable kbd::ctrl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a6a4ad55c6abc8516a5fc22c3d5b17544.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a6a4ad55c6abc8516a5fc22c3d5b17544.html#_CPPv4N3kbd4ctrlE"><code class="docutils literal notranslate"><span class="pre">ctrl</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a4c3ebe55216242e4f460c57095104e3c.html">Variable kbd::down</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a4c3ebe55216242e4f460c57095104e3c.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a4c3ebe55216242e4f460c57095104e3c.html#_CPPv4N3kbd4downE"><code class="docutils literal notranslate"><span class="pre">down</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a5ea8d18417e69f49c9c4706913fb1606.html">Variable kbd::keyboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a5ea8d18417e69f49c9c4706913fb1606.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a5ea8d18417e69f49c9c4706913fb1606.html#_CPPv4N3kbd8keyboardE"><code class="docutils literal notranslate"><span class="pre">keyboard</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1af95d4e8abcbdb2a2f867a86b31fe26bc.html">Variable kbd::keyboard_data_port</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1af95d4e8abcbdb2a2f867a86b31fe26bc.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1af95d4e8abcbdb2a2f867a86b31fe26bc.html#_CPPv4N3kbd18keyboard_data_portE"><code class="docutils literal notranslate"><span class="pre">keyboard_data_port</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ae5b7492b3aa131544b5da761dcb04520.html">Variable kbd::keymap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ae5b7492b3aa131544b5da761dcb04520.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ae5b7492b3aa131544b5da761dcb04520.html#_CPPv4N3kbd6keymapE"><code class="docutils literal notranslate"><span class="pre">keymap</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1af7459842b72afd3a3c54904df6ee7363.html">Variable kbd::left</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1af7459842b72afd3a3c54904df6ee7363.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1af7459842b72afd3a3c54904df6ee7363.html#_CPPv4N3kbd4leftE"><code class="docutils literal notranslate"><span class="pre">left</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ab803679165609459b58d407e8c4b8775.html">Variable kbd::lshift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ab803679165609459b58d407e8c4b8775.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ab803679165609459b58d407e8c4b8775.html#_CPPv4N3kbd6lshiftE"><code class="docutils literal notranslate"><span class="pre">lshift</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ab0e26587e9d1bc75e2ed0a2de676e64d.html">Variable kbd::right</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ab0e26587e9d1bc75e2ed0a2de676e64d.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1ab0e26587e9d1bc75e2ed0a2de676e64d.html#_CPPv4N3kbd5rightE"><code class="docutils literal notranslate"><span class="pre">right</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a602b1c0d62abd9ed2efe91273e8d9949.html">Variable kbd::rshift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a602b1c0d62abd9ed2efe91273e8d9949.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a602b1c0d62abd9ed2efe91273e8d9949.html#_CPPv4N3kbd6rshiftE"><code class="docutils literal notranslate"><span class="pre">rshift</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a379b33876c70c45007fdd9399d6cb345.html">Variable kbd::up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a379b33876c70c45007fdd9399d6cb345.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_keyboardHandler_8hpp_1a379b33876c70c45007fdd9399d6cb345.html#_CPPv4N3kbd2upE"><code class="docutils literal notranslate"><span class="pre">up</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_logging_8hpp_1a3350125d41b6824e9a48b0cba91624c2.html">Variable logging::g_logger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_logging_8hpp_1a3350125d41b6824e9a48b0cba91624c2.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_logging_8hpp_1a3350125d41b6824e9a48b0cba91624c2.html#_CPPv4N7logging8g_loggerE"><code class="docutils literal notranslate"><span class="pre">g_logger</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_logging_8hpp_1a15f50b6461121338397fe0cbcec19268.html">Variable logging::log_color_map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_logging_8hpp_1a15f50b6461121338397fe0cbcec19268.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_logging_8hpp_1a15f50b6461121338397fe0cbcec19268.html#_CPPv4N7logging13log_color_mapE"><code class="docutils literal notranslate"><span class="pre">log_color_map</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_logging_8hpp_1a0bc62e748c9bc02b99d33d3709139ee3.html">Variable logging::log_message_map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_logging_8hpp_1a0bc62e748c9bc02b99d33d3709139ee3.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_logging_8hpp_1a0bc62e748c9bc02b99d33d3709139ee3.html#_CPPv4N7logging15log_message_mapE"><code class="docutils literal notranslate"><span class="pre">log_message_map</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_defines_8hpp_1a1efb44f5e869d07426696389f5cb9fd5.html">Variable NULL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_defines_8hpp_1a1efb44f5e869d07426696389f5cb9fd5.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_defines_8hpp_1a1efb44f5e869d07426696389f5cb9fd5.html#_CPPv44NULL"><code class="docutils literal notranslate"><span class="pre">NULL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_tests_2ScrollbackBuffer_8cpp_1a32535bc618f478534a1deda340cf6248.html">Variable test_line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_tests_2ScrollbackBuffer_8cpp_1a32535bc618f478534a1deda340cf6248.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1a820e92e8ce31013f9ef72f7e69f4adf7.html">Variable vga::color::color_set::BLACK_ON_CYAN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1a820e92e8ce31013f9ef72f7e69f4adf7.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1a820e92e8ce31013f9ef72f7e69f4adf7.html#_CPPv4N3vga5color9color_set13BLACK_ON_CYANE"><code class="docutils literal notranslate"><span class="pre">BLACK_ON_CYAN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1ae432834e069322a7210430e1f09cfc21.html">Variable vga::color::color_set::BLACK_ON_WHITE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1ae432834e069322a7210430e1f09cfc21.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1ae432834e069322a7210430e1f09cfc21.html#_CPPv4N3vga5color9color_set14BLACK_ON_WHITEE"><code class="docutils literal notranslate"><span class="pre">BLACK_ON_WHITE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1af5f3e3b40a35ec53e5b033edcf64f6e1.html">Variable vga::color::color_set::BROWN_ON_BLACK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1af5f3e3b40a35ec53e5b033edcf64f6e1.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1af5f3e3b40a35ec53e5b033edcf64f6e1.html#_CPPv4N3vga5color9color_set14BROWN_ON_BLACKE"><code class="docutils literal notranslate"><span class="pre">BROWN_ON_BLACK</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1ae66c9f0f1b4977a8b801c50e2840734b.html">Variable vga::color::color_set::CYAN_ON_BLACK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1ae66c9f0f1b4977a8b801c50e2840734b.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1ae66c9f0f1b4977a8b801c50e2840734b.html#_CPPv4N3vga5color9color_set13CYAN_ON_BLACKE"><code class="docutils literal notranslate"><span class="pre">CYAN_ON_BLACK</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1a5f374a4a964c2eb29d138b541e17da79.html">Variable vga::color::color_set::DEFAULT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1a5f374a4a964c2eb29d138b541e17da79.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1a5f374a4a964c2eb29d138b541e17da79.html#_CPPv4N3vga5color9color_set7DEFAULTE"><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1a2e94f1b802216b0f4ae2e588c1b48c57.html">Variable vga::color::color_set::GREEN_ON_BLACK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1a2e94f1b802216b0f4ae2e588c1b48c57.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1a2e94f1b802216b0f4ae2e588c1b48c57.html#_CPPv4N3vga5color9color_set14GREEN_ON_BLACKE"><code class="docutils literal notranslate"><span class="pre">GREEN_ON_BLACK</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1afb91c2005c991f4f999c2caa24b4d761.html">Variable vga::color::color_set::RED_ON_BLACK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1afb91c2005c991f4f999c2caa24b4d761.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1afb91c2005c991f4f999c2caa24b4d761.html#_CPPv4N3vga5color9color_set12RED_ON_BLACKE"><code class="docutils literal notranslate"><span class="pre">RED_ON_BLACK</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1a316ee65f66087c11e74cc1df0facb828.html">Variable vga::color::color_set::WHITE_ON_BLACK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1a316ee65f66087c11e74cc1df0facb828.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1a316ee65f66087c11e74cc1df0facb828.html#_CPPv4N3vga5color9color_set14WHITE_ON_BLACKE"><code class="docutils literal notranslate"><span class="pre">WHITE_ON_BLACK</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1a1152ce7a7b8174e38181d0a21517a00d.html">Variable vga::endl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1a1152ce7a7b8174e38181d0a21517a00d.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1a1152ce7a7b8174e38181d0a21517a00d.html#_CPPv4N3vga4endlE"><code class="docutils literal notranslate"><span class="pre">endl</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1a77864c8ac1c4293d4569c10ec8b951e1.html">Variable vga::VGA_HEIGHT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1a77864c8ac1c4293d4569c10ec8b951e1.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1a77864c8ac1c4293d4569c10ec8b951e1.html#_CPPv4N3vga10VGA_HEIGHTE"><code class="docutils literal notranslate"><span class="pre">VGA_HEIGHT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable_vga_8hpp_1af41df1149783a49ca19d8add73981eee.html">Variable vga::VGA_WIDTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_vga_8hpp_1af41df1149783a49ca19d8add73981eee.html#variable-documentation">Variable Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable_vga_8hpp_1af41df1149783a49ca19d8add73981eee.html#_CPPv4N3vga9VGA_WIDTHE"><code class="docutils literal notranslate"><span class="pre">VGA_WIDTH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="defines">
+<h3>Defines<a class="headerlink" href="#defines" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define_logging_8hpp_1a381c342b2b34df0b1a5b39c0d94da4e1.html">Define LOG_BUFFER_SIZE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define_logging_8hpp_1a381c342b2b34df0b1a5b39c0d94da4e1.html#define-documentation">Define Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="define_logging_8hpp_1a381c342b2b34df0b1a5b39c0d94da4e1.html#c.LOG_BUFFER_SIZE"><code class="docutils literal notranslate"><span class="pre">LOG_BUFFER_SIZE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="typedefs">
+<h3>Typedefs<a class="headerlink" href="#typedefs" title="Link to this heading">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_stdint_8hpp_1aba773967ee8f2b583e66876c028145cb.html">Typedef int16_t</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_stdint_8hpp_1aba773967ee8f2b583e66876c028145cb.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_stdint_8hpp_1aba773967ee8f2b583e66876c028145cb.html#_CPPv47int16_t"><code class="docutils literal notranslate"><span class="pre">int16_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_stdint_8hpp_1ab98e3fd00411dc43753c9fcd0f2fb845.html">Typedef int32_t</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_stdint_8hpp_1ab98e3fd00411dc43753c9fcd0f2fb845.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_stdint_8hpp_1ab98e3fd00411dc43753c9fcd0f2fb845.html#_CPPv47int32_t"><code class="docutils literal notranslate"><span class="pre">int32_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_stdint_8hpp_1aef0a181fd471ee04962c9ce581a83ca0.html">Typedef int8_t</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_stdint_8hpp_1aef0a181fd471ee04962c9ce581a83ca0.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_stdint_8hpp_1aef0a181fd471ee04962c9ce581a83ca0.html#_CPPv46int8_t"><code class="docutils literal notranslate"><span class="pre">int8_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_keyboardHandler_8hpp_1a775a6d21f5d91d453d9dec49e8b7e5bb.html">Typedef kbd::screen_container_iterator_type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_keyboardHandler_8hpp_1a775a6d21f5d91d453d9dec49e8b7e5bb.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_keyboardHandler_8hpp_1a775a6d21f5d91d453d9dec49e8b7e5bb.html#_CPPv4N3kbd30screen_container_iterator_typeE"><code class="docutils literal notranslate"><span class="pre">screen_container_iterator_type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_keyboardHandler_8hpp_1a2cfcfcbdc1786b4c4d4f630bf23e3b5e.html">Typedef kbd::screen_container_type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_keyboardHandler_8hpp_1a2cfcfcbdc1786b4c4d4f630bf23e3b5e.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_keyboardHandler_8hpp_1a2cfcfcbdc1786b4c4d4f630bf23e3b5e.html#_CPPv4N3kbd21screen_container_typeE"><code class="docutils literal notranslate"><span class="pre">screen_container_type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_logging_8hpp_1aa31b97e0c227424a5b41e6a3e2f6ba8b.html">Typedef logging::t_logger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_logging_8hpp_1aa31b97e0c227424a5b41e6a3e2f6ba8b.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_logging_8hpp_1aa31b97e0c227424a5b41e6a3e2f6ba8b.html#_CPPv4N7logging8t_loggerE"><code class="docutils literal notranslate"><span class="pre">t_logger</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_logging_8hpp_1a910b5de4c5fa33d9085613d8323b125c.html">Typedef logging::t_logger_color</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_logging_8hpp_1a910b5de4c5fa33d9085613d8323b125c.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_logging_8hpp_1a910b5de4c5fa33d9085613d8323b125c.html#_CPPv4N7logging14t_logger_colorE"><code class="docutils literal notranslate"><span class="pre">t_logger_color</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_stdint_8hpp_1a64be82add362de7c99ce6671d7f4f0a6.html">Typedef uint16_t</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_stdint_8hpp_1a64be82add362de7c99ce6671d7f4f0a6.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_stdint_8hpp_1a64be82add362de7c99ce6671d7f4f0a6.html#_CPPv48uint16_t"><code class="docutils literal notranslate"><span class="pre">uint16_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_stdint_8hpp_1a398ec93d6bf48539b258a3dd78e32c82.html">Typedef uint32_t</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_stdint_8hpp_1a398ec93d6bf48539b258a3dd78e32c82.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_stdint_8hpp_1a398ec93d6bf48539b258a3dd78e32c82.html#_CPPv48uint32_t"><code class="docutils literal notranslate"><span class="pre">uint32_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_stdint_8hpp_1a0ba18cab9bd5513695cbe748e9bb4879.html">Typedef uint8_t</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_stdint_8hpp_1a0ba18cab9bd5513695cbe748e9bb4879.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_stdint_8hpp_1a0ba18cab9bd5513695cbe748e9bb4879.html#_CPPv47uint8_t"><code class="docutils literal notranslate"><span class="pre">uint8_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_vga_8hpp_1ade1b0830d2452b8c45323e0b91fed91a.html">Typedef vga::color::color_set::t_color_set</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_vga_8hpp_1ade1b0830d2452b8c45323e0b91fed91a.html#typedef-documentation">Typedef Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="typedef_vga_8hpp_1ade1b0830d2452b8c45323e0b91fed91a.html#_CPPv4N3vga5color9color_set11t_color_setE"><code class="docutils literal notranslate"><span class="pre">t_color_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef_vga_8hpp_1a8974eb980ece679e22c5d41ca968f56c.html">Typedef vga::color::t_vga_color</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_vga_8hpp_1a8974eb980ece679e22c5d41ca968f56c.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, pducloux,hedubois
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Library API</a><ul>
+<li><a class="reference internal" href="#class-hierarchy">Class Hierarchy</a></li>
+<li><a class="reference internal" href="#full-api">Full API</a><ul>
+<li><a class="reference internal" href="#namespaces">Namespaces</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#classes-and-structs">Classes and Structs</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#enums">Enums</a></li>
+<li><a class="reference internal" href="#unions">Unions</a></li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#variables">Variables</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#defines">Defines</a></li>
+<li><a class="reference internal" href="#typedefs">Typedefs</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    </body>
+</html>

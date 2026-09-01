@@ -1,0 +1,14 @@
+.. _exhale_variable_logging_8hpp_1a3350125d41b6824e9a48b0cba91624c2:
+
+Variable logging::g_logger
+==========================
+
+- Defined in :ref:`file_lib_logging_src_logging.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: logging::g_logger
+   :project: KFS

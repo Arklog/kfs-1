@@ -1,0 +1,22 @@
+.. _dir_lib_keyboard:
+
+
+Directory keyboard
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib>` (``lib``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/keyboard``
+
+
+Files
+-----
+
+- :ref:`file_lib_keyboard_keyboardHandler.cpp`
+- :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+

@@ -1,0 +1,21 @@
+.. _dir_lib_str_tests:
+
+
+Directory tests
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_str>` (``lib/str``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/str/tests``
+
+
+Files
+-----
+
+- :ref:`file_lib_str_tests_KString.cpp`
+
+

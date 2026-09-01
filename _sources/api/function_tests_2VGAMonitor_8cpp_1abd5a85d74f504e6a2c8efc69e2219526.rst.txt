@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2VGAMonitor_8cpp_1abd5a85d74f504e6a2c8efc69e2219526:
+
+Function TEST_CASE("VGADisplay", "")
+====================================
+
+- Defined in :ref:`file_drivers_video_vga_tests_VGAMonitor.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("VGADisplay", "")
+   :project: KFS

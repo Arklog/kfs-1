@@ -1,0 +1,14 @@
+.. _exhale_function_utility_8hpp_1ac35553d24bf3634e26c361e98028f23b:
+
+Template Function utility::swap(T&&, T&&)
+=========================================
+
+- Defined in :ref:`file_lib_utility_include_utility_utility.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: utility::swap(T&&, T&&)
+   :project: KFS

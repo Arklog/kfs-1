@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2logging_8cpp_1a5e894f6c3b64f11c76acae1f7316d764:
+
+Function TEST_CASE("kprint", "")
+================================
+
+- Defined in :ref:`file_lib_logging_tests_logging.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("kprint", "")
+   :project: KFS

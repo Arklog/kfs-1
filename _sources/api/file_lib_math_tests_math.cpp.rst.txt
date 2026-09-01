@@ -1,0 +1,47 @@
+
+.. _file_lib_math_tests_math.cpp:
+
+File math.cpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_math_tests>` (``lib/math/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/math/tests/math.cpp``)
+----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_math_tests_math.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``catch2/catch_all.hpp``
+
+- ``math/math.hpp`` (:ref:`file_lib_math_include_math_math.hpp`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_tests_2math_8cpp_1a3000df79d04412ac99b4c617fca4958e`
+

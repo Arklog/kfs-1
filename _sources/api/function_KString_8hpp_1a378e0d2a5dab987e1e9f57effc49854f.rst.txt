@@ -1,0 +1,14 @@
+.. _exhale_function_KString_8hpp_1a378e0d2a5dab987e1e9f57effc49854f:
+
+Function kstring::memcmp
+========================
+
+- Defined in :ref:`file_lib_str_src_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::memcmp(const void *, const void *, unsigned)
+   :project: KFS

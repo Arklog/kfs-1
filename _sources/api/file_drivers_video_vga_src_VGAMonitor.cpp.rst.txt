@@ -1,0 +1,49 @@
+
+.. _file_drivers_video_vga_src_VGAMonitor.cpp:
+
+File VGAMonitor.cpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video_vga_src>` (``drivers/video/vga/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``drivers/video/vga/src/VGAMonitor.cpp``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_drivers_video_vga_src_VGAMonitor.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``drivers/video/vga/VGAMonitor.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp`)
+
+- ``drivers/video/vga/vga.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`)
+
+- ``logging/logging.hpp`` (:ref:`file_lib_logging_include_logging_logging.hpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_vga`
+

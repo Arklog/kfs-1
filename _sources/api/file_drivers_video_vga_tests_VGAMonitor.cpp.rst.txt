@@ -1,0 +1,55 @@
+
+.. _file_drivers_video_vga_tests_VGAMonitor.cpp:
+
+File VGAMonitor.cpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video_vga_tests>` (``drivers/video/vga/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``drivers/video/vga/tests/VGAMonitor.cpp``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_drivers_video_vga_tests_VGAMonitor.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``catch2/catch_all.hpp``
+
+- ``drivers/video/vga/VGADisplay.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_VGADisplay.hpp`)
+
+- ``drivers/video/vga/VGAMonitor.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp`)
+
+- ``drivers/video/vga/vga.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`)
+
+- ``logging/logging.hpp`` (:ref:`file_lib_logging_include_logging_logging.hpp`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_tests_2VGAMonitor_8cpp_1abd5a85d74f504e6a2c8efc69e2219526`
+
+- :ref:`exhale_function_tests_2VGAMonitor_8cpp_1a6ef92c62222d61ac44eb3acac80a77cf`
+

@@ -1,0 +1,17 @@
+.. _exhale_struct_structcontainer_1_1range:
+
+Template Struct range
+=====================
+
+- Defined in :ref:`file_lib_container_include_container_range.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: container::range
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

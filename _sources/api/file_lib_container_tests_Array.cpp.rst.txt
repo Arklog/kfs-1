@@ -1,0 +1,51 @@
+
+.. _file_lib_container_tests_Array.cpp:
+
+File Array.cpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container_tests>` (``lib/container/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/container/tests/Array.cpp``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_container_tests_Array.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``catch2/catch_all.hpp``
+
+- ``container/Array.hpp`` (:ref:`file_lib_container_include_container_Array.hpp`)
+
+- ``static_check.hpp`` (:ref:`file_lib_container_tests_static_check.hpp`)
+
+- ``string``
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_Array_8cpp_1a5bec3f088523c9965d0917b5b210a697`
+

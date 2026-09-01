@@ -1,0 +1,17 @@
+.. _exhale_struct_structutility_1_1is__same_3_01T_00_01T_01_4:
+
+Template Struct is_same< T, T >
+===============================
+
+- Defined in :ref:`file_lib_utility_include_utility_type_trait.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: utility::is_same< T, T >
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,58 @@
+
+.. _file_lib_utility_include_utility_type_trait.hpp:
+
+File type_trait.hpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_utility_include_utility>` (``lib/utility/include/utility``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/utility/include/utility/type_trait.hpp``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_utility_include_utility_type_trait.hpp.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_lib_container_include_container_StackVector.hpp`
+
+- :ref:`file_lib_container_include_container_concept.hpp`
+
+- :ref:`file_lib_container_tests_static_check.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_utility`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structutility_1_1is__same`
+
+- :ref:`exhale_struct_structutility_1_1is__same_3_01T_00_01T_01_4`
+

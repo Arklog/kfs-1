@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2vga_8cpp_1a752219c751b06b58796b8187958cf3bd:
+
+Function TEST_CASE("t_vga_char", "")
+====================================
+
+- Defined in :ref:`file_drivers_video_vga_tests_vga.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("t_vga_char", "")
+   :project: KFS

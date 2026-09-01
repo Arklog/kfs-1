@@ -1,0 +1,23 @@
+.. _dir_drivers_video_vga:
+
+
+Directory vga
+=============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video>` (``drivers/video``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``drivers/video/vga``
+
+Subdirectories
+--------------
+
+- :ref:`dir_drivers_video_vga_include`
+- :ref:`dir_drivers_video_vga_src`
+- :ref:`dir_drivers_video_vga_tests`
+
+
+

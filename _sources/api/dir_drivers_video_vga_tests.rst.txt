@@ -1,0 +1,23 @@
+.. _dir_drivers_video_vga_tests:
+
+
+Directory tests
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video_vga>` (``drivers/video/vga``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``drivers/video/vga/tests``
+
+
+Files
+-----
+
+- :ref:`file_drivers_video_vga_tests_ScrollbackBuffer.cpp`
+- :ref:`file_drivers_video_vga_tests_vga.cpp`
+- :ref:`file_drivers_video_vga_tests_VGAMonitor.cpp`
+
+

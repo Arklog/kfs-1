@@ -1,0 +1,17 @@
+.. _exhale_struct_structcontainer_1_1pair:
+
+Template Struct pair
+====================
+
+- Defined in :ref:`file_lib_container_include_container_pair.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: container::pair
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

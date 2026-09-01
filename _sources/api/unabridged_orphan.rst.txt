@@ -1,0 +1,548 @@
+:orphan:
+
+
+Full API
+========
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_core.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_core_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_core_include_core.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video_vga.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video_vga_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video_vga_include_drivers.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video_vga_include_drivers_video.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video_vga_include_drivers_video_vga.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video_vga_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_drivers_video_vga_tests.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_include_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_include_include_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_container.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_container_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_container_include_container.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_container_include_container_iterator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_container_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_container_tests.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_container_tests_iterator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_format.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_format_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_format_include_format.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_format_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_format_tests.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_keyboard.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_logging.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_logging_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_logging_include_logging.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_logging_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_logging_tests.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_math.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_math_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_math_include_math.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_math_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_math_tests.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_port.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_port_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_port_include_port.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_port_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_str.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_str_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_str_include_str.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_str_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_str_tests.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_utility.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_utility_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_utility_include_utility.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_utility_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_lib_utility_tests.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_tests_Array.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_Array.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_concept.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_src_Container.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_Container.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_tests_iterator_ContiguousIterator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_iterator_ContiguousIterator.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_core_include_core_defines.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_utility_src_empty.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_src_example.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_format_src_format.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_format_tests_format.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_format_include_format_format.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_iterator_Iterator.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_keyboard_keyboardHandler.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_keyboard_keyboardHandler.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_str_src_KString.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_str_tests_KString.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_str_include_str_KString.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_logging_src_logging.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_logging_tests_logging.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_logging_include_logging_logging.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_main.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_math_src_math.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_math_tests_math.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_math_include_math_math.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_math_math.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_pair.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_tests_iterator_PairIterator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_iterator_PairIterator.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_port_src_port.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_port_include_port_port.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_tests_range.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_range.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_src_ScrollbackBuffer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_tests_ScrollbackBuffer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_tests_StackVector.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_include_container_StackVector.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_container_tests_static_check.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_include_include_stdint.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_utility_include_utility_type_trait.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_utility_tests_utility.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_lib_utility_include_utility_utility.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_src_vga.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_tests_vga.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_include_drivers_video_vga_vga.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_src_VGACursor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_include_drivers_video_vga_VGACursor.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_src_VGADisplay.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_include_drivers_video_vga_VGADisplay.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_src_VGAMonitor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_tests_VGAMonitor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp.rst

@@ -1,0 +1,14 @@
+.. _exhale_function_KString_8hpp_1a8e09d80f2d43156b51ee21ae73a6b52b:
+
+Function kstring::strcpy
+========================
+
+- Defined in :ref:`file_lib_str_src_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::strcpy(char *, const char *)
+   :project: KFS

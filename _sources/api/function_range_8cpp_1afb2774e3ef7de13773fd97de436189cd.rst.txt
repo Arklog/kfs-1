@@ -1,0 +1,14 @@
+.. _exhale_function_range_8cpp_1afb2774e3ef7de13773fd97de436189cd:
+
+Function TEST_CASE("basic range", "")
+=====================================
+
+- Defined in :ref:`file_lib_container_tests_range.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("basic range", "")
+   :project: KFS

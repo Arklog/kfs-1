@@ -1,0 +1,25 @@
+
+.. _program_listing_file_lib_math_tests_math.cpp:
+
+Program Listing for File math.cpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_math_tests_math.cpp>` (``lib/math/tests/math.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 1/2/26.
+   //
+   #include "math/math.hpp"
+   
+   #include <catch2/catch_all.hpp>
+   
+   TEST_CASE("math", "[math]") {
+       SECTION("min") {
+           REQUIRE(math::min(0, 1) == 0);
+           REQUIRE(math::min(1, 10) == 1);
+       }
+   }

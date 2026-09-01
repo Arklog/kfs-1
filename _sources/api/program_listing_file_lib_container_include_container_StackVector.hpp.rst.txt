@@ -1,0 +1,285 @@
+
+.. _program_listing_file_lib_container_include_container_StackVector.hpp:
+
+Program Listing for File StackVector.hpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_container_include_container_StackVector.hpp>` (``lib/container/include/container/StackVector.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 1/4/26.
+   //
+   
+   #ifndef KFS_1_STACKVECTOR_HPP
+   #define KFS_1_STACKVECTOR_HPP
+   
+   #include "container/Array.hpp"
+   #include "utility/type_trait.hpp"
+   #include "container/range.hpp"
+   
+   namespace container {
+       template<typename T, unsigned int N>
+       class StackVector : public Array<T, N> {
+       public:
+           using iterator       = Array<T, N>::iterator;
+           using const_iterator = Array<T, N>::const_iterator;
+           using size_type      = Array<T, N>::size_type;
+   
+           constexpr StackVector() :
+               Array<T, N>(), _size{0} {
+           }
+   
+           template<typename ...Args>
+           constexpr StackVector(Args ...args): Array<T, N>(utility::forward<Args>(args)...), _size(sizeof...(args)) {
+               static_assert(sizeof...(args) <= N, "To many arguments");
+               static_assert((utility::convertible_to<decltype(args), T> && ...), "Invalid type");
+           }
+   
+           StackVector(iterator begin, iterator end) : Array<T, N>(), _size{0} {
+               int idx = 0;
+               for (const auto &i: container::range{begin, end}) {
+                   this->_data[idx++] = i;
+                   if (idx == N) {
+                       _size = N;
+                       return ;
+                   }
+               }
+   
+               _size = end - begin;
+           }
+   
+           StackVector(const StackVector& other) : Array<T, N>(), _size{other._size} {
+               int idx = 0;
+   
+               for (const auto &i: other) {
+                   this->_data[idx++] = i;
+               }
+           }
+   
+           StackVector(StackVector &&other) noexcept : Array<T, N>(), _size{utility::move(other._size)} {
+               int idx = 0;
+   
+               for (auto &i: other) {
+                   this->_data[idx++] = utility::move(i);
+               }
+           }
+   
+           ~StackVector() = default;
+   
+           StackVector& operator=(const StackVector& other) {
+               if (this == &other)
+                   return *this;
+   
+               _size = other._size;
+   
+               int idx = 0;
+               for (const auto &i: other) {
+                   this->_data[idx++] = i;
+               }
+   
+               return *this;
+           }
+   
+           iterator begin() override {
+               return Array<T, N>::begin();
+           }
+   
+           const_iterator begin() const override {
+               return Array<T, N>::begin();
+           }
+   
+           iterator end() override {
+               return this->begin() + _size;
+           }
+   
+           const_iterator end() const override {
+               return cend();
+           }
+   
+           const_iterator cend() const override {
+               return this->cbegin() + _size;
+           }
+   
+           size_type size() const override {
+               return _size;
+           }
+   
+            iterator insert(unsigned int position, const T &value) {
+                return insert(this->begin() + position, value);
+            }
+   
+           iterator insert(iterator position, const T &value) override {
+               if (!_own_iterator(position) || _size == N)
+                   return end();
+   
+               for (auto iter = end(); iter > position; --iter) {
+                   *iter = utility::move(*(iter - 1));
+               }
+   
+               *position = value;
+               ++_size;
+   
+               return position;
+           }
+   
+           iterator insert(unsigned int position, T &&value) {
+               return insert(this->begin() + position, utility::move(value));
+           }
+   
+           iterator insert(iterator position, T &&value) override {
+               if (!_own_iterator(position) || _size == N)
+                   return end();
+   
+               for (auto iter = end(); iter > position; --iter) {
+                   *iter = utility::move(*(iter - 1));
+               }
+   
+               *position = utility::move(value);
+               ++_size;
+   
+               return position;
+           }
+   
+           iterator insert(iterator position, iterator _begin, iterator _end) override {
+               auto length = _end - _begin;
+               if (!_own_iterator(position) || length + size() > N)
+                   return end();
+   
+               if (_own_iterator(_begin) && _own_iterator(_end))
+                   return _insert_overlap(position, _begin, _end);
+   
+               // displace elements
+               for (auto iter = end() + length - 1; iter > position; --iter) {
+                   *iter = utility::move(*(iter - length));
+               }
+   
+               // copy elements from range
+               auto iter = position;
+               for (const auto &i: container::range{_begin, _end}) {
+                   *(iter++) = i;
+               }
+   
+               _size += length;
+               return position;
+           }
+   
+           iterator insert(unsigned int position, iterator _begin, iterator _end) {
+               return insert(this->begin() + position, _begin, _end);
+           }
+   
+           iterator push_bash(T &&item) {
+               if (_size == N)
+                   return end();
+   
+               *(this->begin() + _size) = utility::move(item);
+               return this->begin() + _size++;
+           }
+   
+           iterator push_bash(const T& item) {
+               if (_size == N)
+                   return end();
+   
+               *(this->begin() + _size) = item;
+               return this->begin() + _size++;
+           }
+   
+           template<typename... Args>
+           iterator emplace_back(Args... args) {
+               static_assert(T(args...), "No constructor matching argument list");
+   
+               if (_size == N)
+                   return end();
+   
+               new(static_cast<T *>(this->begin() + _size)) T(args...);
+               return this->begin() + _size++;
+           }
+   
+           iterator erase(iterator position) {
+               if (!_validate_position(position) || size() == 0)
+                   return end();
+   
+               auto iter = position;
+               while (iter < end() - 1) {
+                   *iter = utility::move(*(iter + 1));
+                   ++iter;
+               }
+   
+               *(end() - 1) = T{};
+               --_size;
+   
+               return this->begin();
+           }
+   
+           iterator erase(unsigned position) {
+               return erase(this->begin() + position);
+           }
+   
+           iterator erase(iterator _begin, iterator _end) {
+               if (_begin > _end || !_validate_position(_begin) || !_own_iterator(_end))
+                   return end();
+   
+               auto length = _end - _begin;
+               auto iter = _begin;
+               while (iter + length < end()) {
+                   *iter = utility::move(*(iter + length));
+                   ++iter;
+               }
+   
+               _size -= length;
+               return this->begin();
+           }
+   
+           iterator erase(unsigned int position, unsigned int length) {
+               auto iter = this->begin() + position;
+   
+               return erase(iter, iter + length);
+           }
+   
+           void clear() {
+               for (auto& item: *this) {
+                   item = T{};
+               }
+               _size = 0;
+           }
+   
+           constexpr unsigned capacity() const {
+               return N;
+           }
+   
+           unsigned available_space() const {
+               return N - _size;
+           }
+   
+       private:
+           unsigned int _size;
+   
+           bool _own_iterator(const_iterator iter) const {
+               return iter >= this->begin() && iter <= this->end();
+           }
+   
+           bool _validate_position(const_iterator iter) const {
+               return iter >= this->begin() && iter < this->end();
+           }
+   
+           iterator _insert_overlap(iterator position, iterator _begin, iterator _end) {
+               auto distance = _begin - position;
+   
+               if (!distance)
+                   return position;
+   
+               auto iter = position;
+               for (auto& i: container::range{_begin, _end}) {
+                   utility::swap(*iter, i);
+                   ++iter;
+               }
+   
+               return position;
+           }
+       };
+   } // container
+   
+   #endif //KFS_1_STACKVECTOR_HPP

@@ -1,0 +1,27 @@
+
+.. _namespace_vga__color:
+
+Namespace vga::color
+====================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_vga__color__color_set`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_vga_8hpp_1a8974eb980ece679e22c5d41ca968f56c`

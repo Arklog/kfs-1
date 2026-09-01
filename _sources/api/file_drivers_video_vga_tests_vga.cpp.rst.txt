@@ -1,0 +1,47 @@
+
+.. _file_drivers_video_vga_tests_vga.cpp:
+
+File vga.cpp
+============
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video_vga_tests>` (``drivers/video/vga/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``drivers/video/vga/tests/vga.cpp``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_drivers_video_vga_tests_vga.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``catch2/catch_all.hpp``
+
+- ``drivers/video/vga/vga.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_tests_2vga_8cpp_1a752219c751b06b58796b8187958cf3bd`
+

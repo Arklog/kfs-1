@@ -1,0 +1,32 @@
+
+.. _file_lib_math_math.hpp:
+
+File math.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_math>` (``lib/math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/math/math.hpp``)
+----------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_math_math.hpp.rst
+
+
+
+
+
+
+
+
+

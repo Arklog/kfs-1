@@ -1,0 +1,29 @@
+.. _dir_lib_container_tests:
+
+
+Directory tests
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container>` (``lib/container``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/container/tests``
+
+Subdirectories
+--------------
+
+- :ref:`dir_lib_container_tests_iterator`
+
+
+Files
+-----
+
+- :ref:`file_lib_container_tests_Array.cpp`
+- :ref:`file_lib_container_tests_range.cpp`
+- :ref:`file_lib_container_tests_StackVector.cpp`
+- :ref:`file_lib_container_tests_static_check.hpp`
+
+

@@ -1,0 +1,41 @@
+
+.. _namespace_vga__color__color_set:
+
+Namespace vga::color::color_set
+===============================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_vga_8hpp_1ade1b0830d2452b8c45323e0b91fed91a`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_vga_8hpp_1a820e92e8ce31013f9ef72f7e69f4adf7`
+
+- :ref:`exhale_variable_vga_8hpp_1ae432834e069322a7210430e1f09cfc21`
+
+- :ref:`exhale_variable_vga_8hpp_1af5f3e3b40a35ec53e5b033edcf64f6e1`
+
+- :ref:`exhale_variable_vga_8hpp_1ae66c9f0f1b4977a8b801c50e2840734b`
+
+- :ref:`exhale_variable_vga_8hpp_1a5f374a4a964c2eb29d138b541e17da79`
+
+- :ref:`exhale_variable_vga_8hpp_1a2e94f1b802216b0f4ae2e588c1b48c57`
+
+- :ref:`exhale_variable_vga_8hpp_1afb91c2005c991f4f999c2caa24b4d761`
+
+- :ref:`exhale_variable_vga_8hpp_1a316ee65f66087c11e74cc1df0facb828`

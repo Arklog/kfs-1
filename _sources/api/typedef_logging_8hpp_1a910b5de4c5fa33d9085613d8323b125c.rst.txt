@@ -1,0 +1,14 @@
+.. _exhale_typedef_logging_8hpp_1a910b5de4c5fa33d9085613d8323b125c:
+
+Typedef logging::t_logger_color
+===============================
+
+- Defined in :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: logging::t_logger_color
+   :project: KFS

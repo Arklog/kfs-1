@@ -1,0 +1,26 @@
+.. _exhale_class_classcontainer_1_1ContiguousIterator:
+
+Template Class ContiguousIterator
+=================================
+
+- Defined in :ref:`file_lib_container_include_container_iterator_ContiguousIterator.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public container::IteratorBase< ContiguousIterator< T, T *, T & >, T, T *, T & >`` (:ref:`exhale_class_classcontainer_1_1IteratorBase`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: container::ContiguousIterator
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

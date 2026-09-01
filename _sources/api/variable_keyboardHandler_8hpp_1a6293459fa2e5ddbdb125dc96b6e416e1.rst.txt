@@ -1,0 +1,14 @@
+.. _exhale_variable_keyboardHandler_8hpp_1a6293459fa2e5ddbdb125dc96b6e416e1:
+
+Variable kbd::alt
+=================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: kbd::alt
+   :project: KFS

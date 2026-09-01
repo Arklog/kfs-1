@@ -1,0 +1,14 @@
+.. _exhale_typedef_vga_8hpp_1ade1b0830d2452b8c45323e0b91fed91a:
+
+Typedef vga::color::color_set::t_color_set
+==========================================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: vga::color::color_set::t_color_set
+   :project: KFS
