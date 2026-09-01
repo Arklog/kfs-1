@@ -48,4 +48,4 @@ jobs:
         run: make test
 
       - name: Build image
-        run: make docker-build
+        run: make docker-build-iso
