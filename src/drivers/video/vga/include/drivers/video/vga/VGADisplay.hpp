@@ -6,7 +6,7 @@
 #define KFS_1_VGADISPLAY_HPP
 
 #include "include/stdint.hpp"
-#include "lib/port/port.hpp"
+#include "port/port.hpp"
 
 #include "ScrollbackBuffer.hpp"
 #include "VGACursor.hpp"

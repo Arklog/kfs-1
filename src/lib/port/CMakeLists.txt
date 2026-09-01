@@ -7,9 +7,9 @@
 
 create_test_and_nontest(
         NAME port
-        FILE_SRCS port.cpp
+        FILE_SRCS src/port.cpp
         INCLUDE_DIR
-            ${CMAKE_CURRENT_SOURCE_DIR}
+            ${CMAKE_CURRENT_SOURCE_DIR}/include
         LIBRARIES
             KFS::include
 )
