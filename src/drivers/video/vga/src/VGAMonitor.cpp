@@ -96,8 +96,8 @@ namespace vga {
     void VGAMonitor::backspace() {
         if (_user_cursor.line == 0 && _user_cursor.column == 0)
             return;
-        _buffer.backspace(_user_cursor.line, _user_cursor.column);
         _user_cursor.back(_buffer.line_length(_user_cursor.line - 1));
+        _buffer.backspace(_user_cursor.line, _user_cursor.column);
         _refresh();
     }
 
@@ -128,14 +128,20 @@ namespace vga {
             if (_user_cursor.column < _lim_column)
                 return;
             if (_user_cursor.column == _lim_column && inp == '\b') {
+                if ( _user_cursor.column == 0)
+                    return;
                 _buffer.backspace(_user_cursor.line, _user_cursor.column);
+                _refresh();
+                return;
+            } else if (_user_cursor.column == _lim_column && inp == '\n') {
+                put_char('\n', true);
                 _refresh();
                 return;
             }
         }
-
-        if (inp == '\b')
+        if (inp == '\b') {
             backspace();
+        }
         else
             put_char(inp, true);
         _cursor_write.set(_user_cursor.line, _user_cursor.column);
@@ -144,7 +150,7 @@ namespace vga {
 
     VGAMonitor &VGAMonitor::operator<<(const char *str) {
         write(str);
-       _sync_cursors();
+        _sync_cursors();
         _lim_line = _cursor_write.line;
         _lim_column = _cursor_write.column;
         return *this;
@@ -177,6 +183,6 @@ namespace vga {
     }
 
     void VGAMonitor::_sync_cursors() {
-        _user_cursor.set(_cursor_write.line, _cursor_write.column);
+        _user_cursor.set(_cursor_write.line + 1, 0);
     }
 }
