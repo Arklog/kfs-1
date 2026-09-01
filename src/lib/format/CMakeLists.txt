@@ -1,6 +1,16 @@
-add_library(format STATIC
-        format.cpp
+create_test_and_nontest(
+        NAME format
+        FILE_SRCS
+            src/format.cpp
+        INCLUDE_DIR
+            ${CMAKE_CURRENT_SOURCE_DIR}/include
+        LIBRARIES
+            KFS::include
+            KFS::Lib::string
+            KFS::include
 )
-target_compile_options(format PRIVATE ${KFLAGS})
-target_include_directories(format PUBLIC ${CMAKE_SOURCE_DIR}/src)
-set_target_properties(format PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COMPILER})
+
+add_library(KFS::Lib::format ALIAS format)
+add_library(KFS::Lib::format-test ALIAS format-test)
+
+add_subdirectory(tests)

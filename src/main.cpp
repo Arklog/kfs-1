@@ -2,11 +2,11 @@
 // Created by pierre on 12/17/25.
 //
 
-#include "lib/container/Array.hpp"
-#include "lib/vga/vga.hpp"
-#include "lib/vga/VGAMonitor.hpp"
+#include "container/Array.hpp"
+#include "drivers/video/vga/vga.hpp"
+#include "drivers/video/vga/VGAMonitor.hpp"
 #include "lib/keyboard/keyboardHandler.hpp"
-#include "lib/logging/logging.hpp"
+#include "logging/logging.hpp"
 
 
 

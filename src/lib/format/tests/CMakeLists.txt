@@ -1,0 +1,15 @@
+enable_testing()
+add_executable(test_format
+    format.cpp
+)
+target_include_directories(test_format PRIVATE
+        ${CMAKE_SOURCE_DIR}/src
+)
+target_link_libraries(test_format PRIVATE
+        Catch2::Catch2WithMain
+        KFS::Lib::format-test
+        KFS::Lib::string-test
+        KFS::include-test
+)
+target_compile_definitions(test_format PRIVATE KFS_HOST_TEST)
+catch_discover_tests(test_format)

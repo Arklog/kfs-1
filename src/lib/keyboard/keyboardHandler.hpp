@@ -6,8 +6,8 @@
 #define KFS_1_KEYBOARDHANDLER_HPP
 
 #include "include/stdint.hpp"
-#include "lib/port/port.hpp"
-#include "lib/vga/VGAMonitor.hpp"
+#include "../port/include/port/port.hpp"
+#include "../../drivers/video/vga/include/drivers/video/vga/VGAMonitor.hpp"
 
 extern vga::VGAMonitor *g_monitor;
 

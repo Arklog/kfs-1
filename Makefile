@@ -1,66 +1,86 @@
-KERNEL 				:= kernel
-KERNEL_BONUS		:= kernel_bonus
-ISO    				:= kfs.iso
-ISO_BONUS  			:= kfs_bonus.iso
-BUILDDIR 			:= build
-DOCKERBUILDDIR 		:= build-docker
-ISODIR 				:= $(BUILDDIR)/isodir/boot
+KERNEL 					:= kernel#					Name of the iso to build
+ISO    					:= kfs.iso#					Name of the iso to build
+BUILDDIR 				:= build#					Non docker build directory (used to run tests on host)
+DOCKERBUILDDIR 			:= build-docker#			# Docker build directory (where will docker build the iso)
 
-CMAKE_BUILD_TYPE	?= Release
-CMAKE 				:= cmake
-CMAKEFLAGS 			:= -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
+CMAKE_BUILD_TYPE		?= Release					# CMake build type
+CMAKE 					:= cmake					# CMake executable
+CMAKEFLAGS 				:= -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE) -DTEST=33
 
-DOCKER_IMAGE 		:= kfs-cross-gcc:1.0.0
+DOCKER_MAKEFILE			:= docker/iso/Makefile
+DOCKER_MAKE				:= make -f ${DOCKER_MAKEFILE} 				\
+								KERNEL=${KERNEL} 				\
+								ISO=${ISO} 						\
+								BUILDDIR=${DOCKERBUILDDIR}		\
+								CMAKEFLAGS="${CMAKEFLAGS}"
+
+DOCKER_IMAGE_GCC 		:= kfs-cross-gcc:1.0.0		# Name of the cross gcc image
+DOCKER_IMAGE_DOC		:= kfs-doc:1.0.0			# Name of the documentation image
+DOCKER_IMAGE_MERMAID	:= mermaid:1.0.0
+
+DOCKER_DOCKERFILE_GCC	:= docker/iso				# Docker cross gcc source directory
+DOCKER_DOCKERFILE_DOC	:= docker/doc				# Docker documentation source directory
+DOCKER_DOCKERFILE_MERMAID	:= docker/mermaid				# Docker documentation source directory
+
+DOCKER_RUN			:= docker run -v $(shell pwd):/build --user $(shell id -u):$(shell id -g)
 
 .PHONY 				:= all iso test docker-build
 
-all: docker-build ;
+all: docker-build-iso docker-build-doc
+	@echo "##############################################################"
+	@echo "Iso constructed at ${DOCKERBUILDDIR}/${ISO}"
+	@echo "Documentation available at documentation/build/html/index.html"
 
-kernel:
-	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
-	${CMAKE} --build ${BUILDDIR} --target $(KERNEL) --parallel
-	${CMAKE} --build ${BUILDDIR} --target $(KERNEL_BONUS) --parallel
-
-iso: kernel
-	mkdir -p $(ISODIR)/grub
-	cp $(BUILDDIR)/src/$(KERNEL) $(ISODIR)/$(KERNEL)
-	echo 'set timeout=0' >  $(ISODIR)/grub/grub.cfg
-	echo 'set default=0' >> $(ISODIR)/grub/grub.cfg
-	echo 'menuentry "KFS-Cailloux" {' >>  $(ISODIR)/grub/grub.cfg
-	echo '    multiboot /boot/$(KERNEL)' >> $(ISODIR)/grub/grub.cfg
-	echo '}' >> $(ISODIR)/grub/grub.cfg
-	grub-mkrescue -o $(BUILDDIR)/$(ISO) --compress=xz -d /usr/lib/grub/i386-pc $(BUILDDIR)/isodir
-	@echo "ISO created: $(BUILDDIR)/$(ISO)"
-	cp $(BUILDDIR)/src/$(KERNEL_BONUS) $(ISODIR)/$(KERNEL_BONUS)
-	echo 'set timeout=0' >  $(ISODIR)/grub/grub.cfg
-	echo 'set default=0' >> $(ISODIR)/grub/grub.cfg
-	echo 'menuentry "KFS-Cailloux" {' >>  $(ISODIR)/grub/grub.cfg
-	echo '    multiboot /boot/$(KERNEL_BONUS)' >> $(ISODIR)/grub/grub.cfg
-	echo '}' >> $(ISODIR)/grub/grub.cfg
-	grub-mkrescue -o $(BUILDDIR)/$(ISO_BONUS) --compress=xz -d /usr/lib/grub/i386-pc $(BUILDDIR)/isodir
-	@echo "ISO created: $(BUILDDIR)/$(ISO_BONUS)"
-
-run: docker-build
+run: docker-build-iso
+	echo "${DOCKERBUILDDIR}"
+	echo "${ISO}"
+	$(info ISO=[${ISO}])
 	qemu-system-i386 $(DOCKERBUILDDIR)/$(ISO)
 
-run-bonus: docker-build
+run-bonus: docker-build-iso
 	qemu-system-i386 $(DOCKERBUILDDIR)/$(ISO_BONUS)
 
-run-debug: docker-build-debug
+run-debug: docker-build-iso-debug
 	qemu-system-i386 -kernel ${DOCKERBUILDDIR}/isodir/boot/${KERNEL} -S -s -no-reboot
 
-test: kernel
+test:
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
 
-docker-build-image:
+#####################
+# Docker compilation
+#####################
+
+docker-build-iso: docker-image-build-gcc
+	${DOCKER_RUN} ${DOCKER_IMAGE_GCC} ${DOCKER_MAKE} iso
+
+docker-build-iso-debug: docker-image-build-gcc
+	docker run --rm -v $(shell pwd):/build ${DOCKER_IMAGE_GCC} ${DOCKER_MAKE} iso
+
+docker-build-doc: docker-image-build-doc docker-build-mermaid
+	${DOCKER_RUN} ${DOCKER_IMAGE_DOC}
+
+docker-build-mermaid: docker-image-build-mermaid
+	${DOCKER_RUN} ${DOCKER_IMAGE_MERMAID}
+
+######################
+# Docker image build
+######################
+
+docker-image-build-all: docker-image-build-gcc docker-image-build-doc ;
+
+docker-image-build-gcc:
 	mkdir -p ~/.config/containers
 	touch ~/.config/containers/nodocker
-	docker build -t ${DOCKER_IMAGE} .
+	docker build -t ${DOCKER_IMAGE_GCC} ${DOCKER_DOCKERFILE_GCC}
 
-docker-build: docker-build-image
-	docker run --rm -v $(shell pwd):/build ${DOCKER_IMAGE} make BUILDDIR=${DOCKERBUILDDIR} iso
+docker-image-build-doc:
+	mkdir -p ~/.config/containers
+	touch ~/.config/containers/nodocker
+	docker build -t ${DOCKER_IMAGE_DOC} ${DOCKER_DOCKERFILE_DOC}
 
-docker-build-debug: docker-build-image
-	docker run --rm -v $(shell pwd):/build ${DOCKER_IMAGE} make CMAKE_BUILD_TYPE=Debug BUILDDIR=${DOCKERBUILDDIR} iso
+docker-image-build-mermaid:
+	mkdir -p ~/.config/containers
+	touch ~/.config/containers/nodocker
+	docker build -t ${DOCKER_IMAGE_MERMAID} ${DOCKER_DOCKERFILE_MERMAID}

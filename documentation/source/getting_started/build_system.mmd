@@ -1,0 +1,11 @@
+---
+config:
+  theme: redux
+  themeVariables:
+    background: 'white'
+---
+erDiagram
+    Host ||..o{ Test: compile
+    Host ||..o{ Docker: run
+    Docker ||..o{ Kernel: compile
+    Docker ||..o{ Documentation: compile
