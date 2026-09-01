@@ -1,4 +1,4 @@
-name: Doxygen
+name: Gen Site
 
 on:
   push:
@@ -15,16 +15,13 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v4
 
-      - name: Install Doxygen
-        run: sudo apt-get update && sudo apt-get install -y doxygen
-
       - name: Generate documentation
-        run: doxygen Doxyfile
+        run: make docker-build-doc
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: doxygen
-          publish_dir: ./documentation/html
+          publish_dir: ./documentation/build/html
           force_orphan: true
