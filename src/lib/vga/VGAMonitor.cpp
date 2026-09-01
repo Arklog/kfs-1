@@ -32,6 +32,7 @@ namespace vga {
     }
 
     void VGAMonitor::put_char(const char c, bool user_inp) {
+
         if (c == '\n') {
             if (user_inp) {
                 _buffer.newline(_user_cursor.line, _user_cursor.column);
@@ -132,6 +133,7 @@ namespace vga {
                 return;
             }
         }
+
         if (inp == '\b')
             backspace();
         else
