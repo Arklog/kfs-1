@@ -21,6 +21,14 @@ Due to the build system compiling is quite easy, you will need:
 * A compiler of your choice
 * Docker
 
+.. figure:: makefile_targets_architecture.svg
+
+    Makefile targets architecture
+
+.. figure:: makefile_targets_flowchart.svg
+
+    Makefile targets flowchart
+
 All
 """
 

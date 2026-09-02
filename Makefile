@@ -18,8 +18,8 @@ DOCKER_IMAGE_GCC 		:= kfs-cross-gcc:1.0.0		# Name of the cross gcc image
 DOCKER_IMAGE_DOC		:= kfs-doc:1.0.0			# Name of the documentation image
 DOCKER_IMAGE_MERMAID	:= mermaid:1.0.0
 
-DOCKER_DOCKERFILE_GCC	:= docker/iso				# Docker cross gcc source directory
-DOCKER_DOCKERFILE_DOC	:= docker/doc				# Docker documentation source directory
+DOCKER_DOCKERFILE_GCC	:= docker/iso						# Docker cross gcc source directory
+DOCKER_DOCKERFILE_DOC	:= docker/doc						# Docker documentation source directory
 DOCKER_DOCKERFILE_MERMAID	:= docker/mermaid				# Docker documentation source directory
 
 DOCKER_RUN			:= docker run -v $(shell pwd):/build --user $(shell id -u):$(shell id -g)
@@ -47,6 +47,9 @@ test:
 	${CMAKE} . -B${BUILDDIR} $(CMAKEFLAGS)
 	${CMAKE} --build ${BUILDDIR} --parallel
 	ctest --test-dir ${BUILDDIR} --output-on-failure
+
+clean:
+	rm -rf ${BUILDDIR} ${DOCKERBUILDDIR}
 
 #####################
 # Docker compilation

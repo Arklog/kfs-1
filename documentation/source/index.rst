@@ -15,7 +15,7 @@ documentation for details.
     :maxdepth: 2
     :caption: Getting Started:
 
-    getting_started/compilation
+    getting_started/compilation/compilation
     getting_started/project_structure
     getting_started/general_guideline
 

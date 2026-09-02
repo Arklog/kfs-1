@@ -1,0 +1,61 @@
+flowchart LR
+
+%% Main targets
+
+all["`**all**
+*Build all targets*`"]
+
+run["`**run**
+*Build and run the iso through qemu*`"]
+
+run-bonus["`**run-bonus**
+*Build and run the bonus iso through qemu*`"]
+
+run-debug["`**run-debug**
+*Build and run the debug iso through qemu*`"]
+
+test["`**test**
+*Build and run local tests*`"]
+
+
+all         --> docker-build-iso
+all         --> docker-build-doc
+run         --> docker-build-iso
+run-bonus   --> docker-build-iso
+run-debug   --> docker-build-iso-debug
+
+%% Docker Compilation
+docker-build-iso["`**docker-build-iso**
+*Build the kernel iso*`"]
+
+docker-build-iso-debug["`**docker-build-iso-debug**
+*Build the kernel iso*`"]
+
+docker-build-doc["`**docker-build-doc**
+*Build the documentation*`"]
+
+docker-build-mermaid["`**docker-build-mermaid**
+*Build the mermaid charts*`"
+]
+
+
+docker-build-iso        --> docker-image-build-gcc
+docker-build-iso-debug  --> docker-image-build-gcc
+docker-build-doc        --> docker-build-mermaid
+docker-build-doc        --> docker-image-build-doc
+docker-build-mermaid    --> docker-image-build-mermaid
+
+
+%% Docker Image Build
+
+docker-image-build-all["`**docker-image-build-all**
+*Build all docker images*`"]
+
+docker-image-build-gcc["`**docker-image-build-gcc**
+*Build cross-GCC docker image*`"]
+
+docker-image-build-doc["`**docker-image-build-doc**
+*Build documentation docker image*`"]
+
+docker-image-build-mermaid["`**docker-image-build-mermaid**
+*Build mermaid docker image*`"]

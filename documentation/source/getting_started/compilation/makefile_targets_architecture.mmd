@@ -1,0 +1,27 @@
+architecture-beta
+    group main(ic:baseline-arrow-right)[Main]
+        service all["**all**"] in main
+        service run(codicon:run-compact)["**run**"] in main
+        service runbonus(codicon:run-compact)["**run-bonus**"] in main
+        service rundebug(codicon:debug-alt)["**run-debug**"] in main
+        service test(codicon:beaker)["**test**"] in main
+        service clean(codicon:trash)["**clean**"] in main
+
+    group compilation(mdi:gear)[Compilation]
+        service buildiso(devicon:gcc)["**docker-build-iso**"] in compilation
+        service buildisodebug(devicon:gcc)["**docker-build-iso-debug**"] in compilation
+        service builddoc(mdi:book)["**docker-build-doc**"] in compilation
+        service buildmermaid(logos:mermaid)["**docker-build-mermaid**"] in compilation
+
+    group container(devicon:docker)[Container]
+        service dockergcc(devicon:gcc)["**docker-image-build-gcc**"] in container
+        service dockerdoc(mdi:book)["**docker-image-build-doc**"] in container
+        service dockermermaid(logos:mermaid)["**docker-image-build-mermaid**"] in container
+
+    align column all test run runbonus rundebug buildiso buildisodebug dockergcc
+    align column builddoc dockerdoc
+    align column buildmermaid dockermermaid
+
+    align row all clean
+    align row buildiso builddoc buildmermaid
+    align row dockergcc dockerdoc dockermermaid
