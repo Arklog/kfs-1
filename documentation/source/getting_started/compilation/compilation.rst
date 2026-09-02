@@ -16,10 +16,12 @@ Compiling the kernel
 
 Due to the build system compiling is quite easy, you will need:
 
-* GNU Make
-* CMake
-* A compiler of your choice
-* Docker
+
+#. GNU Make
+#. CMake
+#. A compiler of your choice
+#. Docker
+
 
 .. figure:: makefile_targets_architecture.svg
 

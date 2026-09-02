@@ -1,10 +1,14 @@
 architecture-beta
     group main(ic:baseline-arrow-right)[Main]
+        group rungroup[Run targets] in main
+            service run(codicon:run-compact)["**run**"] in rungroup
+            service runbonus(codicon:run-compact)["**run-bonus**"] in rungroup
+            service rundebug(codicon:debug-alt)["**run-debug**"] in rungroup
+            service test(codicon:beaker)["**test**"] in rungroup
+
+            align column run rundebug runbonus
+
         service all["**all**"] in main
-        service run(codicon:run-compact)["**run**"] in main
-        service runbonus(codicon:run-compact)["**run-bonus**"] in main
-        service rundebug(codicon:debug-alt)["**run-debug**"] in main
-        service test(codicon:beaker)["**test**"] in main
         service clean(codicon:trash)["**clean**"] in main
 
     group compilation(mdi:gear)[Compilation]
@@ -18,10 +22,10 @@ architecture-beta
         service dockerdoc(mdi:book)["**docker-image-build-doc**"] in container
         service dockermermaid(logos:mermaid)["**docker-image-build-mermaid**"] in container
 
-    align column all test run runbonus rundebug buildiso buildisodebug dockergcc
+    align column buildiso buildisodebug dockergcc
     align column builddoc dockerdoc
     align column buildmermaid dockermermaid
 
-    align row all clean
-    align row buildiso builddoc buildmermaid
-    align row dockergcc dockerdoc dockermermaid
+    align row all clean test run buildiso builddoc buildmermaid
+    align row rundebug buildisodebug
+    align row runbonus dockergcc dockerdoc dockermermaid
