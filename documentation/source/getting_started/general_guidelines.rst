@@ -1,3 +1,5 @@
+.. _getting_started_general_guidelines:
+
 ******************
 General Guidelines
 ******************

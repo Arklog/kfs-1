@@ -1,3 +1,5 @@
+.. _getting_started_compilation:
+
 ***********
 Compilation
 ***********
@@ -8,7 +10,12 @@ Build System
 KFS need to be build using a cross compiler. In order to achieve this we use docker, so that the end user do not have
 manually build one.
 
-.. image:: build_system.svg
+|
+
+.. figure:: build_system.svg
+    :class: with-border
+
+    Compilation is done using docker, some tests are run natively on the host machine
 
 
 Compiling the kernel
@@ -22,10 +29,14 @@ Due to the build system compiling is quite easy, you will need:
 #. A compiler of your choice
 #. Docker
 
+|
 
 .. figure:: makefile_targets_architecture.svg
+    :class: with-border
 
     Makefile targets architecture
+
+|
 
 .. figure:: makefile_targets_flowchart.svg
 

@@ -22,8 +22,12 @@ done
 for FILE in $(find ${MERMAID_DIR} -type f -name '*.mmd'); do
   echo "Processing ${FILE}"
 
+  {
+    cat ${FILE} | grep -e '%% transparent' && ARG='-b transparent'
+  } || ARG=""
+
   SVG_FILE="${FILE%%.mmd}.svg"
-  ${MMDC} -i "${FILE}" -o "${SVG_FILE}" &
+  ${MMDC} ${ARG} -i "${FILE}" -o "${SVG_FILE}" &
 done
 
 wait

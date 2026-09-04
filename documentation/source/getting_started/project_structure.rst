@@ -8,7 +8,11 @@ Project Structure
 Project Root Structure
 ======================
 
-.. image:: project_structure.svg
+.. rst-class:: my-custom-separator
+
+.. figure:: project_structure.svg
+    
+    Overview of the project structure
 
 #. Actions run by Github in order to run unit tests or deploy documentation
 #. Folder containing our Dockerfiles and scripts
@@ -20,13 +24,18 @@ Project Root Structure
     #. Kernel drivers like vga
 
 
+.. rst-class:: separator
+
+
 Subproject Structure
 ====================
 
 KFS is decoupled between libraries, drivers and core sources. Each of them if compiled as a standalone librarie before
 being linked to the rest of the code. See below for the subproject structure.
 
-.. image:: subproject_structure.svg
+.. figure:: subproject_structure.svg
+
+    Overview of the subproject structure
 
 #. Library public headers (headers that will be accessible to linked libraries)
 #. Library sources and private headers (headers that should stay hidden)
