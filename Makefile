@@ -22,7 +22,7 @@ DOCKER_DOCKERFILE_GCC	:= docker/iso						# Docker cross gcc source directory
 DOCKER_DOCKERFILE_DOC	:= docker/doc						# Docker documentation source directory
 DOCKER_DOCKERFILE_MERMAID	:= docker/mermaid				# Docker documentation source directory
 
-DOCKER_RUN			:= docker run -v $(shell pwd):/build --user $(shell id -u):$(shell id -g)
+DOCKER_RUN			:= docker run -v $(shell pwd):/build:z --user $(shell id -u):$(shell id -g)
 
 .PHONY 				:= all iso test docker-build
 
@@ -59,7 +59,7 @@ docker-build-iso: docker-image-build-gcc
 	${DOCKER_RUN} ${DOCKER_IMAGE_GCC} ${DOCKER_MAKE} iso
 
 docker-build-iso-debug: docker-image-build-gcc
-	docker run --rm -v $(shell pwd):/build ${DOCKER_IMAGE_GCC} ${DOCKER_MAKE} iso
+	$(MAKE) CMAKE_BUILD_TYPE=Debug docker-build-iso
 
 docker-build-doc: docker-image-build-doc docker-build-mermaid
 	${DOCKER_RUN} ${DOCKER_IMAGE_DOC}
