@@ -4,8 +4,8 @@ Documentation
 
 This document describes the documentation for the project. It provides information about how to document the project, either for code documentation or this documentation itself. It also describes how to build the documentation and how to contribute to it.
 
-Shinx
-=====
+Sphinx
+======
 
 This documentation is built using Sphinx, a documentation generator. 
 It is written in `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ and can be built into various formats, including HTML and PDF.
