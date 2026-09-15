@@ -7,7 +7,7 @@ Compilation
 Build System
 ------------
 
-KFS need to be build using a cross compiler. In order to achieve this we use docker, so that the end user do not have
+KFS needs to be build using a cross compiler. In order to achieve this we use docker, so that the end user do not have
 manually build one.
 
 |

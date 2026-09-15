@@ -26,3 +26,14 @@ documentation for details.
 
     drivers/getting_started
     drivers/list/index
+
+.. toctree::
+    :maxdepth: 3
+    :caption: Kernel:
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Global Descption Table:
+
+    kernel/global_description_table/getting_started
+
