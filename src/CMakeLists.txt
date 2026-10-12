@@ -47,7 +47,6 @@ target_compile_options(bootloader PRIVATE
 add_executable(kernel_bonus
         main.cpp
 )
-target_include_directories(kernel_bonus PRIVATE .)
 target_link_libraries(kernel_bonus PRIVATE
         bootloader
         KFS::Drivers::vga
@@ -66,7 +65,6 @@ set_target_properties(kernel_bonus PROPERTIES CMAKE_CXX_COMPILER ${CXX_CROSS_COM
 add_executable(kernel
         main.cpp
 )
-target_include_directories(kernel PRIVATE .)
 target_link_libraries(kernel PRIVATE
         bootloader
         KFS::Lib::port

@@ -6,7 +6,7 @@
 #include "include/stdint.hpp"
 
 
-#include "core/defines.hpp"
+#include <include/limits.hpp>
 
 namespace kstring {
     unsigned int strlen(const char *str) {
