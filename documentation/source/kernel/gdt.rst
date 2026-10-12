@@ -1,7 +1,7 @@
 .. _gdt:
 
 Global Descriptor Table (GDT)
-===============
+*****************************
  
 The Global Descriptor Table (GDT) is a data
 structures used to implement memory segmentation and
@@ -11,7 +11,7 @@ processor has no way to know which memory regions exist, who is allowed
 to access them, or at what privilege level.
 
 Descriptor Privilege Levels (DPL)
----------------------------------
+=================================
 
 The x86 architecture defines four privilege levels, or **rings**, from
 ring 0 (most privileged) to ring 3 (least privileged). Modern operating
@@ -24,17 +24,8 @@ segments use DPL 3. This allows the processor to distinguish privileged
 kernel execution from unprivileged user execution.
 
 
-Segment Descriptors
--------------------
-
-A **segment descriptor** describes how a memory segment may be used. It
-specifies its base address and limit, together with control and access
-attributes such as whether the segment contains code or data, whether it
-is writable or executable, and whether it is present.
-
-
 Selectors and Segment Registers
---------------------------------
+===============================
 
 A **segment selector** identifies a GDT entry and is stored in a segment
 register. It contains an index into the descriptor table together with
@@ -47,12 +38,41 @@ while ``DS`` and ``SS`` traditionally select data and stack segments.
 
 
 GDT Structure
---------------------
+==============
 
 .. image:: ./gdt-structure.svg
    :alt: GDT Structure
    :align: center
 
+
+Segment Descriptors
+--------------------
+
+A **segment descriptor** describes how a memory segment may be used. It
+specifies its base address and limit, together with control and access
+attributes such as whether the segment contains code or data, whether it
+is writable or executable, and whether it is present.
+
+Fields Overview
+^^^^^^^^^^^^^^^
+
+.. figure:: segment_descriptor.svg
+   :alt: Segment Descriptor
+   :align: center
+
+   test
+
+.. figure:: segment_descriptor_base.svg
+   :alt: Segment Descriptor Base
+   :align: center
+
+   Recombining the base address from its three parts.
+
+.. figure:: segment_descriptor_limit.svg
+   :alt: Segment Descriptor Limit
+   :align: center
+
+   Recombining the limit from its two parts.
 
 Useful Resources
 -------------------
