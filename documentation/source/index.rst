@@ -28,12 +28,8 @@ documentation for details.
     drivers/list/index
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
     :caption: Kernel:
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Global Descption Table:
-
-    kernel/global_description_table/getting_started
-
+    kernel/getting_started
+    kernel/gdt

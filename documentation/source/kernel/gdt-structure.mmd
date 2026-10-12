@@ -1,0 +1,19 @@
+flowchart TD
+       GDT["Global Descriptor Table"]
+
+       GDT --> NULL["0x00<br/>Null descriptor"]
+       GDT --> KC["0x08<br/>Kernel Code<br/>DPL 0"]
+       GDT --> KD["0x10<br/>Kernel Data<br/>DPL 0"]
+       GDT --> UC["0x18<br/>User Code<br/>DPL 3"]
+       GDT --> UD["0x20<br/>User Data<br/>DPL 3"]
+       GDT --> TSS["0x28<br/>Task State Segment"]
+
+       style GDT fill:#000000,color:#ffffff
+       style NULL fill:#000000,color:#ffffff
+       style KC fill:#000000,color:#ffffff
+       style KD fill:#000000,color:#ffffff
+       style UC fill:#000000,color:#ffffff
+       style UD fill:#000000,color:#ffffff
+       style TSS fill:#000000,color:#ffffff
+
+       linkStyle default stroke:#000000
