@@ -1,0 +1,14 @@
+.. _exhale_function_KString_8hpp_1abe739cc20727564bc9042853fa924cd5:
+
+Function kstring::strrchr
+=========================
+
+- Defined in :ref:`file_lib_str_src_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::strrchr(const char *, const char)
+   :project: KFS

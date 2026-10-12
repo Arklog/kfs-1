@@ -1,0 +1,47 @@
+
+.. _program_listing_file_lib_str_include_str_KString.hpp:
+
+Program Listing for File KString.hpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_str_include_str_KString.hpp>` (``lib/str/include/str/KString.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by alice on 18/12/2025.
+   //
+   
+   #ifndef KFS_1_K_STR_H
+   #define KFS_1_K_STR_H
+   
+   namespace kstring {
+       unsigned int    strlen(const char *str);
+   
+       int    strcmp(const char *str1, const char *str2);
+   
+       int    strncmp(const char *str1, const char *str2, const unsigned n);
+   
+       const char      *strchr(const char *str, const char chr);
+       const char      *strrchr(const char *str, const char chr);
+       const char      *strstr(const char *str, const char *target);
+   
+       void            strcpy(char *dest, const char *src);
+   
+       void            memcpy(void *dest, const void *src, unsigned len);
+   
+       void memmove(void *dest, const void *src, unsigned int len);
+   
+       int             memcmp(const void *b1, const void *b2, unsigned len);
+   
+       int             safe_atoi(const char *str, int *res);
+   
+   }
+   
+   #ifndef KFS_HOST_TEST
+   extern "C" void *memset(void *s, int c, unsigned long n);
+   #endif
+   
+   #endif

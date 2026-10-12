@@ -1,0 +1,21 @@
+.. _dir_lib_container_include:
+
+
+Directory include
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container>` (``lib/container``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/container/include``
+
+Subdirectories
+--------------
+
+- :ref:`dir_lib_container_include_container`
+
+
+

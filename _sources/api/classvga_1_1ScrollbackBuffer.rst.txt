@@ -1,0 +1,17 @@
+.. _exhale_class_classvga_1_1ScrollbackBuffer:
+
+Class ScrollbackBuffer
+======================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: vga::ScrollbackBuffer
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

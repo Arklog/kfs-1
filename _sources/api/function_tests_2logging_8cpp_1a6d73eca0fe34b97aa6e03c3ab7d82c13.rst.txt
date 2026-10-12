@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2logging_8cpp_1a6d73eca0fe34b97aa6e03c3ab7d82c13:
+
+Function TEST_CASE("debug", "")
+===============================
+
+- Defined in :ref:`file_lib_logging_tests_logging.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("debug", "")
+   :project: KFS

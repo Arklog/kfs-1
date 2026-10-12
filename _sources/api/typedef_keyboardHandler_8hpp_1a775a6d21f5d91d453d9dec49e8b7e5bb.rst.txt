@@ -1,0 +1,14 @@
+.. _exhale_typedef_keyboardHandler_8hpp_1a775a6d21f5d91d453d9dec49e8b7e5bb:
+
+Typedef kbd::screen_container_iterator_type
+===========================================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: kbd::screen_container_iterator_type
+   :project: KFS

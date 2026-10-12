@@ -1,0 +1,14 @@
+.. _exhale_define_logging_8hpp_1a381c342b2b34df0b1a5b39c0d94da4e1:
+
+Define LOG_BUFFER_SIZE
+======================
+
+- Defined in :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LOG_BUFFER_SIZE
+   :project: KFS

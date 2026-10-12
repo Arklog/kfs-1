@@ -1,0 +1,17 @@
+.. _exhale_struct_structcontainer_1_1dual__range:
+
+Template Struct dual_range
+==========================
+
+- Defined in :ref:`file_lib_container_include_container_range.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: container::dual_range
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

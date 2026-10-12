@@ -1,0 +1,14 @@
+.. _exhale_function_KString_8hpp_1a960fa7053dc68cdf78962f326fff6e3a:
+
+Function kstring::safe_atoi
+===========================
+
+- Defined in :ref:`file_lib_str_src_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::safe_atoi(const char *, int *)
+   :project: KFS

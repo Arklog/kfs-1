@@ -1,0 +1,14 @@
+.. _exhale_variable_keyboardHandler_8hpp_1af7459842b72afd3a3c54904df6ee7363:
+
+Variable kbd::left
+==================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: kbd::left
+   :project: KFS

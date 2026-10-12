@@ -1,0 +1,26 @@
+.. _exhale_class_classlogging_1_1LoggerBase:
+
+Class LoggerBase
+================
+
+- Defined in :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public logging::LoggerWrapper< T >`` (:ref:`exhale_class_classlogging_1_1LoggerWrapper`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: logging::LoggerBase
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

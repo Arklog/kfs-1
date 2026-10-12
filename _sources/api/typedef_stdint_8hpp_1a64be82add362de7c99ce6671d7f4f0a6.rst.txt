@@ -1,0 +1,14 @@
+.. _exhale_typedef_stdint_8hpp_1a64be82add362de7c99ce6671d7f4f0a6:
+
+Typedef uint16_t
+================
+
+- Defined in :ref:`file_include_include_include_stdint.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: uint16_t
+   :project: KFS

@@ -1,0 +1,14 @@
+.. _exhale_function_utility_8cpp_1af9ace1cc42f0e0cb2879682a38b7d495:
+
+Function TEST_CASE("utility", "")
+=================================
+
+- Defined in :ref:`file_lib_utility_tests_utility.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("utility", "")
+   :project: KFS

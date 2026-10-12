@@ -1,0 +1,21 @@
+.. _dir_lib_str_include_str:
+
+
+Directory str
+=============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_str_include>` (``lib/str/include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/str/include/str``
+
+
+Files
+-----
+
+- :ref:`file_lib_str_include_str_KString.hpp`
+
+

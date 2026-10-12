@@ -1,0 +1,14 @@
+.. _exhale_function_example_8cpp_1aad8426223e45febdb3e6b6ba7be40e97:
+
+Function for
+============
+
+- Defined in :ref:`file_lib_container_src_example.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: for(auto&i:container::range{{arr1.begin(), arr2.begin()}, 5})
+   :project: KFS

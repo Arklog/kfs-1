@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2ScrollbackBuffer_8cpp_1ae42637cca23d86306a08ae50c6a6895f:
+
+Function TEST_CASE("ScrollbackBuffer", "")
+==========================================
+
+- Defined in :ref:`file_drivers_video_vga_tests_ScrollbackBuffer.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("ScrollbackBuffer", "")
+   :project: KFS

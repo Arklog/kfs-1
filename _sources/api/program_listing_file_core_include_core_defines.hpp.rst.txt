@@ -1,0 +1,26 @@
+
+.. _program_listing_file_core_include_core_defines.hpp:
+
+Program Listing for File defines.hpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_core_include_core_defines.hpp>` (``core/include/core/defines.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 12/18/25.
+   //
+   
+   #ifndef KFS_1_DEFINES_HPP
+   #define KFS_1_DEFINES_HPP
+   
+   constexpr void * NULL = (void *)0;
+   
+   constexpr int INT_MAX = 2147483647;
+   
+   constexpr int INT_MIN = -2147483648;
+   
+   #endif //KFS_1_DEFINES_HPP

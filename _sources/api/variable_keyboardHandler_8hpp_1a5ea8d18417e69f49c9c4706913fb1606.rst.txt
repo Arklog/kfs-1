@@ -1,0 +1,14 @@
+.. _exhale_variable_keyboardHandler_8hpp_1a5ea8d18417e69f49c9c4706913fb1606:
+
+Variable kbd::keyboard
+======================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: kbd::keyboard
+   :project: KFS

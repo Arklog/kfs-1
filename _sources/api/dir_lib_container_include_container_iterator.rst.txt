@@ -1,0 +1,23 @@
+.. _dir_lib_container_include_container_iterator:
+
+
+Directory iterator
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container_include_container>` (``lib/container/include/container``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/container/include/container/iterator``
+
+
+Files
+-----
+
+- :ref:`file_lib_container_include_container_iterator_ContiguousIterator.hpp`
+- :ref:`file_lib_container_include_container_iterator_Iterator.hpp`
+- :ref:`file_lib_container_include_container_iterator_PairIterator.hpp`
+
+

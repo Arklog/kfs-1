@@ -1,0 +1,22 @@
+.. _dir_lib_container_tests_iterator:
+
+
+Directory iterator
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container_tests>` (``lib/container/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/container/tests/iterator``
+
+
+Files
+-----
+
+- :ref:`file_lib_container_tests_iterator_ContiguousIterator.cpp`
+- :ref:`file_lib_container_tests_iterator_PairIterator.cpp`
+
+

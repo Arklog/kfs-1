@@ -1,0 +1,14 @@
+.. _exhale_variable_defines_8hpp_1acaad8808739e6b343ae04d0deada6068:
+
+Variable INT_MIN
+================
+
+- Defined in :ref:`file_core_include_core_defines.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: INT_MIN
+   :project: KFS

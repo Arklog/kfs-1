@@ -1,0 +1,26 @@
+
+.. _program_listing_file_lib_container_src_example.cpp:
+
+Program Listing for File example.cpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_container_src_example.cpp>` (``lib/container/src/example.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 1/9/26.
+   //
+   
+   
+   #include "../include/range.hpp"
+   #include "../include/Array.hpp"
+   
+   auto arr1 = container::Array<int, 5>{1, 2, 3, 4, 5};
+   auto arr2 = container::Array<int, 6>{1, 2, 3, 4, 5, 6};
+   
+   for (auto &i: container::range{{arr1.begin(), arr2.begin()}, 5}) {
+       // Do something with i
+   }

@@ -1,0 +1,26 @@
+.. _exhale_class_classcontainer_1_1Container:
+
+Template Class Container
+========================
+
+- Defined in :ref:`file_lib_container_include_container_Container.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public container::Array< vga::VGAMonitor, 4 >`` (:ref:`exhale_class_classcontainer_1_1Array`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: container::Container
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

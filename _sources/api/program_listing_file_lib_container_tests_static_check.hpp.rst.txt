@@ -1,0 +1,34 @@
+
+.. _program_listing_file_lib_container_tests_static_check.hpp:
+
+Program Listing for File static_check.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_container_tests_static_check.hpp>` (``lib/container/tests/static_check.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 1/8/26.
+   //
+   
+   #ifndef KFS_1__STATIC_CHECK_HPP
+   #define KFS_1__STATIC_CHECK_HPP
+   #include "utility/type_trait.hpp"
+   #include "utility/utility.hpp"
+   
+   template<typename T>
+   concept is_basic_container = requires (T t, const T ct)
+   {
+       // check iterator
+       {t.begin()} -> utility::same_as<typename T::iterator>;
+       {ct.begin()} -> utility::same_as<typename T::const_iterator>;
+       {ct.cbegin()} -> utility::same_as<typename T::const_iterator>;
+       {t.end()} -> utility::same_as<typename T::iterator>;
+       {ct.end()} -> utility::same_as<typename T::const_iterator>;
+       {ct.cend()} -> utility::same_as<typename T::const_iterator>;
+   };
+   
+   #endif // KFS_1__STATIC_CHECK_HPP

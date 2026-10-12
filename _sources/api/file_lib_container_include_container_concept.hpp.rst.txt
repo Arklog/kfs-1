@@ -1,0 +1,53 @@
+
+.. _file_lib_container_include_container_concept.hpp:
+
+File concept.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container_include_container>` (``lib/container/include/container``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/container/include/container/concept.hpp``)
+------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_container_include_container_concept.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``utility/type_trait.hpp`` (:ref:`file_lib_utility_include_utility_type_trait.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_lib_container_include_container_iterator_PairIterator.hpp`
+
+- :ref:`file_lib_container_include_container_range.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_container`
+

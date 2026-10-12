@@ -1,0 +1,14 @@
+.. _exhale_function_main_8cpp_1af7f3d2cc454ba929fe2930681bb3b4be:
+
+Function k_main
+===============
+
+- Defined in :ref:`file_main.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: k_main()
+   :project: KFS

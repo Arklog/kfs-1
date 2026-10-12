@@ -1,0 +1,21 @@
+.. _dir_lib_math_include_math:
+
+
+Directory math
+==============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_math_include>` (``lib/math/include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/math/include/math``
+
+
+Files
+-----
+
+- :ref:`file_lib_math_include_math_math.hpp`
+
+

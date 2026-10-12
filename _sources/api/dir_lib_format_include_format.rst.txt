@@ -1,0 +1,21 @@
+.. _dir_lib_format_include_format:
+
+
+Directory format
+================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_format_include>` (``lib/format/include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/format/include/format``
+
+
+Files
+-----
+
+- :ref:`file_lib_format_include_format_format.hpp`
+
+

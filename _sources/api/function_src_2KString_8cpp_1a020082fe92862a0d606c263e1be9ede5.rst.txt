@@ -1,0 +1,14 @@
+.. _exhale_function_src_2KString_8cpp_1a020082fe92862a0d606c263e1be9ede5:
+
+Function kstring::strncmp(const char \*, const char \*, const unsigned int)
+===========================================================================
+
+- Defined in :ref:`file_lib_str_src_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::strncmp(const char *, const char *, const unsigned int)
+   :project: KFS

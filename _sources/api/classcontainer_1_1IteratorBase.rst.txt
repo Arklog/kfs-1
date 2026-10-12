@@ -1,0 +1,17 @@
+.. _exhale_class_classcontainer_1_1IteratorBase:
+
+Template Class IteratorBase
+===========================
+
+- Defined in :ref:`file_lib_container_include_container_iterator_Iterator.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: container::IteratorBase
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_logging_8hpp_1a9fa141ac1193aca6403bab4bc6170529:
+
+Template Function logging::info
+===============================
+
+- Defined in :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: logging::info(const char *, TArgs...)
+   :project: KFS

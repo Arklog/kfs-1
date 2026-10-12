@@ -1,0 +1,14 @@
+.. _exhale_variable_keyboardHandler_8cpp_1abbc063d4fb42463fd82cf5a6c6aa432a:
+
+Variable g_monitor
+==================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: g_monitor
+   :project: KFS

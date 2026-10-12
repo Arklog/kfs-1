@@ -1,0 +1,60 @@
+
+.. _file_drivers_video_vga_tests_ScrollbackBuffer.cpp:
+
+File ScrollbackBuffer.cpp
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video_vga_tests>` (``drivers/video/vga/tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``drivers/video/vga/tests/ScrollbackBuffer.cpp``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_drivers_video_vga_tests_ScrollbackBuffer.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``catch2/catch_all.hpp``
+
+- ``drivers/video/vga/VGADisplay.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_VGADisplay.hpp`)
+
+- ``drivers/video/vga/VGAMonitor.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp`)
+
+- ``drivers/video/vga/vga.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_tests_2ScrollbackBuffer_8cpp_1ae42637cca23d86306a08ae50c6a6895f`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_tests_2ScrollbackBuffer_8cpp_1afd7a1121acb1f64dc201cd240912c2f5`
+
+- :ref:`exhale_variable_tests_2ScrollbackBuffer_8cpp_1a32535bc618f478534a1deda340cf6248`
+

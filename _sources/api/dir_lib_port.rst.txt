@@ -1,0 +1,22 @@
+.. _dir_lib_port:
+
+
+Directory port
+==============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib>` (``lib``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/port``
+
+Subdirectories
+--------------
+
+- :ref:`dir_lib_port_include`
+- :ref:`dir_lib_port_src`
+
+
+

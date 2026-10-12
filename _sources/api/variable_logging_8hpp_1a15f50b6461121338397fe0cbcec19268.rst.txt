@@ -1,0 +1,14 @@
+.. _exhale_variable_logging_8hpp_1a15f50b6461121338397fe0cbcec19268:
+
+Variable logging::log_color_map
+===============================
+
+- Defined in :ref:`file_lib_logging_src_logging.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: logging::log_color_map
+   :project: KFS

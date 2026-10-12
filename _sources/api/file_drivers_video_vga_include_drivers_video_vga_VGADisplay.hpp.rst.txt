@@ -1,0 +1,72 @@
+
+.. _file_drivers_video_vga_include_drivers_video_vga_VGADisplay.hpp:
+
+File VGADisplay.hpp
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_drivers_video_vga_include_drivers_video_vga>` (``drivers/video/vga/include/drivers/video/vga``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``drivers/video/vga/include/drivers/video/vga/VGADisplay.hpp``)
+---------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_drivers_video_vga_include_drivers_video_vga_VGADisplay.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``ScrollbackBuffer.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_ScrollbackBuffer.hpp`)
+
+- ``VGACursor.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_VGACursor.hpp`)
+
+- ``VGAMonitor.hpp`` (:ref:`file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp`)
+
+- ``include/stdint.hpp`` (:ref:`file_include_include_include_stdint.hpp`)
+
+- ``port/port.hpp`` (:ref:`file_lib_port_include_port_port.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp`
+
+- :ref:`file_drivers_video_vga_src_VGADisplay.cpp`
+
+- :ref:`file_drivers_video_vga_tests_ScrollbackBuffer.cpp`
+
+- :ref:`file_drivers_video_vga_tests_VGAMonitor.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_vga`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classvga_1_1VGADisplay`
+

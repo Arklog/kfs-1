@@ -1,0 +1,14 @@
+.. _exhale_function_format_8hpp_1a0a0dfa1a4881602d28ee5ad992103459:
+
+Function format::format(char \*, uint32_t)
+==========================================
+
+- Defined in :ref:`file_lib_format_include_format_format.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: format::format(char *, uint32_t)
+   :project: KFS

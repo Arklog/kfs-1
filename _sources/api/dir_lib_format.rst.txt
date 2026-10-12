@@ -1,0 +1,23 @@
+.. _dir_lib_format:
+
+
+Directory format
+================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib>` (``lib``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/format``
+
+Subdirectories
+--------------
+
+- :ref:`dir_lib_format_include`
+- :ref:`dir_lib_format_src`
+- :ref:`dir_lib_format_tests`
+
+
+

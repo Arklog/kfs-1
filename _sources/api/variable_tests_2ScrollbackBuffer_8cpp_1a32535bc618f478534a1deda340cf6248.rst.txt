@@ -1,0 +1,14 @@
+.. _exhale_variable_tests_2ScrollbackBuffer_8cpp_1a32535bc618f478534a1deda340cf6248:
+
+Variable test_line
+==================
+
+- Defined in :ref:`file_drivers_video_vga_tests_ScrollbackBuffer.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: test_line
+   :project: KFS

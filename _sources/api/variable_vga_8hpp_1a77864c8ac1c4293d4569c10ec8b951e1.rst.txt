@@ -1,0 +1,14 @@
+.. _exhale_variable_vga_8hpp_1a77864c8ac1c4293d4569c10ec8b951e1:
+
+Variable vga::VGA_HEIGHT
+========================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: vga::VGA_HEIGHT
+   :project: KFS

@@ -1,0 +1,17 @@
+.. _exhale_struct_structutility_1_1remove__reference_3_01T_01_6_01_4:
+
+Template Struct remove_reference< T & >
+=======================================
+
+- Defined in :ref:`file_lib_utility_include_utility_utility.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: utility::remove_reference< T & >
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

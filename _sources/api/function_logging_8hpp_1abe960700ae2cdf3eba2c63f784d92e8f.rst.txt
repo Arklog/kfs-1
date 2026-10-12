@@ -1,0 +1,14 @@
+.. _exhale_function_logging_8hpp_1abe960700ae2cdf3eba2c63f784d92e8f:
+
+Template Function logging::warn
+===============================
+
+- Defined in :ref:`file_lib_logging_include_logging_logging.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: logging::warn(const char *, TArgs...)
+   :project: KFS

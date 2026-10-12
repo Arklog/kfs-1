@@ -1,0 +1,38 @@
+
+.. _file_lib_container_src_Container.cpp:
+
+File Container.cpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container_src>` (``lib/container/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/container/src/Container.cpp``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_container_src_Container.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``container/Container.hpp`` (:ref:`file_lib_container_include_container_Container.hpp`)
+
+
+
+
+

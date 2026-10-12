@@ -1,0 +1,23 @@
+.. _dir_lib:
+
+
+Directory lib
+=============
+
+
+*Directory path:* ``lib``
+
+Subdirectories
+--------------
+
+- :ref:`dir_lib_container`
+- :ref:`dir_lib_format`
+- :ref:`dir_lib_keyboard`
+- :ref:`dir_lib_logging`
+- :ref:`dir_lib_math`
+- :ref:`dir_lib_port`
+- :ref:`dir_lib_str`
+- :ref:`dir_lib_utility`
+
+
+

@@ -1,0 +1,14 @@
+.. _exhale_function_KString_8hpp_1a4347a23ce97a3667fb2f891bad7f1287:
+
+Function kstring::strncmp(const char \*, const char \*, const unsigned)
+=======================================================================
+
+- Defined in :ref:`file_lib_str_include_str_KString.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::strncmp(const char *, const char *, const unsigned)
+   :project: KFS

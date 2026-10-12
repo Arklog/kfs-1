@@ -1,0 +1,14 @@
+.. _exhale_union_unionvga_1_1t__vga__char:
+
+Union t_vga_char
+================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_vga.hpp`
+
+
+Union Documentation
+-------------------
+
+
+.. doxygenunion:: vga::t_vga_char
+   :project: KFS

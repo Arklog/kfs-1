@@ -1,0 +1,14 @@
+.. _exhale_variable_defines_8hpp_1aef31d1e2f79e0cfb86fe8ef78d0ec834:
+
+Variable INT_MAX
+================
+
+- Defined in :ref:`file_core_include_core_defines.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: INT_MAX
+   :project: KFS

@@ -1,0 +1,22 @@
+.. _dir_lib_utility_include_utility:
+
+
+Directory utility
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_utility_include>` (``lib/utility/include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``lib/utility/include/utility``
+
+
+Files
+-----
+
+- :ref:`file_lib_utility_include_utility_type_trait.hpp`
+- :ref:`file_lib_utility_include_utility_utility.hpp`
+
+

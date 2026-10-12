@@ -1,0 +1,68 @@
+
+.. _file_lib_container_include_container_range.hpp:
+
+File range.hpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_container_include_container>` (``lib/container/include/container``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/container/include/container/range.hpp``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_container_include_container_range.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``concept.hpp`` (:ref:`file_lib_container_include_container_concept.hpp`)
+
+- ``container/iterator/PairIterator.hpp`` (:ref:`file_lib_container_include_container_iterator_PairIterator.hpp`)
+
+- ``pair.hpp`` (:ref:`file_lib_container_include_container_pair.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_drivers_video_vga_src_VGADisplay.cpp`
+
+- :ref:`file_lib_container_include_container_StackVector.hpp`
+
+- :ref:`file_lib_container_tests_range.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_container`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structcontainer_1_1dual__range`
+
+- :ref:`exhale_struct_structcontainer_1_1range`
+

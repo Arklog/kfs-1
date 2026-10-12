@@ -1,0 +1,57 @@
+
+.. _file_lib_port_include_port_port.hpp:
+
+File port.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_port_include_port>` (``lib/port/include/port``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/port/include/port/port.hpp``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_port_include_port_port.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``include/stdint.hpp`` (:ref:`file_include_include_include_stdint.hpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_drivers_video_vga_include_drivers_video_vga_VGADisplay.hpp`
+
+- :ref:`file_lib_keyboard_keyboardHandler.hpp`
+
+- :ref:`file_lib_port_src_port.cpp`
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_port_8hpp_1a2e1e8e2c5724c1e8fd2dff2eada06479`
+
+- :ref:`exhale_function_port_8hpp_1a8bf7a9af91c08e6f876aaffeccd48ff3`
+

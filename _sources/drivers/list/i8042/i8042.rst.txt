@@ -1,0 +1,17 @@
+*****
+i8042
+*****
+
+The i8042 Keyboard Controller
+=============================
+
+    "An Intel 8042/compatible microcontroller is used as the PC's keyboard controller. In modern computers, this
+    microcontroller is hidden within the motherboard's chipset, which integrates many controllers in a single package.
+    Nonetheless, this device is still there, [...]"
+
+    `souce <https://www.sra.uni-hannover.de/Lehre/SS21/V_BSB/doc/ps2keyboard.html#autotoc_md251>`__
+
+The i8042 keyboard controller is an old controller used receive and send data to and from both the keyboard and the
+mouse/touchpad. Today it has mostly been replaced by the usb protocol (hid device). However due to usb being more
+complex to implement and interact with and for older device compatibility this driver is implemented into KFS.
+

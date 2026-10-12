@@ -1,0 +1,67 @@
+
+.. _program_listing_file_lib_container_include_container_range.hpp:
+
+Program Listing for File range.hpp
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_container_include_container_range.hpp>` (``lib/container/include/container/range.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 1/6/26.
+   //
+   
+   #ifndef KFS_1_RANGE_HPP
+   #define KFS_1_RANGE_HPP
+   
+   #include "concept.hpp"
+   #include "container/iterator/PairIterator.hpp"
+   #include "pair.hpp"
+   
+   namespace container {
+       template<is_iterator T>
+       struct range {
+           using value_type = T;
+   
+           range(const T& begin,const  T& end): _begin{begin}, _end{end} {}
+   
+           T begin() const {
+               return _begin;
+           }
+   
+           T end() const {
+               return _end;
+           }
+   
+       private:
+           T _begin;
+           T _end;
+       };
+   
+       template<is_iterator T, is_iterator U>
+       struct dual_range {
+           using iterator_type = typename container::PairIterator<pair<T, U>>;
+           using value_type = iterator_type::value_type;
+   
+           dual_range(value_type item, unsigned int len): _begin{item}, _end{_begin + len} {}
+           dual_range(value_type begin, value_type end): _begin{begin}, _end{end} {}
+   
+           iterator_type begin() const {
+               return _begin;
+           }
+   
+           iterator_type end() const {
+               return _end;
+           }
+   
+       private:
+           iterator_type _begin;
+           iterator_type _end;
+   
+       };
+   }
+   
+   #endif //KFS_1_RANGE_HPP

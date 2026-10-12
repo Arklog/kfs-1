@@ -1,0 +1,55 @@
+
+.. _program_listing_file_lib_container_include_container_Container.hpp:
+
+Program Listing for File Container.hpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_container_include_container_Container.hpp>` (``lib/container/include/container/Container.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 12/29/25.
+   //
+   
+   #ifndef KFS_1_CONTAINER_HPP
+   #define KFS_1_CONTAINER_HPP
+   
+   namespace container {
+       template<typename T, typename IteratorType, typename ConstIteratorType>
+       class Container {
+       public:
+           ~Container() = default;
+   
+           using iterator       = IteratorType;
+           using const_iterator = ConstIteratorType;
+           using size_type      = unsigned int;
+           using value_type     = T;
+   
+           virtual iterator begin() = 0;
+   
+           virtual const_iterator begin() const = 0;
+   
+           virtual iterator end() = 0;
+   
+           virtual const_iterator end() const = 0;
+   
+           virtual const_iterator cbegin() const = 0;
+   
+           virtual const_iterator cend() const = 0;
+   
+           virtual T *data() const = 0;
+   
+           virtual size_type size() const = 0;
+   
+           virtual iterator insert(iterator position, const T &value) = 0;
+   
+           virtual iterator insert(iterator position, T &&value) = 0;
+   
+           virtual iterator insert(iterator position, iterator _begin, iterator _end) = 0;
+       };
+   } // container
+   
+   #endif //KFS_1_CONTAINER_HPP

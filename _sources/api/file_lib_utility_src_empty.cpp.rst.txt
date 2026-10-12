@@ -1,0 +1,32 @@
+
+.. _file_lib_utility_src_empty.cpp:
+
+File empty.cpp
+==============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_utility_src>` (``lib/utility/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/utility/src/empty.cpp``)
+------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_utility_src_empty.cpp.rst
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+.. _exhale_function_KString_8hpp_1adf700fe756ac930309af58d595733f48:
+
+Function kstring::memmove
+=========================
+
+- Defined in :ref:`file_lib_str_src_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::memmove(void *, const void *, unsigned int)
+   :project: KFS

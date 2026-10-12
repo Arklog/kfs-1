@@ -1,0 +1,17 @@
+.. _exhale_class_classvga_1_1VGAMonitor:
+
+Class VGAMonitor
+================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_VGAMonitor.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: vga::VGAMonitor
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

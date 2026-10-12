@@ -1,0 +1,38 @@
+
+.. _file_lib_math_src_math.cpp:
+
+File math.cpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_lib_math_src>` (``lib/math/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``lib/math/src/math.cpp``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_lib_math_src_math.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``math/math.hpp`` (:ref:`file_lib_math_include_math_math.hpp`)
+
+
+
+
+

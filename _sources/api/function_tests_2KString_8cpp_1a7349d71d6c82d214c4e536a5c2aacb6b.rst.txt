@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2KString_8cpp_1a7349d71d6c82d214c4e536a5c2aacb6b:
+
+Function TEST_CASE("KString", "")
+=================================
+
+- Defined in :ref:`file_lib_str_tests_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("KString", "")
+   :project: KFS

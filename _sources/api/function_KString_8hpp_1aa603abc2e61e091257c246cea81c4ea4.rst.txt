@@ -1,0 +1,14 @@
+.. _exhale_function_KString_8hpp_1aa603abc2e61e091257c246cea81c4ea4:
+
+Function kstring::strlen
+========================
+
+- Defined in :ref:`file_lib_str_src_KString.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kstring::strlen(const char *)
+   :project: KFS

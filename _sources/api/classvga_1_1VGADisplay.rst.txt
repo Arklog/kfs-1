@@ -1,0 +1,17 @@
+.. _exhale_class_classvga_1_1VGADisplay:
+
+Class VGADisplay
+================
+
+- Defined in :ref:`file_drivers_video_vga_include_drivers_video_vga_VGADisplay.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: vga::VGADisplay
+   :project: KFS
+   :members:
+   :protected-members:
+   :undoc-members:

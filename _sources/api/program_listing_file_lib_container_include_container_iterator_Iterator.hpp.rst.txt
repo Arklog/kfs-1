@@ -1,0 +1,72 @@
+
+.. _program_listing_file_lib_container_include_container_iterator_Iterator.hpp:
+
+Program Listing for File Iterator.hpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_container_include_container_iterator_Iterator.hpp>` (``lib/container/include/container/iterator/Iterator.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 12/29/25.
+   //
+   
+   #ifndef KFS_1_ITERATOR_HPP
+   #define KFS_1_ITERATOR_HPP
+   
+   namespace container {
+       template<typename Derived, typename T, typename Pointer, typename Reference>
+       class IteratorBase {
+       public:
+           using value_type = T;
+           using pointer_type = Pointer;
+           using reference_type = Reference;
+   
+           ~IteratorBase() = default;
+   
+           virtual Derived& operator=(const Derived& other) = 0;
+   
+           virtual bool operator==(const Derived &other) const = 0;
+   
+           virtual bool operator!=(const Derived &other) const = 0;
+   
+           virtual bool operator==(Pointer other) const = 0;
+   
+           virtual bool operator!=(Pointer other) const = 0;
+   
+           virtual bool operator >(const Derived &other) const = 0;
+   
+           virtual bool operator <(const Derived &other) const = 0;
+   
+           virtual bool operator >=(const Derived &other) const = 0;
+   
+           virtual bool operator <=(const Derived &other) const = 0;
+   
+           virtual Derived &operator++() = 0;
+   
+           virtual Derived operator++(int) = 0;
+   
+           virtual Derived &operator--() = 0;
+   
+           virtual Derived operator--(int) = 0;
+   
+           virtual Derived operator+(int) const = 0;
+   
+           virtual Derived operator-(int) const = 0;
+   
+           virtual int operator-(const Derived &) const = 0;
+   
+           virtual Derived& operator+=(int) = 0;
+   
+           virtual Derived& operator-=(int) = 0;
+   
+           virtual reference_type operator*() const = 0;
+   
+           virtual explicit operator pointer_type() const = 0;
+       };
+   } // container
+   
+   #endif //KFS_1_ITERATOR_HPP

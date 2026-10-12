@@ -1,0 +1,14 @@
+.. _exhale_function_tests_2logging_8cpp_1a952d30051b72677ce7a370995c9df833:
+
+Function TEST_CASE("warn", "")
+==============================
+
+- Defined in :ref:`file_lib_logging_tests_logging.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: TEST_CASE("warn", "")
+   :project: KFS

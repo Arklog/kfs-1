@@ -1,0 +1,32 @@
+
+.. _program_listing_file_lib_math_include_math_math.hpp:
+
+Program Listing for File math.hpp
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_lib_math_include_math_math.hpp>` (``lib/math/include/math/math.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //
+   // Created by pierre on 1/2/26.
+   //
+   
+   #ifndef KFS_1_MATH_HPP
+   #define KFS_1_MATH_HPP
+   
+   namespace math {
+       template<typename T>
+       constexpr T min(const T &&a, const T &&b) {
+           return a < b ? a : b;
+       }
+   
+       template<typename T>
+       constexpr T max(const T &&a, const T &&b) {
+           return a > b ? a : b;
+       }
+   }
+   
+   #endif //KFS_1_MATH_HPP

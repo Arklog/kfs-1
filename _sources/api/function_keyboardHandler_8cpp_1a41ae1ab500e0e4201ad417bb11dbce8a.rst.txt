@@ -1,0 +1,14 @@
+.. _exhale_function_keyboardHandler_8cpp_1a41ae1ab500e0e4201ad417bb11dbce8a:
+
+Function kbd::handler
+=====================
+
+- Defined in :ref:`file_lib_keyboard_keyboardHandler.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: kbd::handler(screen_container_type&, screen_container_iterator_type&)
+   :project: KFS

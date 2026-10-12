@@ -1,0 +1,14 @@
+.. _exhale_function_logging_8hpp_1ad7fd1d7f9fcfed112f3a42ff5d50de1d:
+
+Function logging::get_logger
+============================
+
+- Defined in :ref:`file_lib_logging_src_logging.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: logging::get_logger()
+   :project: KFS

@@ -1,0 +1,14 @@
+.. _exhale_function_include_2math_2math_8hpp_1a6602dafaab8d48f3937ece67dcef3dcc:
+
+Template Function math::max
+===========================
+
+- Defined in :ref:`file_lib_math_include_math_math.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: math::max(const T&&, const T&&)
+   :project: KFS
