@@ -10,8 +10,8 @@ execute, the CPU must be given a valid GDT to consult. Without it, the
 processor has no way to know which memory regions exist, who is allowed
 to access them, or at what privilege level.
 
-Privilege Levels
-----------------
+Descriptor Privilege Levels (DPL)
+---------------------------------
 
 The x86 architecture defines four privilege levels, or **rings**, from
 ring 0 (most privileged) to ring 3 (least privileged). Modern operating
@@ -58,4 +58,6 @@ Useful Resources
 -------------------
 
  - https://www.youtube.com/watch?v=Wh5nPn2U_1w
+ - https://wiki.osdev.org/GDT_Tutorial
+ - https://wiki.osdev.org/Global_Descriptor_Table
 
