@@ -82,13 +82,12 @@ namespace vga {
     }
 
     void ScrollbackBuffer::backspace(uint32_t line_idx, uint16_t col) {
-        if (line_idx == 0 && col == 0)
-            return;
-
-
         auto &line = _buffer[line_idx];
-        if (line.begin() + col != 0)
-            line.erase(line.begin() + col);
+
+        if (line_idx == 0 && col == 0)
+            _buffer[0][0].raw = 0;
+        
+        line.erase(line.begin() + col);
         
         if (col > 0)
             return;

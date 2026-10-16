@@ -34,25 +34,25 @@ namespace kbd {
             }
 
             if (value == up && !keyboard[up]) {
-                monitor.scroll_up();
+                monitor.handle_user_move(0);
                 keyboard[up] = true;
                 return;
             }
 
             if (value == down && !keyboard[down]) {
-                monitor.scroll_down();
+                monitor.handle_user_move(1);
                 keyboard[down] = true;
                 return;
             }
 
             if (value == left && !keyboard[left]) {
-                monitor.move_left();
+                monitor.handle_user_move(2);
                 keyboard[left] = true;
                 return;
             }
 
             if (value == right && !keyboard[right]) {
-                monitor.move_right();
+                monitor.handle_user_move(3);
                 keyboard[right] = true;
                 return;
             }

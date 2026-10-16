@@ -26,3 +26,7 @@ void vga::t_vga_char::set_background(const color::t_vga_color color) {
 void vga::t_vga_char::set_color(const color::t_vga_color foreground, const color::t_vga_color background) {
     data.color = (background << 4) | (foreground & 0x0F);
 }
+
+void vga::t_vga_char::set_color(const color::t_vga_color color) {
+    data.color = color;
+}

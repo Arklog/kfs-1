@@ -8,8 +8,8 @@
 
 namespace vga {
     /**
-     * Purely logical cursor defined by its position (line and column index within the ScrollbackBuffer).
-     */
+    * Purely logical cursor defined by its position (line and column index within the ScrollbackBuffer).
+    */
     class VGACursor {
     public:
         uint32_t line;
@@ -18,36 +18,40 @@ namespace vga {
         VGACursor();
 
         /**
-         * advance the cursor of exactly one column within the current line if it's not at end of line, or moves it forward on the next line otherwise.
-         */
+        * advance the cursor of exactly one column within the current line if it's not at end of line, or moves it forward on the next line otherwise.
+        */
         void advance(int line_len, int last_line, int new_line = 0);
 
         /**
-         * get the cursor back of exactly one column within the current line if it's not at beginning of line, or moves it backward on the prevline line otherwise.
-         */
+        * get the cursor back of exactly one column within the current line if it's not at beginning of line, or moves it backward on the prevline line otherwise.
+        */
         void back(int prev_line_len);
 
         /**
-         * get the cursor up of exactly one line. If the current column index is superior of the previous line length, it takes its length as new value.
-         */
+        * get the cursor up of exactly one line. If the current column index is superior of the previous line length, it takes its length as new value.
+        */
         void up(int prev_line_len);
 
         /**
-         * get the cursor down of exactly one line. If the current column index is superior of the next line length, it takes its length as new value.
-         */
+        * get the cursor down of exactly one line. If the current column index is superior of the next line length, it takes its length as new value.
+        */
         void down(int next_line_len, int last_line);
 
-
         /**
-         * get down the cursor at the beginning of the next line.
-         */
+        * get down the cursor at the beginning of the next line.
+        */
         void newline();
 
         /**
-         * set the cursor position at the precise specified indexes.
-         * @param l line index
-         * @param c column index
-         */
+        * return true if the position of cmp is higher than one of this cursor.
+        */
+        bool operator<=(VGACursor &cmp);
+
+        /**
+        * set the cursor position at the precise specified indexes.
+        * @param l line index
+        * @param c column index
+        */
         void set(uint32_t l, uint16_t c);
     };
 

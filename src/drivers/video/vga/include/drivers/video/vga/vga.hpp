@@ -115,6 +115,11 @@ namespace vga {
          * @param background
          */
         void set_color(color::t_vga_color foreground, color::t_vga_color background);
+
+        /**
+         * Set the global color
+         */
+        void set_color(color::t_vga_color color);
     };
 
     /**
