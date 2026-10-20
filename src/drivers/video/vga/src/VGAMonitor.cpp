@@ -59,10 +59,9 @@ namespace vga {
     }
 
     void VGAMonitor::backspace(ScrollbackBuffer &buff, VGACursor &curs) {
-        if (curs.line == 0 && curs.column == 0)
-            return;
         int prev_line_len = buff.line_length(curs.line - 1);
         buff.backspace(curs.line, curs.column);
+
         curs.back(prev_line_len);
         _refresh();
     }
@@ -85,8 +84,18 @@ namespace vga {
             buff.scroll_up();
             curs.line = ScrollbackBuffer::MAX_LINES - 1;
         }
+    }
 
-        if (curs.line >= _view_line + VGA_HEIGHT)
+    void VGAMonitor::put_char(ScrollbackBuffer &buff, VGACursor &curs, const vga::t_vga_char c) {
+        buff.write(curs,c);
+        curs.advance(buff.line_length(curs.line), buff.line_count(), 1);
+
+        if (curs.line >= ScrollbackBuffer::MAX_LINES) {
+            buff.scroll_up();
+            curs.line = ScrollbackBuffer::MAX_LINES - 1;
+        }
+
+        while (curs.line >= _view_line + VGA_HEIGHT)
             ++_view_line;
     }
 
@@ -101,7 +110,7 @@ namespace vga {
             if (row != 0)
                 put_char(dest, curs, '\n');
             for (uint16_t col = 0; col < src.line_length(row); ++col) {
-                put_char(dest, curs, src.line(row)[col].raw);
+                put_char(dest, curs, src.line(row)[col]);
                 //col = dest.line_length(dest.line_count());
                 //vga::color::t_vga_color current_color = src.line(row)[col].get_color();
                 //dest.line(dest.line_count())[col].set_color(current_color);

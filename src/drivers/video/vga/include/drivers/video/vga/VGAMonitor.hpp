@@ -32,10 +32,20 @@ namespace vga {
         void init(uint8_t id);
 
         /**
-        * writes a single character on the terminal.
-        * @param c
+        * writes a single character within a given buffer at specific cursor position.
+        @param buff
+        @param curs
+        @param c
         */
         void put_char(ScrollbackBuffer &buff, VGACursor &curs, const char c);
+
+        /**
+        * writes a single vga_char within a given buffer at specific cursor position.
+        * @param buff
+        * @param curs
+        * @param c
+        */
+        void put_char(ScrollbackBuffer &buff, VGACursor &curs, const vga::t_vga_char c);
 
         /**
         * writes a string on the terminal.
