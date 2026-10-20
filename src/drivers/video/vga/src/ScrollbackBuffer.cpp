@@ -93,7 +93,7 @@ namespace vga {
             return;
         merge_lines(line_idx - 1, line_idx);
 
-        // _buffer.erase(_buffer.end() - 1);
+//        _buffer.erase(_buffer.end() - 1);
         //
         // for (uint32_t i = line_idx; i + 1 < _lines; ++i) {
         //     kstring::memcpy(
@@ -106,6 +106,7 @@ namespace vga {
         //
         // _line_len[_lines - 1] = 0;
     }
+
 
 
     const ScrollbackBuffer::line_type &ScrollbackBuffer::line(uint32_t index) const {

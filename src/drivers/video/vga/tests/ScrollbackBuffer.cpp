@@ -125,7 +125,7 @@ TEST_CASE("ScrollbackBuffer", "[vga]") {
 
             REQUIRE(buffer.line_count() == 1);
             REQUIRE(buffer.line(0).size() == 3);
-            REQUIRE(buffer.line(0)[0].data.ascii == 't');
+            REQUIRE(buffer.line(0)[0].data.ascii == 'e');
             REQUIRE(buffer.line(0)[1].data.ascii == 's');
             REQUIRE(buffer.line(0)[2].data.ascii == 't');
         }
@@ -139,14 +139,15 @@ TEST_CASE("ScrollbackBuffer", "[vga]") {
             buffer.backspace(1, 0);
 
             REQUIRE(buffer.line_count() == 1);
-            REQUIRE(buffer.line(0).size() == 7);
+            REQUIRE(buffer.line(0).size() == 8);
             REQUIRE(buffer.line(0)[0].data.ascii == 't');
             REQUIRE(buffer.line(0)[1].data.ascii == 'e');
             REQUIRE(buffer.line(0)[2].data.ascii == 's');
             REQUIRE(buffer.line(0)[3].data.ascii == 't');
-            REQUIRE(buffer.line(0)[4].data.ascii == 'e');
-            REQUIRE(buffer.line(0)[5].data.ascii == 's');
-            REQUIRE(buffer.line(0)[6].data.ascii == 't');
+            REQUIRE(buffer.line(0)[4].data.ascii == 't');
+            REQUIRE(buffer.line(0)[5].data.ascii == 'e');
+            REQUIRE(buffer.line(0)[6].data.ascii == 's');
+            REQUIRE(buffer.line(0)[7].data.ascii == 't');
         }
     }
 }

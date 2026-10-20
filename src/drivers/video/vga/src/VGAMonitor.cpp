@@ -107,13 +107,10 @@ namespace vga {
 
     void VGAMonitor::write(ScrollbackBuffer &dest, VGACursor &curs, const ScrollbackBuffer &src) {
         for (uint32_t row = 0; row < src.line_count(); ++row) {
-            if (row != 0)
+            if (row != 0 && src.line_length(row - 1) < VGA_WIDTH)
                 put_char(dest, curs, '\n');
             for (uint16_t col = 0; col < src.line_length(row); ++col) {
                 put_char(dest, curs, src.line(row)[col]);
-                //col = dest.line_length(dest.line_count());
-                //vga::color::t_vga_color current_color = src.line(row)[col].get_color();
-                //dest.line(dest.line_count())[col].set_color(current_color);
             }
         }
     }
